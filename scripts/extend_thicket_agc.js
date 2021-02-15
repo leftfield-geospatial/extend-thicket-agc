@@ -92,8 +92,7 @@ var s2_rn = s2_image.expression('(R / (R + G + B + RE))',
 var rn_calib_plots = s2_rn.reduceRegions({
   reducer: ee.Reducer.mean(),
   collection: gef_calib_plots,
-  scale: 1
-});
+  scale: 1});
 
 // print('rn_calib_plots');
 // print(rn_calib_plots);
