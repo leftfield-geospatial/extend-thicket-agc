@@ -123,9 +123,6 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 
 if (true)   //accuracy check
 {
-  var wv3_calib_agc = gef_calib_plots.get('AGC')
-  print('wv3_calib_agc: ', wv3_calib_agc)
-  
   var s2_calib_agc = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
     geometry: gef_calib_plots,
@@ -134,6 +131,8 @@ if (true)   //accuracy check
 
   print('s2_calib_agc: ', s2_calib_agc)
   
+  var wv3_calib_agc = gef_calib_plots.get('AGC')
+  print('wv3_calib_agc: ', wv3_calib_agc)
 }
 
 if (false)
