@@ -134,7 +134,7 @@ if (true)   //accuracy check
   print('calib_agc_plots: ', calib_agc_plots)
 
   var agc_ms = calib_agc_plots.map(function(feature) {
-    return feature.set({agc_diff2: ee.Number(feature.get('mean')).subtract(feature.get('AGC')).pow(2)});
+    return feature.set({agc_diff2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
   }).reduceColumns(ee.Reducer.mean(), ['agc_diff2'])
 
   print('agc_rms: ', ee.Number(agc_ms.get('mean')).sqrt())
