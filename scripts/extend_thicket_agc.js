@@ -125,15 +125,15 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 if (true)   //accuracy check
 {
   // adds mean of s2_agc as a feature in gef_calib_plots
-  var calib_agc_plots = s2_agc.reduceRegions({
+  var s2_agc_calib_plots = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: gef_calib_plots,
     scale: 1
   });
 
-  print('calib_agc_plots: ', calib_agc_plots)
+  print('s2_agc_calib_plots: ', s2_agc_calib_plots)
 
-  var agc_ms = calib_agc_plots.map(function(feature) {
+  var agc_ms = s2_agc_calib_plots.map(function(feature) {
     return feature.set({agc_diff2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
   }).reduceColumns(ee.Reducer.mean(), ['agc_diff2'])
   
