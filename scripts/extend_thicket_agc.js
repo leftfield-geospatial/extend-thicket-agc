@@ -145,7 +145,7 @@ if (true)   //accuracy check
     return feature.set({agc_diff2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res_ss'])
   
-  var agc_rms = ee.Number(agc_ms.get('mean')).sqrt()
+  var agc_rms = ee.Number(agc_res_ss.get('sum').divide(23)).sqrt()
   print('agc_rms: ', agc_rms)
 }
 
