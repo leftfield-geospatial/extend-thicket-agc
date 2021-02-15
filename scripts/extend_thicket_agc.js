@@ -125,7 +125,7 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 
 if (true)   //accuracy check
 {
-  var calib_s2_agc = s2_agc.reduceRegions({
+  var s2_calib_agc = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
     geometry: calib_plots,
   });
