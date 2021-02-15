@@ -124,7 +124,7 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 if (true)   //accuracy check
 {
   // var s2_calib_agc = s2_agc.red
-  var s2_calib_agc = ee.Image(s2_agc).reduceRegions({
+  var s2_calib_agc = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: gef_calib_plots,
     scale: 1
