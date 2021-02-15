@@ -130,13 +130,13 @@ if (true)   //accuracy check
     collection: gef_calib_plots,
     scale: 1
   });
+  print('s2_calib_agc: ', s2_calib_agc)
 
   var agc_diff = calib_agc_plots.map(function(feature) {
     return feature.set({agc_diff2: ee.Number(feature.get('mean')).diff(feature.get('AGC')).pow(2)});
   });
   
   
-  print('s2_calib_agc: ', s2_calib_agc)
   
 }
 
