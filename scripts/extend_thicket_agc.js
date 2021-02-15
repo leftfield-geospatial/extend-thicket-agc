@@ -150,7 +150,7 @@ if (true)   //accuracy check
   }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])
   
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(agc_ss.get('sum')))
-  print('agc_mean: ', agc_mean)
+  print('agc_r2: ', agc_r2)
 }
 
 if (false)
