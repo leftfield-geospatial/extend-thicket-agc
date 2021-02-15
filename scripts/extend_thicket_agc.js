@@ -121,7 +121,7 @@ var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
 
 var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
 
-if (true)   //accuracy check
+if (false)   //accuracy check
 {
   var wv3_calib_agc = gef_calib_plots.get('AGC')
   print('wv3_calib_agc: ', wv3_calib_agc)
