@@ -67,7 +67,7 @@ var s2_images = ee.ImageCollection('COPERNICUS/S2')
                   .map(maskS2clouds)
                   .filterBounds(step_arid_and_valley_thicket);
 
-if (false)
+if (true)
 {
   var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
                     .filterDate('2017-09-01', '2017-11-30')
