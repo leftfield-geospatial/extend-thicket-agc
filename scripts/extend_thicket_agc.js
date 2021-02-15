@@ -128,6 +128,7 @@ if (true)   //accuracy check
   var s2_calib_agc = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
     geometry: gef_calib_plots,
+    scale: 1
   });
   var wv3_calib_agc = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
