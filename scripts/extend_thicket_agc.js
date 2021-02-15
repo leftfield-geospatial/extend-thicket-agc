@@ -1,6 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/step_arid_and_valley_thicket"),
-    gef_calib_plots = ee.FeatureCollection("users/dugalh/gef_calib_plots");
+var calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/calib_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
@@ -124,6 +123,17 @@ var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
 
 var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
 
+if (true)   //accuracy check
+{
+  var calib_agc = s2_agc.reduceRegion({
+    reducer: ee.Reducer.min(),
+    geometry: step_arid_and_valley_thicket,
+    scale: 1e4,
+    maxPixels: 1e6
+  });
+  
+}
+
 if (false)
 {
   var min_agc = s2_agc.reduceRegion({
@@ -158,3 +168,4 @@ Map.addLayer(s2_agc_masked, {min: 0, max: 40, palette: ['red', 'yellow', 'green'
 //   bands: ['B4', 'B3', 'B2'],
 // };
 // Map.addLayer(s2_image.divide(10000), visualization, 'RGB');
+
