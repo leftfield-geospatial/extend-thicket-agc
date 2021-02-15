@@ -131,7 +131,7 @@ if (true)   //accuracy check
     scale: 1
   });
   
-  var wv3_calib_agc = 
+  var wv3_calib_agc = gef_calib_plots.
   
 }
 
