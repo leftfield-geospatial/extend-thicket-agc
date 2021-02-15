@@ -132,8 +132,6 @@ if (true)   //accuracy check
 
   print('s2_calib_agc: ', s2_calib_agc)
   
-  var wv3_calib_agc = gef_calib_plots.getArray('AGC')
-  print('wv3_calib_agc: ', wv3_calib_agc)
 }
 
 if (false)
