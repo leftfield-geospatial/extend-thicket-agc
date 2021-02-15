@@ -2,6 +2,10 @@
 var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/step_arid_and_valley_thicket"),
     gef_calib_plots = ee.FeatureCollection("users/dugalh/gef_calib_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
+    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
     Copyright (C) 2020 Dugal Harris
@@ -39,6 +43,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/step_arid_
 // TODO: change to camelcaps
 // TODO: rethink thicket boundaries
 // TODO: make functions so I can pass l8 or s2 or ...
+// TODO: do a cross-validated accuracy test of WV3 agc vs S2 agc, using calib plots
 
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
@@ -52,8 +57,7 @@ function maskS2clouds(image)
   var cirrusBitMask = 1 << 11;
 
   // Both flags should be set to zero, indicating clear conditions.
-  var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
-      .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
+  var mask = qa.bitwiseAnd(cloudBitMask).eq(0).and(qa.bitwiseAnd(cirrusBitMask).eq(0));
 
   return image.updateMask(mask);
 }
@@ -70,12 +74,11 @@ var s2_images = ee.ImageCollection('COPERNICUS/S2')
 if (false)
 {
   var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-                    .filterDate('2017-10-01', '2017-10-30')
+                    .filterDate('2017-09-01', '2017-11-30')
                     .filterBounds(step_arid_and_valley_thicket);
   
   s2_images = l8_images
 }
-
 
 print('num s2 images: ', s2_images.count());
 var s2_image = s2_images.mean()
@@ -93,8 +96,7 @@ var s2_rn = s2_image.expression('(R / (R + G + B + RE))',
 var rn_calib_plots = s2_rn.reduceRegions({
   reducer: ee.Reducer.mean(),
   collection: gef_calib_plots,
-  scale: 1
-});
+  scale: 1});
 
 // print('rn_calib_plots');
 // print(rn_calib_plots);
@@ -123,6 +125,37 @@ var calib_m = ee.Number(ee.List(ee.List(calib_coeff).get(0)).get(0));
 var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
 
 var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
+
+if (true)   //accuracy check
+{
+  // adds mean of s2_agc as a feature in gef_calib_plots
+  var s2_agc_calib_plots = s2_agc.reduceRegions({
+    reducer: ee.Reducer.mean(),
+    collection: gef_calib_plots,
+    scale: 1
+  });
+
+  print('s2_agc_calib_plots: ', s2_agc_calib_plots)
+
+  // find residual sum of squares
+  var agc_res_ss = s2_agc_calib_plots.map(function(feature) {
+    return feature.set({agc_res2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
+  }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
+
+  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(s2_agc_calib_plots.size())).sqrt()
+  print('agc_rms: ', agc_rms)
+
+  // find sum of squares
+  var agc_mean = ee.Number(s2_agc_calib_plots.reduceColumns(ee.Reducer.mean(), ['AGC']).get('mean'));
+  print('agc_mean: ', agc_mean)
+  
+  var agc_ss = s2_agc_calib_plots.map(function(feature) {
+    return feature.set({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
+  }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])
+  
+  var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))))
+  print('agc_r2: ', agc_r2)
+}
 
 if (false)
 {
@@ -158,3 +191,4 @@ Map.addLayer(s2_agc_masked, {min: 0, max: 40, palette: ['red', 'yellow', 'green'
 //   bands: ['B4', 'B3', 'B2'],
 // };
 // Map.addLayer(s2_image.divide(10000), visualization, 'RGB');
+
