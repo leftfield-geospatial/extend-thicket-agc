@@ -142,7 +142,7 @@ if (true)   //accuracy check
   var agc_mean = ee.Number(s2_agc_calib_plots.reduceColumns(ee.Reducer.mean(), ['AGC']).get('mean'));
   print('agc_mean: ', agc_mean)
   var agc_ss = s2_agc_calib_plots.map(function(feature) {
-    return feature.set({agc_diff2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
+    return feature.set({agc_diff2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res_ss'])
   
   var agc_rms = ee.Number(agc_res_ss.get('sum').divide(23)).sqrt()
