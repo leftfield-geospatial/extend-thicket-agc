@@ -130,6 +130,7 @@ if (true)   //accuracy check
     collection: gef_calib_plots,
     scale: 1
   });
+  
   print('calib_agc_plots: ', calib_agc_plots)
 
   var agc_diff = calib_agc_plots.map(function(feature) {
