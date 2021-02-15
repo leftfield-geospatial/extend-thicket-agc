@@ -131,7 +131,7 @@ if (true)   //accuracy check
     scale: 1
   });
 
-var log_rn_calib_plots = rn_calib_plots.map(function(feature) {
+var agc_error = rn_calib_plots.map(function(feature) {
   return feature.set({log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
 });
 
