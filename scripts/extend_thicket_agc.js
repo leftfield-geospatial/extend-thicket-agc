@@ -52,8 +52,7 @@ function maskS2clouds(image)
   var cirrusBitMask = 1 << 11;
 
   // Both flags should be set to zero, indicating clear conditions.
-  var mask = qa.bitwiseAnd(cloudBitMask).eq(0)
-      .and(qa.bitwiseAnd(cirrusBitMask).eq(0));
+  var mask = qa.bitwiseAnd(cloudBitMask).eq(0).and(qa.bitwiseAnd(cirrusBitMask).eq(0));
 
   return image.updateMask(mask);
 }
