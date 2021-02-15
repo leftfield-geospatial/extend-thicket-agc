@@ -128,8 +128,6 @@ if (true)   //accuracy check
   var calib_agc = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
     geometry: calib_plots,
-    scale: 1e4,
-    maxPixels: 1e6
   });
   
 }
