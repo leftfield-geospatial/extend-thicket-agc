@@ -135,7 +135,7 @@ if (true)   //accuracy check
     return feature.set({agc_diff2: ee.Number(feature.get('mean')).diff(feature.get('AGC')).pow(2)});
   });
   
-
+  
   print('s2_calib_agc: ', s2_calib_agc)
   
 }
