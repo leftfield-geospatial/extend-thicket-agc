@@ -139,7 +139,7 @@ if (true)   //accuracy check
   }).reduceColumns(ee.Reducer.sum(), ['agc_res_ss'])
 
   // find sum of squares
-  var agc_res_ss = s2_agc_calib_plots.map(function(feature) {
+  var agc_ss = s2_agc_calib_plots.map(function(feature) {
     return feature.set({agc_diff2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res_ss'])
   
