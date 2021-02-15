@@ -132,7 +132,7 @@ if (true)   //accuracy check
   });
 
   var agc_diff = calib_agc_plots.map(function(feature) {
-    return feature.set({log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
+    return feature.set({agc_diff: ee.Number(feature.get('mean')).diff(feature.get('AGC')), constant: 1});
   });
 
   print('s2_calib_agc: ', s2_calib_agc)
