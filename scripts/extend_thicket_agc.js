@@ -1,6 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/calib_plots"),
-    step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket");
+var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
+    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
