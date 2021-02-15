@@ -133,10 +133,10 @@ if (true)   //accuracy check
 
   print('s2_agc_calib_plots: ', s2_agc_calib_plots)
 
-  // find sqr diff between s2 and wv3 agc and add as feature in s2_agc_calib_plots
+  // find residual sum of squares
   var agc_res_ss = s2_agc_calib_plots.map(function(feature) {
     return feature.set({agc_diff2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
-  }).reduceColumns(ee.Reducer.mean(), ['agc_diff2'])
+  }).reduceColumns(ee.Reducer.sum(), ['agc_diff2'])
   
   var agc_rms = ee.Number(agc_ms.get('mean')).sqrt()
   print('agc_rms: ', agc_rms)
