@@ -137,7 +137,7 @@ if (true)   //accuracy check
     return feature.set({agc_diff2: ee.Number(feature.get('mean')).subtract(feature.get('AGC')).pow(2)});
   }).reduceColumns(ee.Reducer.mean(), ['agc_diff2'])
 
-  print('agc_rms: ', ee.Number(agc_ms).sqrt())
+  print('agc_ms: ', agc_ms)
 }
 
 if (false)
