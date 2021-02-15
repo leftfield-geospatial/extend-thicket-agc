@@ -138,7 +138,7 @@ if (true)   //accuracy check
     return feature.set({agc_res2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
 
-  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(23)).sqrt()
+  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(s2_agc_calib_plots)).sqrt()
   print('agc_rms: ', agc_rms)
 
   // find sum of squares
