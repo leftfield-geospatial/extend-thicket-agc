@@ -125,13 +125,13 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 if (true)   //accuracy check
 {
   // var s2_calib_agc = s2_agc.red
-  var s2_calib_agc_plots = s2_agc.reduceRegions({
+  var calib_agc_plots = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: gef_calib_plots,
     scale: 1
   });
 
-var agc_diff = s2_calib_agc.map(function(feature) {
+var agc_diff = s2_calib_agc_plots.map(function(feature) {
   return feature.set({log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
 });
 
