@@ -158,4 +158,3 @@ Map.addLayer(s2_agc_masked, {min: 0, max: 40, palette: ['red', 'yellow', 'green'
 //   bands: ['B4', 'B3', 'B2'],
 // };
 // Map.addLayer(s2_image.divide(10000), visualization, 'RGB');
-
