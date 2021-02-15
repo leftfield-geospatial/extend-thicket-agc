@@ -39,6 +39,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: change to camelcaps
 // TODO: rethink thicket boundaries
 // TODO: make functions so I can pass l8 or s2 or ...
+// TODO: do a cross-validated accuracy test of WV3 agc vs S2 agc, using calib plots
 
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
