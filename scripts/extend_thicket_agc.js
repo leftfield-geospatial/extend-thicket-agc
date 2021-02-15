@@ -131,10 +131,7 @@ if (true)   //accuracy check
     scale: 1
   });
   
-  var wv3_calib_agc = s2_agc.reduceRegions({
-    reducer: ee.Reducer.mean(),
-    geometry: calib_plots,
-  });
+  var wv3_calib_agc = 
   
 }
 
