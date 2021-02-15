@@ -2,6 +2,25 @@
 var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/step_arid_and_valley_thicket"),
     gef_calib_plots = ee.FeatureCollection("users/dugalh/gef_calib_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
+/*
+    GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
+    Copyright (C) 2020 Dugal Harris
+    Email: dugalh@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 // Test the GEF univariate AGC model directly on Sentinel/Landsat surface reflectance
 // agc = -318.8304 x log(R/pan) + 25.7259
 //    where pan = (B + G + R + RE)
