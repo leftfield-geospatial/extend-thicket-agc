@@ -162,7 +162,7 @@ accuracy_check(gef_calib_plots, s2_agc, 'calib')
 accuracy_check(gef_sampling_plots, s2_agc, 'sampling')
 
 
-if (true)   //accuracy check
+if (false)   //accuracy check
 {
   // adds mean of s2_agc as a feature in gef_calib_plots
   var s2_agc_calib_plots = s2_agc.reduceRegions({
