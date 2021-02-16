@@ -123,7 +123,7 @@ var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
 
 var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
 
-function accuracy_check(plots, type='calib')
+function accuracy_check(plots, ag_imagec, type='calib')
 {
   
 }
