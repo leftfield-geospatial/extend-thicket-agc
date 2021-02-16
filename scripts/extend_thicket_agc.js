@@ -158,9 +158,11 @@ function accuracy_check(plots, agc_image, type='calib')
   print('agc_r2: ', agc_r2)
 }
 
+accuracy_check(calib_plots, s2_agc, 'calib')
+
+
 if (true)   //accuracy check
 {
-  
   // adds mean of s2_agc as a feature in gef_calib_plots
   var s2_agc_calib_plots = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
