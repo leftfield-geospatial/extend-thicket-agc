@@ -60,8 +60,8 @@ function maskS2clouds(image)
   return image.updateMask(mask);
 }
 
-var s2_images = ee.ImageCollection('COPERNICUS/S2_SR')    // not available for 2017
-// var s2_images = ee.ImageCollection('COPERNICUS/S2')
+// var s2_images = ee.ImageCollection('COPERNICUS/S2_SR')    // not available for 2017
+var s2_images = ee.ImageCollection('COPERNICUS/S2')
 // var s2_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
                   .filterDate('2017-09-01', '2017-11-30')
                   // Pre-filter to get less cloudy granules.
