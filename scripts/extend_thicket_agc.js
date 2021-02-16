@@ -126,6 +126,7 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 function accuracy_check(plots, agc_image, type)
 {
   var agc_field = 'AgcHa';
+  var scale = 1000
   if (type == 'calib')
     agc_field = 'AGC';
 
@@ -139,7 +140,7 @@ function accuracy_check(plots, agc_image, type)
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_res2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
+    return feature.set({agc_res2: (ee.Number(feature.get('mean')).subtract(feature.get(agc_field))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
 
   var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt()
