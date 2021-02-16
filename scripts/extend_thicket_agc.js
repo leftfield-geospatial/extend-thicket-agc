@@ -134,7 +134,7 @@ function accuracy_check(plots, agc_image, type='calib')
   print('agc_plots: ', s2_agc_calib_plots)
 
   // find residual sum of squares
-  var agc_res_ss = s2_agc_calib_plots.map(function(feature) {
+  var agc_res_ss = agc_plots.map(function(feature) {
     return feature.set({agc_res2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
 
