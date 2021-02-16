@@ -147,7 +147,7 @@ function accuracy_check(plots, agc_image, type='calib')
   print('agc_rms: ', agc_rms)
 
   // find sum of squares
-  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), ['AGC']).get('mean'));
+  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), ['agc_field']).get('mean'));
   print('agc_mean: ', agc_mean)
   
   var agc_ss = s2_agc_calib_plots.map(function(feature) {
