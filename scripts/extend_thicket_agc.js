@@ -85,7 +85,7 @@ var s2_rn = s2_image.expression('(R / (R + G + B + RE))',
           'R': s2_image.select('B4'),
           'G': s2_image.select('B3'),
           'B': s2_image.select('B2'),
-          'RE': s2_image.select('B5'),
+          'RE': s2_image.select('B8'),
         }
       );
 
