@@ -128,9 +128,7 @@ function accuracy_check(plots, agc_image, type)
   var agc_field = 'AgcHa'
   if (type == 'calib')
     var agc_field = 'AGC'
-  else
-    agc_field = 'AgcHa'
-    
+
   var agc_plots = agc_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: plots,
