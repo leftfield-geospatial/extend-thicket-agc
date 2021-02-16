@@ -159,7 +159,7 @@ function accuracy_check(plots, agc_image, type='calib')
 }
 
 accuracy_check(gef_calib_plots, s2_agc, 'calib')
-accuracy_check(gef_calib_plots, s2_agc, 'sampling')
+accuracy_check(gef_sampling_plots, s2_agc, 'sampling')
 
 
 if (true)   //accuracy check
