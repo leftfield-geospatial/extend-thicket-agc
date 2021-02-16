@@ -125,6 +125,10 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 
 function accuracy_check(plots, agc_image, type='calib')
 {
+  if (type == 'calib')
+    agc_field = 'AGC'
+  else
+    agc_field = 'AgcHa'
   var agc_plots = agc_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: plots,
@@ -142,7 +146,7 @@ function accuracy_check(plots, agc_image, type='calib')
   print('agc_rms: ', agc_rms)
 
   // find sum of squares
-  var agc_mean = ee.Number(s2_agc_calib_plots.reduceColumns(ee.Reducer.mean(), ['AGC']).get('mean'));
+  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), ['AGC']).get('mean'));
   print('agc_mean: ', agc_mean)
   
   var agc_ss = s2_agc_calib_plots.map(function(feature) {
