@@ -135,7 +135,7 @@ function accuracy_check(plots, agc_image, type)
     scale: 1
   });
 
-  print('agc_plots: ', agc_plots)
+  // print('agc_plots: ', agc_plots)
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
@@ -147,7 +147,7 @@ function accuracy_check(plots, agc_image, type)
 
   // find sum of squares
   var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('mean'));
-  print('agc_mean: ', agc_mean)
+  // print('agc_mean: ', agc_mean)
   
   var agc_ss = agc_plots.map(function(feature) {
     return feature.set({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
