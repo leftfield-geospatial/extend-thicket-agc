@@ -125,6 +125,32 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 
 function accuracy_check(plots, agc_image, type='calib')
 {
+  var s2_agc_calib_plots = s2_agc.reduceRegions({
+    reducer: ee.Reducer.mean(),
+    collection: gef_calib_plots,
+    scale: 1
+  });
+
+  print('s2_agc_calib_plots: ', s2_agc_calib_plots)
+
+  // find residual sum of squares
+  var agc_res_ss = s2_agc_calib_plots.map(function(feature) {
+    return feature.set({agc_res2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
+  }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
+
+  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(s2_agc_calib_plots.size())).sqrt()
+  print('agc_rms: ', agc_rms)
+
+  // find sum of squares
+  var agc_mean = ee.Number(s2_agc_calib_plots.reduceColumns(ee.Reducer.mean(), ['AGC']).get('mean'));
+  print('agc_mean: ', agc_mean)
+  
+  var agc_ss = s2_agc_calib_plots.map(function(feature) {
+    return feature.set({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
+  }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])
+  
+  var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))))
+  print('agc_r2: ', agc_r2)
   
 }
 
