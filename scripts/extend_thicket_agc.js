@@ -131,7 +131,7 @@ function accuracy_check(plots, agc_image, type='calib')
     scale: 1
   });
 
-  print('s2_agc_calib_plots: ', s2_agc_calib_plots)
+  print('agc_plots: ', s2_agc_calib_plots)
 
   // find residual sum of squares
   var agc_res_ss = s2_agc_calib_plots.map(function(feature) {
