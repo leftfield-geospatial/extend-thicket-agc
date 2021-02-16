@@ -125,9 +125,9 @@ var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multi
 
 function accuracy_check(plots, agc_image, type)
 {
-  var agc_field = 'AgcHa'
+  var agc_field = 'AgcHa';
   if (type == 'calib')
-    agc_field = 'AGC'
+    agc_field = 'AGC';
 
   var agc_plots = agc_image.reduceRegions({
     reducer: ee.Reducer.mean(),
