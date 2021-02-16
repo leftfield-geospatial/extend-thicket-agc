@@ -1,10 +1,7 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/step_arid_and_valley_thicket"),
-    gef_calib_plots = ee.FeatureCollection("users/dugalh/gef_calib_plots");
-/***** End of imports. If edited, may not auto-convert in the playground. *****/
-/**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots");
+    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
+    gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
@@ -88,7 +85,7 @@ var s2_rn = s2_image.expression('(R / (R + G + B + RE))',
           'R': s2_image.select('B4'),
           'G': s2_image.select('B3'),
           'B': s2_image.select('B2'),
-          'RE': s2_image.select('B7'),
+          'RE': s2_image.select('B5'),
         }
       );
 
@@ -126,8 +123,14 @@ var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
 
 var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
 
+function accuracy_check(plots, type='calib')
+{
+  
+}
+
 if (true)   //accuracy check
 {
+  
   // adds mean of s2_agc as a feature in gef_calib_plots
   var s2_agc_calib_plots = s2_agc.reduceRegions({
     reducer: ee.Reducer.mean(),
