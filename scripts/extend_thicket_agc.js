@@ -159,6 +159,7 @@ function accuracy_check(plots, agc_image, type)
 
 print('Calib Accuracy:')
 accuracy_check(gef_calib_plots, s2_agc, 'calib')
+print('Sampling Accuracy:')
 accuracy_check(gef_sampling_plots, s2_agc, 'sampling')
 
 
