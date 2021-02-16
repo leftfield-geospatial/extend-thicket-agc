@@ -131,14 +131,14 @@ function accuracy_check(plots, agc_image, type='calib')
     scale: 1
   });
 
-  print('agc_plots: ', s2_agc_calib_plots)
+  print('agc_plots: ', agc_plots)
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
     return feature.set({agc_res2: (ee.Number(feature.get('mean')).subtract(feature.get('AGC'))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
 
-  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(s2_agc_calib_plots.size())).sqrt()
+  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt()
   print('agc_rms: ', agc_rms)
 
   // find sum of squares
