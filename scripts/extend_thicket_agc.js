@@ -135,7 +135,7 @@ function accuracy_check(plots, agc_image, type)
     scale: 1
   });
 
-  // print('agc_plots: ', agc_plots)
+  print('agc_plots: ', agc_plots)
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
