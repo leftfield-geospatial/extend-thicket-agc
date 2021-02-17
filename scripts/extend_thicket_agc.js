@@ -104,7 +104,7 @@ function fit_calib_model(rn_image)
       numX: 2,
       numY: 1
     }),
-    selectors: ['log_rn', 'constant', 'log(mean(R/pan))']
+    selectors: ['extend_log_rn', 'constant', 'log(mean(R/pan))']
   }));
   
   var calib_coeff = ee.Array(calib_model.get('coefficients')).toList()
