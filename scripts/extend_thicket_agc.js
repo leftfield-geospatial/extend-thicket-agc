@@ -106,9 +106,9 @@ if (false)
 }
 
 var images = s2_toa_images
+print('num images: ', images.count());
 var rn_image = s2_rn(images)
 
-print('num s2 images: ', s2_images.count());
 var s2_image = s2_images.mean()
 
 var s2_rn = s2_image.expression('(R / (R + G + B + RE))', 
