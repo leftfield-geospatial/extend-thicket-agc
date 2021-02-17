@@ -150,8 +150,6 @@ var rn_image = s2_rn(image);
 
 var calib_m, calib_c = fit_calib_model(rn_image);
 
-// TODO understand why these casts are necessary
-
 var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
 
 function accuracy_check(plots, agc_image, type)
