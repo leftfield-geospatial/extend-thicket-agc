@@ -67,7 +67,7 @@ function landsat_cloud_mask(image)
   var mask = scored.select(['cloud']).lte(5);
   
   // Apply the mask to the image and display the result.
-  var masked = cloudy_scene.updateMask(mask);
+  return image.updateMask(mask);
 }
 
 function find_rn(image, type) 
