@@ -163,7 +163,6 @@ var s2_sr_images = ee.ImageCollection('COPERNICUS/S2')
                   .map(s2_cloud_mask)
                   .filterBounds(step_arid_and_valley_thicket);
 
-
 if (false)
 {
   var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
