@@ -110,6 +110,8 @@ function fit_calib_model(rn_image)
   var calib_coeff = ee.Array(calib_model.get('coefficients')).toList()
   print('calib_model: ', calib_model)
   print(calib_model.get('coefficients'))
+  
+  return calib_model, calib_coeff
 }
 
 var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
