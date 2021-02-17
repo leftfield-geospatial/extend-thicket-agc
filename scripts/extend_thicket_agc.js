@@ -69,7 +69,7 @@ function find_rn(image)
               'RE': image.select('B8'),
             }
           );
-  else
+  else    //assume landsat
     return image.expression('(R / (R + G + B + RE))', 
             {
               'R': image.select('B4'),
