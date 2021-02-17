@@ -76,7 +76,8 @@ function find_rn(image)
                 'B': image.select('B2'),
                 'RE': image.select('B5'),
               }            
-            ))
+            ));
+    return ee.Image(rn_image);
 }
 
 function model_agc(rn_image)
