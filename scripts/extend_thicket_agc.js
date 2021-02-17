@@ -45,6 +45,8 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // NOTES
 // L2 T2_SR has v few images to work with.
 // L2 T1_SR is about a pixel (30m) off, but otherwise works ok
+// L2 T1_SR is about a pixel (30m) off, but otherwise works ok
+
 
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
