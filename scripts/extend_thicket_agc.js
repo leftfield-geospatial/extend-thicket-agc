@@ -219,7 +219,6 @@ Map.centerObject(step_arid_and_valley_thicket);
 Map.addLayer(masked_image, {min: 0.0, max: 10000, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB');
 
 
-
 var rn_image = find_rn(image, 'L8');  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
 var agc_image = model_agc(rn_image);
