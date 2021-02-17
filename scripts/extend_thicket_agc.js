@@ -143,7 +143,7 @@ function accuracy_check(plots, agc_image)
 
   // find sum of squares
   var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('mean'));
-  print('agc_mean: ', agc_mean)
+  // print('agc_mean: ', agc_mean)
   
   // sum of squares
   var agc_ss = agc_plots.map(function(feature) {
