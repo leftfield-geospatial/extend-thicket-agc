@@ -177,7 +177,7 @@ if (false)
   images = l8_images
 }
 
-var images = s2_toa_images
+var images = s2_sr_images;
 print('num images: ', images.size());
 print('images metadata: ', images);
 print('image metadata: ', images.first());
