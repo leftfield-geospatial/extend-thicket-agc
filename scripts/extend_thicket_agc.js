@@ -150,7 +150,7 @@ print('image metadata: ', images.first().getInfo());
 var image = image.mean();
 var rn_image = s2_rn(image);
 
-var calib_m, calib_c = fit_calib_model(rn_image);
+var agc_image, calib_m, calib_c = fit_calib_model(rn_image);
 
 
 function accuracy_check(plots, agc_image, type)
