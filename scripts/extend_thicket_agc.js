@@ -60,9 +60,9 @@ function s2_cloud_mask(image)
 
 function find_rn(image, type) 
 {
-  print('image metadata: ', image);
-  print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
-  print('S2?: ', ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 'Sentinel', 'Not Sentinel'))
+  // print('image metadata: ', image);
+  // print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
+  // print('S2?: ', ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 'Sentinel', 'Not Sentinel'))
   
   var rn_image = ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 
             image.expression('(R / (R + G + B + RE))', 
@@ -181,7 +181,7 @@ print('image metadata: ', images.first());
 print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
 var image = images.mean();
-var rn_image = find_rn(image, 'S2');
+var rn_image = find_rn(image, images.first().get('SPACECRAFT_NAME'));
 print('rn_image: ', rn_image);
 var agc_image = model_agc(rn_image);
 
