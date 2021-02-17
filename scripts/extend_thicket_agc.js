@@ -156,8 +156,8 @@ var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   .filterDate('2017-09-01', '2017-11-30')
                   // Pre-filter to get less cloudy granules.
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
-                  .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 10))
-                  .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 10))
+                  .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 20))
+                  .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 20))
                   .map(s2_cloud_mask)
                   .filterBounds(step_arid_and_valley_thicket);
 
