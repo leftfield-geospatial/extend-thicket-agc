@@ -206,7 +206,7 @@ else if (false)
                       .map(landsat8_sr_cloud_mask);
  
 
-var images = l8_images;
+var images = s2_toa_images;
 print('num images: ', images.size());
 print('images metadata: ', images);
 // print('image metadata: ', images.first());
