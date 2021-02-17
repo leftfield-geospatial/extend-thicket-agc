@@ -60,7 +60,7 @@ function s2_cloud_mask(image)
 
 function find_rn(image) 
 {
-  if ('S2' in image.id()) //sentinel
+  if ('S2' in image.id().getInfo()) //sentinel
     return image.expression('(R / (R + G + B + RE))', 
             {
               'R': image.select('B4'),
