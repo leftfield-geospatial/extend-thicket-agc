@@ -82,7 +82,7 @@ function landsat_rn(image)
         );
 }
 
-function fit_calib_model(rn_image)
+function model_agc(rn_image)
 {
   var rn_calib_plots = rn_image.reduceRegions({
     reducer: ee.Reducer.mean(),
