@@ -164,7 +164,7 @@ var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   .map(s2_cloud_mask)
                   .filterBounds(step_arid_and_valley_thicket);
 
- var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
+var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
                   .filterDate('2019-09-01', '2019-11-30')
                   // Pre-filter to get less cloudy granules.
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
@@ -174,7 +174,7 @@ var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   .filterBounds(step_arid_and_valley_thicket);
 
 
-  var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
+var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
                     .filterDate('2017-09-01', '2017-11-30')
                     .filterBounds(step_arid_and_valley_thicket);
  
