@@ -225,14 +225,3 @@ Map.centerObject(step_arid_and_valley_thicket);
 Map.addLayer(image.divide(10000), {min: 0.0, max: [0.3, 0.3, 0.3], bands: ['B4', 'B3', 'B2'], opacity: 0.0}, 'RGB');
 Map.addLayer(agc_masked_image, {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 0.8}, 'AGC');
 Map.addLayer(image, {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 0.8}, 'AGC');
-// Map.addLayer(gef_calib_plots.draw({color: '660000', strokeWidth: 1}), {}, 'gef_calib_plots');
-// Map.addLayer(step_arid_and_valley_thicket.draw({color: '000066', strokeWidth: 1, fill: -1}), {}, 'step_arid_and_valley_thicket');
-// Map.addLayer(thicket_outline, {palette: '006600', opacity: 0.6}, 'thicket_outline');
-
-// var visualization = {
-//   min: 0.0,
-//   max: [0.3, 0.3, 0.3],
-//   bands: ['B4', 'B3', 'B2'],
-// };
-// Map.addLayer(s2_image.divide(10000), visualization, 'RGB');
-
