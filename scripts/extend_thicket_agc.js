@@ -117,7 +117,7 @@ function model_agc(rn_image)
   // apply calibration transform and AGC model in one step
   var agc_image = rn_image.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
   
-  return agc_image, calib_m, calib_c;
+  return agc_image;
 }
 
 function accuracy_check(plots, agc_image)
