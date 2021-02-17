@@ -46,7 +46,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // L8 T2_SR has v few images to work with.
 // L8 T1_SR is about a pixel (30m) off, but otherwise works ok
 // L8 T1_SR with landsat8_sr_cloud_mask produces decent cloud free images
-// S2 TOA has visible clouds with s2_cloud_mask and prob needs 'COPERNICUS/S2_CLOUD_PROBABILITY'
+// S2 TOA has visible clouds with s2_cloud_mask and prob needs 'COPERNICUS/S2_CLOUD_PROBABILITY' 
 
 
 var model_m = ee.Number(-318.8304);
