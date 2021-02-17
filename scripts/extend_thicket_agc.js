@@ -42,7 +42,10 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 //     the simple QA0 thing is not working great for S2, and SR data looks better, even if it doesn't make better AGC?
 
 
-// NOTES - L2 T2_SR has v few images to work with.
+// NOTES
+// L2 T2_SR has v few images to work with.
+// L2 T1_SR is about a pixel (30m) off
+
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
 
