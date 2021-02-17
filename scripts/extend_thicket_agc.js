@@ -114,6 +114,7 @@ function model_agc(rn_image)
   var calib_m = ee.Number(ee.List(calib_coeff.get(0)).get(0));
   var calib_c = ee.Number(ee.List(calib_coeff.get(1)).get(0));
   
+  // apply calibration transform and AGC model in one step
   var agc_image = rn_image.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
   
   return agc_image, calib_m, calib_c;
