@@ -41,7 +41,6 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: landsat and better s2 cloud mask - maybe not the shadow projection, 
 //     the simple QA0 thing is not working great for S2, and SR data looks better, even if it doesn't make better AGC?
 
-
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
 
