@@ -191,7 +191,7 @@ accuracy_check(gef_sampling_plots, agc_image, 'sampling');
 
 if (false)
 {
-  var min_agc = s2_agc.reduceRegion({
+  var min_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.min(),
     geometry: step_arid_and_valley_thicket,
     scale: 1e4,
@@ -200,7 +200,7 @@ if (false)
   
   print('min_agc: ', min_agc)
   
-  var max_agc = s2_agc.reduceRegion({
+  var max_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.max(),
     geometry: step_arid_and_valley_thicket,
     scale: 1e4,
