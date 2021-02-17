@@ -195,8 +195,8 @@ if (true)
                     .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
                     // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
                     // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 20))
-                    .filterBounds(step_arid_and_valley_thicket);
-                    .map(s2_cloud_mask)
+                    .filterBounds(step_arid_and_valley_thicket)
+                    .map(s2_cloud_mask);
 
 else if (false)
   var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
