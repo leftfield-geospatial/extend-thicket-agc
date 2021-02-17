@@ -115,7 +115,7 @@ function fit_calib_model(rn_image)
   
   var agc_image = rn_image.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
   
-  return calib_m, calib_c;
+  return agc_image, calib_m, calib_c;
 }
 
 var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
