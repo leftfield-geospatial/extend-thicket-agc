@@ -31,7 +31,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: legend
 // TODO: legend UI to select and mask different thicket types?  
 // TODO: try s2 sr
-// TODO: filter s2 viewing geom (solar zenith close to 0, and satellite )
+// TODO: filter s2 viewing geom (solar and satellite zenith close to 0, and satellite )
 // TODO: change to camelcaps
 // TODO: rethink thicket boundaries
 // TODO: make functions so I can pass l8 or s2 or ...
