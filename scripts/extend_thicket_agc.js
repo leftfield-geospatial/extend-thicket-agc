@@ -113,7 +113,7 @@ function fit_calib_model(rn_image)
   var calib_m = ee.Number(ee.List(ee.List(calib_coeff).get(0)).get(0));
   var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
   
-  return calib_model, calib_coeff;
+  return calib_m, calib_c;
 }
 
 var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
