@@ -39,7 +39,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: time series of ndvi/rn/agc in thicket
 // TODO: tool to find AGC in a user selected polygon
 // TODO: landsat and better s2 cloud mask - maybe not the shadow projection, 
-//    but the simple QA0 thing is not working great for S2, and SR data looks better, even if it doesn't 
+//     the simple QA0 thing is not working great for S2, and SR data looks better, even if it doesn't make better AGC?
 
 
 var model_m = ee.Number(-318.8304);
