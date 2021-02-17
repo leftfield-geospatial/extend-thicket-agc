@@ -28,7 +28,6 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 
 // The model Wv3 image is Oct 2017
 
-// TODO: check s2 AGC (e.g. in calib plots and sampling plots) against wv3 AGC
 // TODO: legend
 // TODO: legend UI to select and mask different thicket types?  
 // TODO: try s2 sr
