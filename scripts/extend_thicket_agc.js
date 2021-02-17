@@ -43,7 +43,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
 
-function maskS2clouds(image) 
+function s2_cloud_mask(image) 
 {
   var qa = image.select('QA60');
 
