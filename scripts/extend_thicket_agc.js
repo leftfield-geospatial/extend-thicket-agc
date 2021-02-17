@@ -188,7 +188,6 @@ print('Sampling Accuracy:');
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})})
 accuracy_check(gef_sampling_plots, s2_agc, 'sampling');
 
-
 if (false)   //accuracy check
 {
   // adds mean of s2_agc as a feature in gef_calib_plots
