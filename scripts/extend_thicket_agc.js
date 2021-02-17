@@ -37,7 +37,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 //x TODO: make functions so I can pass l8 or s2 or ...
 // TODO: do a cross-validated accuracy test of WV3 agc vs S2 agc, using calib plots
 // TODO: time series of ndvi/rn/agc in thicket
-// TODO: tool to find AGC in a user selected polygon
+// TODO: tool to find AGC in a user selected polygon, and trend over time
 // TODO: landsat and better s2 cloud mask - maybe not the shadow projection, 
 //     the simple QA0 thing is not working great for S2, and SR data looks better, even if it doesn't make better AGC?
 
