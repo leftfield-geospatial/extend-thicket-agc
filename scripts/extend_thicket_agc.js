@@ -146,7 +146,7 @@ print('image metadata: ', images.first().getInfo());
 var image = image.mean();
 var rn_image = s2_rn(image);
 
-var calib_model = fit_calib_model(rn_image);
+var calib_m, calib_c = fit_calib_model(rn_image);
 
 // TODO understand why these casts are necessary
 var calib_m = ee.Number(ee.List(ee.List(calib_coeff).get(0)).get(0));
