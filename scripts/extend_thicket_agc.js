@@ -213,7 +213,7 @@ if (false)
                   .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
                   .map(s2_cloud_mask)
                   .filterBounds(step_arid_and_valley_thicket);
-  var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
+  var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T2_TOA')
                     .filterDate('2017-08-01', '2017-12-30')
                     .filterBounds(step_arid_and_valley_thicket);
   
