@@ -60,14 +60,24 @@ function s2_cloud_mask(image)
 
 function s2_rn(image) 
 {
-  return image.expression('(R / (R + G + B + RE))', 
-          {
-            'R': image.select('B4'),
-            'G': image.select('B3'),
-            'B': image.select('B2'),
-            'RE': image.select('B8'),
-          }
-        );
+  if 'S2' in image.id()
+    return image.expression('(R / (R + G + B + RE))', 
+            {
+              'R': image.select('B4'),
+              'G': image.select('B3'),
+              'B': image.select('B2'),
+              'RE': image.select('B8'),
+            }
+          );
+  else
+    return image.expression('(R / (R + G + B + RE))', 
+            {
+              'R': image.select('B4'),
+              'G': image.select('B3'),
+              'B': image.select('B2'),
+              'RE': image.select('B8'),
+            }
+          );
 }
 
 function landsat_rn(image) 
