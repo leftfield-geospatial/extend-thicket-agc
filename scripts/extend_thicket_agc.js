@@ -31,7 +31,6 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: check s2 AGC (e.g. in calib plots and sampling plots) against wv3 AGC
 // TODO: legend
 // TODO: legend UI to select and mask different thicket types?  
-// TODO: force map default to satellite
 // TODO: try s2 sr
 // TODO: filter s2 viewing geom 
 // TODO: change to camelcaps
