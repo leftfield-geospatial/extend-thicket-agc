@@ -77,24 +77,6 @@ function find_rn(image)
                 'RE': image.select('B8'),
               }            
             )
-  if (ee. 'S2' in image.id().getInfo()) //sentinel
-    return image.expression('(R / (R + G + B + RE))', 
-            {
-              'R': image.select('B4'),
-              'G': image.select('B3'),
-              'B': image.select('B2'),
-              'RE': image.select('B8'),
-            }
-          );
-  else    //assume landsat
-    return image.expression('(R / (R + G + B + RE))', 
-            {
-              'R': image.select('B4'),
-              'G': image.select('B3'),
-              'B': image.select('B2'),
-              'RE': image.select('B5'),
-            }
-          );
 }
 
 function model_agc(rn_image)
