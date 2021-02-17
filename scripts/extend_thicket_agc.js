@@ -57,6 +57,13 @@ function s2_cloud_mask(image)
   return image.updateMask(mask);
 }
 
+var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
+                  .filterDate('2017-09-01', '2017-11-30')
+                  // Pre-filter to get less cloudy granules.
+                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
+                  .map(s2_cloud_mask)
+                  .filterBounds(step_arid_and_valley_thicket);
+
 // var s2_images = ee.ImageCollection('COPERNICUS/S2_SR')    // not available for 2017
 var s2_images = ee.ImageCollection('COPERNICUS/S2')
 // var s2_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
