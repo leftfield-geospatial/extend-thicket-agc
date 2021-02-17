@@ -181,7 +181,7 @@ print('image metadata: ', images.first());
 var image = images.mean();
 var rn_image = s2_rn(image);
 
-var agc_image, calib_m, calib_c = model_agc(rn_image);
+var agc_image = model_agc(rn_image);
 
 print('Calib Accuracy:');
 accuracy_check(gef_calib_plots, agc_image, 'calib');
