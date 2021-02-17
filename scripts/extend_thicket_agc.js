@@ -75,7 +75,7 @@ function find_rn(image)
               'R': image.select('B4'),
               'G': image.select('B3'),
               'B': image.select('B2'),
-              'RE': image.select('B5'),
+              'RE': image.select('B8'),
             }
           );
 }
