@@ -205,21 +205,6 @@ else if (true)
                       .filterBounds(step_arid_and_valley_thicket)
                       .map(landsat8_sr_cloud_mask);
  
-if (false)
-{
-  var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
-                  .filterDate('2019-09-01', '2019-11-30')
-                  // Pre-filter to get less cloudy granules.
-                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
-                  .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
-                  .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
-                  .map(s2_cloud_mask)
-                  .filterBounds(step_arid_and_valley_thicket);
-  var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
-                    .filterDate('2017-08-01', '2017-12-30')
-                    .filterBounds(step_arid_and_valley_thicket);
-  
-}
 
 var images = l8_images;
 print('num images: ', images.size());
