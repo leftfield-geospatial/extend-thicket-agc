@@ -169,7 +169,7 @@ if (false)
                     .filterDate('2017-09-01', '2017-11-30')
                     .filterBounds(step_arid_and_valley_thicket);
   
-  s2_images = l8_images
+  images = l8_images
 }
 
 var images = s2_toa_images
