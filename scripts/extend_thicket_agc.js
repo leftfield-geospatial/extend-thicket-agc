@@ -189,7 +189,6 @@ gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set
 print('Sampling Accuracy:');
 accuracy_check(gef_sampling_plots, agc_image, 'sampling');
 
-
 if (false)
 {
   var min_agc = s2_agc.reduceRegion({
