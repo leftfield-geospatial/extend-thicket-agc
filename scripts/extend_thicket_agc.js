@@ -59,7 +59,7 @@ function s2_cloud_mask(image)
   return image.updateMask(mask);
 }
 
-function landsat_cloud_mask(image)
+function landsat_simple_cloud_mask(image)
 {
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
   
@@ -69,6 +69,19 @@ function landsat_cloud_mask(image)
   // Apply the mask to the image and display the result.
   return image.updateMask(mask);
 }
+
+function landsat8_cloud_mask(image) {
+  // Bits 3 and 5 are cloud shadow and cloud, respectively.
+  var cloudShadowBitMask = (1 << 3);
+  var cloudsBitMask = (1 << 5);
+  // Get the pixel QA band.
+  var qa = image.select('pixel_qa');
+  // Both flags should be set to zero, indicating clear conditions.
+  var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0)
+                 .and(qa.bitwiseAnd(cloudsBitMask).eq(0));
+  return image.updateMask(mask);
+}
+
 
 function find_rn(image, type) 
 {
