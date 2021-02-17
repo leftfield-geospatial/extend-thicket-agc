@@ -115,7 +115,7 @@ var image = image.mean()
 var rn_image = s2_rn(image)
 
 // find mean(rn) for each calib plot
-var rn_calib_plots = s2_rn.reduceRegions({
+var rn_calib_plots = rn_image.reduceRegions({
   reducer: ee.Reducer.mean(),
   collection: gef_calib_plots,
   scale: 1});
