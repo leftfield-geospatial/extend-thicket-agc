@@ -38,6 +38,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: do a cross-validated accuracy test of WV3 agc vs S2 agc, using calib plots
 // TODO: time series of ndvi/rn/agc in thicket
 // TODO: tool to find AGC in a user selected polygon
+// TODO: landsat and better s2 cloud mask
 
 
 var model_m = ee.Number(-318.8304);
