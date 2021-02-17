@@ -81,6 +81,8 @@ if (false)
   s2_images = l8_images
 }
 
+function extend_agc(images)
+{
 print('num s2 images: ', s2_images.count());
 var s2_image = s2_images.mean()
 
