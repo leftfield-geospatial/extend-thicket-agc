@@ -62,7 +62,7 @@ var s2_images = ee.ImageCollection('COPERNICUS/S2')
 // var s2_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
                   .filterDate('2017-09-01', '2017-11-30')
                   // Pre-filter to get less cloudy granules.
-                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
+                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))
                   .map(maskS2clouds)
                   .filterBounds(step_arid_and_valley_thicket);
 
