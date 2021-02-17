@@ -80,7 +80,6 @@ function find_rn(image)
           );
 }
 
-
 function model_agc(rn_image)
 {
   // fit calibration transform
