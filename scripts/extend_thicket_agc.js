@@ -80,17 +80,6 @@ function find_rn(image)
           );
 }
 
-function landsat_rn(image) 
-{
-  return image.expression('(R / (R + G + B + RE))', 
-          {
-            'R': image.select('B4'),
-            'G': image.select('B3'),
-            'B': image.select('B2'),
-            'RE': image.select('B5'),
-          }
-        );
-}
 
 function model_agc(rn_image)
 {
