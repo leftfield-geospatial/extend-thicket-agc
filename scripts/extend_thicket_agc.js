@@ -59,7 +59,7 @@ function s2_cloud_mask(image)
 
 function s2_rn(image) 
 {
-  return = s2_image.expression('(R / (R + G + B + RE))', 
+  return image.expression('(R / (R + G + B + RE))', 
           {
             'R': s2_image.select('B4'),
             'G': s2_image.select('B3'),
