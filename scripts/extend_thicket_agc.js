@@ -60,7 +60,23 @@ function s2_cloud_mask(image)
 
 function find_rn(image) 
 {
-  return ee.Algorithms.If(ee.String(image.id()). ee.String('S2'))
+  return ee.Algorithms.If(ee.String(image.id()).index('S2').gte(0), 
+            image.expression('(R / (R + G + B + RE))', 
+              {
+                'R': image.select('B4'),
+                'G': image.select('B3'),
+                'B': image.select('B2'),
+                'RE': image.select('B8'),
+              }
+            ),
+            image.expression('(R / (R + G + B + RE))', 
+            {
+              'R': image.select('B4'),
+              'G': image.select('B3'),
+              'B': image.select('B2'),
+              'RE': image.select('B8'),
+            }            
+            )
   if (ee. 'S2' in image.id().getInfo()) //sentinel
     return image.expression('(R / (R + G + B + RE))', 
             {
