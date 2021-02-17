@@ -60,7 +60,7 @@ function s2_cloud_mask(image)
 
 function find_rn(image, type) 
 {
-  var rn_image = ee.Algorithms.If(ee.String(type).compareTo('S2').gte(0), 
+  var rn_image = ee.Algorithms.If(ee.String(type).compareTo('S2').eq(0), 
             image.expression('(R / (R + G + B + RE))', 
               {
                 'R': image.select('B4'),
