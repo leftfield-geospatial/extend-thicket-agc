@@ -82,6 +82,8 @@ function landsat_rn(image)
         );
 }
 
+
+
 var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   .filterDate('2017-09-01', '2017-11-30')
                   // Pre-filter to get less cloudy granules.
