@@ -48,6 +48,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // L8 T1_SR with landsat8_sr_cloud_mask produces decent cloud free images
 // S2 TOA has visible clouds with s2_cloud_mask and prob needs 'COPERNICUS/S2_CLOUD_PROBABILITY' 
 // S2 SR is is noticeably less hazy than TOA, but only available from 2019... why is that?
+// S2 TOA geom accuracy is much better than L8 T1
 
 
 var model_m = ee.Number(-318.8304);
