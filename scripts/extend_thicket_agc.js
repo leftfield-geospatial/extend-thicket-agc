@@ -113,7 +113,7 @@ function fit_calib_model(rn_image)
   var calib_m = ee.Number(ee.List(calib_coeff.get(0)).get(0));
   var calib_c = ee.Number(ee.List(calib_coeff.get(1)).get(0));
   
-  var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
+  var agc_image = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
   
   return calib_m, calib_c;
 }
