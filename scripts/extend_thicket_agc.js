@@ -107,7 +107,7 @@ if (false)
 
 var images = s2_toa_images
 print('num images: ', images.count());
-print('image metadata: ', images.first().);
+print('image metadata: ', images.first());
 var rn_image = s2_rn(images)
 
 var s2_image = s2_images.mean()
