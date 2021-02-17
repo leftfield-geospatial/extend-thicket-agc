@@ -113,7 +113,7 @@ function model_agc(rn_image)
   
   var calib_coeff = ee.Array(calib_model.get('coefficients')).toList()
   print('calib_model: ', calib_model)
-  print(calib_model.get('coefficients'))
+  // print(calib_model.get('coefficients'))
   var calib_m = ee.Number(ee.List(calib_coeff.get(0)).get(0));
   var calib_c = ee.Number(ee.List(calib_coeff.get(1)).get(0));
   
@@ -132,7 +132,7 @@ function accuracy_check(plots, agc_image)
     scale: 1
   });
 
-  print('agc_plots: ', agc_plots)
+  // print('agc_plots: ', agc_plots)
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
