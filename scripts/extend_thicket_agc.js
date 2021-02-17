@@ -59,6 +59,7 @@ function s2_cloud_mask(image)
   return image.updateMask(mask);
 }
 
+
 function find_rn(image, type) 
 {
   // print('image metadata: ', image);
