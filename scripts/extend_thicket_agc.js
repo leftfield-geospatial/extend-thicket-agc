@@ -174,7 +174,7 @@ if (false)
 var images = s2_toa_images
 print('num images: ', images.size());
 print('image metadata: ', images.first());
-print('image metadata: ', images.first().metadata('SPACECRAFT_NAME'));
+print('image metadata: ', images.first()['SPACECRAFT_NAME']);
 
 var image = images.mean();
 var rn_image = find_rn(image, 'S2');
