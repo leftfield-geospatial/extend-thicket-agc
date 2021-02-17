@@ -209,7 +209,7 @@ if (false)
   print('max_agc: ', max_agc)
 }
 
-var agc_image = s2_agc.clip(step_arid_and_valley_thicket.geometry())
+var agc_masked_image = s2_agc.clip(step_arid_and_valley_thicket.geometry())
 Map.setOptions('TERRAIN');
 Map.centerObject(step_arid_and_valley_thicket);
 Map.addLayer(s2_agc_masked, {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 0.8}, 'AGC');
