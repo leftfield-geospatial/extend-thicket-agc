@@ -194,13 +194,14 @@ var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
                   // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
                   // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
-                  .map(s2_cloud_mask)
-                  .filterBounds(step_arid_and_valley_thicket);
+                  .filterBounds(step_arid_and_valley_thicket)
+                  .map(s2_cloud_mask);
 
 
 var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
                     .filterDate('2017-09-01', '2017-11-30')
-                    .filterBounds(step_arid_and_valley_thicket);
+                    .filterBounds(step_arid_and_valley_thicket)
+                    .map(landsat8_sr_cloud_mask);
  
 if (false)
 {
