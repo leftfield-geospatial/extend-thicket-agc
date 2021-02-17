@@ -60,7 +60,7 @@ function s2_cloud_mask(image)
 
 function find_rn(image, type) 
 {
-  print('image metadata: ', images.first());
+  print('image metadata: ', image);
   print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
   print('S2?: ', ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 'Sentinel', 'Not Sentinel'))
   
