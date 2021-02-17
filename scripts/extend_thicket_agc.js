@@ -84,6 +84,7 @@ function landsat_rn(image)
 
 function model_agc(rn_image)
 {
+  // fit calibration transform
   var rn_calib_plots = rn_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: gef_calib_plots,
