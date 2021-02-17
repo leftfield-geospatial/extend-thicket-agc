@@ -65,7 +65,7 @@ var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   .filterBounds(step_arid_and_valley_thicket);
 
 var s2_sr_images = ee.ImageCollection('COPERNICUS/S2')
-                  .filterDate('2017-09-01', '2017-11-30')
+                  .filterDate('2019-09-01', '2019-11-30')
                   // Pre-filter to get less cloudy granules.
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
                   .map(s2_cloud_mask)
