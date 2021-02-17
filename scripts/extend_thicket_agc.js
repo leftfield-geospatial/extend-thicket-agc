@@ -179,7 +179,6 @@ print('image metadata: ', images.first().id());
 
 var image = images.mean();
 var rn_image = find_rn(image);
-
 var agc_image = model_agc(rn_image);
 
 print('Calib Accuracy:');
