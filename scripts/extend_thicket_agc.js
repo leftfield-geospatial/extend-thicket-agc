@@ -185,6 +185,7 @@ var agc_image, calib_m, calib_c = model_agc(rn_image);
 print('Calib Accuracy:');
 accuracy_check(gef_calib_plots, agc_image, 'calib');
 print('Sampling Accuracy:');
+
 // convert AgcHa from kg to tons
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})})
 accuracy_check(gef_sampling_plots, agc_image, 'sampling');
