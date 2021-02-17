@@ -182,7 +182,6 @@ var rn_image = s2_rn(image);
 
 var agc_image, calib_m, calib_c = model_agc(rn_image);
 
-
 print('Calib Accuracy:');
 accuracy_check(gef_calib_plots, s2_agc, 'calib');
 print('Sampling Accuracy:');
