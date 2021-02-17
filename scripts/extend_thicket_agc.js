@@ -76,7 +76,7 @@ function find_rn(image)
                 'B': image.select('B2'),
                 'RE': image.select('B5'),
               }            
-            )
+            ))
 }
 
 function model_agc(rn_image)
