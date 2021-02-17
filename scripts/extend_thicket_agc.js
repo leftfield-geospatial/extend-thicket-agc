@@ -58,9 +58,9 @@ function s2_cloud_mask(image)
   return image.updateMask(mask);
 }
 
-function s2_rn(image) 
+function rn(image) 
 {
-  if 'S2' in image.id()
+  if ('S2' in image.id())
     return image.expression('(R / (R + G + B + RE))', 
             {
               'R': image.select('B4'),
