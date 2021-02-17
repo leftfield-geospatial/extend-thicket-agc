@@ -75,7 +75,7 @@ function find_rn(image)
                 'G': image.select('B3'),
                 'B': image.select('B2'),
                 'RE': image.select('B5'),
-              }            
+              }
             ));
     return ee.Image(rn_image);
 }
