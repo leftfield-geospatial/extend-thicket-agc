@@ -177,7 +177,7 @@ print('num images: ', images.count());
 print('image metadata: ', images.first());
 print('image metadata: ', images.first().getInfo());
 
-var image = image.mean();
+var image = images.mean();
 var rn_image = s2_rn(image);
 
 var agc_image, calib_m, calib_c = model_agc(rn_image);
