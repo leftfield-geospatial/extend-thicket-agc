@@ -64,7 +64,7 @@ function landsat_cloud_mask(image)
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
   
   // Create a mask from the cloud score and combine it with the image mask.
-  var mask = scored.select(['cloud']).lte(20);
+  var mask = scored.select(['cloud']).lte(5);
   
   // Apply the mask to the image and display the result.
   var masked = cloudy_scene.updateMask(mask);
