@@ -101,7 +101,7 @@ function model_agc(rn_image)
     return feature.set({extend_log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
   });
   
-  print('log_rn_calib_plots: ', log_rn_calib_plots);
+  // print('log_rn_calib_plots: ', log_rn_calib_plots);
   
   var calib_model = ee.Dictionary(log_rn_calib_plots.reduceColumns({
     reducer: ee.Reducer.linearRegression({
