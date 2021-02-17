@@ -69,7 +69,7 @@ function s2_rn(image)
         );
 }
 
-function s2_rn(image) 
+function landsat_rn(image) 
 {
   return image.expression('(R / (R + G + B + RE))', 
           {
