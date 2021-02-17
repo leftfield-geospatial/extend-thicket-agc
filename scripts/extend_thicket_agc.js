@@ -61,6 +61,7 @@ function s2_cloud_mask(image)
 function find_rn(image, type) 
 {
   print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
+  print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
   
   var rn_image = ee.Algorithms.If(ee.String(type).compareTo('S2').eq(0), 
             image.expression('(R / (R + G + B + RE))', 
