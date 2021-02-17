@@ -32,10 +32,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: legend
 // TODO: legend UI to select and mask different thicket types?  
 // TODO: force map default to satellite
-// TODO: force AGC opacity
-// TODO: make gef_calib_plots an asset
-// TODO: get all AGC sampling plots into an asset too
-// TODO: try s2 srg
+// TODO: try s2 sr
 // TODO: filter s2 viewing geom 
 // TODO: change to camelcaps
 // TODO: rethink thicket boundaries
