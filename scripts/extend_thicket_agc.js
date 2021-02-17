@@ -213,6 +213,7 @@ print('images metadata: ', images);
 print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
 var image = images.mean();
+var masked_image = image.divide(10000).clip(step_arid_and_valley_thicket.geometry())
 Map.setOptions('TERRAIN');
 Map.centerObject(step_arid_and_valley_thicket);
 Map.addLayer(masked_image, {min: 0.0, max: [0.3, 0.3, 0.3], bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'S2_SR');
