@@ -110,8 +110,8 @@ function fit_calib_model(rn_image)
   var calib_coeff = ee.Array(calib_model.get('coefficients')).toList()
   print('calib_model: ', calib_model)
   print(calib_model.get('coefficients'))
-  var calib_m = ee.Number(ee.List(ee.List(calib_coeff).get(0)).get(0));
-  var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
+  var calib_m = ee.Number(ee.List(calib_coeff.get(0)).get(0));
+  var calib_c = ee.Number(ee.List(calib_coeff.get(1)).get(0));
   
   return calib_m, calib_c;
 }
