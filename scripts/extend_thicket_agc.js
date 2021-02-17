@@ -172,6 +172,11 @@ var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
                   .map(s2_cloud_mask)
                   .filterBounds(step_arid_and_valley_thicket);
+
+
+  var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
+                    .filterDate('2017-09-01', '2017-11-30')
+                    .filterBounds(step_arid_and_valley_thicket);
  
 if (false)
 {
