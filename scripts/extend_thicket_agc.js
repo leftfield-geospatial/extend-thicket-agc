@@ -110,6 +110,8 @@ function fit_calib_model(rn_image)
   var calib_coeff = ee.Array(calib_model.get('coefficients')).toList()
   print('calib_model: ', calib_model)
   print(calib_model.get('coefficients'))
+var calib_m = ee.Number(ee.List(ee.List(calib_coeff).get(0)).get(0));
+var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
   
   return calib_model, calib_coeff;
 }
@@ -149,8 +151,6 @@ var rn_image = s2_rn(image);
 var calib_m, calib_c = fit_calib_model(rn_image);
 
 // TODO understand why these casts are necessary
-var calib_m = ee.Number(ee.List(ee.List(calib_coeff).get(0)).get(0));
-var calib_c = ee.Number(ee.List(ee.List(calib_coeff).get(1)).get(0));
 
 var s2_agc = s2_rn.log10().multiply(calib_m.multiply(model_m)).add(calib_c.multiply(model_m).add(model_c));
 
