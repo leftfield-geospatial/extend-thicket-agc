@@ -76,7 +76,7 @@ function landsat_rn(image)
             'R': s2_image.select('B4'),
             'G': s2_image.select('B3'),
             'B': s2_image.select('B2'),
-            'RE': s2_image.select('B8'),
+            'RE': s2_image.select('B5'),
           }
         );
 }
