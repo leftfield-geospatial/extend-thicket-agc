@@ -105,6 +105,8 @@ if (false)
   s2_images = l8_images
 }
 
+var images = s2_toa_images
+
 function extend_agc(images)
 {
 print('num s2 images: ', s2_images.count());
