@@ -222,6 +222,7 @@ var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
 Map.setOptions('TERRAIN');
 Map.centerObject(step_arid_and_valley_thicket);
 Map.addLayer(agc_masked_image, {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 0.8}, 'AGC');
+Map.addLayer(image, {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 0.8}, 'AGC');
 // Map.addLayer(gef_calib_plots.draw({color: '660000', strokeWidth: 1}), {}, 'gef_calib_plots');
 // Map.addLayer(step_arid_and_valley_thicket.draw({color: '000066', strokeWidth: 1, fill: -1}), {}, 'step_arid_and_valley_thicket');
 // Map.addLayer(thicket_outline, {palette: '006600', opacity: 0.6}, 'thicket_outline');
