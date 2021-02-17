@@ -67,16 +67,15 @@ function find_rn(image)
                 'G': image.select('B3'),
                 'B': image.select('B2'),
                 'RE': image.select('B8'),
-              }
-            ),
+              }),
             image.expression('(R / (R + G + B + RE))', 
               {
                 'R': image.select('B4'),
                 'G': image.select('B3'),
                 'B': image.select('B2'),
                 'RE': image.select('B5'),
-              }
-            ));
+              })
+            );
     return ee.Image(rn_image);
 }
 
@@ -179,6 +178,7 @@ print('image metadata: ', images.first().id());
 
 var image = images.mean();
 var rn_image = find_rn(image);
+print('rn_image: ', rn_image);
 var agc_image = model_agc(rn_image);
 
 print('Calib Accuracy:');
