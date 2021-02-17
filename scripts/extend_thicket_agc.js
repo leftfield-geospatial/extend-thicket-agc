@@ -82,7 +82,35 @@ function landsat_rn(image)
         );
 }
 
-
+function fit_calib_model(rn_image)
+{
+  var rn_calib_plots = rn_image.reduceRegions({
+    reducer: ee.Reducer.mean(),
+    collection: gef_calib_plots,
+    scale: 1});
+  
+  // print('rn_calib_plots');
+  // print(rn_calib_plots);
+  
+  // find log(mean(rn)) for each calib plot, and add constant 1 for offset fit
+  var log_rn_calib_plots = rn_calib_plots.map(function(feature) {
+    return feature.set({log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
+  });
+  
+  print('log_rn_calib_plots: ', log_rn_calib_plots);
+  
+  var calib_model = ee.Dictionary(log_rn_calib_plots.reduceColumns({
+    reducer: ee.Reducer.linearRegression({
+      numX: 2,
+      numY: 1
+    }),
+    selectors: ['log_rn', 'constant', 'log(mean(R/pan))']
+  }));
+  
+  var calib_coeff = ee.Array(calib_model.get('coefficients')).toList()
+  print('calib_model: ', calib_model)
+  print(calib_model.get('coefficients'))
+}
 
 var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   .filterDate('2017-09-01', '2017-11-30')
