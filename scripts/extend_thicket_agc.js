@@ -143,8 +143,12 @@ print('num images: ', images.count());
 print('image metadata: ', images.first());
 print('image metadata: ', images.first().getInfo());
 
-var image = image.mean()
-var rn_image = s2_rn(image)
+var image = image.mean();
+var rn_image = s2_rn(image);
+
+var calib_model = fit_calib_model(rn_image);
+
+
 
 // find mean(rn) for each calib plot
 var rn_calib_plots = rn_image.reduceRegions({
