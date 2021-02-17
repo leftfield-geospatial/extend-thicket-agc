@@ -108,8 +108,6 @@ if (false)
 var images = s2_toa_images
 var rn_image = s2_rn(images)
 
-function extend_agc(images)
-{
 print('num s2 images: ', s2_images.count());
 var s2_image = s2_images.mean()
 
