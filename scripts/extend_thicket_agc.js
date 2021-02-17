@@ -106,7 +106,7 @@ if (false)
 }
 
 var images = s2_toa_images
-var rn_image = 
+var rn_image = s2_rn(imgages)
 
 function extend_agc(images)
 {
