@@ -57,6 +57,19 @@ function s2_cloud_mask(image)
   return image.updateMask(mask);
 }
 
+function s2_rn(image) 
+{
+  return = s2_image.expression('(R / (R + G + B + RE))', 
+          {
+            'R': s2_image.select('B4'),
+            'G': s2_image.select('B3'),
+            'B': s2_image.select('B2'),
+            'RE': s2_image.select('B8'),
+          }
+        );
+}
+
+
 var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                   .filterDate('2017-09-01', '2017-11-30')
                   // Pre-filter to get less cloudy granules.
