@@ -182,14 +182,14 @@ if (false)
 }
 
 var images = s2_toa_images;
-print('num images: ', images.size());
-print('images metadata: ', images);
-print('image metadata: ', images.first());
+// print('num images: ', images.size());
+// print('images metadata: ', images);
+// print('image metadata: ', images.first());
 // print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
 var image = images.mean();
 var rn_image = find_rn(image, ee.String(images.first().get('SPACECRAFT_NAME')));
-print('rn_image: ', rn_image);
+// print('rn_image: ', rn_image);
 var agc_image = model_agc(rn_image);
 
 print('Calib Accuracy:');
