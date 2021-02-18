@@ -187,7 +187,7 @@ function accuracy_check(agc_image, test_plots)
   
   // sum of squares
   var agc_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
+    return feature.set({agc_off2: (ee.Number(feature.get(agc_field)).subtract(agc_mean)).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])
   
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))))
