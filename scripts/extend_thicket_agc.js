@@ -229,7 +229,11 @@ var image = images.median();
 
 var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
-var agc_image = model_agc(rn_image);
+
+for (i=0;i<1;i++)
+{
+  var agc_image = model_agc(rn_image);
+}
 
 print('Calib Accuracy:');
 accuracy_check(gef_calib_plots, agc_image, 'calib');
