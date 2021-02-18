@@ -175,14 +175,14 @@ function accuracy_check(agc_image, test_plots)
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_res2: (ee.Number(feature.get('AgcHaPred')).subtract(feature.get(agc_field))).pow(2)});
+    return feature.set({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(agc_field))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
 
   var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt()
   print('agc_rms: ', agc_rms)
 
   // find sum of squares
-  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('AgcHaPred'));
+  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get(pred_agc_field));
   // print('agc_mean: ', agc_mean)
   
   // sum of squares
