@@ -125,7 +125,7 @@ function find_rn(image)
 function model_agc(rn_image, plots)
 {
   // fit calibration transform
-  var rn_train_plots = rn_image.reduceRegions({
+  var rn_plots = rn_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: plots,
     scale: 1});
