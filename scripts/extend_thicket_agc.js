@@ -102,6 +102,7 @@ function find_rn(image, type)
   // print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
   // print('S2?: ', ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 'Sentinel', 'Not Sentinel'))
   
+  ee.Image().bandNames().contains('B*')
   var rn_image = ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 
             image.expression('(R / (R + G + B + RE))', 
               {
