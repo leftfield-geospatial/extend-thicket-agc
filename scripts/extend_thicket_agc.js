@@ -250,10 +250,10 @@ var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
 
 var agc_image = model_agc(rn_image, train_calib_plots);
 
-print('Calib Test Accuracy:');
-accuracy_check(agc_image, test_calib_plots);
 print('Calib Train Accuracy:');
 accuracy_check(agc_image, train_calib_plots);
+print('Calib Test Accuracy:');
+accuracy_check(agc_image, test_calib_plots);
 print('Sampling Accuracy:');
 accuracy_check(agc_image, gef_sampling_plots, 'sampling');
 
