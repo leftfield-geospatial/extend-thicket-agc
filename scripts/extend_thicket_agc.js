@@ -180,12 +180,12 @@ function accuracy_check(agc_image, test_plots)
   print('agc_rms: ', agc_rms)
 
   // find sum of squares
-  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('mean'));
+  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('AgcHaPred'));
   // print('agc_mean: ', agc_mean)
   
   // sum of squares
   var agc_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
+    return feature.set({agc_off2: (ee.Number(feature.get('AgcHaPred')).subtract(agc_mean)).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])
   
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))))
