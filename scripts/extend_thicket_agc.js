@@ -160,7 +160,7 @@ function model_agc(rn_image, train_plots)
   return agc_image;
 }
 
-function accuracy_check(plots, agc_image)
+function accuracy_check(agc_image, test_plots)
 {
   var agc_field = 'AgcHa'
   var agc_plots = agc_image.reduceRegions({
