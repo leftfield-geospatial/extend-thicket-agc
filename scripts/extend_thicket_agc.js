@@ -165,7 +165,7 @@ function accuracy_check(agc_image, test_plots)
   var agc_field = 'AgcHa'
   var agc_plots = agc_image.reduceRegions({
     reducer: ee.Reducer.mean(),
-    collection: plots,
+    collection: test_plots,
     scale: 1
   });
 
