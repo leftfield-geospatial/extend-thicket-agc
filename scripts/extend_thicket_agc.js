@@ -140,7 +140,7 @@ function model_agc(rn_image, plots)
   
   // print('log_rn_calib_plots: ', log_rn_calib_plots);
   var withRandom = log_rn_plots.randomColumn('random');
-  var split = 0.7;  // Roughly 70% training, 30% testing.
+  var split = 0.5;  
   var trainingPartition = withRandom.filter(ee.Filter.lt('random', split));
   var testingPartition = withRandom.filter(ee.Filter.gte('random', split));
 
