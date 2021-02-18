@@ -235,6 +235,11 @@ print('rn_image: ', rn_image);
 for (i=0;i<1;i++)
 {
   var agc_image = model_agc(rn_image);
+  log_rn_plots = log_rn_plots.randomColumn('random');
+  var split = 0.5;  
+  var log_rn_train_plots = log_rn_plots.filter(ee.Filter.lt('random', split));
+  var log_rn_test_plots = log_rn_plots.filter(ee.Filter.gte('random', split));
+
   print('Calib Accuracy:');
   accuracy_check(gef_calib_plots, agc_image, 'calib');
   print('Sampling Accuracy:');
