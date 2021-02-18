@@ -257,9 +257,9 @@ for (var i=0; i<3; i++)   // do a mini cross-validation
   accuracy_check(agc_image, test_calib_plots);
   print('Calib Train Accuracy:');
   accuracy_check(agc_image, train_calib_plots);
-  print('Sampling Accuracy:');
-  accuracy_check(agc_image, gef_sampling_plots, 'sampling');
 }
+print('Sampling Accuracy:');
+accuracy_check(agc_image, gef_sampling_plots, 'sampling');
 
 
 if (false)
