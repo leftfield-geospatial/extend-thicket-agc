@@ -122,7 +122,7 @@ function find_rn(image)
     return ee.Image(rn_image);
 }
 
-function model_agc(rn_image)
+function model_agc(rn_image, plots)
 {
   // fit calibration transform
   var rn_calib_plots = rn_image.reduceRegions({
