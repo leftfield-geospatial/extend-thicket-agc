@@ -241,7 +241,7 @@ for (i=0; i<1; i++)
   var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
   var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
   
-  var agc_image = model_agc(rn_image);
+  var agc_image = model_agc(rn_image, train_calib_plots);
 
   print('Calib Accuracy:');
   accuracy_check(gef_calib_plots, agc_image, 'calib');
