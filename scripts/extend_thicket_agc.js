@@ -255,7 +255,7 @@ accuracy_check(agc_image, train_calib_plots);
 print('Calib Test Accuracy:');
 accuracy_check(agc_image, test_calib_plots);
 print('Sampling Accuracy:');
-accuracy_check(agc_image, gef_sampling_plots, 'sampling');
+accuracy_check(agc_image, gef_sampling_plots);
 
 
 if (false)
