@@ -226,7 +226,7 @@ print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
 var image = images.median();
 
-var rn_image = find_rn(image, 'L8');  //ee.String(images.first().get('SPACECRAFT_NAME'))
+var rn_image = find_rn(image, 'S2');  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
 var agc_image = model_agc(rn_image);
 
