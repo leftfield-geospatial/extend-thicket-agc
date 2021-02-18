@@ -204,7 +204,7 @@ if (true)
                     .filterBounds(step_arid_and_valley_thicket)
                     .map(s2_cloud_mask);
 
-else if (true)
+else if (false)
   var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
                     .filterDate('2019-11-01', '2019-11-30')
                     // Pre-filter to get less cloudy granules.
