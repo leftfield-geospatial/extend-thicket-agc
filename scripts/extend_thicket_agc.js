@@ -233,12 +233,12 @@ var image = images.median();
 
 var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
+var split = 0.5;  
 
 for (i=0;i<1;i++)
 {
   var agc_image = model_agc(rn_image);
   calib_plots = calib_plots.randomColumn('random');
-  var split = 0.5;  
   var log_rn_train_plots = log_rn_plots.filter(ee.Filter.lt('random', split));
   var log_rn_test_plots = log_rn_plots.filter(ee.Filter.gte('random', split));
 
