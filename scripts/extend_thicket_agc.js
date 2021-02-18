@@ -244,7 +244,7 @@ var image = images.median();
 var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
 var split = 0.5;  
-var calib_plots = gef_calib_plots.randomColumn('random', i);
+var calib_plots = gef_calib_plots.randomColumn('random', 0);
 var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
 var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
 
