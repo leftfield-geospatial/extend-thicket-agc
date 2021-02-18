@@ -169,7 +169,7 @@ function accuracy_check(agc_image, test_plots)
     reducer: ee.Reducer.mean(),
     collection: test_plots,
     scale: 1
-  }).rename(['mean'], ['AgcHaPred']);
+  }).rename(['mean'], [pred_agc_field]);
 
   // print('agc_plots: ', agc_plots)
 
