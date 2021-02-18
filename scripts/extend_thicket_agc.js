@@ -142,7 +142,7 @@ function model_agc(rn_image, plots)
   log_rn_plots = log_rn_plots.randomColumn('random');
   var split = 0.5;  
   var log_rn_train_plots = log_rn_plots.filter(ee.Filter.lt('random', split));
-  var testingPartition = log_rn_plots.filter(ee.Filter.gte('random', split));
+  var log_rn_test_plots = log_rn_plots.filter(ee.Filter.gte('random', split));
 
   var calib_model = ee.Dictionary(log_rn_plots.reduceColumns({
     reducer: ee.Reducer.linearRegression({
