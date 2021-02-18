@@ -139,8 +139,12 @@ function model_agc(rn_image, plots)
   });
   
   // print('log_rn_calib_plots: ', log_rn_calib_plots);
-  
-  var calib_model = ee.Dictionary(log_rn_calib_plots.reduceColumns({
+  var withRandom = log_rn_plots.randomColumn('random');
+  var split = 0.7;  // Roughly 70% training, 30% testing.
+  var trainingPartition = withRandom.filter(ee.Filter.lt('random', split));
+  var testingPartition = withRandom.filter(ee.Filter.gte('random', split));
+
+  var calib_model = ee.Dictionary(log_rn_plots.reduceColumns({
     reducer: ee.Reducer.linearRegression({
       numX: 2,
       numY: 1
