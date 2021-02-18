@@ -224,7 +224,7 @@ print('images metadata: ', images);
 // print('image metadata: ', images.first());
 print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
-var image = images.mean();
+var image = images.median();
 
 var rn_image = find_rn(image, 'L8');  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
