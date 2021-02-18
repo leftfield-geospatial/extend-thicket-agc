@@ -163,7 +163,7 @@ function model_agc(rn_image, train_plots)
 function accuracy_check(agc_image, test_plots)
 {
   var agc_field = 'AgcHa';
-  var pred_agc_field = 'AgcHa';
+  var pred_agc_field = 'PredAgcHa';
   
   var agc_plots = agc_image.reduceRegions({
     reducer: ee.Reducer.mean(),
