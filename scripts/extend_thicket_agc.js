@@ -111,7 +111,7 @@ function find_rn(image)
                 'B': image.select('B2'),
                 'RE': image.select('B8'),
               }),
-            image.expression('(R / (R + G + B + RE))', 
+            image.expression('(R / (R + G + B + RE))',  //Landsat
               {
                 'R': image.select('B4'),
                 'G': image.select('B3'),
