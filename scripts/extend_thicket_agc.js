@@ -134,7 +134,7 @@ function model_agc(rn_image, plots)
   // print(rn_calib_plots);
   
   // find log(mean(rn)) for each calib plot, and add constant 1 for offset fit
-  var log_rn_calib_plots = rn_calib_plots.map(function(feature) {
+  var log_rn_calib_plots = rn_plots.map(function(feature) {
     return feature.set({extend_log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
   });
   
