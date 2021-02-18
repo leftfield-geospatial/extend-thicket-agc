@@ -41,6 +41,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: about UI with link to me, cite me somehow
 // TODO: landsat and better s2 cloud mask - maybe not the shadow projection, 
 //     the simple QA0 thing is not working great for S2, and SR data looks better, even if it doesn't make better AGC?
+// TODO: try median composite instead of mean
 
 
 // NOTES
