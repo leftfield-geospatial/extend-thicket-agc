@@ -244,7 +244,7 @@ for (var i=0; i<1; i++)
   var agc_image = model_agc(rn_image, train_calib_plots);
 
   print('Calib Accuracy:');
-  accuracy_check(agc_image, test_calib_plots, 'calib');
+  accuracy_check(agc_image, test_calib_plots, 'Calib Test');
   print('Sampling Accuracy:');
   accuracy_check(agc_image, gef_sampling_plots, 'sampling');
 }
