@@ -247,7 +247,7 @@ var split = 0.5;
 
 for (var i=0; i<3; i++)
 {
-  var calib_plots = gef_calib_plots.randomColumn('random');
+  var calib_plots = gef_calib_plots.randomColumn('random', i);
   var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
   var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
   
