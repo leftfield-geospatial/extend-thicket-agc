@@ -235,7 +235,7 @@ var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'
 print('rn_image: ', rn_image);
 var split = 0.5;  
 
-for (i=0; i<1; i++)
+for (var i=0; i<1; i++)
 {
   var calib_plots = gef_calib_plots.randomColumn('random');
   var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
