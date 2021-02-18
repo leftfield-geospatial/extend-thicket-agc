@@ -103,7 +103,7 @@ function find_rn(image, type)
   // print('S2?: ', ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 'Sentinel', 'Not Sentinel'))
   
   
-  var rn_image = ee.Algorithms.If(ee.Image().bandNames().contains('B8'), 
+  var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'), 
             image.expression('(R / (R + G + B + RE))', 
               {
                 'R': image.select('B4'),
