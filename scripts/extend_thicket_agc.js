@@ -233,14 +233,14 @@ print('rn_image: ', rn_image);
 for (i=0;i<1;i++)
 {
   var agc_image = model_agc(rn_image);
+  print('Calib Accuracy:');
+  accuracy_check(gef_calib_plots, agc_image, 'calib');
+  // convert AgcHa from kg to tons
+  gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})})
+  print('Sampling Accuracy:');
+  accuracy_check(gef_sampling_plots, agc_image, 'sampling');
 }
 
-print('Calib Accuracy:');
-accuracy_check(gef_calib_plots, agc_image, 'calib');
-// convert AgcHa from kg to tons
-gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})})
-print('Sampling Accuracy:');
-accuracy_check(gef_sampling_plots, agc_image, 'sampling');
 
 if (false)
 {
