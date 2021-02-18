@@ -244,20 +244,16 @@ var image = images.median();
 var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
 var split = 0.5;  
+var calib_plots = gef_calib_plots.randomColumn('random', i);
+var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
+var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
 
-for (var i=0; i<3; i++)   // do a mini cross-validation
-{
-  var calib_plots = gef_calib_plots.randomColumn('random', i);
-  var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
-  var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
-  
-  var agc_image = model_agc(rn_image, train_calib_plots);
+var agc_image = model_agc(rn_image, train_calib_plots);
 
-  print('Calib Test Accuracy:');
-  accuracy_check(agc_image, test_calib_plots);
-  print('Calib Train Accuracy:');
-  accuracy_check(agc_image, train_calib_plots);
-}
+print('Calib Test Accuracy:');
+accuracy_check(agc_image, test_calib_plots);
+print('Calib Train Accuracy:');
+accuracy_check(agc_image, train_calib_plots);
 print('Sampling Accuracy:');
 accuracy_check(agc_image, gef_sampling_plots, 'sampling');
 
