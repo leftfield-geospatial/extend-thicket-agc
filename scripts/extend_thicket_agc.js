@@ -245,7 +245,7 @@ for (var i=0; i<1; i++)
 
   print('Calib Test Accuracy:');
   accuracy_check(agc_image, test_calib_plots, 'Calib Test');
-  print('Calib Test Accuracy:');
+  print('Calib Train Accuracy:');
   accuracy_check(agc_image, test_calib_plots, 'Calib Train');
   print('Sampling Accuracy:');
   accuracy_check(agc_image, gef_sampling_plots, 'sampling');
