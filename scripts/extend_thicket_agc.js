@@ -217,7 +217,8 @@ else if (false)
                       .filterDate('2017-09-01', '2017-11-30')
                       .filterBounds(step_arid_and_valley_thicket)
                       .map(landsat8_sr_cloud_mask);
- 
+
+// convert AgcHa from kg to tons
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
 var images = s2_sr_images;
 print('num images: ', images.size());
@@ -235,7 +236,6 @@ for (i=0;i<1;i++)
   var agc_image = model_agc(rn_image);
   print('Calib Accuracy:');
   accuracy_check(gef_calib_plots, agc_image, 'calib');
-  // convert AgcHa from kg to tons
   print('Sampling Accuracy:');
   accuracy_check(gef_sampling_plots, agc_image, 'sampling');
 }
