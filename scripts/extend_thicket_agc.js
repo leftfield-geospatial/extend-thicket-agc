@@ -104,7 +104,7 @@ function find_rn(image)
   
   
   var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'), 
-            image.expression('(R / (R + G + B + RE))', 
+            image.expression('(R / (R + G + B + RE))', //Sentinel
               {
                 'R': image.select('B4'),
                 'G': image.select('B3'),
