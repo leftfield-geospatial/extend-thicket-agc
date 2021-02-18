@@ -238,8 +238,8 @@ var split = 0.5;
 for (i=0; i<1; i++)
 {
   calib_plots = calib_plots.randomColumn('random');
-  var train_calib_plots = log_rn_plots.filter(ee.Filter.lt('random', split));
-  var test_calib_plots = log_rn_plots.filter(ee.Filter.gte('random', split));
+  var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
+  var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
   
   var agc_image = model_agc(rn_image);
 
