@@ -140,7 +140,7 @@ function model_agc(rn_image, train_plots)
   
   // print('log_rn_calib_plots: ', log_rn_calib_plots);
 
-  var calib_model = ee.Dictionary(log_rn_train_plots.reduceColumns({
+  var calib_model = ee.Dictionary(log_rn_plots.reduceColumns({
     reducer: ee.Reducer.linearRegression({
       numX: 2,
       numY: 1
