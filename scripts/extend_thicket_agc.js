@@ -96,7 +96,7 @@ function landsat8_sr_cloud_mask(image)
 }
 
 
-function find_rn(image, type) 
+function find_rn(image) 
 {
   // print('image metadata: ', image);
   // print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
