@@ -52,7 +52,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // S2 SR is is noticeably less hazy than TOA, but only available from 2019... why is that?
 // S2 TOA geom accuracy is much better than L8 T1
 var s2_cloud_masking = require('users/dugalh/extend_thicket_agc/extend_thicket_agc:s2_cloud_masking');
-
+print(s2_cloud_masking.s2CloudMaskParams);
 
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
