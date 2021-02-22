@@ -64,7 +64,7 @@ function add_cloud_bands(img)
 }
 exports.add_cloud_bands = add_cloud_bands;
 
-function(img)
+function add_shadow_bands(img)
 {
   // Identify water pixels from the SCL band.
   var dark_pixels;
