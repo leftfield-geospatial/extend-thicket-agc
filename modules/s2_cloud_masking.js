@@ -56,7 +56,7 @@ exports.add_cloud_bands(img)
     var is_cloud = cld_prb.gt(CLD_PRB_THRESH).rename('clouds');
 
     // # Add the cloud probability layer and cloud mask as image bands.
-    return img.addBands(ee.Image([cld_prb, is_cloud]))
+    return img.addBands(ee.Image([cld_prb, is_cloud]));
 }
     
 def add_shadow_bands(img):
