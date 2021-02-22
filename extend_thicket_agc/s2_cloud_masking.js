@@ -1,4 +1,4 @@
-exports.s2CloudMaskParams = var { 
+exports.s2CloudMaskParams = { 
     AOI: ee.Geometry.Point(24, -33.5),
     START_DATE: '2017-10-01',
     END_DATE: '2017-11-01',
