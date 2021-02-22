@@ -129,7 +129,7 @@ exports.apply_cld_shdw_mask = function(img)
 exports.display_cloud_layers = function(col)
 {
   // Mosaic the image collection.
-  img = col.mosaic()
+  var img = col.mosaic()
   
   // Subset layers and prepare them for display.
   clouds = img.select('clouds').selfMask()
