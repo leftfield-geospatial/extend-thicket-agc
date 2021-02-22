@@ -7,7 +7,7 @@ export s2CloudMaskParams = {
     NIR_DRK_THRESH: 0.15,
     CLD_PRJ_DIST: 4,
     BUFFER: 100
-}
+};
 
 export function get_s2_sr_cld_col(aoi, start_date, end_date)
 {
