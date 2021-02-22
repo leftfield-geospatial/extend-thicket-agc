@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.*/
 
-exports.s2CloudMaskParams = var({ 
+exports.s2CloudMaskParams = { 
     AOI: ee.Geometry.Point(24, -33.5),
     START_DATE: '2017-10-01',
     END_DATE: '2017-11-01',
@@ -22,7 +22,7 @@ exports.s2CloudMaskParams = var({
     SR_BAND_SCALE: 1e4,
     CLD_PRJ_DIST: 4,
     BUFFER: 100,
-});
+};
 
 exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
 {
