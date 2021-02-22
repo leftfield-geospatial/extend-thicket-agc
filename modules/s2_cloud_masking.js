@@ -65,7 +65,7 @@ exports.add_shadow_bands = function(img)
 {
   // Identify water pixels from the SCL band.
   var dark_pixels
-  if (false)
+  if ('SCL' in  img.bandNames())
   {
       var not_water = img.select('SCL').neq(6);
   
