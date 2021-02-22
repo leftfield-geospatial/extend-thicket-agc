@@ -245,7 +245,10 @@ print('images metadata: ', images);
 // print('image metadata: ', images.first());
 print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
-var image = images.median();
+var image = (s2_sr_cld_col.map(add_cld_shdw_mask)
+                             .map(apply_cld_shdw_mask)
+                             .median())
+// var image = images.median();
 
 var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
