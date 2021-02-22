@@ -57,7 +57,7 @@ function add_cloud_bands(img)
   var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
   
   // Condition s2cloudless by the probability threshold value.
-  var is_cloud = cld_prb.gt(CLD_PRB_THRESH).rename('clouds');
+  var is_cloud = cld_prb.gt(s2CloudMaskParams.CLD_PRB_THRESH).rename('clouds');
   
   // Add the cloud probability layer and cloud mask as image bands.
   return img.addBands(ee.Image([cld_prb, is_cloud]));
