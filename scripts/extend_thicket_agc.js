@@ -207,7 +207,7 @@ function accuracy_check(agc_image, test_plots)
 }
 
 
-if (true)
+if (false)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                     .filterDate('2017-10-01', '2017-10-30')
                     // Pre-filter to get less cloudy granules.
@@ -236,7 +236,7 @@ else if (true)
 // convert AgcHa from kg to tons
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
 
-var images = s2_toa_images;
+var images = l8_images;
 print('num images: ', images.size());
 print('images metadata: ', images);
 // print('image metadata: ', images.first());
