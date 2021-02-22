@@ -160,4 +160,4 @@ function(col)
   Map.addLayer(cloudmask, {'palette': 'orange'}, 'cloudmask', true);
   return;
 }
-exports.display_cloud_layers = 
+exports.display_cloud_layers = display_cloud_layers;
