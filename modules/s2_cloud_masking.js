@@ -58,7 +58,8 @@ exports.add_cloud_bands = function(img)
     // # Add the cloud probability layer and cloud mask as image bands.
     return img.addBands(ee.Image([cld_prb, is_cloud]));
 }
-    
+
+
 def add_shadow_bands(img):
     # Identify water pixels from the SCL band.
     if False:    
