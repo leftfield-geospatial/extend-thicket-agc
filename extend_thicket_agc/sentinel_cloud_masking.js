@@ -23,10 +23,10 @@ export function get_s2_sr_cld_col(aoi, start_date, end_date)
         .filterDate(start_date, end_date));
 
     // Join the filtered s2cloudless collection to the SR collection by the 'system:index' property.
-    return ee.ImageCollection(ee.Join.saveFirst('s2cloudless').apply(**{
+    return ee.ImageCollection(ee.Join.saveFirst('s2cloudless').apply({
         'primary': s2_sr_col,
         'secondary': s2_cloudless_col,
-        'condition': ee.Filter.equals(**{
+        'condition': ee.Filter.equals({
             'leftField': 'system:index',
             'rightField': 'system:index'
         })
