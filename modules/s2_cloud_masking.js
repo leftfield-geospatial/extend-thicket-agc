@@ -132,12 +132,12 @@ exports.display_cloud_layers = function(col)
   var img = col.mosaic()
   
   // Subset layers and prepare them for display.
-  clouds = img.select('clouds').selfMask()
-  shadows = img.select('shadows').selfMask()
-  dark_pixels = img.select('dark_pixels').selfMask()
-  probability = img.select('probability')
-  cloudmask = img.select('cloudmask').selfMask()
-  cloud_transform = img.select('cloud_transform')
+  var clouds = img.select('clouds').selfMask()
+  var shadows = img.select('shadows').selfMask()
+  var dark_pixels = img.select('dark_pixels').selfMask()
+  var probability = img.select('probability')
+  var cloudmask = img.select('cloudmask').selfMask()
+  var cloud_transform = img.select('cloud_transform')
   
   // Create a folium map object.
   center = AOI.centroid(10).coordinates().reverse().getInfo()
