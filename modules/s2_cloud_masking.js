@@ -113,6 +113,6 @@ exports.add_cld_shdw_mask = function(img)
       .reproject(**{'crs': img.select([0]).projection(), 'scale': 20})
       .rename('cloudmask'))
   
-  # Add the final cloud-shadow mask to the image.
+  // Add the final cloud-shadow mask to the image.
   return img_cloud_shadow.addBands(is_cld_shdw)
 }
