@@ -234,7 +234,7 @@ else if (false)
                       .map(landsat8_sr_cloud_mask);
 
 else if (true)
-  var s2_toa_images = s2_cloud_masking.
+  var s2_toa_images = s2_cloud_masking.get_s2_sr_cld_col(step_arid_and_valley_thicket, '2017-10-01', '2017-10-30');
 
 // convert AgcHa from kg to tons
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
