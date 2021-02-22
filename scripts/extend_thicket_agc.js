@@ -205,6 +205,8 @@ function accuracy_check(agc_image, test_plots)
   // }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])  
 }
 
+print(s2CloudMaskParams)
+
 if (true)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                     .filterDate('2017-10-01', '2017-10-30')
