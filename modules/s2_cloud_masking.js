@@ -96,7 +96,8 @@ exports.add_shadow_bands = function(img)
   return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]));
 }
 
-def add_cld_shdw_mask(img):
+exports.add_cld_shdw_mask = function(img)
+{
     # Add cloud component bands.
     img_cloud = add_cloud_bands(img)
 
@@ -114,3 +115,4 @@ def add_cld_shdw_mask(img):
 
     # Add the final cloud-shadow mask to the image.
     return img_cloud_shadow.addBands(is_cld_shdw)
+}
