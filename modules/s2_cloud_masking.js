@@ -73,8 +73,8 @@ exports.add_shadow_bands = function(img)
   }
   else
   {
-      SR_BAND_SCALE = 1e4
-      dark_pixels = img.select('B8').lt(NIR_DRK_THRESH*SR_BAND_SCALE).rename('dark_pixels')
+      SR_BAND_SCALE = 1e4;
+      dark_pixels = img.select('B8').lt(NIR_DRK_THRESH*SR_BAND_SCALE).rename('dark_pixels');
   }
       
   
