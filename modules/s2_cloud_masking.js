@@ -126,7 +126,8 @@ exports.apply_cld_shdw_mask = function(img)
   return img.select('B.*').updateMask(not_cld_shdw);
 }
 
-def display_cloud_layers(col):
+exports.display_cloud_layers = function(col)
+{
     # Mosaic the image collection.
     img = col.mosaic()
 
@@ -168,4 +169,4 @@ def display_cloud_layers(col):
 
     # Display the map.
     display(m)
-
+}
