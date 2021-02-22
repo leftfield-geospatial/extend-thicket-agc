@@ -51,9 +51,8 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // S2 TOA has visible clouds with s2_cloud_mask and prob needs 'COPERNICUS/S2_CLOUD_PROBABILITY' 
 // S2 SR is is noticeably less hazy than TOA, but only available from 2019... why is that?
 // S2 TOA geom accuracy is much better than L8 T1
-var composites = require('users/dugalh/extend_thicket_agc/extend_thicket_agc:sentinel_cloud_masking');
+var sentinel_cloud_masking = require('users/dugalh/extend_thicket_agc/extend_thicket_agc:sentinel_cloud_masking');
 
-import {s2CloudMaskParams, get_s2_sr_cld_col} from '../extend_thicket_agc/sentinel_cloud_masking.js'
 
 var model_m = ee.Number(-318.8304);
 var model_c = ee.Number(25.7259);
