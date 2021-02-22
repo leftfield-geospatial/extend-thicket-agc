@@ -246,7 +246,7 @@ print('images metadata: ', images);
 print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
 var image = (images.map(s2_cloud_masking.add_cld_shdw_mask)
-                             .map(apply_cld_shdw_mask)
+                             .map(s2_cloud_masking.apply_cld_shdw_mask)
                              .median())
 // var image = images.median();
 
