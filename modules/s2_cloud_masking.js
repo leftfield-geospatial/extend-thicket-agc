@@ -84,7 +84,7 @@ exports.add_shadow_bands = function(img)
   
   // Project shadows from clouds for the distance specified by the CLD_PRJ_DIST input.
   var cld_proj = (img.select('clouds').directionalDistanceTransform(shadow_azimuth, s2CloudMaskParams.CLD_PRJ_DIST*10)
-      .reproject(**{'crs': img.select(0).projection(), 'scale': 100})
+      .reproject({'crs': img.select(0).projection(), 'scale': 100})
       .select('distance')
       .mask()
       .rename('cloud_transform'))
