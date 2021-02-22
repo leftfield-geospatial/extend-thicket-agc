@@ -125,7 +125,7 @@ exports.add_cld_shdw_mask = add_cld_shdw_mask;
 function apply_cld_shdw_mask(img)
 {
   // Subset the cloudmask band and invert it so clouds/shadow are 0, else 1.
-  var not_cld_shdw = img.select('cloudmask').Not();
+  var not_cld_shdw = img.select('cloudmask').not();
   
   // Subset reflectance bands and update their masks, return the result.
   return img.updateMask(not_cld_shdw);
