@@ -150,8 +150,8 @@ function model_agc(rn_image, train_plots)
     selectors: ['extend_log_rn', 'constant', 'log(mean(R/pan))']
   }));
   
-  var calib_coeff = ee.Array(calib_model.get('coefficients')).toList()
-  print('calib_model: ', calib_model)
+  var calib_coeff = ee.Array(calib_model.get('coefficients')).toList();
+  print('calib_model: ', calib_model);
   // print(calib_model.get('coefficients'))
   var calib_m = ee.Number(ee.List(calib_coeff.get(0)).get(0));
   var calib_c = ee.Number(ee.List(calib_coeff.get(1)).get(0));
