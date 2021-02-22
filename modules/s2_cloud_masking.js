@@ -74,7 +74,7 @@ exports.add_shadow_bands = function(img)
   }
   else
   {
-      const SR_BAND_SCALE = 1e4;
+      SR_BAND_SCALE = 1e4;
       dark_pixels = img.select('B8').lt(s2CloudMaskParams.NIR_DRK_THRESH*SR_BAND_SCALE).rename('dark_pixels');
   }
 
