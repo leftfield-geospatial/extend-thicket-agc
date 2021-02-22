@@ -19,8 +19,9 @@ exports.s2CloudMaskParams = {
     CLOUD_FILTER: 60,
     CLD_PRB_THRESH: 25,
     NIR_DRK_THRESH: 0.15,
+    SR_BAND_SCALE = 1e4,
     CLD_PRJ_DIST: 4,
-    BUFFER: 100
+    BUFFER: 100,
 };
 
 exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
