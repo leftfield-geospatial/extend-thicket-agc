@@ -152,5 +152,5 @@ exports.display_cloud_layers = function(col)
   Map.addLayer(dark_pixels, {'palette': 'orange'}, 'dark_pixels', false);
   Map.addLayer(shadows, {'palette': 'yellow'}, 'shadows', false);
   Map.addLayer(cloudmask, {'palette': 'orange'}, 'cloudmask', true);
-  
+  return;
 }
