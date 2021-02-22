@@ -68,17 +68,17 @@ exports.add_shadow_bands = function(img)
       not_water = img.select('SCL').neq(6);
   
       // Identify dark NIR pixels that are not water (potential cloud shadow pixels)
-      SR_BAND_SCALE = 1e4;
+      const SR_BAND_SCALE = 1e4;
       dark_pixels = img.select('B8').lt(s2CloudMaskParams['NIR_DRK_THRESH']*SR_BAND_SCALE).multiply(not_water).rename('dark_pixels');
   }
   else
   {
-      SR_BAND_SCALE = 1e4;
+      const SR_BAND_SCALE = 1e4;
       dark_pixels = img.select('B8').lt(s2CloudMaskParams['NIR_DRK_THRESH']*SR_BAND_SCALE).rename('dark_pixels');
   }
 
   // Determine the direction to project cloud shadow from clouds (assumes UTM projection).
-  shadow_azimuth = ee.Number(90).subtract(ee.Number(img.get('MEAN_SOLAR_AZIMUTH_ANGLE')));
+  var shadow_azimuth = ee.Number(90).subtract(ee.Number(img.get('MEAN_SOLAR_AZIMUTH_ANGLE')));
   
   // Project shadows from clouds for the distance specified by the CLD_PRJ_DIST input.
   cld_proj = (img.select('clouds').directionalDistanceTransform(shadow_azimuth, CLD_PRJ_DIST*10)
