@@ -49,7 +49,7 @@ exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
     }));
 };
 
- = function(img)
+function add_cloud_bands(img)
 {
   // Get s2cloudless image, subset the probability band.
   var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
