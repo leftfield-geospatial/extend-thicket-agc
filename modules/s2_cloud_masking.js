@@ -146,7 +146,7 @@ exports.display_cloud_layers = function(col)
   
   // Add layers to the folium map.
   Map.addLayer(img, {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1}, 'S2 image', true);
-  m.add_ee_layer(probability, {'min': 0, 'max': 100}, 'probability (cloud)', false, 1, 9)
+  m.add_ee_layer(probability, {'min': 0, 'max': 100}, 'probability (cloud)', false);
   m.add_ee_layer(clouds,
                  {'palette': 'e056fd'},
                  'clouds', False, 1, 9)
