@@ -147,9 +147,7 @@ exports.display_cloud_layers = function(col)
   // Add layers to the folium map.
   Map.addLayer(img, {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1}, 'S2 image', true);
   Map.addLayer(probability, {'min': 0, 'max': 100}, 'probability (cloud)', false);
-  Map.addLayer(clouds,
-                 {'palette': 'e056fd'},
-                 'clouds', False, 1, 9)
+  Map.addLayer(clouds, {'palette': 'e056fd'}, 'clouds', false);
   Map.addLayer(cloud_transform,
                  {'min': 0, 'max': 1, 'palette': ['white', 'black']},
                  'cloud_transform', False, 1, 9)
@@ -161,9 +159,4 @@ exports.display_cloud_layers = function(col)
   Map.addLayer(cloudmask, {'palette': 'orange'},
                  'cloudmask', True, 0.5, 9)
   
-  // Add a layer control panel to the map.
-  m.add_child(folium.LayerControl())
-  
-  // Display the map.
-  display(m)
 }
