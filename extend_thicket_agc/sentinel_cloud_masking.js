@@ -29,8 +29,8 @@ export function get_s2_sr_cld_col(aoi, start_date, end_date)
         'condition': ee.Filter.equals({
             'leftField': 'system:index',
             'rightField': 'system:index'
-        });
-    }))
+        })
+    }));
 }
 
 export function draw(ctx, length, x, y, color) {
