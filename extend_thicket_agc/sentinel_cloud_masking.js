@@ -33,13 +33,3 @@ export function get_s2_sr_cld_col(aoi, start_date, end_date)
     }));
 }
 
-export function draw(ctx, length, x, y, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x, y, length, length);
-
-  return {
-    length: length,
-    x: x,
-    y: y,
-    color: color
-  };
