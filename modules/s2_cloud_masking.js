@@ -145,7 +145,7 @@ exports.display_cloud_layers = function(col)
   Map.centerObject(s2CloudMaskParams.AOI)
   
   // Add layers to the folium map.
-  m.add_ee_layer(img,
+  Map.addLayer(img,
                  {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1},
                  'S2 image', True, 1, 9)
   m.add_ee_layer(probability,
