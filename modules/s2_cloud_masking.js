@@ -83,7 +83,7 @@ exports.add_shadow_bands = function(img)
   var shadow_azimuth = ee.Number(90).subtract(ee.Number(img.get('MEAN_SOLAR_AZIMUTH_ANGLE')));
   
   // Project shadows from clouds for the distance specified by the CLD_PRJ_DIST input.
-  cld_proj = (img.select('clouds').directionalDistanceTransform(shadow_azimuth, CLD_PRJ_DIST*10)
+  var cld_proj = (img.select('clouds').directionalDistanceTransform(shadow_azimuth, s2CloudMaskParams.CLD_PRJ_DIST*10)
       .reproject(**{'crs': img.select(0).projection(), 'scale': 100})
       .select('distance')
       .mask()
