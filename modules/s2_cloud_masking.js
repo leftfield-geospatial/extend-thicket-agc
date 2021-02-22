@@ -140,7 +140,7 @@ function add_cld_only_mask(img)
   // 20 m scale is for speed, and assumes clouds don't require 10 m precision.
   var scale = 20;
   var is_cld_shdw = (img_cloud.select('clouds').focal_min(2).focal_max(s2CloudMaskParams.BUFFER*2/scale)
-      .reproject({'crs': img.select([0]).projection(), 'scale': 20})
+      .reproject({'crs': img.select([0]).projection(), 'scale': scale})
       .rename('cloudmask'));
   
   // Add the final cloud-shadow mask to the image.
