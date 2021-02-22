@@ -148,9 +148,7 @@ exports.display_cloud_layers = function(col)
   Map.addLayer(img, {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1}, 'S2 image', true);
   Map.addLayer(probability, {'min': 0, 'max': 100}, 'probability (cloud)', false);
   Map.addLayer(clouds, {'palette': 'e056fd'}, 'clouds', false);
-  Map.addLayer(cloud_transform,
-                 {'min': 0, 'max': 1, 'palette': ['white', 'black']},
-                 'cloud_transform', False, 1, 9)
+  Map.addLayer(cloud_transform, {'min': 0, 'max': 1, 'palette': ['white', 'black']}, 'cloud_transform', false);
   Map.addLayer(dark_pixels,
                  {'palette': 'orange'},
                  'dark_pixels', False, 1, 9)
