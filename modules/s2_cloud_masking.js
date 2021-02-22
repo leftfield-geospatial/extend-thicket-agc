@@ -87,7 +87,7 @@ exports.add_shadow_bands = function(img)
       .reproject({'crs': img.select(0).projection(), 'scale': 100})
       .select('distance')
       .mask()
-      .rename('cloud_transform'))
+      .rename('cloud_transform'));
   
   // Identify the intersection of dark pixels with cloud shadow projection.
   shadows = cld_proj.multiply(dark_pixels).rename('shadows')
