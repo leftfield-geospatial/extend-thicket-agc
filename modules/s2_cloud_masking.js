@@ -49,20 +49,20 @@ exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
 
 exports.add_cloud_bands = function(img)
 {
-    // Get s2cloudless image, subset the probability band.
-    var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
-
-    // # Condition s2cloudless by the probability threshold value.
-    var is_cloud = cld_prb.gt(CLD_PRB_THRESH).rename('clouds');
-
-    // # Add the cloud probability layer and cloud mask as image bands.
-    return img.addBands(ee.Image([cld_prb, is_cloud]));
+  // Get s2cloudless image, subset the probability band.
+  var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
+  
+  // Condition s2cloudless by the probability threshold value.
+  var is_cloud = cld_prb.gt(CLD_PRB_THRESH).rename('clouds');
+  
+  // Add the cloud probability layer and cloud mask as image bands.
+  return img.addBands(ee.Image([cld_prb, is_cloud]));
 }
 
 
 exports.add_shadow_bands = function(img)
 {
-    # Identify water pixels from the SCL band.
+    // Identify water pixels from the SCL band.
     if False:    
         not_water = img.select('SCL').neq(6)
 
@@ -74,20 +74,20 @@ exports.add_shadow_bands = function(img)
         dark_pixels = img.select('B8').lt(NIR_DRK_THRESH*SR_BAND_SCALE).rename('dark_pixels')
         
 
-    # Determine the direction to project cloud shadow from clouds (assumes UTM projection).
+    // Determine the direction to project cloud shadow from clouds (assumes UTM projection).
     shadow_azimuth = ee.Number(90).subtract(ee.Number(img.get('MEAN_SOLAR_AZIMUTH_ANGLE')));
 
-    # Project shadows from clouds for the distance specified by the CLD_PRJ_DIST input.
+    // Project shadows from clouds for the distance specified by the CLD_PRJ_DIST input.
     cld_proj = (img.select('clouds').directionalDistanceTransform(shadow_azimuth, CLD_PRJ_DIST*10)
         .reproject(**{'crs': img.select(0).projection(), 'scale': 100})
         .select('distance')
         .mask()
         .rename('cloud_transform'))
 
-    # Identify the intersection of dark pixels with cloud shadow projection.
+    // Identify the intersection of dark pixels with cloud shadow projection.
     shadows = cld_proj.multiply(dark_pixels).rename('shadows')
 
-    # Add dark pixels, cloud projection, and identified shadows as image bands.
+    // Add dark pixels, cloud projection, and identified shadows as image bands.
     return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]))
 }
 
