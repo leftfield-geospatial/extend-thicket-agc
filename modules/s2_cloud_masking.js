@@ -46,7 +46,7 @@ exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
             'rightField': 'system:index'
         })
     }));
-}
+};
 
 exports.add_cloud_bands = function(img)
 {
@@ -58,7 +58,7 @@ exports.add_cloud_bands = function(img)
   
   // Add the cloud probability layer and cloud mask as image bands.
   return img.addBands(ee.Image([cld_prb, is_cloud]));
-}
+};
 
 
 exports.add_shadow_bands = function(img)
@@ -94,7 +94,7 @@ exports.add_shadow_bands = function(img)
   
   // Add dark pixels, cloud projection, and identified shadows as image bands.
   return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]));
-}
+};
 
 exports.add_cld_shdw_mask = function(img)
 {
@@ -115,7 +115,7 @@ exports.add_cld_shdw_mask = function(img)
   
   // Add the final cloud-shadow mask to the image.
   return img_cloud_shadow.addBands(is_cld_shdw);
-}
+};
 
 exports.apply_cld_shdw_mask = function(img)
 {
@@ -124,20 +124,20 @@ exports.apply_cld_shdw_mask = function(img)
   
   // Subset reflectance bands and update their masks, return the result.
   return img.select('B.*').updateMask(not_cld_shdw);
-}
+};
 
 exports.display_cloud_layers = function(col)
 {
   // Mosaic the image collection.
-  var img = col.mosaic()
+  var img = col.mosaic();
   
   // Subset layers and prepare them for display.
-  var clouds = img.select('clouds').selfMask()
-  var shadows = img.select('shadows').selfMask()
-  var dark_pixels = img.select('dark_pixels').selfMask()
-  var probability = img.select('probability')
-  var cloudmask = img.select('cloudmask').selfMask()
-  var cloud_transform = img.select('cloud_transform')
+  var clouds = img.select('clouds').selfMask();
+  var shadows = img.select('shadows').selfMask();
+  var dark_pixels = img.select('dark_pixels').selfMask();
+  var probability = img.select('probability');
+  var cloudmask = img.select('cloudmask').selfMask();
+  var cloud_transform = img.select('cloud_transform');
   
   // Create a folium map object.
   // var center = AOI.centroid(10).coordinates().reverse().getInfo()
@@ -153,4 +153,4 @@ exports.display_cloud_layers = function(col)
   Map.addLayer(shadows, {'palette': 'yellow'}, 'shadows', false);
   Map.addLayer(cloudmask, {'palette': 'orange'}, 'cloudmask', true);
   return;
-}
+};
