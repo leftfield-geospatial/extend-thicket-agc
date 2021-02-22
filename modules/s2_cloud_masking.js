@@ -12,6 +12,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.*/
 
+// TODO add simplified cloud mask without multiple bands and intermediate steps, just 
+
+
 var s2CloudMaskParams = { 
     AOI: ee.Geometry.Point(24, -33.5),
     START_DATE: '2017-10-01',
