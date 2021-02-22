@@ -11,7 +11,7 @@ export sentinelCloudMaskParams = {
 
 export function get_s2_sr_cld_col(aoi, start_date, end_date)
 {
-    # Import and filter S2 SR.
+    // Import and filter S2 SR.
     s2_sr_col = (ee.ImageCollection('COPERNICUS/S2')
         .filterBounds(aoi)
         .filterDate(start_date, end_date)
