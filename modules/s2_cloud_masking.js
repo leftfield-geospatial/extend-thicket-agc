@@ -143,7 +143,7 @@ exports.display_cloud_layers = function(col)
   // Create a folium map object.
   // var center = AOI.centroid(10).coordinates().reverse().getInfo()
   // m = folium.Map(location=center, zoom_start=12)
-  Map.centerObject(s2CloudMaskParams.AOI)
+  Map.centerObject(s2CloudMaskParams.AOI);
   
   // Add layers to the folium map.
   Map.addLayer(img, {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1}, 'S2 image', true);
