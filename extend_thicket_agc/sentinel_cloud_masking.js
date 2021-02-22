@@ -1,4 +1,4 @@
-export const name = 'square';
+export const thingy = 'square';
 
 export function draw(ctx, length, x, y, color) {
   ctx.fillStyle = color;
