@@ -23,17 +23,7 @@ var s2CloudMaskParams = {
     CLD_PRJ_DIST: 4,
     BUFFER: 100,
 };
-exports.s2CloudMaskParams = { 
-    AOI: ee.Geometry.Point(24, -33.5),
-    START_DATE: '2017-10-01',
-    END_DATE: '2017-11-01',
-    CLOUD_FILTER: 60,
-    CLD_PRB_THRESH: 25,
-    NIR_DRK_THRESH: 0.15,
-    SR_BAND_SCALE: 1e4,
-    CLD_PRJ_DIST: 4,
-    BUFFER: 100,
-};
+exports.s2CloudMaskParams = s2CloudMaskParams;
 
 exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
 {
