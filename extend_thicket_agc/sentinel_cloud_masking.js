@@ -17,7 +17,7 @@ export function get_s2_sr_cld_col(aoi, start_date, end_date)
         .filterDate(start_date, end_date)
         .filter(ee.Filter.lte('CLOUDY_PIXEL_PERCENTAGE', s2CloudMaskParams['CLOUD_FILTER'])));
 
-    # Import and filter s2cloudless.
+    // Import and filter s2cloudless.
     s2_cloudless_col = (ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY')
         .filterBounds(aoi)
         .filterDate(start_date, end_date))
