@@ -25,7 +25,7 @@ var s2CloudMaskParams = {
 };
 exports.s2CloudMaskParams = s2CloudMaskParams;
 
-exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
+function get_s2_sr_cld_col(aoi, start_date, end_date)
 {
     // Import and filter S2 SR.
     var s2_sr_col = (ee.ImageCollection('COPERNICUS/S2')
@@ -48,6 +48,7 @@ exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
         })
     }));
 };
+exports. = 
 
 function add_cloud_bands(img)
 {
