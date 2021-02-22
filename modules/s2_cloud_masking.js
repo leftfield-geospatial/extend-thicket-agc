@@ -138,7 +138,7 @@ function add_cld_only_mask(img)
   
   // Remove small cloud-shadow patches and dilate remaining pixels by BUFFER input.
   // 20 m scale is for speed, and assumes clouds don't require 10 m precision.
-  var scale = 100;
+  var scale = 50;
   var is_cld_shdw = (img_cloud.select('clouds').focal_min(2).focal_max(s2CloudMaskParams.BUFFER*2/scale)
       .rename('cloudmask'));
   
