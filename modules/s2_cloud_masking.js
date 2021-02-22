@@ -93,7 +93,7 @@ exports.add_shadow_bands = function(img)
   var shadows = cld_proj.multiply(dark_pixels).rename('shadows');
   
   // Add dark pixels, cloud projection, and identified shadows as image bands.
-  return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]))
+  return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]));
 }
 
 def add_cld_shdw_mask(img):
