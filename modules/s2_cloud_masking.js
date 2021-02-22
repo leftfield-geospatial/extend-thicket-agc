@@ -128,45 +128,45 @@ exports.apply_cld_shdw_mask = function(img)
 
 exports.display_cloud_layers = function(col)
 {
-    # Mosaic the image collection.
-    img = col.mosaic()
-
-    # Subset layers and prepare them for display.
-    clouds = img.select('clouds').selfMask()
-    shadows = img.select('shadows').selfMask()
-    dark_pixels = img.select('dark_pixels').selfMask()
-    probability = img.select('probability')
-    cloudmask = img.select('cloudmask').selfMask()
-    cloud_transform = img.select('cloud_transform')
-
-    # Create a folium map object.
-    center = AOI.centroid(10).coordinates().reverse().getInfo()
-    m = folium.Map(location=center, zoom_start=12)
-
-    # Add layers to the folium map.
-    m.add_ee_layer(img,
-                   {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1},
-                   'S2 image', True, 1, 9)
-    m.add_ee_layer(probability,
-                   {'min': 0, 'max': 100},
-                   'probability (cloud)', False, 1, 9)
-    m.add_ee_layer(clouds,
-                   {'palette': 'e056fd'},
-                   'clouds', False, 1, 9)
-    m.add_ee_layer(cloud_transform,
-                   {'min': 0, 'max': 1, 'palette': ['white', 'black']},
-                   'cloud_transform', False, 1, 9)
-    m.add_ee_layer(dark_pixels,
-                   {'palette': 'orange'},
-                   'dark_pixels', False, 1, 9)
-    m.add_ee_layer(shadows, {'palette': 'yellow'},
-                   'shadows', False, 1, 9)
-    m.add_ee_layer(cloudmask, {'palette': 'orange'},
-                   'cloudmask', True, 0.5, 9)
-
-    # Add a layer control panel to the map.
-    m.add_child(folium.LayerControl())
-
-    # Display the map.
-    display(m)
+  // Mosaic the image collection.
+  img = col.mosaic()
+  
+  // Subset layers and prepare them for display.
+  clouds = img.select('clouds').selfMask()
+  shadows = img.select('shadows').selfMask()
+  dark_pixels = img.select('dark_pixels').selfMask()
+  probability = img.select('probability')
+  cloudmask = img.select('cloudmask').selfMask()
+  cloud_transform = img.select('cloud_transform')
+  
+  // Create a folium map object.
+  center = AOI.centroid(10).coordinates().reverse().getInfo()
+  m = folium.Map(location=center, zoom_start=12)
+  
+  // Add layers to the folium map.
+  m.add_ee_layer(img,
+                 {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1},
+                 'S2 image', True, 1, 9)
+  m.add_ee_layer(probability,
+                 {'min': 0, 'max': 100},
+                 'probability (cloud)', False, 1, 9)
+  m.add_ee_layer(clouds,
+                 {'palette': 'e056fd'},
+                 'clouds', False, 1, 9)
+  m.add_ee_layer(cloud_transform,
+                 {'min': 0, 'max': 1, 'palette': ['white', 'black']},
+                 'cloud_transform', False, 1, 9)
+  m.add_ee_layer(dark_pixels,
+                 {'palette': 'orange'},
+                 'dark_pixels', False, 1, 9)
+  m.add_ee_layer(shadows, {'palette': 'yellow'},
+                 'shadows', False, 1, 9)
+  m.add_ee_layer(cloudmask, {'palette': 'orange'},
+                 'cloudmask', True, 0.5, 9)
+  
+  // Add a layer control panel to the map.
+  m.add_child(folium.LayerControl())
+  
+  // Display the map.
+  display(m)
 }
