@@ -128,7 +128,7 @@ function apply_cld_shdw_mask(img)
   var not_cld_shdw = img.select('cloudmask').Not();
   
   // Subset reflectance bands and update their masks, return the result.
-  return img.select('B.*').updateMask(not_cld_shdw);
+  return img.updateMask(not_cld_shdw);
 }
 exports.apply_cld_shdw_mask = apply_cld_shdw_mask;
 
