@@ -74,12 +74,12 @@ function add_shadow_bands(img)
   
       // Identify dark NIR pixels that are not water (potential cloud shadow pixels)
       s2CloudMaskParams.SR_BAND_SCALE = 1e4;
-      dark_pixels = img.select('B8').lt(s2CloudMaskParams.NIR_DRK_THRESH*SR_BAND_SCALE).multiply(not_water).rename('dark_pixels');
+      dark_pixels = img.select('B8').lt(s2CloudMaskParams.NIR_DRK_THRESH*s2CloudMaskParams.SR_BAND_SCALE).multiply(not_water).rename('dark_pixels');
   }
   else
   {
       s2CloudMaskParams.SR_BAND_SCALE = 1e4;
-      dark_pixels = img.select('B8').lt(s2CloudMaskParams.NIR_DRK_THRESH*SR_BAND_SCALE).rename('dark_pixels');
+      dark_pixels = img.select('B8').lt(s2CloudMaskParams.NIR_DRK_THRESH*s2CloudMaskParams.SR_BAND_SCALE).rename('dark_pixels');
   }
 
   // Determine the direction to project cloud shadow from clouds (assumes UTM projection).
