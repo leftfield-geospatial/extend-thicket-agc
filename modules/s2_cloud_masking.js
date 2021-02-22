@@ -49,7 +49,7 @@ exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
     }));
 };
 
-exports.add_cloud_bands = function(img)
+ = function(img)
 {
   // Get s2cloudless image, subset the probability band.
   var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
@@ -60,7 +60,7 @@ exports.add_cloud_bands = function(img)
   // Add the cloud probability layer and cloud mask as image bands.
   return img.addBands(ee.Image([cld_prb, is_cloud]));
 };
-
+exports.add_cloud_bands = add_cloud_bands;
 
 exports.add_shadow_bands = function(img)
 {
