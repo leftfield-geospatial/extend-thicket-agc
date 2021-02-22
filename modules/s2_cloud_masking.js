@@ -132,7 +132,7 @@ function apply_cld_shdw_mask(img)
 }
 exports.apply_cld_shdw_mask = apply_cld_shdw_mask;
 
-exports.display_cloud_layers = function(col)
+function(col)
 {
   // Mosaic the image collection.
   var img = col.mosaic();
@@ -159,4 +159,5 @@ exports.display_cloud_layers = function(col)
   Map.addLayer(shadows, {'palette': 'yellow'}, 'shadows', false);
   Map.addLayer(cloudmask, {'palette': 'orange'}, 'cloudmask', true);
   return;
-};
+}
+exports.display_cloud_layers = 
