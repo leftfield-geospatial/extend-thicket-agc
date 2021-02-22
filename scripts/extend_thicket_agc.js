@@ -52,7 +52,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // S2 SR is is noticeably less hazy than TOA, but only available from 2019... why is that?
 // S2 TOA geom accuracy is much better than L8 T1
 // https://code.earthengine.google.com/?scriptPath=users%2Fdugalh%2Fextend_thicket_agc%3Aextend_thicket_agc%2Fs2_cloud_masking.js
-var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:s2_cloud_masking');
+var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:s2_cloud_masking.js');
 print(s2_cloud_masking.s2CloudMaskParams);
 
 var model_m = ee.Number(-318.8304);
@@ -206,7 +206,6 @@ function accuracy_check(agc_image, test_plots)
   // }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])  
 }
 
-print(s2CloudMaskParams)
 
 if (true)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
