@@ -69,12 +69,12 @@ exports.add_shadow_bands = function(img)
   
       // Identify dark NIR pixels that are not water (potential cloud shadow pixels)
       SR_BAND_SCALE = 1e4;
-      dark_pixels = img.select('B8').lt(NIR_DRK_THRESH*SR_BAND_SCALE).multiply(not_water).rename('dark_pixels');
+      dark_pixels = img.select('B8').lt(s2CloudMaskParams['NIR_DRK_THRESH']*SR_BAND_SCALE).multiply(not_water).rename('dark_pixels');
   }
   else
   {
       SR_BAND_SCALE = 1e4;
-      dark_pixels = img.select('B8').lt(NIR_DRK_THRESH*SR_BAND_SCALE).rename('dark_pixels');
+      dark_pixels = img.select('B8').lt(s2CloudMaskParams['NIR_DRK_THRESH']*SR_BAND_SCALE).rename('dark_pixels');
   }
       
   
