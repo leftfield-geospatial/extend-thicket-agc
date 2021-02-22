@@ -100,7 +100,7 @@ function add_shadow_bands(img)
 }
 exports.add_shadow_bands = add_shadow_bands;
 
-exports.add_cld_shdw_mask = function(img)
+function(img)
 {
   // Add cloud component bands.
   var img_cloud = add_cloud_bands(img);
@@ -120,6 +120,7 @@ exports.add_cld_shdw_mask = function(img)
   // Add the final cloud-shadow mask to the image.
   return img_cloud_shadow.addBands(is_cld_shdw);
 };
+exports.add_cld_shdw_mask = add_cld_shdw_mask
 
 exports.apply_cld_shdw_mask = function(img)
 {
