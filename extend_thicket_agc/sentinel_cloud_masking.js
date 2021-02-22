@@ -20,9 +20,9 @@ export function get_s2_sr_cld_col(aoi, start_date, end_date)
     // Import and filter s2cloudless.
     s2_cloudless_col = (ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY')
         .filterBounds(aoi)
-        .filterDate(start_date, end_date))
+        .filterDate(start_date, end_date));
 
-    # Join the filtered s2cloudless collection to the SR collection by the 'system:index' property.
+    // Join the filtered s2cloudless collection to the SR collection by the 'system:index' property.
     return ee.ImageCollection(ee.Join.saveFirst('s2cloudless').apply(**{
         'primary': s2_sr_col,
         'secondary': s2_cloudless_col,
