@@ -128,7 +128,7 @@ function add_cld_only_mask(img)
   var img_cloud = add_cloud_bands(img);
   
   // Add cloud shadow component bands.
-  var img_cloud_shadow = add_shadow_bands(img_cloud);
+  // var img_cloud_shadow = add_shadow_bands(img_cloud);
   
   // Combine cloud and shadow mask, set cloud and shadow as value 1, else 0.
   var is_cld_shdw = img_cloud_shadow.select('clouds').add(img_cloud_shadow.select('shadows')).gt(0);
