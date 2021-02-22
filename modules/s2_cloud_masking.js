@@ -76,7 +76,7 @@ exports.add_shadow_bands = function(img)
       SR_BAND_SCALE = 1e4;
       dark_pixels = img.select('B8').lt(s2CloudMaskParams['NIR_DRK_THRESH']*SR_BAND_SCALE).rename('dark_pixels');
   }
-      
+
   
   // Determine the direction to project cloud shadow from clouds (assumes UTM projection).
   shadow_azimuth = ee.Number(90).subtract(ee.Number(img.get('MEAN_SOLAR_AZIMUTH_ANGLE')));
