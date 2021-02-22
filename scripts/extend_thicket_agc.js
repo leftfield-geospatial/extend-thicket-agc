@@ -207,7 +207,7 @@ function accuracy_check(agc_image, test_plots)
 }
 
 
-if (false)
+if (true)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                     .filterDate('2017-10-01', '2017-10-30')
                     // Pre-filter to get less cloudy granules.
