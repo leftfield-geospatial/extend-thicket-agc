@@ -60,7 +60,8 @@ exports.add_cloud_bands = function(img)
 }
 
 
-exports.add_shadow_bands = function(img):
+exports.add_shadow_bands = function(img)
+{
     # Identify water pixels from the SCL band.
     if False:    
         not_water = img.select('SCL').neq(6)
@@ -88,7 +89,8 @@ exports.add_shadow_bands = function(img):
 
     # Add dark pixels, cloud projection, and identified shadows as image bands.
     return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]))
-    
+}
+
 def add_cld_shdw_mask(img):
     # Add cloud component bands.
     img_cloud = add_cloud_bands(img)
