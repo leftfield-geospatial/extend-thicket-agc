@@ -234,6 +234,7 @@ else if (false)
                       .map(landsat8_sr_cloud_mask);
 
 else if (true)
+  var s2_toa_images = s2_cloud_masking.
 
 // convert AgcHa from kg to tons
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
