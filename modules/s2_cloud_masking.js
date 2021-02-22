@@ -28,13 +28,13 @@ exports.s2CloudMaskParams = s2CloudMaskParams;
 exports.get_s2_sr_cld_col = function(aoi, start_date, end_date)
 {
     // Import and filter S2 SR.
-    s2_sr_col = (ee.ImageCollection('COPERNICUS/S2')
+    var s2_sr_col = (ee.ImageCollection('COPERNICUS/S2')
         .filterBounds(aoi)
         .filterDate(start_date, end_date)
         .filter(ee.Filter.lte('CLOUDY_PIXEL_PERCENTAGE', s2CloudMaskParams['CLOUD_FILTER'])));
 
     // Import and filter s2cloudless.
-    s2_cloudless_col = (ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY')
+    var s2_cloudless_col = (ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY')
         .filterBounds(aoi)
         .filterDate(start_date, end_date));
 
