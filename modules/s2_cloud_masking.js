@@ -120,7 +120,7 @@ function add_cld_shdw_mask(img)
   // Add the final cloud-shadow mask to the image.
   return img_cloud_shadow.addBands(is_cld_shdw);
 };
-exports.add_cld_shdw_mask = add_cld_shdw_mask
+exports.add_cld_shdw_mask = add_cld_shdw_mask;
 
 exports.apply_cld_shdw_mask = function(img)
 {
