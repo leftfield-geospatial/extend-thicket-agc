@@ -115,10 +115,10 @@ function find_rn(image)
               }),
             image.expression('(R / (R + G + B + RE))',  //Landsat
               {
-                'R': image.select('B4'),
-                'G': image.select('B3'),
-                'B': image.select('B2'),
-                'RE': image.select('B5'),
+                'R': image.select('B3'),
+                'G': image.select('B2'),
+                'B': image.select('B1'),
+                'RE': image.select('B4'),
               })
             );
     return ee.Image(rn_image);
