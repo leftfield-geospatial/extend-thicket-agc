@@ -119,11 +119,11 @@ exports.add_cld_shdw_mask = function(img)
 
 exports.apply_cld_shdw_mask = function(img)
 {
-    # Subset the cloudmask band and invert it so clouds/shadow are 0, else 1.
-    not_cld_shdw = img.select('cloudmask').Not()
-
-    # Subset reflectance bands and update their masks, return the result.
-    return img.select('B.*').updateMask(not_cld_shdw)
+  // Subset the cloudmask band and invert it so clouds/shadow are 0, else 1.
+  not_cld_shdw = img.select('cloudmask').Not()
+  
+  // Subset reflectance bands and update their masks, return the result.
+  return img.select('B.*').updateMask(not_cld_shdw)
 }
 
 def display_cloud_layers(col):
