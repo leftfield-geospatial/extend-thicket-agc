@@ -51,7 +51,9 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // S2 TOA has visible clouds with s2_cloud_mask and prob needs 'COPERNICUS/S2_CLOUD_PROBABILITY' 
 // S2 SR is is noticeably less hazy than TOA, but only available from 2019... why is that?
 // S2 TOA geom accuracy is much better than L8 T1
-// https://code.earthengine.google.com/?scriptPath=users%2Fdugalh%2Fextend_thicket_agc%3Aextend_thicket_agc%2Fs2_cloud_masking.js
+// The cloud prob S2 masking is very slow for our large ROI and for the particular time span of interest, makes very little difference to AGC acc
+
+
 var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:modules/s2_cloud_masking.js');
 print(s2_cloud_masking.s2CloudMaskParams);
 
