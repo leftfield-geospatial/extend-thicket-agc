@@ -132,7 +132,7 @@ function apply_cld_shdw_mask(img)
 }
 exports.apply_cld_shdw_mask = apply_cld_shdw_mask;
 
-function(col)
+function display_cloud_layers(col)
 {
   // Mosaic the image collection.
   var img = col.mosaic();
