@@ -207,7 +207,7 @@ function accuracy_check(agc_image, test_plots)
 }
 
 
-if (true)
+if (false)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                     .filterDate('2017-10-01', '2017-10-30')
                     // Pre-filter to get less cloudy granules.
@@ -227,11 +227,13 @@ else if (false)
                     .filterBounds(step_arid_and_valley_thicket)
                     .map(s2_cloud_mask);
 
-else if (true)
+else if (false)
   var l8_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
                       .filterDate('2017-09-01', '2017-11-30')
                       .filterBounds(step_arid_and_valley_thicket)
                       .map(landsat8_sr_cloud_mask);
+
+else if (true)
 
 // convert AgcHa from kg to tons
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
