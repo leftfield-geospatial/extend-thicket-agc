@@ -71,3 +71,22 @@ def add_shadow_bands(img):
 
     # Add dark pixels, cloud projection, and identified shadows as image bands.
     return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]))
+    
+def add_cld_shdw_mask(img):
+    # Add cloud component bands.
+    img_cloud = add_cloud_bands(img)
+
+    # Add cloud shadow component bands.
+    img_cloud_shadow = add_shadow_bands(img_cloud)
+
+    # Combine cloud and shadow mask, set cloud and shadow as value 1, else 0.
+    is_cld_shdw = img_cloud_shadow.select('clouds').add(img_cloud_shadow.select('shadows')).gt(0)
+
+    # Remove small cloud-shadow patches and dilate remaining pixels by BUFFER input.
+    # 20 m scale is for speed, and assumes clouds don't require 10 m precision.
+    is_cld_shdw = (is_cld_shdw.focal_min(2).focal_max(BUFFER*2/20)
+        .reproject(**{'crs': img.select([0]).projection(), 'scale': 20})
+        .rename('cloudmask'))
+
+    # Add the final cloud-shadow mask to the image.
+    return img_cloud_shadow.addBands(is_cld_shdw)
