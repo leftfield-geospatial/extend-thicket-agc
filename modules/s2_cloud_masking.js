@@ -59,7 +59,7 @@ function add_cloud_bands(img)
   
   // Add the cloud probability layer and cloud mask as image bands.
   return img.addBands(ee.Image([cld_prb, is_cloud]));
-};
+}
 exports.add_cloud_bands = add_cloud_bands;
 
 exports.add_shadow_bands = function(img)
