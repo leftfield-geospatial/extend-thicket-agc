@@ -64,7 +64,7 @@ function add_cloud_bands(img)
 }
 exports.add_cloud_bands = add_cloud_bands;
 
-exports.add_shadow_bands = function(img)
+function(img)
 {
   // Identify water pixels from the SCL band.
   var dark_pixels;
@@ -97,7 +97,8 @@ exports.add_shadow_bands = function(img)
   
   // Add dark pixels, cloud projection, and identified shadows as image bands.
   return img.addBands(ee.Image([dark_pixels, cld_proj, shadows]));
-};
+}
+exports.add_shadow_bands = add_shadow_bands;
 
 exports.add_cld_shdw_mask = function(img)
 {
