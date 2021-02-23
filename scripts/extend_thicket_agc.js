@@ -247,7 +247,7 @@ else if (false)
 
 else if (true)
   var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
-                      .filterDate('2017-01-01', '2019-01-01')
+                      .filterDate('2017-06-01', '2019-01-01')
                       .filterBounds(step_arid_and_valley_thicket)
                       .map(landsat8_sr_cloud_mask);
 else if (false)
