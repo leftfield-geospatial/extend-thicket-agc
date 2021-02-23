@@ -109,7 +109,7 @@ function landsat8_toa_cloud_mask(image)
   var could_shadow_bit = (1 << 3);
   var cloud_bit = (1 << 5);
   // Get the pixel QA band.
-  var qa = image.select('pixel_qa');
+  var qa = image.select('bqa');
   // Both flags should be set to zero, indicating clear conditions.
   var mask = qa.bitwiseAnd(could_shadow_bit).eq(0)
                  .and(qa.bitwiseAnd(cloud_bit).eq(0));
