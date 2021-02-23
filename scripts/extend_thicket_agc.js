@@ -227,7 +227,7 @@ else if (false)
   var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
                     .filterDate('2019-11-01', '2019-11-30')
                     // Pre-filter to get less cloudy granules.
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
+                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
                     // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
                     // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
                     .filterBounds(step_arid_and_valley_thicket)
