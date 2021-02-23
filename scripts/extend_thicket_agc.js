@@ -250,7 +250,7 @@ else if (false)
                       .filterDate('2017-11-01', '2017-12-30')
                       .filterBounds(step_arid_and_valley_thicket)
                       .map(landsat8_sr_cloud_mask);
-else if (true)
+else if (false)
   var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
                       .filterDate('2017-11-01', '2017-12-30')
                       .filterBounds(step_arid_and_valley_thicket)
