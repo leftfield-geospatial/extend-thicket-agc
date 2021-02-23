@@ -45,7 +45,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: try median composite instead of mean
 // TODO: compare simple and complex s2 cloud masks
 // TODO: is there a simple way of improving the s2 cloud mask?
-// TODO: try 
+// TODO: try build a model with an NIR band that is closer to the L8 one, and see if L8 accuracy improves
 
 
 // NOTES
