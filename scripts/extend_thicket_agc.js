@@ -103,6 +103,18 @@ function landsat8_sr_cloud_mask(image)
   return image.updateMask(mask);
 }
 
+function landsat8_toa_cloud_mask(image) 
+{
+  // Bits 3 and 5 are cloud shadow and cloud, respectively.
+  var could_shadow_bit = (1 << 3);
+  var cloud_bit = (1 << 5);
+  // Get the pixel QA band.
+  var qa = image.select('pixel_qa');
+  // Both flags should be set to zero, indicating clear conditions.
+  var mask = qa.bitwiseAnd(could_shadow_bit).eq(0)
+                 .and(qa.bitwiseAnd(cloud_bit).eq(0));
+  return image.updateMask(mask);
+}
 
 function find_rn(image) 
 {
