@@ -215,7 +215,7 @@ function accuracy_check(agc_image, test_plots)
 
 if (true)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
-                    .filterDate('2017-10-01', '2017-10-30')
+                    .filterDate('2017-11-01', '2017-11-30')
                     // Pre-filter to get less cloudy granules.
                     .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
                     // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
