@@ -254,13 +254,6 @@ else if (true)
                       .filterDate('2017-09-01', '2017-12-30')
                       .filterBounds(step_arid_and_valley_thicket)
                       .map(landsat8_sr_cloud_mask);
-  gef_calib_plots = gef_calib_plots.map(function(plot){return plot})
-  var pt1 = ee.Geometry.Point([0,0]);
-  var pt2 = ee.Geometry.Point([1,1]);
-  
-  print(pt3);
-  
-  
 }                     
 else if (false)
   var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
