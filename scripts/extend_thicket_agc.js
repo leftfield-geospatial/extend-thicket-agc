@@ -257,7 +257,7 @@ else if (true)
   var pt1 = ee.Geometry.Point([0,0]);
   var pt2 = ee.Geometry.Point([1,1]);
   var pt3 = pt1+pt2;
-  print(pt3)
+  print(pt3);
   
   
 }                     
