@@ -256,7 +256,7 @@ else if (true)
   gef_calib_plots = gef_calib_plots.map(function(plot){return plot})
   var pt1 = ee.Geometry.Point([0,0]);
   var pt2 = ee.Geometry.Point([1,1]);
-  var pt3 = 
+  
   print(pt3);
   
   
