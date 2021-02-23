@@ -102,7 +102,7 @@ function landsat8_sr_cloud_mask(image)
   // var mask = qa.bitwiseAnd(could_shadow_bit).eq(0)
   //               .and(qa.bitwiseAnd(cloud_bit).eq(0));
   // return image.updateMask(mask);
-  return image.updateMask(qa.bitwiseAnd(could_shadow_bit).eq(0));
+  return image.updateMask(qa.bitwiseAnd(mask_bit).eq(0));
 }
 
 function landsat8_toa_cloud_mask(image) 
