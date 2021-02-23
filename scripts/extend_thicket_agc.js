@@ -317,5 +317,5 @@ var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
 Map.setOptions('TERRAIN');
 Map.centerObject(step_arid_and_valley_thicket);
 // Map.addLayer(masked_image.divide(10000), {min: 0.0, max: [0.3, 0.3, 0.3], bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'S2_SR');
-Map.addLayer(masked_image, {min: 0.0, max: .4, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB');
+Map.addLayer(masked_image, {min: 0.0, max: .4, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB', false);
 Map.addLayer(agc_masked_image, {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 1.0}, 'AGC');
