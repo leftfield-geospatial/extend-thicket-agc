@@ -271,7 +271,7 @@ print('SPACECRAFT_NAME: ', images.first().get('SPACECRAFT_NAME'));
 
 var image = images.median();
 var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
-Map.addLayer(masked_image, {min: 0.0, max: .4, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB');
+Map.addLayer(masked_image, {min: 0.0, max: 10000, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB');
 
 var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
