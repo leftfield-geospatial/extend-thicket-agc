@@ -106,8 +106,8 @@ function landsat8_sr_cloud_mask(image)
 function landsat8_toa_cloud_mask(image) 
 {
   // Bits 3 and 5 are cloud shadow and cloud, respectively.
-  var could_shadow_bit = (1 << 3);
-  var cloud_bit = (1 << 4);
+  // var could_shadow_bit = (1 << 3);
+  // var cloud_bit = (1 << 4);
   var bit_mask = (1 << 4) | (1 << 8)    // cloud bit and upper bit of shadow confidence
   // Get the pixel QA band.
   var qa = image.select('bqa');
