@@ -75,7 +75,7 @@ function s2_cloud_mask(image)
   // Both flags should be set to zero, indicating clear conditions.
   // var mask = qa.bitwiseAnd(cloudBitMask).eq(0).and(qa.bitwiseAnd(cirrusBitMask).eq(0));
 
-  return image.updateMask(qa.bitwiseAnd(bitMask).eq(0).focal_max(10));
+  return image.updateMask(qa.bitwiseAnd(bitMask).eq(0));
   // return image.updateMask(mask);
 }
 
