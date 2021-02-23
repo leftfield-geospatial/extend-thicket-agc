@@ -255,7 +255,10 @@ else if (true)
                       .map(landsat8_sr_cloud_mask);
   gef_calib_plots = gef_calib_plots.map(function(plot){return plot})
   var pt1 = ee.Geometry.Point([0,0]);
-  var pt1 = ee.Geometry.Point([1,1]);
+  var pt2 = ee.Geometry.Point([1,1]);
+  var pt3 = pt1+pt2;
+  print(pt3)
+  
   
 }                     
 else if (false)
