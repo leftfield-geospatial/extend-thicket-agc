@@ -76,7 +76,7 @@ function s2_cloud_mask(image)
   var mask = qa.bitwiseAnd(cloudBitMask).eq(0).and(qa.bitwiseAnd(cirrusBitMask).eq(0));
 
   // return image.updateMask(qa.bitwiseAnd(bitMask).eq(0));
-  return image.updateMask(qa.bitwiseAnd(bitMask).eq(0));
+  return image.updateMask(mask);
 }
 
 function landsat_simple_cloud_mask(image)
