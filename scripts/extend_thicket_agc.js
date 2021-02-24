@@ -64,8 +64,8 @@ print(s2_cloud_masking.s2CloudMaskParams);
 
 // var model_m = ee.Number(-318.8304);
 // var model_c = ee.Number(25.7259);
-var model_m = ee.Number(-252.19862521);
-var model_c = ee.Number(16.94528043);
+var model_m = ee.Number(-252.1986);
+var model_c = ee.Number(16.9453);
 
 // [-252.19862521]
 // INFO __main__: Univariate model intercept:
