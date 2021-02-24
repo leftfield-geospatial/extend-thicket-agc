@@ -61,8 +61,14 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:modules/s2_cloud_masking.js');
 print(s2_cloud_masking.s2CloudMaskParams);
 
-var model_m = ee.Number(-318.8304);
-var model_c = ee.Number(25.7259);
+// var model_m = ee.Number(-318.8304);
+// var model_c = ee.Number(25.7259);
+var model_m = ee.Number(-252.19862521);
+var model_c = ee.Number(16.945280432197123);
+
+// [-252.19862521]
+// INFO __main__: Univariate model intercept:
+// INFO __main__: 16.945280432197123
 
 
 function s2_cloud_mask(image) 
