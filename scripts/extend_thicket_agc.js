@@ -2,7 +2,8 @@
 var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
     gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
     gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
-    gef_calib_plots_l8_nir1_xlate = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1_xlate");
+    gef_calib_plots_l8_nir1_xlate = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1_xlate"),
+    gef_calib_plots_l8_nir1 = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
@@ -261,7 +262,7 @@ else if (true)
                       .filterDate('2017-09-01', '2017-12-30')
                       .filterBounds(step_arid_and_valley_thicket)
                       .map(landsat8_sr_cloud_mask);
-  gef_calib_plots = gef_calib_plots_l8_nir1_xlate;
+  gef_calib_plots = gef_calib_plots_l8_nir1;
 }                     
 else if (false)
   var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
