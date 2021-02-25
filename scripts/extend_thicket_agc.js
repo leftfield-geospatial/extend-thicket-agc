@@ -63,6 +63,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 
 var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:modules/s2_cloud_masking.js');
 print(s2_cloud_masking.s2CloudMaskParams);
+gef_calib_plots = gef_calib_plots_l8_nir1
 
 // var model_m = ee.Number(-318.8304);  // RE
 // var model_c = ee.Number(25.7259);
