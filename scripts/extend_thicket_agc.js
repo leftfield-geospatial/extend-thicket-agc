@@ -282,7 +282,7 @@ else if (false)
 // convert AgcHa from kg to tons
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
 
-var images = l8_sr_images;
+var images = s2_toa_images;
 print('num images: ', images.size());
 print('images metadata: ', images);
 // print('image metadata: ', images.first());
