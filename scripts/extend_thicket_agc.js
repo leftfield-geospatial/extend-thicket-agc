@@ -64,13 +64,13 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:modules/s2_cloud_masking.js');
 print(s2_cloud_masking.s2CloudMaskParams);
 
-// var model_m = ee.Number(-318.8304);
+// var model_m = ee.Number(-318.8304);  //RE
 // var model_c = ee.Number(25.7259);
-// var model_m = ee.Number(-252.1986);
-// var model_c = ee.Number(16.9453);
+var model_m = ee.Number(-252.1986);   //NIR1
+var model_c = ee.Number(16.9453);
 
-var model_m = ee.Number(-245.6729)
-var model_c = ee.Number(11.5778)
+var model_m = ee.Number(-245.6729);   //NIR2
+var model_c = ee.Number(11.5778);
 
 // [-252.19862521]
 // INFO __main__: Univariate model intercept:
