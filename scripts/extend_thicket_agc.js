@@ -76,7 +76,6 @@ var model_c = ee.Number(11.5778);
 // INFO __main__: Univariate model intercept:
 // INFO __main__: 16.945280432197123
 
-
 function s2_cloud_mask(image) 
 {
   var qa = image.select('QA60');
