@@ -183,7 +183,7 @@ function display_cloud_layers(col)
   
   Map.centerObject(s2_cloud_mask_params.AOI);
   
-  // Add layers to the folium map.
+  // Add layers to the map.
   Map.addLayer(img, {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1}, 'S2 image', true);
   Map.addLayer(probability, {'min': 0, 'max': 100}, 'probability (cloud)', false);
   Map.addLayer(clouds, {'palette': 'e056fd'}, 'clouds', false);
