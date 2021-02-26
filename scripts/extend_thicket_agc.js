@@ -70,15 +70,6 @@ var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
 
 
-function s2_simple_cloud_mask(image) 
-{
-  var qa = image.select('QA60');
-  
-  // Bits 10 and 11 are clouds and cirrus, respectively.
-  var bitMask = (1 << 11) | (1 << 10);
-  return qa.updateMask(qa.bitwiseAnd(bitMask).eq(0)); 
-}
-
 function landsat_simple_cloud_mask(image)
 {
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
