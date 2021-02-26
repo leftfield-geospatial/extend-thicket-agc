@@ -12,6 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.*/
 
+// adapted from https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless
 
 // Straighforward cloud mask using QA60 band cloud bits
 function simple_cloud_mask(image) 
