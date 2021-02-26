@@ -35,6 +35,7 @@ var s2_cloud_mask_params = {
 };
 exports.s2_cloud_mask_params = s2_cloud_mask_params;
 
+
 function get_s2_sr_cld_col(aoi, start_date, end_date)
 {
     // Import and filter S2 SR.
