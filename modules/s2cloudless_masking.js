@@ -12,7 +12,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.*/
 
-// 
 // Adapted from https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless
 
 
