@@ -269,7 +269,7 @@ if (false)
 
 
 
-var vis = {min: 0, max: 40, palette: 'red,yellow,green', opacity: 1.0}
+var vis = {min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0}
 
 
 var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
