@@ -143,22 +143,22 @@ function accuracy_check(agc_image, test_plots)
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
     return feature.set({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(agc_field))).pow(2)});
-  }).reduceColumns(ee.Reducer.sum(), ['agc_res2'])
+  }).reduceColumns(ee.Reducer.sum(), ['agc_res2']);
 
-  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt()
-  print('agc_rms: ', agc_rms)
+  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt();
+  print('agc_rms: ', agc_rms);
 
   // find mean agc 
   var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('mean'));
-  print('agc_mean: ', agc_mean)
+  print('agc_mean: ', agc_mean);
   
   // sum of squares
   var agc_ss = agc_plots.map(function(feature) {
     return feature.set({agc_off2: (ee.Number(feature.get(agc_field)).subtract(agc_mean)).pow(2)});
-  }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])
+  }).reduceColumns(ee.Reducer.sum(), ['agc_off2']);
   
-  var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))))
-  print('agc_r2: ', agc_r2)
+  var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))));
+  print('agc_r2: ', agc_r2);
   
   
   // // find sum of squares
