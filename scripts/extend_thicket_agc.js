@@ -314,7 +314,8 @@ var legend_labels = ui.Panel({
         {margin: '4px 8px', textAlign: 'center', stretch: 'horizontal'}),
     ui.Label(vis.max, {margin: '4px 8px'})
   ],
-  layout: ui.Panel.Layout.flow('horizontal')
+  layout: ui.Panel.Layout.flow('horizontal'),
+  position: 'bottom-left'
 });
 
 var legend_title = ui.Label({
