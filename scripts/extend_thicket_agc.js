@@ -49,7 +49,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // TODO: compare simple and complex s2 cloud masks
 // TODO: is there a simple way of improving the s2 cloud mask?
 // TODO: try build a model with an NIR band that is closer to the L8 one, and see if L8 accuracy improves
-
+// TODO: time the different s2 cloud mask options
 
 // NOTES
 // L8 T2_SR has v few images to work with.
