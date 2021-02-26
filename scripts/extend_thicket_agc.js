@@ -303,12 +303,12 @@ function make_color_bar_params(palette)
 // Create the color bar for the legend.
 var color_bar = ui.Thumbnail({
   image: ee.Image.pixelLonLat().select(0),
-  params: makeColorBarParams(vis.palette),
+  params: make_color_bar_params(vis.palette),
   style: {stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px'},
 });
 
 // Create a panel with three numbers for the legend.
-var legendLabels = ui.Panel({
+var legend_labels = ui.Panel({
   widgets: [
     ui.Label(vis.min, {margin: '2px 4px'}),
     ui.Label(
