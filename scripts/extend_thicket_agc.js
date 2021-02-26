@@ -288,7 +288,7 @@ Map.addLayer(composite);
 
 // Creates a color bar thumbnail image for use in legend from the given color
 // palette.
-function makeColorBarParams(palette) 
+function make_color_bar_params(palette) 
 {
   return {
     bbox: [0, 0, 1, 0.1],
