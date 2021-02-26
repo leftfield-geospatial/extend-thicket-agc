@@ -298,11 +298,11 @@ var color_bar = ui.Thumbnail({
 // Create a panel with three numbers for the legend.
 var legend_labels = ui.Panel({
   widgets: [
-    ui.Label(vis.min, {margin: '2px 4px'}),
+    ui.Label(vis.min, {margin: '4px 8px'}),
     ui.Label(
         (vis.max / 2),
-        {margin: '2px 4px', textAlign: 'center', stretch: 'horizontal'}),
-    ui.Label(vis.max, {margin: '2px 4px'})
+        {margin: '4px 8px', textAlign: 'center', stretch: 'horizontal'}),
+    ui.Label(vis.max, {margin: '4px 8px'})
   ],
   layout: ui.Panel.Layout.flow('horizontal')
 });
