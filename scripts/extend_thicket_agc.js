@@ -325,7 +325,7 @@ var legend_title = ui.Label({
 });
 
 // Add the legendPanel to the map.
-var legendPanel = ui.Panel([legendTitle, colorBar, legendLabels]);
+var legend_panel = ui.Panel([legendTitle, colorBar, legendLabels]);
 Map.add(legendPanel);
 
 var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
