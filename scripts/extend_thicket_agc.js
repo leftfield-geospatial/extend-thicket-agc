@@ -261,18 +261,6 @@ if (false)
 }
 
 
-Export.image.toAsset({
-  image: agc_image,
-  description: 'agc_image_l8',
-  assetId: 'agc_image_l8',
-  scale: 30,
-  region: step_arid_and_valley_thicket
-  // pyramidingPolicy: {
-  //   'b4_mean': 'mean',
-  //   'b4_sample': 'sample',
-  //   'b4_max': 'max'
-  // }
-});
 
 var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
 var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
