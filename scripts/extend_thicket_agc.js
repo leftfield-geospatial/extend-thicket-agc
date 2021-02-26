@@ -70,11 +70,6 @@ var agc_model = {'m': ee.Number(-318.8304), 'c': ee.Number(25.7259)};
 
 function find_rn(image) 
 {
-  // print('image metadata: ', image);
-  // print('SPACECRAFT_NAME: ', image.get('SPACECRAFT_NAME'))
-  // print('S2?: ', ee.Algorithms.If(ee.String(type).index('Sentinel').gte(0), 'Sentinel', 'Not Sentinel'))
-  
-  
   var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'), 
             image.expression('(R / (R + G + B + RE))', //Sentinel
               {
