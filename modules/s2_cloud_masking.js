@@ -24,7 +24,7 @@ function s2_simple_cloud_mask(image)
 }
 
 
-var s2CloudMaskParams = { 
+var s2_cloud_mask_params = { 
     AOI: ee.Geometry.Point(24, -33.5),
     START_DATE: '2017-10-01',
     END_DATE: '2017-11-01',
@@ -35,7 +35,7 @@ var s2CloudMaskParams = {
     CLD_PRJ_DIST: 4,
     BUFFER: 100,
 };
-exports.s2CloudMaskParams = s2CloudMaskParams;
+exports.s2_cloud_mask_params = s2_cloud_mask_params;
 
 function get_s2_sr_cld_col(aoi, start_date, end_date)
 {
@@ -43,7 +43,7 @@ function get_s2_sr_cld_col(aoi, start_date, end_date)
     var s2_sr_col = (ee.ImageCollection('COPERNICUS/S2')
         .filterBounds(aoi)
         .filterDate(start_date, end_date)
-        .filter(ee.Filter.lte('CLOUDY_PIXEL_PERCENTAGE', s2CloudMaskParams.CLOUD_FILTER)));
+        .filter(ee.Filter.lte('CLOUDY_PIXEL_PERCENTAGE', s2_cloud_mask_params.CLOUD_FILTER)));
 
     // Import and filter s2cloudless.
     var s2_cloudless_col = (ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY')
@@ -69,7 +69,7 @@ function add_cloud_bands(img)
   var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
   
   // Condition s2cloudless by the probability threshold value.
-  var is_cloud = cld_prb.gt(s2CloudMaskParams.CLD_PRB_THRESH).rename('clouds');
+  var is_cloud = cld_prb.gt(s2_cloud_mask_params.CLD_PRB_THRESH).rename('clouds');
   
   // Add the cloud probability layer and cloud mask as image bands.
   return img.addBands(ee.Image([cld_prb, is_cloud]));
@@ -85,20 +85,20 @@ function add_shadow_bands(img)
       var not_water = img.select('SCL').neq(6);
   
       // Identify dark NIR pixels that are not water (potential cloud shadow pixels)
-      s2CloudMaskParams.SR_BAND_SCALE = 1e4;
-      dark_pixels = img.select('B8').lt(s2CloudMaskParams.NIR_DRK_THRESH*s2CloudMaskParams.SR_BAND_SCALE).multiply(not_water).rename('dark_pixels');
+      s2_cloud_mask_params.SR_BAND_SCALE = 1e4;
+      dark_pixels = img.select('B8').lt(s2_cloud_mask_params.NIR_DRK_THRESH*s2_cloud_mask_params.SR_BAND_SCALE).multiply(not_water).rename('dark_pixels');
   }
   else
   {
-      s2CloudMaskParams.SR_BAND_SCALE = 1e4;
-      dark_pixels = img.select('B8').lt(s2CloudMaskParams.NIR_DRK_THRESH*s2CloudMaskParams.SR_BAND_SCALE).rename('dark_pixels');
+      s2_cloud_mask_params.SR_BAND_SCALE = 1e4;
+      dark_pixels = img.select('B8').lt(s2_cloud_mask_params.NIR_DRK_THRESH*s2_cloud_mask_params.SR_BAND_SCALE).rename('dark_pixels');
   }
 
   // Determine the direction to project cloud shadow from clouds (assumes UTM projection).
   var shadow_azimuth = ee.Number(90).subtract(ee.Number(img.get('MEAN_SOLAR_AZIMUTH_ANGLE')));
   
   // Project shadows from clouds for the distance specified by the CLD_PRJ_DIST input.
-  var cld_proj = (img.select('clouds').directionalDistanceTransform(shadow_azimuth, s2CloudMaskParams.CLD_PRJ_DIST*10)
+  var cld_proj = (img.select('clouds').directionalDistanceTransform(shadow_azimuth, s2_cloud_mask_params.CLD_PRJ_DIST*10)
       .reproject({'crs': img.select(0).projection(), 'scale': 100})
       .select('distance')
       .mask()
@@ -125,7 +125,7 @@ function add_cld_shdw_mask(img)
   
   // Remove small cloud-shadow patches and dilate remaining pixels by BUFFER input.
   // 20 m scale is for speed, and assumes clouds don't require 10 m precision.
-  is_cld_shdw = (is_cld_shdw.focal_min(2).focal_max(s2CloudMaskParams.BUFFER*2/20)
+  is_cld_shdw = (is_cld_shdw.focal_min(2).focal_max(s2_cloud_mask_params.BUFFER*2/20)
       .reproject({'crs': img.select([0]).projection(), 'scale': 20})
       .rename('cloudmask'));
   
@@ -148,7 +148,7 @@ function add_cld_only_mask(img)
   // Remove small cloud-shadow patches and dilate remaining pixels by BUFFER input.
   // 20 m scale is for speed, and assumes clouds don't require 10 m precision.
   var scale = 10;
-  var is_cld_shdw = (img_cloud.select('clouds').focal_max(s2CloudMaskParams.BUFFER*2/scale)
+  var is_cld_shdw = (img_cloud.select('clouds').focal_max(s2_cloud_mask_params.BUFFER*2/scale)
       // .reproject({'crs': img.select([0]).projection(), 'scale': scale})
       .rename('cloudmask'));
   
@@ -183,7 +183,7 @@ function display_cloud_layers(col)
   // Create a folium map object.
   // var center = AOI.centroid(10).coordinates().reverse().getInfo()
   // m = folium.Map(location=center, zoom_start=12)
-  Map.centerObject(s2CloudMaskParams.AOI);
+  Map.centerObject(s2_cloud_mask_params.AOI);
   
   // Add layers to the folium map.
   Map.addLayer(img, {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 2500, 'gamma': 1.1}, 'S2 image', true);
