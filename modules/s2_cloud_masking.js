@@ -12,7 +12,16 @@
    See the License for the specific language governing permissions and
    limitations under the License.*/
 
-// TODO add simplified cloud mask without multiple bands and intermediate steps, just do prob thresh and possibly morphology
+// adapted from 
+
+function s2_simple_cloud_mask(image) 
+{
+  var qa = image.select('QA60');
+  
+  // Bits 10 and 11 are clouds and cirrus, respectively.
+  var bitMask = (1 << 11) | (1 << 10);
+  return qa.updateMask(qa.bitwiseAnd(bitMask).eq(0)); 
+}
 
 
 var s2CloudMaskParams = { 
