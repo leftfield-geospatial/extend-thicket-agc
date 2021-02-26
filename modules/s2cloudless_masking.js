@@ -133,6 +133,7 @@ function add_cld_only_mask(img)
   
   if false
   {
+    // dilate cloud mask only
     var scale = 10;
     var is_cld_shdw = (img_cloud.select('clouds').focal_max(s2_cloud_mask_params.BUFFER*2/scale)
         .rename('cloudmask'));
