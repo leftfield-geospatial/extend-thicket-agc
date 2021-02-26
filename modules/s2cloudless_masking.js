@@ -131,8 +131,10 @@ function add_cld_only_mask(img, scale=20)
   // Add cloud component bands.
   var img_cloud = add_cloud_bands(img);
   
+  // Dilate the s2cloudless mask
   var is_cld_shdw = (img_cloud.select('clouds').focal_max(s2_cloud_mask_params.BUFFER*2/scale)
       .rename('cloudmask'));
+      
   return img_cloud.addBands(is_cld_shdw);
 }
 exports.add_cld_only_mask = add_cld_only_mask;
