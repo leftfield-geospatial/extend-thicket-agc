@@ -1,5 +1,5 @@
 // Simple Sentinel-2 cloud masking using QA60 band
-function s2_cloud_mask(image) 
+function s2_simple_cloud_mask(image) 
 {
   var qa = image.select('QA60');
   var bitMask = (1 << 11) | (1 << 10);
