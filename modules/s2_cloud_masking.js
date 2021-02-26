@@ -12,7 +12,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.*/
 
-// adapted from 
 
 // Straighforward cloud mask using QA60 band cloud bits
 function simple_cloud_mask(image) 
@@ -22,6 +21,7 @@ function simple_cloud_mask(image)
   return qa.updateMask(qa.bitwiseAnd(bitMask).eq(0)); 
 }
 
+// Parameters for masking with s2cloudless (cloud probability )
 var s2_cloud_mask_params = { 
     AOI: ee.Geometry.Point(24, -33.5),
     START_DATE: '2017-10-01',
