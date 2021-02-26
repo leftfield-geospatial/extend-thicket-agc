@@ -26,6 +26,7 @@ function landsat8_sr_cloud_mask(image)
   return image.updateMask(qa.bitwiseAnd(mask_bit).eq(0));
 }
 
+// Cloud and shadow mask L8 TOA data with "pixel_qa" band
 function landsat8_toa_cloud_mask(image) 
 {
   // Bits 3 and 5 are cloud shadow and cloud, respectively.
