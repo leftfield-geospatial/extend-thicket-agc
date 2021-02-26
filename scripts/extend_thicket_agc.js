@@ -265,7 +265,7 @@ Export.image.toAsset({
   description: 'agc_image_l8',
   assetId: 'agc_image_l8',
   scale: 30,
-  region: step_arid_and_valley_thicket,
+  region: step_arid_and_valley_thicket
   // pyramidingPolicy: {
   //   'b4_mean': 'mean',
   //   'b4_sample': 'sample',
