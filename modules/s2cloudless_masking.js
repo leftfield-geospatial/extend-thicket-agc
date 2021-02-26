@@ -12,7 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.*/
 
-// Adapted and modified by Dugal Harris (dugalh@gmailcom) from https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless
+// From https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless
+// Adapted and modified by Dugal Harris (dugalh@gmailcom) 
 
 // Straighforward cloud mask using QA60 band cloud bits
 function simple_cloud_mask(image) 
