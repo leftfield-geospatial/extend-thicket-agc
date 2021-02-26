@@ -131,15 +131,15 @@ function add_cld_only_mask(img, scale = 20)
   // Add cloud component bands.
   var img_cloud = add_cloud_bands(img);
   
-  if (false)
-  {
-    // dilate cloud mask only
-    var scale = 10;
-    var is_cld_shdw = (img_cloud.select('clouds').focal_max(s2_cloud_mask_params.BUFFER*2/scale)
-        .rename('cloudmask'));
-  }
-  else 
-  {
+  // if (false)
+  // {
+  //   // dilate cloud mask only
+  //   var scale = 10;
+  //   var is_cld_shdw = (img_cloud.select('clouds').focal_max(s2_cloud_mask_params.BUFFER*2/scale)
+  //       .rename('cloudmask'));
+  // }
+  // else 
+  // {
     // Add cloud shadow component bands.
     var img_cloud_shadow = add_shadow_bands(img_cloud);
     
@@ -150,8 +150,8 @@ function add_cld_only_mask(img, scale = 20)
     // 20 m scale is for speed, and assumes clouds don't require 10 m precision.
     is_cld_shdw = (is_cld_shdw.focal_min(2).focal_max(s2_cloud_mask_params.BUFFER*2/20)
         .reproject({'crs': img.select([0]).projection(), 'scale': scale})
-        .rename('cloudmask'))
-  }
+        .rename('cloudmask'));
+  // }
   
   // Add the final cloud-shadow mask to the image.
   return img_cloud.addBands(is_cld_shdw);
