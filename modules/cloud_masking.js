@@ -1,3 +1,4 @@
+// Straightforward Sentinel-2 cloud masking using QA60 band
 function s2_cloud_mask(image) 
 {
   var qa = image.select('QA60');
@@ -13,3 +14,4 @@ function s2_cloud_mask(image)
   return image.updateMask(qa.bitwiseAnd(bitMask).eq(0).focal_min(10));
   // return image.updateMask(mask);
 }
+exports.s2_cloud_mask_params = s2_cloud_mask_params;
