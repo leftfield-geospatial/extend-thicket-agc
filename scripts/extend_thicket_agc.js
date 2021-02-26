@@ -263,7 +263,7 @@ Export.image.toAsset()
 Export.image.toAsset({
   image: agc_image,
   description: 'agc_image_l8',
-  assetId: 'exampleExport',
+  assetId: 'agc_image_l8',
   scale: 30,
   region: geometry,
   pyramidingPolicy: {
