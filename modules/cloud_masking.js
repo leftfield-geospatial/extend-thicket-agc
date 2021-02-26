@@ -33,7 +33,6 @@ function landsat8_toa_cloud_mask(image)
 {
   var bit_mask = (1 << 4) | (1 << 8);    // cloud bit and upper bit of shadow confidence
   var qa = image.select('BQA');
-  var mask = qa.bitwiseAnd(bit_mask).eq(0);
-  return image.updateMask(mask);
+  return image.updateMask(qa.bitwiseAnd(bit_mask).eq(0));
 }
 exports.landsat8_toa_cloud_mask = landsat8_toa_cloud_mask;
