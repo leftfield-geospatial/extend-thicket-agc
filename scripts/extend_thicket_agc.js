@@ -296,7 +296,7 @@ function make_color_bar_params(palette)
     format: 'png',
     min: 0,
     max: 1,
-    palette: palette,
+    palette: ['red', 'yellow', 'green'],
   };
 }
 
@@ -326,7 +326,7 @@ var legend_title = ui.Label({
 
 // Add the legendPanel to the map.
 var legend_panel = ui.Panel([legend_title, color_bar, legend_labels]);
-Map.add(legendPanel);
+Map.add(legend_panel);
 
 var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
 var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
