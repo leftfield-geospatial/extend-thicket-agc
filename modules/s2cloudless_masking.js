@@ -54,11 +54,7 @@ function get_s2_sr_cld_col(aoi, start_date, end_date)
         })
     }));
 }
-
 exports.get_s2_sr_cld_col = get_s2_sr_cld_col;
-
-
-
 
 function add_cloud_bands(img)
 {
