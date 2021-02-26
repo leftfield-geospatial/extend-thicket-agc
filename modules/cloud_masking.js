@@ -26,6 +26,10 @@ exports.s2_prob_cloud_mask = s2_prob_cloud_mask;
 // Cloud mask Landsatr with the GEE simpleCloudScore function
 function landsat_simple_cloud_mask(image, thresh=5)
 {
+  if (thresh === undefined || thresh === null)
+  {
+    thresh = 20;
+  }
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
   var mask = scored.select(['cloud']).lte(thresh);
   return image.updateMask(mask);
