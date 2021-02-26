@@ -301,7 +301,7 @@ function makeColorBarParams(palette)
 }
 
 // Create the color bar for the legend.
-var colorBar = ui.Thumbnail({
+var color_bar = ui.Thumbnail({
   image: ee.Image.pixelLonLat().select(0),
   params: makeColorBarParams(vis.palette),
   style: {stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px'},
