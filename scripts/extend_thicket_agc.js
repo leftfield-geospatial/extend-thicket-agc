@@ -308,7 +308,7 @@ var legend_labels = ui.Panel({
 });
 
 var legend_title = ui.Label({
-  value: 'Legend: AGC (tC/ha)',
+  value: 'Legend: AGC 2017 (tC/ha)',
   style: {fontWeight: 'bold'}
 });
 
