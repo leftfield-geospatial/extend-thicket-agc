@@ -61,7 +61,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // The cloud prob S2 masking is very slow for our large ROI and for the particular time span of interest, makes very little difference to AGC acc
 
 
-// var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
+var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 
 // the univariate log(mean(R/pan)) model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
 var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
