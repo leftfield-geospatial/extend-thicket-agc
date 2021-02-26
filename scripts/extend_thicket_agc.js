@@ -315,8 +315,10 @@ var legend_labels = ui.Panel({
     ui.Label(vis.max, {margin: '4px 8px'})
   ],
   layout: ui.Panel.Layout.flow('horizontal'),
-  position: 'bottom-left'
-});
+  style: {
+    position: 'bottom-left',
+    padding: '8px 15px'
+  }});
 
 var legend_title = ui.Label({
   value: 'Legend: AGC 2017 (tC/ha)',
