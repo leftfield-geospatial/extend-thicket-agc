@@ -294,7 +294,7 @@ function make_color_bar_params(palette)
     format: 'png',
     min: 0,
     max: 1,
-    palette: ['red','yellow','green'],
+    palette: pallette,
   };
 }
 
