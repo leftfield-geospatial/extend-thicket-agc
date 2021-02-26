@@ -5,4 +5,4 @@ function s2_simple_cloud_mask(image)
   var bitMask = (1 << 11) | (1 << 10);
   return image.updateMask(qa.bitwiseAnd(bitMask).eq(0).focal_min(10));
 }
-exports.s2_cloud_mask_params = s2_cloud_mask_params;
+exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
