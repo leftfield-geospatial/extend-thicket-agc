@@ -14,7 +14,7 @@ function s2_prob_cloud_mask(image, thresh=20)
   var cld_prb = ee.Image(image.get('s2cloudless')).select('probability');
   return image.updateMask(cld_prb.lt(thresh));
 }
-exports.cld_prb.gt(s2_cloud_mask_params.CLD_PRB_THRESH) 
+exports.s2_prob_cloud_mask = s2_prob_cloud_mask;
 
 // Cloud mask Landsatr with the GEE simpleCloudScore function
 function landsat_simple_cloud_mask(image, thresh=5)
