@@ -12,6 +12,7 @@ exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 function s2_cloud_prob_mask(image, thresh=20)
 {
   var cld_prb = ee.Image(image.get('s2cloudless')).select('probability');
+  return image.updateMask(cld_prb.gt(thresh));
 function add_cloud_bands(img)
 {
   // Get s2cloudless image, subset the probability band.
