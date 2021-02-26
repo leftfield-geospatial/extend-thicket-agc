@@ -119,8 +119,8 @@ function model_agc(rn_image, train_plots)
   
   var calib_coeff = ee.Array(calib_ee_model.get('coefficients')).toList();
   // print(calib_model.get('coefficients'))
-  var calib_model = {m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), c: ee.Number(ee.List(calib_coeff.get(1)).get(0))};
-  
+  var calib_model = ee.Dictionary({m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), c: ee.Number(ee.List(calib_coeff.get(1)).get(0))});
+
   // apply calibration transform and AGC model in one step
   var agc_image = rn_image.log10().multiply(calib_model.m.multiply(agc_model.m)).add(calib_model.c.multiply(agc_model.m).add(agc_model.c));
   
