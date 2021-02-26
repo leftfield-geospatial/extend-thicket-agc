@@ -313,7 +313,7 @@ var legendLabels = ui.Panel({
     ui.Label(vis.min, {margin: '2px 4px'}),
     ui.Label(
         (vis.max / 2),
-        {margin: '2px 4px', textAlign: 'center', stretch: 'horizontal'}),
+        {margin: '2px 4px', textAlign: 'left', stretch: 'horizontal'}),
     ui.Label(vis.max, {margin: '2px 4px'})
   ],
   layout: ui.Panel.Layout.flow('horizontal')
