@@ -73,9 +73,6 @@ var model_c = ee.Number(25.7259);
 // var model_m = ee.Number(-245.6729);   // NIR2
 // var model_c = ee.Number(11.5778);
 
-// [-252.19862521]
-// INFO __main__: Univariate model intercept:
-// INFO __main__: 16.945280432197123
 
 function s2_cloud_mask(image) 
 {
