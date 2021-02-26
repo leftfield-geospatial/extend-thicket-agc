@@ -9,6 +9,22 @@ function s2_simple_cloud_mask(image)
 }
 exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 
+function s2_cloud_prob_mask(image)
+{
+function add_cloud_bands(img)
+{
+  // Get s2cloudless image, subset the probability band.
+  var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
+  
+  // Condition s2cloudless by the probability threshold value.
+  var is_cloud = cld_prb.gt(s2_cloud_mask_params.CLD_PRB_THRESH).rename('clouds');
+  
+  // Add the cloud probability layer and cloud mask as image bands.
+  return img.addBands(ee.Image([cld_prb, is_cloud]));
+}
+exports.add_cloud_bands = add_cloud_bands;  
+}
+
 // Cloud mask Landsatr with the GEE simpleCloudScore function
 function landsat_simple_cloud_mask(image, thresh=5)
 {
