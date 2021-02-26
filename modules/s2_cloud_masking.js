@@ -58,8 +58,6 @@ exports.get_s2_sr_cld_col = get_s2_sr_cld_col;
 function s2_simple_cloud_mask(image) 
 {
   var qa = image.select('QA60');
-  
-  // Bits 10 and 11 are clouds and cirrus, respectively.
   var bitMask = (1 << 11) | (1 << 10);
   return qa.updateMask(qa.bitwiseAnd(bitMask).eq(0)); 
 }
