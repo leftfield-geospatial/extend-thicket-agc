@@ -13,7 +13,7 @@
    limitations under the License.*/
 
 // Adapted from https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless 
-// by Dugal Harris (dugalh@gmail.com)
+// by Dugal Harris (dugalh@gmail.com) - Feb 2021
 
 
 // Parameters for cloud and shadow masking with "s2cloudless" (cloud probability images)
