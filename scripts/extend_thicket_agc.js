@@ -68,11 +68,6 @@ print(s2_cloud_masking.s2CloudMaskParams);
 var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 // var agc_model = {m: ee.Number(-252.1986), c: ee.Number(16.9453)};  // pan = (R + G + B + NIR1)
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
-// var model_m = ee.Number();   // NIR1
-// var model_c = ee.Number();
-
-// var model_m = ee.Number(-245.6729);   // NIR2
-// var model_c = ee.Number(11.5778);
 
 
 function s2_cloud_mask(image) 
