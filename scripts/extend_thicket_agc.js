@@ -65,8 +65,7 @@ var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:modules/s2_cloud
 print(s2_cloud_masking.s2CloudMaskParams);
 // gef_calib_plots = gef_calib_plots_l8_nir1
 
-var model_m = ee.Number(-318.8304);  // RE
-var model_c = ee.Number(25.7259);
+var model = {m: ee.Number(-318.8304), c: ee.Number(25.7259));
 // var model_m = ee.Number(-252.1986);   // NIR1
 // var model_c = ee.Number(16.9453);
 
