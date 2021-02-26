@@ -257,8 +257,22 @@ if (false)
   print('max_agc: ', max_agc)
 }
 
-Export.image.toAsset(agc_image)
 var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
+
+Export.image.toAsset()
+Export.image.toAsset({
+  image: agc_image,
+  description: 'agc_image_l8',
+  assetId: 'exampleExport',
+  scale: 30,
+  region: geometry,
+  pyramidingPolicy: {
+    'b4_mean': 'mean',
+    'b4_sample': 'sample',
+    'b4_max': 'max'
+  }
+});
+
 
 var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
 Map.setOptions('TERRAIN');
