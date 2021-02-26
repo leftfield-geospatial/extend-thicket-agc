@@ -104,7 +104,7 @@ function add_shadow_bands(img)
 }
 exports.add_shadow_bands = add_shadow_bands;
 
-function add_cld_shdw_mask(img, scale=20)
+function add_cld_shdw_mask(img, scale)
 {
   if (scale === undefined || scale === null)
   {
