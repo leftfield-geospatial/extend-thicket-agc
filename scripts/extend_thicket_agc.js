@@ -64,7 +64,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:modules/s2_cloud_masking.js');
 print(s2_cloud_masking.s2CloudMaskParams);
 
-// the univariate log(mean(R/pan)) model with pan = R + G + B + RE
+// the univariate log(mean(R/pan)) model with pan = (R + G + B + RE)
 var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
