@@ -13,11 +13,7 @@ exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 function landsat_simple_cloud_mask(image)
 {
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
-  
-  // Create a mask from the cloud score and combine it with the image mask.
   var mask = scored.select(['cloud']).lte(5);
-  
-  // Apply the mask to the image and display the result.
   return image.updateMask(mask);
 }
 
