@@ -17,6 +17,7 @@ function landsat_simple_cloud_mask(image, thresh=5)
   return image.updateMask(mask);
 }
 
+// Mask L8 SR data with "pixel_qa" band
 function landsat8_sr_cloud_mask(image) 
 {
   // Bits 3 and 5 are cloud shadow and cloud, respectively.
