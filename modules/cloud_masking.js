@@ -9,12 +9,15 @@ function s2_simple_cloud_mask(image)
 }
 exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 
-function s2_cloud_prob_mask(image)
+function s2_cloud_prob_mask(image, thresh=20)
 {
+  var cld_prb = ee.Image(image.get('s2cloudless')).select('probability');
 function add_cloud_bands(img)
 {
   // Get s2cloudless image, subset the probability band.
   var cld_prb = ee.Image(img.get('s2cloudless')).select('probability');
+  
+  return img.updateMask(not_cld_shdw);
   
   // Condition s2cloudless by the probability threshold value.
   var is_cloud = cld_prb.gt(s2_cloud_mask_params.CLD_PRB_THRESH).rename('clouds');
@@ -22,7 +25,29 @@ function add_cloud_bands(img)
   // Add the cloud probability layer and cloud mask as image bands.
   return img.addBands(ee.Image([cld_prb, is_cloud]));
 }
-exports.add_cloud_bands = add_cloud_bands;  
+function add_cld_only_mask(img, scale=20)
+{
+  // Add cloud component bands.
+  var img_cloud = add_cloud_bands(img);
+  
+  // Dilate the s2cloudless mask
+  var is_cld_shdw = (img_cloud.select('clouds').focal_max(s2_cloud_mask_params.BUFFER*2/scale)
+      .rename('cloudmask'));
+      
+  return img_cloud.addBands(is_cld_shdw);
+}
+exports.add_cld_only_mask = add_cld_only_mask;
+
+function apply_cld_shdw_mask(img)
+{
+  // Subset the cloudmask band and invert it so clouds/shadow are 0, else 1.
+  var not_cld_shdw = img.select('cloudmask').not();
+  
+  // Subset reflectance bands and update their masks, return the result.
+  return img.updateMask(not_cld_shdw);
+}
+exports.apply_cld_shdw_mask = apply_cld_shdw_mask;
+
 }
 
 // Cloud mask Landsatr with the GEE simpleCloudScore function
