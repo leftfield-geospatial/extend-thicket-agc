@@ -325,7 +325,7 @@ var legend_title = ui.Label({
 var legend_panel = ui.Panel({widgets: [legend_title, color_bar, legend_labels],   
                             style: {
                                 position: 'bottom-left',
-                                padding: '8px 15px'
+                                padding: '4px 8px'
                               }});
 
 Map.add(legend_panel);
