@@ -79,6 +79,7 @@ var model_c = ee.Number(25.7259);
 
 function s2_cloud_mask(image) 
 {
+  var qa = image.select('QA60');
   // Bits 10 and 11 are clouds and cirrus, respectively.
   var bitMask = (1 << 11) | (1 << 10);
   return image.updateMask(qa.bitwiseAnd(bitMask).eq(0).focal_min(10));
