@@ -13,7 +13,10 @@ exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 // image - join of S2 TOA/SR and s2cloudless
 function s2_prob_cloud_mask(image, thresh)
 {
-  if (thresh === undefined || thresh === null){var thresh = 2}
+  if (thresh === undefined || thresh === null)
+  {
+    var thresh = 5;
+  }
   var cloud_prob = ee.Image(image.get('s2cloudless')).select('probability');
   var cloud_mask = cloud_prob.lt(thresh);
   return image.updateMask(cloud_mask);
