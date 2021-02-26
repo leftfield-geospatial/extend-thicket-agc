@@ -131,7 +131,7 @@ function add_cld_shdw_mask(img, scale)
 }
 exports.add_cld_shdw_mask = add_cld_shdw_mask;
 
-function add_cld_only_mask(img, scale=20)
+function add_cld_only_mask(img, scale)
 {
   if (scale === undefined || scale === null)
   {
