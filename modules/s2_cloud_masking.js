@@ -55,7 +55,7 @@ function get_s2_sr_cld_col(aoi, start_date, end_date)
 exports.get_s2_sr_cld_col = get_s2_sr_cld_col;
 
 // Straighforward cloud mask using QA60 band cloud bits
-function s2_simple_cloud_mask(image) 
+function simple_cloud_mask(image) 
 {
   var qa = image.select('QA60');
   var bitMask = (1 << 11) | (1 << 10);
