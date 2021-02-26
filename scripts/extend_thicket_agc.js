@@ -260,7 +260,73 @@ if (false)
   print('max_agc: ', max_agc)
 }
 
+/**
+ * @license
+ * Copyright 2020 Google LLC.
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
+
+/*
+ * Map layer setup
+ */
+
+// Compute the mean sea surface temperature (SST) value for each pixel by
+// averaging MODIS Aqua data for one year.
+var modisOceanColor = ee.ImageCollection('NASA/OCEANDATA/MODIS-Aqua/L3SMI');
+var sst =
+    modisOceanColor.select(['sst']).filterDate('2017-01-01', '2018-01-01');
+
+var vis = {min: 0, max: 30, palette: 'navy,blue,aqua'};
+var composite = sst.mean().visualize(vis);
+Map.addLayer(composite);
+
+
+/*
+ * Legend setup
+ */
+
+// Creates a color bar thumbnail image for use in legend from the given color
+// palette.
+function makeColorBarParams(palette) 
+{
+  return {
+    bbox: [0, 0, 1, 0.1],
+    dimensions: '100x10',
+    format: 'png',
+    min: 0,
+    max: 1,
+    palette: palette,
+  };
+}
+
+// Create the color bar for the legend.
+var colorBar = ui.Thumbnail({
+  image: ee.Image.pixelLonLat().select(0),
+  params: makeColorBarParams(vis.palette),
+  style: {stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px'},
+});
+
+// Create a panel with three numbers for the legend.
+var legendLabels = ui.Panel({
+  widgets: [
+    ui.Label(vis.min, {margin: '2px 4px'}),
+    ui.Label(
+        (vis.max / 2),
+        {margin: '2px 4px', textAlign: 'center', stretch: 'horizontal'}),
+    ui.Label(vis.max, {margin: '2px 4px'})
+  ],
+  layout: ui.Panel.Layout.flow('horizontal')
+});
+
+var legendTitle = ui.Label({
+  value: 'Map Legend: median 2017 ocean temp (C)',
+  style: {fontWeight: 'bold'}
+});
+
+// Add the legendPanel to the map.
+var legendPanel = ui.Panel([legendTitle, colorBar, legendLabels]);
+Map.add(legendPanel);
 
 var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
 var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
