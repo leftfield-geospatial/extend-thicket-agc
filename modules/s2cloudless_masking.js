@@ -131,7 +131,7 @@ function add_cld_only_mask(img)
   // Add cloud component bands.
   var img_cloud = add_cloud_bands(img);
   
-  if false
+  if (false)
   {
     // dilate cloud mask only
     var scale = 10;
