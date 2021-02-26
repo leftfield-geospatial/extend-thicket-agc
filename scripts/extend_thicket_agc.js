@@ -267,20 +267,8 @@ if (false)
  */
 
 
-/*
- * Map layer setup
- */
 
-// Compute the mean sea surface temperature (SST) value for each pixel by
-// averaging MODIS Aqua data for one year.
-var modisOceanColor = ee.ImageCollection('NASA/OCEANDATA/MODIS-Aqua/L3SMI');
-var sst =
-    modisOceanColor.select(['sst']).filterDate('2017-01-01', '2018-01-01');
-
-var vis = {min: 0, max: 30, palette: 'navy,blue,aqua'};
-var composite = sst.mean().visualize(vis);
-Map.addLayer(composite);
-
+var vis = {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 1.0}
 
 /*
  * Legend setup
@@ -334,4 +322,4 @@ Map.setOptions('TERRAIN');
 Map.centerObject(step_arid_and_valley_thicket);
 // Map.addLayer(masked_image.divide(10000), {min: 0.0, max: [0.3, 0.3, 0.3], bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'S2_SR');
 Map.addLayer(masked_image, {min: 0.0, max: 3000, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB', false);
-Map.addLayer(agc_masked_image, {min: 0, max: 40, palette: ['red', 'yellow', 'green'], opacity: 1.0}, 'AGC');
+Map.addLayer(agc_masked_image, , 'AGC');
