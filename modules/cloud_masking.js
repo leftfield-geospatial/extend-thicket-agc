@@ -16,6 +16,7 @@ function landsat_simple_cloud_mask(image, thresh=5)
   var mask = scored.select(['cloud']).lte(thresh);
   return image.updateMask(mask);
 }
+exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 
 // Cloud and shadow mask L8 SR data with "pixel_qa" band
 function landsat8_sr_cloud_mask(image) 
@@ -25,6 +26,7 @@ function landsat8_sr_cloud_mask(image)
   var qa = image.select('pixel_qa');
   return image.updateMask(qa.bitwiseAnd(mask_bit).eq(0));
 }
+exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 
 // Cloud and shadow mask L8 TOA data with "BQA" band
 function landsat8_toa_cloud_mask(image) 
@@ -39,3 +41,4 @@ function landsat8_toa_cloud_mask(image)
   var mask = qa.bitwiseAnd(bit_mask).eq(0);
   return image.updateMask(mask);
 }
+exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
