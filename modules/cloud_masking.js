@@ -9,9 +9,7 @@ function s2_simple_cloud_mask(image)
 }
 exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 
-
-
-function landsat_simple_cloud_mask(image)
+function landsat_simple_cloud_mask(image, thresh=5)
 {
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
   
