@@ -259,7 +259,6 @@ if (false)
 
 var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
 
-Export.image.toAsset()
 Export.image.toAsset({
   image: agc_image,
   description: 'agc_image_l8',
