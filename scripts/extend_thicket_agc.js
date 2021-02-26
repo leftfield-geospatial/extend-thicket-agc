@@ -265,12 +265,12 @@ Export.image.toAsset({
   description: 'agc_image_l8',
   assetId: 'agc_image_l8',
   scale: 30,
-  region: geometry,
-  pyramidingPolicy: {
-    'b4_mean': 'mean',
-    'b4_sample': 'sample',
-    'b4_max': 'max'
-  }
+  region: step_arid_and_valley_thicket,
+  // pyramidingPolicy: {
+  //   'b4_mean': 'mean',
+  //   'b4_sample': 'sample',
+  //   'b4_max': 'max'
+  // }
 });
 
 
