@@ -124,7 +124,8 @@ function model_agc(rn_image, train_plots)
                                     c: calib_model.c.multiply(agc_model.m).add(agc_model.c)})
   
   // apply calibration transform and AGC model in one step
-  var agc_image = rn_image.log10().multiply(calib_model.m.multiply(agc_model.m)).add(calib_model.c.multiply(agc_model.m).add(agc_model.c));
+  // var agc_image = rn_image.log10().multiply(calib_model.m.multiply(agc_model.m)).add(calib_model.c.multiply(agc_model.m).add(agc_model.c));
+  // var agc_image = rn_image.log10().multiply(calib_model.m.multiply(agc_model.m)).add(calib_model.c.multiply(agc_model.m).add(agc_model.c));
   
   return agc_image;
 }
