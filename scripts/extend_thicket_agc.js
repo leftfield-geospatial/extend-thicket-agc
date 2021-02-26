@@ -257,8 +257,9 @@ if (false)
   print('max_agc: ', max_agc)
 }
 
-var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
 Export.image.toAsset(agc_image)
+var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
+
 var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
 Map.setOptions('TERRAIN');
 Map.centerObject(step_arid_and_valley_thicket);
