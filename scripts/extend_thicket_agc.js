@@ -195,7 +195,7 @@ else if (false)
                     // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
                     // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
                     .filterBounds(step_arid_and_valley_thicket)
-                    .map(s2_cloud_mask);
+                    .map(cloud_masking.s2_simple_cloud_mask);
 
 else if (true)
 {
