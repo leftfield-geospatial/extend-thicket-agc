@@ -314,10 +314,7 @@ var legend_labels = ui.Panel({
         {margin: '4px 8px', textAlign: 'center', stretch: 'horizontal'}),
     ui.Label(vis.max, {margin: '4px 8px'})
   ],
-  style: {
-    position: 'bottom-left',
-    padding: '8px 15px'
-  }});
+});
 
 var legend_title = ui.Label({
   value: 'Legend: AGC 2017 (tC/ha)',
@@ -325,6 +322,10 @@ var legend_title = ui.Label({
 });
 
 // Add the legendPanel to the map.
-var legend_panel = ui.Panel([legend_title, color_bar, legend_labels]);
+var legend_panel = ui.Panel({widgets: [legend_title, color_bar, legend_labels],   
+                            style: {
+                                position: 'bottom-left',
+                                padding: '8px 15px'
+                              }});
 
 Map.add(legend_panel);
