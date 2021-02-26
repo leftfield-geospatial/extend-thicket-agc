@@ -61,16 +61,12 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // The cloud prob S2 masking is very slow for our large ROI and for the particular time span of interest, makes very little difference to AGC acc
 
 
-var s2_cloud_masking = require('users/dugalh/extend_thicket_agc:modules/s2_cloud_masking.js');
-print(s2_cloud_masking.s2CloudMaskParams);
+var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 
 // the univariate log(mean(R/pan)) model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
 var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 // var agc_model = {m: ee.Number(-252.1986), c: ee.Number(16.9453)};  // pan = (R + G + B + NIR1)
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
-
-
-
 
 function find_rn(image) 
 {
@@ -189,7 +185,7 @@ if (false)
                     // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
                     // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 20))
                     .filterBounds(step_arid_and_valley_thicket)
-                    .map(s2_cloud_mask);
+                    .map(cloud_masking.);
 
 else if (false)
   var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
