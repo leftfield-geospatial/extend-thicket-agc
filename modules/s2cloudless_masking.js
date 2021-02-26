@@ -181,9 +181,6 @@ function display_cloud_layers(col)
   var cloudmask = img.select('cloudmask').selfMask();
   var cloud_transform = img.select('cloud_transform');
   
-  // Create a folium map object.
-  // var center = AOI.centroid(10).coordinates().reverse().getInfo()
-  // m = folium.Map(location=center, zoom_start=12)
   Map.centerObject(s2_cloud_mask_params.AOI);
   
   // Add layers to the folium map.
