@@ -83,7 +83,7 @@ function s2_cloud_mask(image)
   
   // Bits 10 and 11 are clouds and cirrus, respectively.
   var bitMask = (1 << 11) | (1 << 10);
-    return qa.updateMask(qa.bitwiseAnd(bitMask).eq(0)); 
+  return qa.updateMask(qa.bitwiseAnd(bitMask).eq(0)); 
 }
 
 function landsat_simple_cloud_mask(image)
