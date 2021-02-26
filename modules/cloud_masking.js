@@ -9,7 +9,7 @@ function s2_simple_cloud_mask(image)
 }
 exports.s2_simple_cloud_mask = s2_simple_cloud_mask;
 
-// Mask with the GEE simpleCloudScore function
+// Cloud mask Landsatr with the GEE simpleCloudScore function
 function landsat_simple_cloud_mask(image, thresh=5)
 {
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
@@ -17,7 +17,7 @@ function landsat_simple_cloud_mask(image, thresh=5)
   return image.updateMask(mask);
 }
 
-// Mask L8 SR data with "pixel_qa" band
+// Cloud and shadow mask L8 SR data with "pixel_qa" band
 function landsat8_sr_cloud_mask(image) 
 {
   // Bits 3 and 5 are cloud shadow and cloud, respectively.
