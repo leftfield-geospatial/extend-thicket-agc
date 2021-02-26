@@ -70,7 +70,7 @@ var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
 
 
-function s2_cloud_mask(image) 
+function s2_simple_cloud_mask(image) 
 {
   var qa = image.select('QA60');
   
