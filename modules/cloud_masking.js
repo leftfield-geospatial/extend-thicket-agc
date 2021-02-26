@@ -1,3 +1,5 @@
+// Functions for cloud and shadow masking Sentinel-2 and Landsat 8 imagery
+
 // Simple Sentinel-2 cloud masking using QA60 band
 function s2_simple_cloud_mask(image) 
 {
