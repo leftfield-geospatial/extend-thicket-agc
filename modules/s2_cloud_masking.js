@@ -21,7 +21,7 @@ function simple_cloud_mask(image)
   return qa.updateMask(qa.bitwiseAnd(bitMask).eq(0)); 
 }
 
-// Parameters for masking with s2cloudless (cloud probability )
+// Parameters for masking with s2cloudless (cloud probability images)
 var s2_cloud_mask_params = { 
     AOI: ee.Geometry.Point(24, -33.5),
     START_DATE: '2017-10-01',
