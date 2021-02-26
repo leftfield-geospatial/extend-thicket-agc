@@ -115,7 +115,7 @@ function model_agc(rn_image, train_plots)
     }),
     selectors: ['extend_log_rn', 'constant', 'log(mean(R/pan))']
   }));
-  print('calib_ee_model: ', calib_model);
+  print('calib_ee_model: ', calib_ee_model);
   
   var calib_coeff = ee.Array(calib_ee_model.get('coefficients')).toList();
   // print(calib_model.get('coefficients'))
