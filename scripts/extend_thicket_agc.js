@@ -6,7 +6,8 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
     gef_calib_plots_l8_nir1 = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1"),
     gef_calib_plots_l8_nir2 = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir2"),
     gef_calib_plots_l8_nir2_xlate = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir2_xlate"),
-    geometry = /* color: #d63000 */ee.Geometry.MultiPoint();
+    geometry = /* color: #d63000 */ee.Geometry.MultiPoint(),
+    step_solid_spekboom_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_solid_spekboom_thicket");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
@@ -61,8 +62,8 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // S2 TOA geom accuracy is much better than L8 T1
 // The cloud prob S2 masking is very slow for our large ROI and for the particular time span of interest, makes very little difference to AGC acc
 
-
 var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
+var thicket_boundary = step_solid_spekboom_thicket;
 
 // the univariate log(mean(R/pan)) model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
 var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
@@ -280,6 +281,7 @@ Map.centerObject(step_arid_and_valley_thicket);
 // Map.addLayer(masked_image.divide(10000), {min: 0.0, max: [0.3, 0.3, 0.3], bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'S2_SR');
 // Map.addLayer(masked_image, {min: 0.0, max: 3000, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB', false);
 Map.addLayer(agc_masked_image, vis, 'AGC');
+Map.layers()[0].se
 
 /*
  * Legend setup
