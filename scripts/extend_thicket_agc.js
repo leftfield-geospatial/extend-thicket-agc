@@ -184,7 +184,7 @@ if (false)
                     .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
                     // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
                     // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 20))
-                    .filterBounds(step_arid_and_valley_thicket)
+                    .filterBounds(thicket_boundary)
                     .map(cloud_masking.s2_simple_cloud_mask);
 
 else if (false)
@@ -194,24 +194,24 @@ else if (false)
                     .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
                     // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
                     // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
-                    .filterBounds(step_arid_and_valley_thicket)
+                    .filterBounds(thicket_boundary)
                     .map(cloud_masking.s2_simple_cloud_mask);
 
 else if (true)
 {
   var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
                       .filterDate('2017-09-01', '2017-12-30')
-                      .filterBounds(step_arid_and_valley_thicket)
+                      .filterBounds(thicket_boundary)
                       .map(cloud_masking.landsat8_sr_cloud_mask);
   // gef_calib_plots = gef_calib_plots_l8_nir1;
 }
 else if (false)
   var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
                       .filterDate('2017-11-01', '2017-12-30')
-                      .filterBounds(step_arid_and_valley_thicket)
+                      .filterBounds(thicket_boundary)
                       .map(cloud_masking.landsat8_toa_cloud_mask);
 // else if (false)
-//   var s2_toa_images = s2_cloud_masking.get_s2_sr_cld_col(step_arid_and_valley_thicket, '2017-10-01', '2017-10-30')
+//   var s2_toa_images = s2_cloud_masking.get_s2_sr_cld_col(thicket_boundary, '2017-10-01', '2017-10-30')
 //                         .map(s2_cloud_masking.add_cld_only_mask)
 //                         .map(s2_cloud_masking.apply_cld_shdw_mask);
 
@@ -246,7 +246,7 @@ if (false)
 {
   var min_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.min(),
-    geometry: step_arid_and_valley_thicket,
+    geometry: thicket_boundary,
     scale: 1e4,
     maxPixels: 1e6
   });
@@ -255,7 +255,7 @@ if (false)
   
   var max_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.max(),
-    geometry: step_arid_and_valley_thicket,
+    geometry: thicket_boundary,
     scale: 1e4,
     maxPixels: 1e6
   });
@@ -273,11 +273,11 @@ if (false)
 var vis = {min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0}
 
 
-var agc_masked_image = agc_image.clip(step_arid_and_valley_thicket.geometry())
-var masked_image = image.clip(step_arid_and_valley_thicket.geometry())
+var agc_masked_image = agc_image.clip(thicket_boundary.geometry())
+var masked_image = image.clip(thicket_boundary.geometry())
 
 Map.setOptions('HYBRID');
-Map.centerObject(step_arid_and_valley_thicket);
+Map.centerObject(thicket_boundary);
 // Map.addLayer(masked_image.divide(10000), {min: 0.0, max: [0.3, 0.3, 0.3], bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'S2_SR');
 // Map.addLayer(masked_image, {min: 0.0, max: 3000, bands: ['B4', 'B3', 'B2'], opacity: 1.0}, 'RGB', false);
 Map.addLayer(agc_masked_image, vis, 'AGC');
