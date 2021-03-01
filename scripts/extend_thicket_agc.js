@@ -242,7 +242,7 @@ accuracy_check(agc_image, test_calib_plots);
 print('Sampling Accuracy:');
 accuracy_check(agc_image, gef_sampling_plots);
 
-if (false)
+if (true)
 {
   var min_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.min(),
