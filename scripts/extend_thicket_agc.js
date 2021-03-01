@@ -348,5 +348,5 @@ slider.setValue(0.6);  // Set a default value.
 slider.onChange(function(value) {
   Map.layers().get(0).setOpacity(value);
 });
-print(slider);
+// print(slider);
 Map.add(slider);
