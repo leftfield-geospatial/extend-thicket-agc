@@ -339,6 +339,7 @@ var slider = ui.Slider();
   slider.onChange(function(value) {
     Map.layers().get(0).setOpacity(value);
   });
+
 // Add the legendPanel to the map.
 var legend_panel = ui.Panel({widgets: [legend_title, color_bar, legend_labels],   
                             style: {
@@ -353,3 +354,4 @@ if (false)
 
   // print(slider);
   Map.add(slider);
+}
