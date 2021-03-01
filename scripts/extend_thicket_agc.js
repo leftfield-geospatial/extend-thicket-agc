@@ -260,6 +260,14 @@ if (true)
     maxPixels: 1e8
   });
   print('max_agc: ', max_agc)
+
+  var p_agc = agc_image.reduceRegion({
+    reducer: ee.Reducer.max(),
+    geometry: thicket_boundary,
+    scale: 100,
+    maxPixels: 1e8
+  });
+  print('max_agc: ', max_agc)
 }
 
 /**
