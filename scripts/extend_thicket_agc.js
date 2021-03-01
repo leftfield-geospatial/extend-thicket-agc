@@ -267,7 +267,7 @@ if (true)
     scale: 100,
     maxPixels: 1e8
   });
-  print('max_agc: ', max_agc)
+  print('5-95% AGC: ', max_agc)
 }
 
 /**
