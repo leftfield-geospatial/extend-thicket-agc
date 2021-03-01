@@ -247,8 +247,8 @@ if (false)
   var min_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.min(),
     geometry: thicket_boundary,
-    scale: 1e4,
-    maxPixels: 1e6
+    scale: 100,
+    maxPixels: 1e7
   });
   
   print('min_agc: ', min_agc)
@@ -256,8 +256,8 @@ if (false)
   var max_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.max(),
     geometry: thicket_boundary,
-    scale: 1e4,
-    maxPixels: 1e6
+    scale: 100,
+    maxPixels: 1e7
   });
   print('max_agc: ', max_agc)
 }
