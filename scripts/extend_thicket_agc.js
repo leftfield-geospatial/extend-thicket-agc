@@ -346,7 +346,7 @@ var slider_panel = ui.Panel({
 });
 // Add the legendPanel to the map.
 var legend_panel = ui.Panel({widgets: [legend_title, slider_panel, color_bar, legend_labels, 
-                                        ui.Label('Docs').setUrl('https://github.com/dugalh/extend_thicket_agc')],   
+                                        ui.Label('More information').setUrl('https://github.com/dugalh/extend_thicket_agc')],   
                             style: {
                                 position: 'bottom-left',
                                 padding: '4px 8px'
