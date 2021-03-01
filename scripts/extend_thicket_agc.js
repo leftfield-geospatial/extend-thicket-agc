@@ -248,7 +248,7 @@ if (false)
     reducer: ee.Reducer.min(),
     geometry: thicket_boundary,
     scale: 100,
-    maxPixels: 1e7
+    maxPixels: 1e8
   });
   
   print('min_agc: ', min_agc)
@@ -257,7 +257,7 @@ if (false)
     reducer: ee.Reducer.max(),
     geometry: thicket_boundary,
     scale: 100,
-    maxPixels: 1e7
+    maxPixels: 1e8
   });
   print('max_agc: ', max_agc)
 }
