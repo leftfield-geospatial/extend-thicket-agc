@@ -333,6 +333,12 @@ var legend_title = ui.Label({
   style: {fontWeight: 'bold'}
 });
 
+var slider = ui.Slider();
+  slider.se
+  slider.setValue(0.6);  // Set a default value.
+  slider.onChange(function(value) {
+    Map.layers().get(0).setOpacity(value);
+  });
 // Add the legendPanel to the map.
 var legend_panel = ui.Panel({widgets: [legend_title, color_bar, legend_labels],   
                             style: {
@@ -342,11 +348,8 @@ var legend_panel = ui.Panel({widgets: [legend_title, color_bar, legend_labels],
 
 Map.add(legend_panel);
 
-var slider = ui.Slider();
+if (false)
+{
 
-slider.setValue(0.6);  // Set a default value.
-slider.onChange(function(value) {
-  Map.layers().get(0).setOpacity(value);
-});
-// print(slider);
-Map.add(slider);
+  // print(slider);
+  Map.add(slider);
