@@ -341,7 +341,7 @@ var slider = ui.Slider();
   });
 
 // Add the legendPanel to the map.
-var legend_panel = ui.Panel({widgets: [legend_title, color_bar, legend_labels],   
+var legend_panel = ui.Panel({widgets: [legend_title, slider, color_bar, legend_labels],   
                             style: {
                                 position: 'bottom-left',
                                 padding: '4px 8px'
