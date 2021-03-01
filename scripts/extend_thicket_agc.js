@@ -349,3 +349,4 @@ slider.onChange(function(value) {
   Map.layers().get(0).setOpacity(value);
 });
 print(slider);
+Map.add(slider);
