@@ -345,7 +345,7 @@ Map.add(legend_panel);
 var slider = ui.Slider();
 
 slider.setValue(0.6);  // Set a default value.
-slider.on_change(function(value) {
+slider.onChange(function(value) {s
   Map.layers().get(0).setOpacity(value);
 });
 print(slider);
