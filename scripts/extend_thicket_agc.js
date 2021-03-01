@@ -348,6 +348,4 @@ slider.setValue(0.6);  // Set a default value.
 slider.on_change(function(value) {
   Map.layers().get(0).setOpacity(value);
 });
-
-Map.addLayer(ee.Image(255), {palette: 'blue'});
 print(slider);
