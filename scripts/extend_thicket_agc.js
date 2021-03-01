@@ -262,7 +262,7 @@ if (true)
   print('max_agc: ', max_agc)
 
   var p_agc = agc_image.reduceRegion({
-    reducer: ee.Reducer.percentile([5,95]),
+    reducer: ee.Reducer.percentile([2,5,95,98]),
     geometry: thicket_boundary,
     scale: 100,
     maxPixels: 1e8
