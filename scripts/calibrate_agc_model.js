@@ -124,7 +124,7 @@ function accuracy_check(agc_image, test_plots)
 
   // find sum of square differences from mean
   var agc_ss = agc_plots.map(function(feature) {
-    return feature.gee_log_rn(
+    return feature.set(
       {
         agc_off_pow2: (ee.Number(feature.get(gef_agc_field)).subtract(agc_mean)).pow(2)
       });
