@@ -55,6 +55,7 @@ function model_agc(rn_image, train_plots) {
   return agc_image;
 }
 
+// Check the accuracy of an AGC image using ground truth plots
 function accuracy_check(agc_image, test_plots)
 {
   var agc_field = 'AgcHa';
