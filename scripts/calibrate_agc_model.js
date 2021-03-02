@@ -150,7 +150,7 @@ var agc_ptile = agc_dict.image.reduceRegion({
 });
 print('2-98% EE AGC: ', agc_ptile);
 
-// export model and AGC image for use in other scripts
+// export model and AGC image to Drive for use in other scripts
 var model_feat = ee.Feature(null, agc_dict.model);
 print(model_feat);
 var model_coll = ee.FeatureCollection([model_feat]);
