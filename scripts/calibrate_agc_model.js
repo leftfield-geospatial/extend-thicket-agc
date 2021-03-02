@@ -66,7 +66,10 @@ function model_agc(rn_image, train_plots) {
   // apply the new model to the EE log(R/pan) image
   var agc_image = rn_image.log10().multiply(agc_ee_model.m).add(agc_ee_model.c);
   
-  return agc_image;
+  return {
+    model: agc_ee_model, 
+    agc: agc_image
+  };
 }
 
 // Check the accuracy of an AGC image using ground truth plots
