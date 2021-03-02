@@ -151,11 +151,12 @@ var agc_ptile = agc_dict.image.reduceRegion({
 print('2-98% EE AGC: ', agc_ptile);
 
 // export model and AGC image to Drive for use in other scripts
+// (can't export to asset because of size and geometry limits)
 var model_feat = ee.Feature(null, agc_dict.model);
 print(model_feat);
 var model_coll = ee.FeatureCollection([model_feat]);
 print(model_coll);
-Export.table.toAsset({
+Export.table.toDrive({
   collection: model_coll,
   description: 'exportAgcModel',
   // fileFormat: 'CSV'
