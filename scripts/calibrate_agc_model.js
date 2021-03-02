@@ -74,7 +74,7 @@ function accuracy_check(agc_image, test_plots)
 
   // convert to RMSE
   var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt();
-  print('agc_rms: ', agc_rms);
+  print('AGC RMSE: ', agc_rms);
 
   // find mean agc 
   var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [gef_agc_field]).get('mean'));
