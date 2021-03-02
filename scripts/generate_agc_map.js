@@ -1,9 +1,10 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
     gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
-    gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots");
+    gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
+    ee_agc_model = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-// Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
+// Load the EE model and apply to EE imagery
 
 var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket boundaries
@@ -164,21 +165,15 @@ Export.table.toAsset({
   assetId: 'extend_thicket_agc/ee_agc_model',
 });
 
-var agc_image = agc_dict.image.uint8();
-
-print(agc_image);
-// print(agc_image.getInfo());
-// print(agc_image.getInfo().bands[0].dimensions);
 Export.image.toDrive({
-  image: agc_image,
+  image: agc_dict.image.uint8(),
   description: 'ee_agc_image',
   folder: 'Earth Engine Data',
-  scale: 60,
+  scale: 600,
   region: thicket_boundary,
   fileFormat: 'GeoTIFF',
   formatOptions: {
     cloudOptimized: true
   },
-  maxPixels: 1e9,
-  crs: 'EPSG:3857'
+  maxPixels: 1e9
 });
