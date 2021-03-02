@@ -46,8 +46,8 @@ function model_agc(rn_image, train_plots) {
   print('calib_res: ', calib_res);
   
   var calib_coeff = ee.Array(calib_res.get('coefficients')).toList();
-  // print(calib_model.get('coefficients'))
-  //should these be made server side?
+  
+  // should these be made server side?
   var calib_model = {m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), c: ee.Number(ee.List(calib_coeff.get(1)).get(0))};
   var agc_ee_model = {m: calib_model.m.multiply(agc_model.m), c: calib_model.c.multiply(agc_model.m).add(agc_model.c)};
   
