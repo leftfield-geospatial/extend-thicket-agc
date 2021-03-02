@@ -9,7 +9,7 @@ var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket bo
 var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)}; // the univariate log(mean(R/pan)) WV3 model
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.gee_log_rn({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
 
-// Find normalised red image feature
+// Find R/pan image feature
 function find_rn(image) {
   var rn_image = image.expression('(R / (R + G + B + RE))', 
               {
