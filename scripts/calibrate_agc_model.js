@@ -153,7 +153,7 @@ print('2-98% EE AGC: ', agc_ptile);
 
 // export model and AGC image to Drive for use in other scripts
 // (can't export to assets because of size and geometry limits)
-var ee_agc_model_feat = ee.Feature(thicket_boundary.first().geometry().centroid().geometry(), agc_dict.model);
+var ee_agc_model_feat = ee.Feature(thicket_boundary.first().geometry().centroid(), agc_dict.model);
 print(thicket_boundary.first().geometry().centroid());
 print(ee_agc_model_feat);
 
