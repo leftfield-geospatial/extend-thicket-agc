@@ -7,7 +7,7 @@ var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_maski
 var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket boundaries
 var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)}; // the univariate log(mean(R/pan)) WV3 model
 
-// Find Sentinel or Landsat normalised red image
+// Find normalised red image
 function find_rn(image) {
   var rn_image = image.expression('(R / (R + G + B + RE))', 
               {
