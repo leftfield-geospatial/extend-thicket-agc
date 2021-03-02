@@ -1,5 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket");
+var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
+    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
 
@@ -19,10 +20,9 @@ function find_rn(image) {
   return ee.Image(rn_image);
 }
 
-// Calibrate the GEF AGC model to GTEE image
-function model_agc(rn_image, train_plots)
-{
-  // fit calibration transform
+// Calibrate the GEF AGC model to GEE normalised red image
+function model_agc(rn_image, train_plots) {
+  // rn for each calibration plot
   var rn_plots = rn_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: train_plots,
