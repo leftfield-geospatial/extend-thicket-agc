@@ -4,7 +4,7 @@ var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_maski
 var thicket_boundary = step_solid_spekboom_thicket;
 
 // the univariate log(mean(R/pan)) model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
-var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
+var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 // var agc_model = {m: ee.Number(-252.1986), c: ee.Number(16.9453)};  // pan = (R + G + B + NIR1)
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
 print(agc_model);
