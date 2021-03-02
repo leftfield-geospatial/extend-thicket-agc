@@ -19,6 +19,7 @@ function find_rn(image) {
   return ee.Image(rn_image);
 }
 
+//
 function model_agc(rn_image, train_plots)
 {
   // fit calibration transform
