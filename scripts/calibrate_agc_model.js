@@ -5,20 +5,19 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 
 // Find Sentinel or Landsat normalised red image
 function find_rn(image) {
-  var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'), 
-            image.expression('(R / (R + G + B + RE))', 
+  var rn_image = image.expression('(R / (R + G + B + RE))', 
               {
                 'R': image.select('B4'),
                 'G': image.select('B3'),
                 'B': image.select('B2'),
-                'RE': image.select('B8'),
+                'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), 'B8', 'B5'))
               }),
-            image.expression('(R / (R + G + B + RE))',  //Landsat
+            image.expression('(R / (R + G + B + RE))',  
               {
                 'R': image.select('B4'),
                 'G': image.select('B3'),
                 'B': image.select('B2'),
-                'RE': image.select('B5'),
+                'RE': image.select('B5'),           //Landsat
               })
             );
     return ee.Image(rn_image);
