@@ -1,7 +1,10 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
 
 var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
-var thicket_boundary = step_solid_spekboom_thicket;
+var thicket_boundary = step_arid_and_valley_thicket;
 
 // the univariate log(mean(R/pan)) model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
 var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
