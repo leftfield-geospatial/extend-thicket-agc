@@ -126,7 +126,7 @@ function find_rn(image) {
 
 var rn_image = find_rn(image);
 
-
+// Split train and test data
 var split = 0.5;  
 var calib_plots = gef_calib_plots.randomColumn('random', 0);
 var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
