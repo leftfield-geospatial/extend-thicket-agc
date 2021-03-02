@@ -162,3 +162,10 @@ Export.table.toDrive({
   fileFormat: 'CSV',
   folder: 'Earth Engine Data'
 });
+
+Export.image.toDrive({
+  image: ee_agc_model_coll,
+  description: 'ee_agc_model_coll',
+  fileFormat: 'CSV',
+  folder: 'Earth Engine Data'
+})
