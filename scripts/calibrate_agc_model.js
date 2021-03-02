@@ -168,9 +168,9 @@ Export.image.toDrive({
   description: 'ee_agc_image',
   folder: 'Earth Engine Data',
   scale: 30,
-  region: thick,
+  region: thicket_boundary,
   fileFormat: 'GeoTIFF',
   formatOptions: {
     cloudOptimized: true
   }
-})
+});
