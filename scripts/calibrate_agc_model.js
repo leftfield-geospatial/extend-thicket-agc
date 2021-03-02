@@ -16,18 +16,6 @@ gef_sampling_plots = gef_sampling_plots.map(function(feature){
   })
 });
 
-// Find R/pan image feature
-function find_rn(image) {
-  var rn_image = image.expression('(R / (R + G + B + RE))', 
-              {
-                'R': image.select('B4'),
-                'G': image.select('B3'),
-                'B': image.select('B2'),
-                'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), 'B8', 'B5'))
-              });
-  return ee.Image(rn_image);
-}
-
 // Calibrate the GEF AGC model to EE, and find extended AGC
 function model_agc(rn_image, train_plots) {
   
@@ -121,12 +109,24 @@ var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollec
                     .map(cloud_masking.landsat8_sr_cloud_mask);
 
 var images = l8_sr_images;
-print('num images: ', images.size());
+print('No images: ', images.size());
 var image = images.median();    // composite the image collection
 
+// Find R/pan image feature
+function find_rn(image) {
+  var rn_image = image.expression('(R / (R + G + B + RE))', 
+              {
+                'R': image.select('B4'),
+                'G': image.select('B3'),
+                'B': image.select('B2'),
+                'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), 'B8', 'B5'))
+              });
+  return ee.Image(rn_image);
+}
 
-var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
-print('rn_image: ', rn_image);
+var rn_image = find_rn(image);
+
+
 var split = 0.5;  
 var calib_plots = gef_calib_plots.randomColumn('random', 0);
 var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
