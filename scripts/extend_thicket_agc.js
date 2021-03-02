@@ -1,13 +1,13 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
-    gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
-    gef_calib_plots_l8_nir1_xlate = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1_xlate"),
-    gef_calib_plots_l8_nir1 = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1"),
-    gef_calib_plots_l8_nir2 = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir2"),
-    gef_calib_plots_l8_nir2_xlate = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir2_xlate"),
-    geometry = /* color: #d63000 */ee.Geometry.MultiPoint(),
-    step_solid_spekboom_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_solid_spekboom_thicket");
+  gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
+  gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
+  gef_calib_plots_l8_nir1_xlate = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1_xlate"),
+  gef_calib_plots_l8_nir1 = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir1"),
+  gef_calib_plots_l8_nir2 = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir2"),
+  gef_calib_plots_l8_nir2_xlate = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots_l8_nir2_xlate"),
+  geometry = /* color: #d63000 */ee.Geometry.MultiPoint(),
+  step_solid_spekboom_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_solid_spekboom_thicket");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
@@ -66,48 +66,47 @@ var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_maski
 var thicket_boundary = step_solid_spekboom_thicket;
 
 // the univariate log(mean(R/pan)) model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
-var agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
+var agc_model = { m: ee.Number(-318.8304), c: ee.Number(25.7259) };
 // var agc_model = {m: ee.Number(-252.1986), c: ee.Number(16.9453)};  // pan = (R + G + B + NIR1)
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
 print(agc_model);
 
-function find_rn(image) 
-{
-  var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'), 
-            image.expression('(R / (R + G + B + RE))', //Sentinel
-              {
-                'R': image.select('B4'),
-                'G': image.select('B3'),
-                'B': image.select('B2'),
-                'RE': image.select('B8'),
-              }),
-            image.expression('(R / (R + G + B + RE))',  //Landsat
-              {
-                'R': image.select('B4'),
-                'G': image.select('B3'),
-                'B': image.select('B2'),
-                'RE': image.select('B5'),
-              })
-            );
-    return ee.Image(rn_image);
+function find_rn(image) {
+  var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'),
+    image.expression('(R / (R + G + B + RE))', //Sentinel
+      {
+        'R': image.select('B4'),
+        'G': image.select('B3'),
+        'B': image.select('B2'),
+        'RE': image.select('B8'),
+      }),
+    image.expression('(R / (R + G + B + RE))',  //Landsat
+      {
+        'R': image.select('B4'),
+        'G': image.select('B3'),
+        'B': image.select('B2'),
+        'RE': image.select('B5'),
+      })
+  );
+  return ee.Image(rn_image);
 }
 
-function model_agc(rn_image, train_plots)
-{
+function model_agc(rn_image, train_plots) {
   // fit calibration transform
   var rn_plots = rn_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: train_plots,
-    scale: 1});
-  
+    scale: 1
+  });
+
   // print('rn_calib_plots');
   // print(rn_calib_plots);
-  
+
   // find log(mean(rn)) for each calib plot, and add constant 1 for offset fit
-  var log_rn_plots = rn_plots.map(function(feature) {
-    return feature.set({extend_log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
+  var log_rn_plots = rn_plots.map(function (feature) {
+    return feature.set({ extend_log_rn: ee.Number(feature.get('mean')).log10(), constant: 1 });
   });
-  
+
   // print('log_rn_calib_plots: ', log_rn_calib_plots);
 
   var calib_res = ee.Dictionary(log_rn_plots.reduceColumns({
@@ -118,25 +117,24 @@ function model_agc(rn_image, train_plots)
     selectors: ['extend_log_rn', 'constant', 'log(mean(R/pan))']
   }));
   print('calib_res: ', calib_res);
-  
+
   var calib_coeff = ee.Array(calib_res.get('coefficients')).toList();
   // print(calib_model.get('coefficients'))
   //should these be made server side?
-  var calib_model = {m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), c: ee.Number(ee.List(calib_coeff.get(1)).get(0))};
-  var agc_ee_model = {m: calib_model.m.multiply(agc_model.m), c: calib_model.c.multiply(agc_model.m).add(agc_model.c)};
-  
+  var calib_model = { m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), c: ee.Number(ee.List(calib_coeff.get(1)).get(0)) };
+  var agc_ee_model = { m: calib_model.m.multiply(agc_model.m), c: calib_model.c.multiply(agc_model.m).add(agc_model.c) };
+
   // apply calibration transform and AGC model in one step
   // var agc_image = rn_image.log10().multiply(calib_model.m.multiply(agc_model.m)).add(calib_model.c.multiply(agc_model.m).add(agc_model.c));
   var agc_image = rn_image.log10().multiply(agc_ee_model.m).add(agc_ee_model.c);
-  
+
   return agc_image;
 }
 
-function accuracy_check(agc_image, test_plots)
-{
+function accuracy_check(agc_image, test_plots) {
   var agc_field = 'AgcHa';
   var pred_agc_field = 'mean';
-  
+
   var agc_plots = agc_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: test_plots,
@@ -146,8 +144,8 @@ function accuracy_check(agc_image, test_plots)
   // print('agc_plots: ', agc_plots)
 
   // find residual sum of squares
-  var agc_res_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(agc_field))).pow(2)});
+  var agc_res_ss = agc_plots.map(function (feature) {
+    return feature.set({ agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(agc_field))).pow(2) });
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2']);
 
   var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt();
@@ -156,20 +154,20 @@ function accuracy_check(agc_image, test_plots)
   // find mean agc 
   var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('mean'));
   print('agc_mean: ', agc_mean);
-  
+
   // sum of squares
-  var agc_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_off2: (ee.Number(feature.get(agc_field)).subtract(agc_mean)).pow(2)});
+  var agc_ss = agc_plots.map(function (feature) {
+    return feature.set({ agc_off2: (ee.Number(feature.get(agc_field)).subtract(agc_mean)).pow(2) });
   }).reduceColumns(ee.Reducer.sum(), ['agc_off2']);
-  
+
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))));
   print('agc_r2: ', agc_r2);
-  
-  
+
+
   // // find sum of squares
   // var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [agc_field]).get('mean'));
   // // print('agc_mean: ', agc_mean)
-  
+
   // // sum of squares
   // var agc_ss = agc_plots.map(function(feature) {
   //   return feature.set({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
@@ -179,44 +177,45 @@ function accuracy_check(agc_image, test_plots)
 
 if (false)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
-                    .filterDate('2017-09-01', '2017-11-01')
-                    // Pre-filter to get less cloudy granules.
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
-                    // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
-                    // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 20))
-                    .filterBounds(thicket_boundary)
-                    .map(cloud_masking.s2_simple_cloud_mask);
+    .filterDate('2017-09-01', '2017-11-01')
+    // Pre-filter to get less cloudy granules.
+    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
+    // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
+    // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 20))
+    .filterBounds(thicket_boundary)
+    .map(cloud_masking.s2_simple_cloud_mask);
 
 else if (false)
   var s2_sr_images = ee.ImageCollection('COPERNICUS/S2_SR')
-                    .filterDate('2019-11-01', '2019-11-30')
-                    // Pre-filter to get less cloudy granules.
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
-                    // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
-                    // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
-                    .filterBounds(thicket_boundary)
-                    .map(cloud_masking.s2_simple_cloud_mask);
+    .filterDate('2019-11-01', '2019-11-30')
+    // Pre-filter to get less cloudy granules.
+    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
+    // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
+    // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 30))
+    .filterBounds(thicket_boundary)
+    .map(cloud_masking.s2_simple_cloud_mask);
 
-else if (true)
-{
+else if (true) {
   var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
-                      .filterDate('2017-09-01', '2017-12-30')
-                      .filterBounds(thicket_boundary)
-                      .map(cloud_masking.landsat8_sr_cloud_mask);
+    .filterDate('2017-09-01', '2017-12-30')
+    .filterBounds(thicket_boundary)
+    .map(cloud_masking.landsat8_sr_cloud_mask);
   // gef_calib_plots = gef_calib_plots_l8_nir1;
 }
 else if (false)
   var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
-                      .filterDate('2017-11-01', '2017-12-30')
-                      .filterBounds(thicket_boundary)
-                      .map(cloud_masking.landsat8_toa_cloud_mask);
+    .filterDate('2017-11-01', '2017-12-30')
+    .filterBounds(thicket_boundary)
+    .map(cloud_masking.landsat8_toa_cloud_mask);
 // else if (false)
 //   var s2_toa_images = s2_cloud_masking.get_s2_sr_cld_col(thicket_boundary, '2017-10-01', '2017-10-30')
 //                         .map(s2_cloud_masking.add_cld_only_mask)
 //                         .map(s2_cloud_masking.apply_cld_shdw_mask);
 
 // convert AgcHa from kg to tons
-gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
+gef_sampling_plots = gef_sampling_plots.map(function (feature) {
+  return feature.set({ AgcHa: ee.Number(feature.get("AgcHa")).divide(1000) });
+});
 
 var images = l8_sr_images;
 print('num images: ', images.size());
@@ -229,7 +228,7 @@ var image = images.median();
 
 var rn_image = find_rn(image);  //ee.String(images.first().get('SPACECRAFT_NAME'))
 print('rn_image: ', rn_image);
-var split = 0.5;  
+var split = 0.5;
 var calib_plots = gef_calib_plots.randomColumn('random', 0);
 var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
 var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
@@ -243,17 +242,16 @@ accuracy_check(agc_image, test_calib_plots);
 print('Sampling Accuracy:');
 accuracy_check(agc_image, gef_sampling_plots);
 
-if (false)
-{
+if (false) {
   var min_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.min(),
     geometry: thicket_boundary,
     scale: 100,
     maxPixels: 1e8
   });
-  
+
   print('min_agc: ', min_agc)
-  
+
   var max_agc = agc_image.reduceRegion({
     reducer: ee.Reducer.max(),
     geometry: thicket_boundary,
@@ -263,7 +261,7 @@ if (false)
   print('max_agc: ', max_agc)
 
   var p_agc = agc_image.reduceRegion({
-    reducer: ee.Reducer.percentile([2,5,95,98]),
+    reducer: ee.Reducer.percentile([2, 5, 95, 98]),
     geometry: thicket_boundary,
     scale: 100,
     maxPixels: 1e8
@@ -279,7 +277,7 @@ if (false)
 
 
 
-var vis = {min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0}
+var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 }
 
 
 var agc_masked_image = agc_image.clip(thicket_boundary.geometry())
@@ -297,8 +295,7 @@ Map.layers().get(0).setOpacity(.55)
 
 // Creates a color bar thumbnail image for use in legend from the given color
 // palette.
-function make_color_bar_params(palette) 
-{
+function make_color_bar_params(palette) {
   return {
     bbox: [0, 0, 1, 0.1],
     dimensions: '100x10',
@@ -313,49 +310,50 @@ function make_color_bar_params(palette)
 var color_bar = ui.Thumbnail({
   image: ee.Image.pixelLonLat().select(0),
   params: make_color_bar_params(vis.palette),
-  style: {stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px'},
+  style: { stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px' },
 });
 
 // Create a panel with three numbers for the legend.
 var legend_labels = ui.Panel({
   widgets: [
-    ui.Label(vis.min, {margin: '4px 8px'}),
+    ui.Label(vis.min, { margin: '4px 8px' }),
     ui.Label(
-        (vis.max / 2),
-        {margin: '4px 8px', textAlign: 'center', stretch: 'horizontal'}),
-    ui.Label(vis.max, {margin: '4px 8px'})
+      (vis.max / 2),
+      { margin: '4px 8px', textAlign: 'center', stretch: 'horizontal' }),
+    ui.Label(vis.max, { margin: '4px 8px' })
   ],
   layout: ui.Panel.Layout.flow('horizontal')
 });
 
 var legend_title = ui.Label({
   value: 'Legend: AGC 2017 (tC/ha)',
-  style: {fontWeight: 'bold'}
+  style: { fontWeight: 'bold' }
 });
 
 var slider = ui.Slider();
-  slider.se
-  slider.setValue(0.6);  // Set a default value.
-  slider.onChange(function(value) {
-    Map.layers().get(0).setOpacity(value);
-  });
+slider.se
+slider.setValue(0.6);  // Set a default value.
+slider.onChange(function (value) {
+  Map.layers().get(0).setOpacity(value);
+});
 
 var slider_panel = ui.Panel({
   widgets: [ui.Label('Opacity'), slider],
   layout: ui.Panel.Layout.flow('horizontal')
 });
 // Add the legendPanel to the map.
-var legend_panel = ui.Panel({widgets: [legend_title, slider_panel, color_bar, legend_labels, 
-                                        ui.Label('More information').setUrl('https://github.com/dugalh/extend_thicket_agc')],   
-                            style: {
-                                position: 'bottom-left',
-                                padding: '4px 8px'
-                              }});
+var legend_panel = ui.Panel({
+  widgets: [legend_title, slider_panel, color_bar, legend_labels,
+    ui.Label('More information').setUrl('https://github.com/dugalh/extend_thicket_agc')],
+  style: {
+    position: 'bottom-left',
+    padding: '4px 8px'
+  }
+});
 
 Map.add(legend_panel);
 
-if (false)
-{
+if (false) {
 
   // print(slider);
   Map.add(slider);
