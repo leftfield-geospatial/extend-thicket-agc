@@ -156,7 +156,7 @@ print(model_feat);
 var model_coll = ee.FeatureCollection([model_feat]);
 print(model_coll);
 Export.table.toAsset({
-  collection: featureCollection,
-  description: 'exportTableExample',
+  collection: model_coll,
+  description: 'exportAgcModel',
   fileFormat: 'CSV'
 });
