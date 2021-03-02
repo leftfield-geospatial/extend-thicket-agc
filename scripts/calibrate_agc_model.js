@@ -89,7 +89,7 @@ function accuracy_check(agc_image, test_plots)
   
   // find correlation coefficient
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))));
-  print('agc_r2: ', agc_r2);
+  print('AGC R2: ', agc_r2);
   
   
   // // find sum of squares
