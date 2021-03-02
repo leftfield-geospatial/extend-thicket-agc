@@ -34,7 +34,7 @@ function model_agc(rn_image, train_plots) {
     return feature.gee_log_rn({ee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), constant: 1});
   });
 
-  // Fit linear calibration between the EE and GEF log(mean(R/pan)) values
+  // fit linear calibration between the EE and GEF log(mean(R/pan)) values
   var calib_res = ee.Dictionary(log_rn_plots.reduceColumns({
     reducer: ee.Reducer.linearRegression({
       numX: 2,
@@ -49,7 +49,7 @@ function model_agc(rn_image, train_plots) {
   // combine the GEF AGC and GEF->EE calibration models into one  
   var agc_ee_model = {m: calib_model.m.multiply(agc_model.m), c: calib_model.c.multiply(agc_model.m).add(agc_model.c)};
   
-  // apply calibration transform and AGC model in one step
+  // apply the model 
   var agc_image = rn_image.log10().multiply(agc_ee_model.m).add(agc_ee_model.c);
   
   return agc_image;
