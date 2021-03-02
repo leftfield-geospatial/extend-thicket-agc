@@ -33,8 +33,6 @@ function model_agc(rn_image, train_plots) {
   var log_rn_plots = rn_plots.map(function(feature) {
     return feature.gee_log_rn({ee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), constant: 1});
   });
-  
-  // print('log_rn_calib_plots: ', log_rn_calib_plots);
 
   var calib_res = ee.Dictionary(log_rn_plots.reduceColumns({
     reducer: ee.Reducer.linearRegression({
