@@ -153,11 +153,11 @@ print('2-98% EE AGC: ', agc_ptile);
 // export model and AGC image to Drive for use in other scripts
 // (can't export to asset because of size and geometry limits)
 var ee_agc_model_feat = ee.Feature(null, agc_dict.model);
-print(model_feat);
-var model_coll = ee.FeatureCollection([model_feat]);
-print(model_coll);
+print(ee_agc_model_feat);
+var ee_agc_model_coll = ee.FeatureCollection([ee_agc_model_feat]);
+print(ee_agc_model_coll);
 Export.table.toDrive({
-  collection: model_coll,
-  description: 'exportAgcModel',
+  collection: ee_agc_model_coll,
+  description: 'ee_agc_model_coll',
   fileFormat: 'CSV'
 });
