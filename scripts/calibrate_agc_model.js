@@ -67,8 +67,6 @@ function accuracy_check(agc_image, test_plots)
     scale: 1
   });
 
-  // print('agc_plots: ', agc_plots)
-
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
     return feature.gee_log_rn({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(agc_field))).pow(2)});
