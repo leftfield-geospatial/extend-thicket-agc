@@ -11,7 +11,7 @@ var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)}; // the uni
 
 // convert kg to tonnes
 gef_sampling_plots = gef_sampling_plots.map(function(feature){
-  return feature.gee_log_rn({
+  return feature.set({
     AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)
   })
 });
