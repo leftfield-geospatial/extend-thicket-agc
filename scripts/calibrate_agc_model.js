@@ -132,9 +132,9 @@ function model_agc(rn_image, train_plots) {
 }
 var agc_image = model_agc(rn_image, train_calib_plots);
 
-print('Calibration training acc:');
+print('Calibration train accuracy:');
 accuracy_check(agc_image, train_calib_plots);
-print('Calib Test Accuracy:');
+print('Calibration training acc:');
 accuracy_check(agc_image, test_calib_plots);
 print('Sampling Accuracy:');
 accuracy_check(agc_image, gef_sampling_plots);
