@@ -154,7 +154,7 @@ print('2-98% EE AGC: ', agc_ptile);
 // (can't export to assets because of size and geometry limits)
 var tmp  = thicket_boundary.first();
 print(tmp)
-var ee_agc_model_feat = ee.Feature(tmp.geometry().centroid(), agc_dict.model);
+var ee_agc_model_feat = ee.Feature(thicket_boundary.first().geometry().centroid(), agc_dict.model);
 print(ee_agc_model_feat);
 var ee_agc_model_coll = ee.FeatureCollection([ee_agc_model_feat]);
 print(ee_agc_model_coll);
