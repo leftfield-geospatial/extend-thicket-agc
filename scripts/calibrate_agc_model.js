@@ -171,7 +171,7 @@ Export.image.toDrive({
   folder: 'Earth Engine Data',
   scale: 600,
   region: thicket_boundary,
-  fileFormat: 'GeoTIFF',
+  fileFormat: 'TFRecord',
   formatOptions: {
     cloudOptimized: true
   },
