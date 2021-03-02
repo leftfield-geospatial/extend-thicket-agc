@@ -16,43 +16,6 @@ gef_sampling_plots = gef_sampling_plots.map(function(feature){
   })
 });
 
-// Check the accuracy of an AGC image using test ground truth plots
-function accuracy_check(agc_image, test_plots)
-{
-  var gef_agc_field = 'AgcHa';
-  var pred_agc_field = 'EeAgcHa';
-  
-  var agc_plots = agc_image.reduceRegions({
-    reducer: ee.Reducer.mean(),
-    collection: test_plots,
-    scale: 1
-  }).rename('mean', pred_agc_field);
-
-  // find residual sum of squares
-  var agc_res_ss = agc_plots.map(function(feature) {
-    return feature.gee_log_rn({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(gef_agc_field))).pow(2)});
-  }).reduceColumns(ee.Reducer.sum(), ['agc_res2']);
-
-  // convert to RMSE
-  var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt();
-  print('AGC RMSE: ', agc_rms);
-
-  // find mean GEF agc 
-  var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [gef_agc_field]).get('mean'));
-
-  // find sum of square differences from mean
-  var agc_ss = agc_plots.map(function(feature) {
-    return feature.gee_log_rn(
-      {
-        agc_off_pow2: (ee.Number(feature.get(gef_agc_field)).subtract(agc_mean)).pow(2)
-      });
-  }).reduceColumns(ee.Reducer.sum(), ['agc_off_pow2']);
-  
-  // find correlation coefficient
-  var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))));
-  print('AGC R2: ', agc_r2);
-}
-
 // var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
 //                   .filterDate('2017-09-01', '2017-11-01')
 //                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
