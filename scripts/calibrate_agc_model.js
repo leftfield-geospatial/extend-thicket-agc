@@ -134,12 +134,12 @@ function accuracy_check(agc_image, test_plots)
 print('Calibration train accuracy:');
 accuracy_check(agc_dict.image, train_calib_plots);
 print('Calibration test accuracy:');
-accuracy_check(agc_image, test_calib_plots);
+accuracy_check(agc_dict.image, test_calib_plots);
 print('Sampling accuracy:');
-accuracy_check(agc_image, gef_sampling_plots);
+accuracy_check(agc_dict.image, gef_sampling_plots);
 
 // sanity check on EE AGC statistics
-var ptile_agc = agc_image.reduceRegion({
+var ptile_agc = agc_dict.image.reduceRegion({
   reducer: ee.Reducer.percentile([2,98]),
   geometry: thicket_boundary,
   scale: 100,
