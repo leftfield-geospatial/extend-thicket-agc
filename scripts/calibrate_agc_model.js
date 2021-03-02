@@ -49,7 +49,7 @@ function model_agc(rn_image, train_plots) {
   // combine the GEF AGC and GEF->EE calibration models into one  
   var agc_ee_model = {m: calib_model.m.multiply(agc_model.m), c: calib_model.c.multiply(agc_model.m).add(agc_model.c)};
   
-  // apply the model 
+  // apply the model to the EE log(R/pan) image
   var agc_image = rn_image.log10().multiply(agc_ee_model.m).add(agc_ee_model.c);
   
   return agc_image;
