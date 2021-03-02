@@ -165,6 +165,7 @@ Export.table.toAsset({
 });
 
 var agc_image = agc_dict.image.uint8();
+agc_image
 print();
 Export.image.toDrive({
   image: agc_dict.image.uint8(),
