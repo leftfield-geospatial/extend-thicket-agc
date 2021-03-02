@@ -150,6 +150,7 @@ var agc_ptile = agc_dict.image.reduceRegion({
 });
 print('2-98% EE AGC: ', agc_ptile);
 
-var ee_agc_model = ee.FeatureCollection([ee.Dictionary(agc_dict.model)]);
-print(ee_agc_model);
-Export.table.toAsset(ee_agc_model, 'ee_agc_model', 'extend_thicket_agc/ee_agc_model');
+var ee_agc_model = ee.Dictionary(agc_dict.model);
+var ee_agc_model_ = ee.FeatureCollection(ee.Dictionary(agc_dict.model));
+print(ee_agc_model_);
+Export.table.toAsset(ee_agc_model_, 'ee_agc_model', 'extend_thicket_agc/ee_agc_model');
