@@ -31,7 +31,7 @@ function model_agc(rn_image, train_plots) {
 
   // find log(mean(rn)) for each feature, adding constant 1 for linear regression offgee_log_rn
   var log_rn_plots = rn_plots.map(function(feature) {
-    return feature.gee_log_rn({gee_log_mean_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
+    return feature.gee_log_rn({gee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), constant: 1});
   }).rename('');
   
   // print('log_rn_calib_plots: ', log_rn_calib_plots);
