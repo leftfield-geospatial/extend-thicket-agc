@@ -159,5 +159,5 @@ print(model_coll);
 Export.table.toDrive({
   collection: model_coll,
   description: 'exportAgcModel',
-  // fileFormat: 'CSV'
+  fileFormat: 'CSV'
 });
