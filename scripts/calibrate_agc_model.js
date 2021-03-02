@@ -16,49 +16,6 @@ gef_sampling_plots = gef_sampling_plots.map(function(feature){
   })
 });
 
-// Calibrate the GEF AGC model to EE, and find extended AGC
-function model_agc(rn_image, train_plots) {
-  
-  // find mean(R/pan) for each calibration plot
-  var rn_plots = rn_image.reduceRegions({
-    reducer: ee.Reducer.mean(),
-    collection: train_plots,
-    scale: 1});
-
-  // find log(mean(R/pan)) for each feature, adding constant 1 for linear regression offgee_log_rn
-  var log_rn_plots = rn_plots.map(function(feature) {
-    return feature.gee_log_rn({ee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), constant: 1});
-  });
-
-  // fit linear calibration between the EE and GEF log(mean(R/pan)) values
-  var calib_res = ee.Dictionary(log_rn_plots.reduceColumns({
-    reducer: ee.Reducer.linearRegression({
-      numX: 2,
-      numY: 1
-    }),
-    selectors: ['ee_log_mean_rn', 'constant', 'log(mean(R/pan))']
-  }));
-  print ('Calibration result: ', calib_res);
-  var calib_coeff = ee.Array(calib_res.get('coefficients')).toList();
-  var calib_model = {
-    m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), 
-    c: ee.Number(ee.List(calib_coeff.get(1)).get(0))
-  };
-
-  // combine the GEF AGC and GEF->EE calibration models into one  
-  var agc_ee_model = {
-    m: calib_model.m.multiply(agc_model.m), 
-    c: calib_model.c.multiply(agc_model.m).add(agc_model.c)
-  };
-  
-  // apply the new model to the EE log(R/pan) image
-  var agc_image = rn_image.log10().multiply(agc_ee_model.m).add(agc_ee_model.c);
-  
-  return {
-    model: agc_ee_model, 
-    agc: agc_image
-  };
-}
 
 // Check the accuracy of an AGC image using test ground truth plots
 function accuracy_check(agc_image, test_plots)
