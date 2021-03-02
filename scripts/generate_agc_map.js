@@ -107,11 +107,3 @@ var legend_panel = ui.Panel({widgets: [legend_title, slider_panel, color_bar, le
                               }});
 
 Map.add(legend_panel);
-
-if (false)
-{
-
-  // print(slider);
-  Map.add(slider);
-}
-
