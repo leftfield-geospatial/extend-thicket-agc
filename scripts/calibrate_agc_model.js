@@ -72,7 +72,7 @@ function model_agc(rn_image, train_plots) {
   };
 }
 
-// Check the accuracy of an AGC image using ground truth plots
+// Check the accuracy of an AGC image using test ground truth plots
 function accuracy_check(agc_image, test_plots)
 {
   var gef_agc_field = 'AgcHa';
