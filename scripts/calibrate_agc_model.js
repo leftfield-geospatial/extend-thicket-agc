@@ -172,8 +172,8 @@ Export.image.toDrive({
   scale: 600,
   region: thicket_boundary,
   fileFormat: 'TFRecord',
-  formatOptions: {
-    cloudOptimized: true
-  },
+  // formatOptions: {
+  //   cloudOptimized: true
+  // },
   maxPixels: 1e9
 });
