@@ -164,7 +164,7 @@ Export.table.toDrive({
 });
 
 Export.image.toDrive({
-  image: ee_agc_model_coll,
+  image: agc_dict.image,
   description: 'ee_agc_model_coll',
   fileFormat: 'CSV',
   folder: 'Earth Engine Data'
