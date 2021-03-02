@@ -23,13 +23,13 @@ function find_rn(image) {
 
 // Calibrate the GEF AGC model to GEE normalised red image
 function model_agc(rn_image, train_plots) {
-  // find mean(rn) for each calibration plot
+  // find mean(R/pan) for each calibration plot
   var rn_plots = rn_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: train_plots,
     scale: 1});
 
-  // find log(mean(rn)) for each feature, adding constant 1 for linear regression offgee_log_rn
+  // find log(mean(R/pan)) for each feature, adding constant 1 for linear regression offgee_log_rn
   var log_rn_plots = rn_plots.map(function(feature) {
     return feature.gee_log_rn({ee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), constant: 1});
   });
