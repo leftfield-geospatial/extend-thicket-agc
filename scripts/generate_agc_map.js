@@ -37,7 +37,7 @@ function find_rn(image) {
 var rn_image = find_rn(image);
 
 // find the EE AGC image
-var agc_image = rn_image.log10().multiply(-156.1047).add(-80.1402);
+var agc_image = (rn_image.log10().multiply(-156.1047).add(-80.1402)).uint8();
 var agc_masked_image = agc_image.clip(thicket_boundary.geometry())
 
 var vis = {min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0}
