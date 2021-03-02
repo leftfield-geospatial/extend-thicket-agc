@@ -90,7 +90,7 @@ function model_agc(rn_image, train_plots) {
   
   return {
     model: agc_ee_model, 
-    agc: agc_image
+    image: agc_image
   };
 }
 var agc_dict = model_agc(rn_image, train_calib_plots);
