@@ -72,6 +72,7 @@ function accuracy_check(agc_image, test_plots)
     return feature.gee_log_rn({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(gef_agc_field))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2']);
 
+  // convert to RMSE
   var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt();
   print('agc_rms: ', agc_rms);
 
