@@ -8,14 +8,6 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 
 var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket boundaries
-var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)}; // the univariate log(mean(R/pan)) WV3 model
-
-// convert kg to tonnes
-gef_sampling_plots = gef_sampling_plots.map(function(feature){
-  return feature.set({
-    AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)
-  })
-});
 
 // var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
 //                   .filterDate('2017-09-01', '2017-11-01')
