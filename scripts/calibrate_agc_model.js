@@ -161,7 +161,7 @@ Export.table.toAsset({
   description: 'ee_agc_model_coll',
   // fileFormat: 'CSV',
   // folder: 'Earth Engine Data'
-  assetId: 'exampleAssetId',
+  assetId: 'extend_thicket_agc/ee_agc_model',
 });
 
 Export.image.toDrive({
