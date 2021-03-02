@@ -172,5 +172,6 @@ Export.image.toDrive({
   fileFormat: 'GeoTIFF',
   formatOptions: {
     cloudOptimized: true
-  }
+  },
+  maxPixels: 1e9
 });
