@@ -109,13 +109,11 @@ function accuracy_check(agc_image, test_plots)
   print('AGC R2: ', agc_r2);
 }
 
-
-if (false)
-  var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
-                    .filterDate('2017-09-01', '2017-11-01')
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
-                    .filterBounds(thicket_boundary)
-                    .map(cloud_masking.s2_simple_cloud_mask);
+var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
+                  .filterDate('2017-09-01', '2017-11-01')
+                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
+                  .filterBounds(thicket_boundary)
+                  .map(cloud_masking.s2_simple_cloud_mask);
 
 else if (true)
   var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
