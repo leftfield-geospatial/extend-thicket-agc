@@ -11,15 +11,7 @@ function find_rn(image) {
                 'G': image.select('B3'),
                 'B': image.select('B2'),
                 'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), 'B8', 'B5'))
-              }),
-            image.expression('(R / (R + G + B + RE))',  
-              {
-                'R': image.select('B4'),
-                'G': image.select('B3'),
-                'B': image.select('B2'),
-                'RE': image.select('B5'),           //Landsat
-              })
-            );
+              });
     return ee.Image(rn_image);
 }
 
