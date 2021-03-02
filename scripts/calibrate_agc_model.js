@@ -4,7 +4,6 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 // Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
 
 
-
 // Find Sentinel or Landsat normalised Red
 function find_rn(image) {
   var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'), 
