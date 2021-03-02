@@ -152,7 +152,7 @@ print('2-98% EE AGC: ', agc_ptile);
 
 // export model and AGC image for use in other scripts
 var model_feat = ee.Feature(null, agc_dict.model);
-print(ee_agc_model_feat);
-var ee_agc_model_coll = ee.FeatureCollection([feat]);
+print(model_feat);
+var ee_agc_model_coll = ee.FeatureCollection([model_feat]);
 print(ee_agc_model_coll);
 Export.table.toAsset(ee_agc_model_coll, 'ee_agc_model', 'extend_thicket_agc/ee_agc_model');
