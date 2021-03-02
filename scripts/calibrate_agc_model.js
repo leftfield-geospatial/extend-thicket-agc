@@ -28,7 +28,7 @@ function model_agc(rn_image, train_plots) {
     collection: train_plots,
     scale: 1});
 
-  // find log(mean(rn)) for each calib plot, and add constant 1 for offset fit
+  // find log(mean(rn)) for each plot, adding constant 1 for offset fit
   var log_rn_plots = rn_plots.map(function(feature) {
     return feature.set({extend_log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
   });
