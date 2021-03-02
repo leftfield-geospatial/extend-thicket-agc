@@ -142,7 +142,7 @@ print('Sampling accuracy:');
 accuracy_check(agc_dict.image, gef_sampling_plots);
 
 // sanity check on EE AGC statistics
-var ptile_agc = agc_dict.image.reduceRegion({
+var agc_ptile = agc_dict.image.reduceRegion({
   reducer: ee.Reducer.percentile([2,98]),
   geometry: thicket_boundary,
   scale: 100,
