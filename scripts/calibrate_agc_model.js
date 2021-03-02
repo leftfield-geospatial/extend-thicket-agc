@@ -28,9 +28,9 @@ function model_agc(rn_image, train_plots) {
     collection: train_plots,
     scale: 1});
 
-  // find log(mean(rn)) for each feature, adding constant 1 for linear regression offset
+  // find log(mean(rn)) for each feature, adding constant 1 for linear regression offgee_log_rn
   var log_rn_plots = rn_plots.map(function(feature) {
-    return feature.set({extend_log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
+    return feature.gee_log_rn({gee_log_rn: ee.Number(feature.get('mean')).log10(), constant: 1});
   });
   
   // print('log_rn_calib_plots: ', log_rn_calib_plots);
@@ -40,7 +40,7 @@ function model_agc(rn_image, train_plots) {
       numX: 2,
       numY: 1
     }),
-    selectors: ['extend_log_rn', 'constant', 'log(mean(R/pan))']
+    selectors: ['gee_log_rn', 'constant', 'log(mean(R/pan))']
   }));
   print('calib_res: ', calib_res);
   
@@ -72,7 +72,7 @@ function accuracy_check(agc_image, test_plots)
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(agc_field))).pow(2)});
+    return feature.gee_log_rn({agc_res2: (ee.Number(feature.get(pred_agc_field)).subtract(feature.get(agc_field))).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_res2']);
 
   var agc_rms = (ee.Number(agc_res_ss.get('sum')).divide(agc_plots.size())).sqrt();
@@ -84,7 +84,7 @@ function accuracy_check(agc_image, test_plots)
   
   // sum of squares
   var agc_ss = agc_plots.map(function(feature) {
-    return feature.set({agc_off2: (ee.Number(feature.get(agc_field)).subtract(agc_mean)).pow(2)});
+    return feature.gee_log_rn({agc_off2: (ee.Number(feature.get(agc_field)).subtract(agc_mean)).pow(2)});
   }).reduceColumns(ee.Reducer.sum(), ['agc_off2']);
   
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))));
@@ -97,7 +97,7 @@ function accuracy_check(agc_image, test_plots)
   
   // // sum of squares
   // var agc_ss = agc_plots.map(function(feature) {
-  //   return feature.set({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
+  //   return feature.gee_log_rn({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
   // }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])  
 }
 
@@ -141,7 +141,7 @@ else if (false)
 //                         .map(s2_cloud_masking.apply_cld_shdw_mask);
 
 // convert AgcHa from kg to tons
-gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.set({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
+gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.gee_log_rn({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
 
 var images = l8_sr_images;
 print('num images: ', images.size());
