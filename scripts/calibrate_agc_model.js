@@ -61,7 +61,10 @@ function model_agc(rn_image, train_plots) {
 
   // find log(mean(R/pan)) for each feature, adding constant 1 for linear regression offgee_log_rn
   var log_rn_plots = rn_plots.map(function(feature) {
-    return feature.set({ee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), constant: 1});
+    return feature.set({
+      ee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), 
+      constant: 1
+    });
   });
 
   // fit linear calibration between the EE and GEF log(mean(R/pan)) values
@@ -81,8 +84,8 @@ function model_agc(rn_image, train_plots) {
 
   // combine the GEF AGC and GEF->EE calibration models into one  
   var agc_ee_model = {
-    m: calib_model.m.multiply(agc_model.m), 
-    c: calib_model.c.multiply(agc_model.m).add(agc_model.c)
+    m: calib_model.m.multiply(gef_agc_model.m), 
+    c: calib_model.c.multiply(gef_agc_model.m).add(gef_agc_model.c)
   };
   
   // apply the new model to the EE log(R/pan) image
