@@ -123,7 +123,6 @@ function find_rn(image) {
               });
   return ee.Image(rn_image);
 }
-
 var rn_image = find_rn(image);
 
 // Split train and test data
