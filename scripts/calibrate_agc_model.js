@@ -102,13 +102,13 @@ var agc_dict = model_agc(rn_image, train_calib_plots);
 function accuracy_check(agc_image, test_plots)
 {
   var gef_agc_field = 'AgcHa';
-  var pred_agc_field = 'EeAgcHa';
+  var pred_agc_field = 'mean';
   
   var agc_plots = agc_image.reduceRegions({
     reducer: ee.Reducer.mean(),
     collection: test_plots,
     scale: 1
-  }).rename('mean', pred_agc_field);
+  });
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
