@@ -97,6 +97,7 @@ function model_agc(rn_image, train_plots) {
   };
 }
 var agc_dict = model_agc(rn_image, train_calib_plots);
+print('EE AGC Model: ', )
 
 // Check the accuracy of an AGC image using test ground truth plots
 function accuracy_check(agc_image, test_plots)
