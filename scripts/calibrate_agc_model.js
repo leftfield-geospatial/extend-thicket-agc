@@ -19,13 +19,6 @@ function find_rn(image) {
   return ee.Image(rn_image);
 }
 
-
-// var agc_model = {m: ee.Number(-252.1986), c: ee.Number(16.9453)};  // pan = (R + G + B + NIR1)
-// var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
-
-print(agc_model);
-
-
 function model_agc(rn_image, train_plots)
 {
   // fit calibration transform
