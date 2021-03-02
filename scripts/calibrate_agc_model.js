@@ -7,6 +7,7 @@ var thicket_boundary = step_solid_spekboom_thicket;
 var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 // var agc_model = {m: ee.Number(-252.1986), c: ee.Number(16.9453)};  // pan = (R + G + B + NIR1)
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
+
 print(agc_model);
 
 function find_rn(image) 
