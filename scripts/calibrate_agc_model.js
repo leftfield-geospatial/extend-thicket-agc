@@ -166,5 +166,11 @@ Export.table.toDrive({
 Export.image.toDrive({
   image: agc_dict.image,
   description: 'ee_agc_image',
-  folder: 'Earth Engine Data'
+  folder: 'Earth Engine Data',
+  scale: 30,
+  region: thick,
+  fileFormat: 'GeoTIFF',
+  formatOptions: {
+    cloudOptimized: true
+  }
 })
