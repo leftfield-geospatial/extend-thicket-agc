@@ -6,8 +6,9 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 
 
 function find_rn(image) {
+  // Find Sentinel or Landsat normalised Red
   var rn_image = ee.Algorithms.If(image.bandNames().contains('B8'), 
-            image.expression('(R / (R + G + B + RE))', //Sentinel
+            image.expression('(R / (R + G + B + RE))', 
               {
                 'R': image.select('B4'),
                 'G': image.select('B3'),
