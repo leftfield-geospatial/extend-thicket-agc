@@ -167,8 +167,8 @@ Export.table.toAsset({
 var agc_image = agc_dict.image.uint8();
 
 print(agc_image);
-print(agc_image.getInfo());
-print(agc_image.getInfo().bands[0].dimensions);
+// print(agc_image.getInfo());
+// print(agc_image.getInfo().bands[0].dimensions);
 Export.image.toDrive({
   image: agc_image,
   description: 'ee_agc_image',
