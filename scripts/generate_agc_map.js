@@ -21,7 +21,6 @@ var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollec
                     .map(cloud_masking.landsat8_sr_cloud_mask);
 
 var images = l8_sr_images;
-print('Number of images: ', images.size());
 var image = images.median();    // composite the image collection
 
 // Find R/pan image feature
