@@ -28,7 +28,7 @@ function find_rn(image) {
   return ee.Image(rn_image);
 }
 
-// Calibrate the GEF AGC model to EE, and find extended AGC 
+// Calibrate the GEF AGC model to EE, and find extended AGC
 function model_agc(rn_image, train_plots) {
   
   // find mean(R/pan) for each calibration plot
