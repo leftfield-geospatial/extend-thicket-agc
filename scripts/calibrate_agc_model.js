@@ -138,7 +138,7 @@ accuracy_check(agc_image, test_calib_plots);
 print('Sampling accuracy:');
 accuracy_check(agc_image, gef_sampling_plots);
 
-// Find AGC statistics
+// Find EE AGC statistics
 var ptile_agc = agc_image.reduceRegion({
   reducer: ee.Reducer.percentile([2,98]),
   geometry: thicket_boundary,
