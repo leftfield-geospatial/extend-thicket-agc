@@ -37,5 +37,5 @@ function find_rn(image) {
 var rn_image = find_rn(image);
 
 // find the ee agc image
-var agc_image = rn_image.log10().multiply().add();
+var agc_image = rn_image.log10().multiply(-156.1047).add(-80.1402);
 
