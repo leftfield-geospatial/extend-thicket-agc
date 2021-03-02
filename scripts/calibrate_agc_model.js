@@ -93,7 +93,7 @@ function model_agc(rn_image, train_plots) {
     agc: agc_image
   };
 }
-var agc_image = model_agc(rn_image, train_calib_plots);
+var agc_dict = model_agc(rn_image, train_calib_plots);
 
 // Check the accuracy of an AGC image using test ground truth plots
 function accuracy_check(agc_image, test_plots)
