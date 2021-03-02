@@ -43,7 +43,7 @@ function model_agc(rn_image, train_plots) {
     selectors: ['ee_log_mean_rn', 'constant', 'log(mean(R/pan))']
   }));
   
-  print ('Calibration result: 'calib_res);
+  print ('Calibration result: ', calib_res);
 
   var calib_coeff = ee.Array(calib_res.get('coefficients')).toList();
   var calib_model = {m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), c: ee.Number(ee.List(calib_coeff.get(1)).get(0))};
