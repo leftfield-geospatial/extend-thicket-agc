@@ -139,7 +139,7 @@ print('Sampling accuracy:');
 accuracy_check(agc_image, gef_sampling_plots);
 
 var ptile_agc = agc_image.reduceRegion({
-  reducer: ee.Reducer.percentile([2,5,95,98]),
+  reducer: ee.Reducer.percentile([2,98]),
   geometry: thicket_boundary,
   scale: 100,
   maxPixels: 1e8
