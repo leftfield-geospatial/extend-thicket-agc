@@ -34,6 +34,7 @@ function model_agc(rn_image, train_plots) {
     return feature.gee_log_rn({ee_log_mean_rn: ee.Number(feature.get('mean_rn')).log10(), constant: 1});
   });
 
+  // Fit linear calibration between the EE and GEF log(mean(R/pan)) values
   var calib_res = ee.Dictionary(log_rn_plots.reduceColumns({
     reducer: ee.Reducer.linearRegression({
       numX: 2,
