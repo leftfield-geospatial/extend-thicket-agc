@@ -148,4 +148,4 @@ var agc_ptile = agc_dict.image.reduceRegion({
   scale: 100,
   maxPixels: 1e8
 });
-print('2-98% EE AGC: ', ptile_agc)
+print('2-98% EE AGC: ', agc_ptile)
