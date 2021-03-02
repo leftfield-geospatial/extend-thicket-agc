@@ -118,18 +118,10 @@ if (false)
                     .map(cloud_masking.s2_simple_cloud_mask);
 
 else if (true)
-{
   var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
                       .filterDate('2017-09-01', '2017-12-30')
                       .filterBounds(thicket_boundary)
                       .map(cloud_masking.landsat8_sr_cloud_mask);
-  // gef_calib_plots = gef_calib_plots_l8_nir1;
-}
-else if (false)
-  var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
-                      .filterDate('2017-11-01', '2017-12-30')
-                      .filterBounds(thicket_boundary)
-                      .map(cloud_masking.landsat8_toa_cloud_mask);
 // else if (false)
 //   var s2_toa_images = s2_cloud_masking.get_s2_sr_cld_col(thicket_boundary, '2017-10-01', '2017-10-30')
 //                         .map(s2_cloud_masking.add_cld_only_mask)
