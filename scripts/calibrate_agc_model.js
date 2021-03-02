@@ -113,10 +113,7 @@ function accuracy_check(agc_image, test_plots)
 if (false)
   var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
                     .filterDate('2017-09-01', '2017-11-01')
-                    // Pre-filter to get less cloudy granules.
-                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))  // CLOUDY_PIXEL_PERCENTAGE is in metadata (not a band)
-                    // .filter(ee.Filter.lt('MEAN_SOLAR_ZENITH_ANGLE', 30))
-                    // .filter(ee.Filter.lt('MEAN_INCIDENCE_ZENITH_ANGLE_B1', 20))
+                    .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
                     .filterBounds(thicket_boundary)
                     .map(cloud_masking.s2_simple_cloud_mask);
 
