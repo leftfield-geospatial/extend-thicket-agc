@@ -122,8 +122,6 @@ else if (true)
                       .filterDate('2017-09-01', '2017-12-30')
                       .filterBounds(thicket_boundary)
                       .map(cloud_masking.landsat8_sr_cloud_mask);
-// convert AgcHa from kg to tons
-gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.gee_log_rn({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
 
 var images = l8_sr_images;
 print('num images: ', images.size());
