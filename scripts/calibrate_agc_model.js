@@ -159,8 +159,9 @@ print(ee_agc_model_coll);
 Export.table.toAsset({
   collection: ee_agc_model_coll,
   description: 'ee_agc_model_coll',
-  fileFormat: 'CSV',
-  folder: 'Earth Engine Data'
+  // fileFormat: 'CSV',
+  // folder: 'Earth Engine Data'
+  assetId: 'exampleAssetId',
 });
 
 Export.image.toDrive({
