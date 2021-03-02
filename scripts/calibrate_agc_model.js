@@ -158,5 +158,5 @@ print(model_coll);
 Export.table.toAsset({
   collection: model_coll,
   description: 'exportAgcModel',
-  fileFormat: 'CSV'
+  // fileFormat: 'CSV'
 });
