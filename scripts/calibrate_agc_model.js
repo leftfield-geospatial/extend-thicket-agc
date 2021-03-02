@@ -148,6 +148,6 @@ var agc_ptile = agc_dict.image.reduceRegion({
   scale: 100,
   maxPixels: 1e8
 });
-print('2-98% EE AGC: ', agc_ptile)
+print('2-98% EE AGC: ', agc_ptile);
 
-Export.table.toAsset(agc_dict.model, 'agc_dict.model', 'extend_thicket_agc/ee_agc_model')
+Export.table.toAsset(agc_dict.model, 'agc_dict.model', 'extend_thicket_agc/ee_agc_model');
