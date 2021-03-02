@@ -174,5 +174,6 @@ Export.image.toDrive({
   formatOptions: {
     cloudOptimized: true
   },
-  maxPixels: 1e8
+  maxPixels: 1e8,
+  crs: 'EPSG:3857'
 });
