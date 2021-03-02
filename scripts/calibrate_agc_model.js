@@ -156,7 +156,7 @@ var ee_agc_model_feat = ee.Feature(thicket_boundary.centroid(), agc_dict.model);
 print(ee_agc_model_feat);
 var ee_agc_model_coll = ee.FeatureCollection([ee_agc_model_feat]);
 print(ee_agc_model_coll);
-Export.table.toDrive({
+Export.table.toAsset({
   collection: ee_agc_model_coll,
   description: 'ee_agc_model_coll',
   fileFormat: 'CSV',
