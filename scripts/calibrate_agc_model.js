@@ -30,6 +30,7 @@ function find_rn(image) {
 
 // Calibrate the GEF AGC model to EE 
 function model_agc(rn_image, train_plots) {
+  
   // find mean(R/pan) for each calibration plot
   var rn_plots = rn_image.reduceRegions({
     reducer: ee.Reducer.mean(),
@@ -51,10 +52,16 @@ function model_agc(rn_image, train_plots) {
   }));
   print ('Calibration result: ', calib_res);
   var calib_coeff = ee.Array(calib_res.get('coefficients')).toList();
-  var calib_model = {m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), c: ee.Number(ee.List(calib_coeff.get(1)).get(0))};
+  var calib_model = {
+    m: ee.Number(ee.List(calib_coeff.get(0)).get(0)), 
+    c: ee.Number(ee.List(calib_coeff.get(1)).get(0))
+  };
 
   // combine the GEF AGC and GEF->EE calibration models into one  
-  var agc_ee_model = {m: calib_model.m.multiply(agc_model.m), c: calib_model.c.multiply(agc_model.m).add(agc_model.c)};
+  var agc_ee_model = {
+    m: calib_model.m.multiply(agc_model.m), 
+    c: calib_model.c.multiply(agc_model.m).add(agc_model.c)
+  };
   
   // apply the model to the EE log(R/pan) image
   var agc_image = rn_image.log10().multiply(agc_ee_model.m).add(agc_ee_model.c);
