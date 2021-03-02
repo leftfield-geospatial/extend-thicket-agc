@@ -78,8 +78,7 @@ function accuracy_check(agc_image, test_plots)
 
   // find mean GEF agc 
   var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [gef_agc_field]).get('mean'));
-  print('agc_mean: ', agc_mean);
-  
+
   // sum of squares
   var agc_ss = agc_plots.map(function(feature) {
     return feature.gee_log_rn({agc_off2: (ee.Number(feature.get(gef_agc_field)).subtract(agc_mean)).pow(2)});
