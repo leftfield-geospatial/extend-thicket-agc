@@ -155,4 +155,8 @@ var model_feat = ee.Feature(null, agc_dict.model);
 print(model_feat);
 var model_coll = ee.FeatureCollection([model_feat]);
 print(model_coll);
-Export.table.toAsset(ee_agc_model_coll, 'ee_agc_model', 'extend_thicket_agc/ee_agc_model');
+Export.table.toAsset({
+  collection: featureCollection,
+  description: 'exportTableExample',
+  fileFormat: 'CSV'
+});
