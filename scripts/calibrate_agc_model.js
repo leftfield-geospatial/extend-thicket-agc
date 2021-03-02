@@ -90,16 +90,6 @@ function accuracy_check(agc_image, test_plots)
   // find correlation coefficient
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))));
   print('AGC R2: ', agc_r2);
-  
-  
-  // // find sum of squares
-  // var agc_mean = ee.Number(agc_plots.reduceColumns(ee.Reducer.mean(), [gef_agc_field]).get('mean'));
-  // // print('agc_mean: ', agc_mean)
-  
-  // // sum of squares
-  // var agc_ss = agc_plots.map(function(feature) {
-  //   return feature.gee_log_rn({agc_off2: (ee.Number(feature.get('mean')).subtract(agc_mean)).pow(2)});
-  // }).reduceColumns(ee.Reducer.sum(), ['agc_off2'])  
 }
 
 
