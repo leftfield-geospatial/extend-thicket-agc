@@ -138,30 +138,11 @@ accuracy_check(agc_image, test_calib_plots);
 print('Sampling accuracy:');
 accuracy_check(agc_image, gef_sampling_plots);
 
-if (false)
-{
-  var min_agc = agc_image.reduceRegion({
-    reducer: ee.Reducer.min(),
-    geometry: thicket_boundary,
-    scale: 100,
-    maxPixels: 1e8
-  });
-  
-  print('min_agc: ', min_agc)
-  
-  var max_agc = agc_image.reduceRegion({
-    reducer: ee.Reducer.max(),
-    geometry: thicket_boundary,
-    scale: 100,
-    maxPixels: 1e8
-  });
-  print('max_agc: ', max_agc)
-
-  var p_agc = agc_image.reduceRegion({
-    reducer: ee.Reducer.percentile([2,5,95,98]),
-    geometry: thicket_boundary,
-    scale: 100,
-    maxPixels: 1e8
-  });
+var p_agc = agc_image.reduceRegion({
+  reducer: ee.Reducer.percentile([2,5,95,98]),
+  geometry: thicket_boundary,
+  scale: 100,
+  maxPixels: 1e8
+});
   print('5-95% AGC: ', p_agc)
 }
