@@ -36,6 +36,11 @@ function find_rn(image) {
 }
 var rn_image = find_rn(image);
 
+// find the ee agc image
+var agc_image = rn_image.log10().multiply(agc_ee_model.m).add(agc_ee_model.c);
+
+
+
 // Split train and test data
 var split = 0.5;  
 var calib_plots = gef_calib_plots.randomColumn('random', 0);
