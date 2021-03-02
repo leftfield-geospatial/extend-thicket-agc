@@ -81,10 +81,13 @@ function accuracy_check(agc_image, test_plots)
 
   // find sum of square differences from mean
   var agc_ss = agc_plots.map(function(feature) {
-    return feature.gee_log_rn({agc_off_pow2: (ee.Number(feature.get(gef_agc_field)).subtract(agc_mean)).pow(2)});
+    return feature.gee_log_rn(
+      {
+        agc_off_pow2: (ee.Number(feature.get(gef_agc_field)).subtract(agc_mean)).pow(2)
+      });
   }).reduceColumns(ee.Reducer.sum(), ['agc_off_pow2']);
   
-  // f
+  // find correlation coefficient
   var agc_r2 = ee.Number(1).subtract(ee.Number(agc_res_ss.get('sum')).divide(ee.Number(agc_ss.get('sum'))));
   print('agc_r2: ', agc_r2);
   
