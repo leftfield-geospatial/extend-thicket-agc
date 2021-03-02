@@ -87,7 +87,7 @@ var calib_plots = gef_calib_plots.randomColumn('random', 0);
 var train_calib_plots = calib_plots.filter(ee.Filter.lt('random', split));
 var test_calib_plots = calib_plots.filter(ee.Filter.gte('random', split));
 
-// Calibrate the GEF AGC model to EE and find EE AGC
+// Calibrate the GEF AGC model to EE imagery and find EE AGC
 function model_agc(rn_image, train_plots) {
   
   // find mean(R/pan) for each calibration plot
