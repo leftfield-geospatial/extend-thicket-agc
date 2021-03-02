@@ -9,6 +9,7 @@ var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_maski
 var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket boundaries
 var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)}; // the univariate log(mean(R/pan)) WV3 model
 
+// convert kg to tonnes
 gef_sampling_plots = gef_sampling_plots.map(function(feature){return feature.gee_log_rn({AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)})});
 
 // Find R/pan image feature
