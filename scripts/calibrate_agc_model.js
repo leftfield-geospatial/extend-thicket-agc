@@ -132,7 +132,7 @@ function accuracy_check(agc_image, test_plots)
   print('AGC R2: ', agc_r2);
 }
 print('Calibration train accuracy:');
-accuracy_check(agc_image, train_calib_plots);
+accuracy_check(agc_dict.image, train_calib_plots);
 print('Calibration test accuracy:');
 accuracy_check(agc_image, test_calib_plots);
 print('Sampling accuracy:');
