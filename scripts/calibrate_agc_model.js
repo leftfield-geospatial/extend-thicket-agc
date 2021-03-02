@@ -165,7 +165,7 @@ Export.table.toAsset({
 });
 
 Export.image.toDrive({
-  image: agc_dict.image,
+  image: agc_dict.image.uint8(),
   description: 'ee_agc_image',
   folder: 'Earth Engine Data',
   scale: 60,
