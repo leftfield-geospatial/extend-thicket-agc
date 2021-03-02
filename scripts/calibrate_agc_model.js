@@ -160,5 +160,5 @@ Export.table.toDrive({
   collection: ee_agc_model_coll,
   description: 'ee_agc_model_coll',
   fileFormat: 'CSV',
-  folder: 'EarthEngineData'
+  folder: 'Earth Engine Data'
 });
