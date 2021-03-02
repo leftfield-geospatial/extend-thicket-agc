@@ -6,7 +6,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
 var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicket_boundary = step_arid_and_valley_thicket;
 
-// the univariate log(mean(R/pan)) GEF model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
+// the univariate log(mean(R/pan)) WV3 model with pan = (R + G + B + RE) from https://github.com/dugalh/map_thicket_agc
 var gef_agc_model = {m: ee.Number(-318.8304), c: ee.Number(25.7259)};
 // var agc_model = {m: ee.Number(-252.1986), c: ee.Number(16.9453)};  // pan = (R + G + B + NIR1)
 // var agc_model = {m: ee.Number(-245.6729), c: ee.Number(11.5778)};  // pan = (R + G + B + NIR1)
