@@ -65,7 +65,7 @@ function accuracy_check(agc_image, test_plots)
     reducer: ee.Reducer.mean(),
     collection: test_plots,
     scale: 1
-  });
+  }).rename('mean', 'EeAgcHa');
 
   // find residual sum of squares
   var agc_res_ss = agc_plots.map(function(feature) {
