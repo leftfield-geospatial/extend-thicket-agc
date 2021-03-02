@@ -4,7 +4,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
     gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
     ee_agc_model = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-// Load the EE model and apply to EE imagery
+// Apply the EE model and apply to EE imagery
 
 var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket boundaries
