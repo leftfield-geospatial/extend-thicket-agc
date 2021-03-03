@@ -178,7 +178,8 @@ Export.image.toDrive({
   },
   maxPixels: 1e9,
   fileDimensions: [2048,2048],
-  skipEmptyTiles: true
+  skipEmptyTiles: true,
+  // crs: 'EPSG:3857'
 });
 
 Export.image.toAsset({
