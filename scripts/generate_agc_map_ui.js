@@ -47,7 +47,6 @@ var mapPanel = ui.Map();
 
 // Take all tools off the map except the zoom and mapTypeControl tools.
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
-
 mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicket_boundary);
 var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
