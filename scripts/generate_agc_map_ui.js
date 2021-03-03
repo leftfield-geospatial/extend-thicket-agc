@@ -46,8 +46,7 @@ var agc_masked_image = agc_image.clip(thicket_boundary.geometry());
 var mapPanel = ui.Map();
 
 // Take all tools off the map except the zoom and mapTypeControl tools.
-mapPanel.setControlVisibility(
-    {all: false, zoomControl: true, mapTypeControl: true});
+mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 
 // Center the map
 var defaultLocation = locationDict['Deforestation in Paraguay'];
