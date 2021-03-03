@@ -192,6 +192,5 @@ Export.image.toAsset({
     cloudOptimized: true
   },
   maxPixels: 1e9,
-  dimensions: 1024,
-  skipEmptyTiles: true
+  dimensions: 1024
 });
