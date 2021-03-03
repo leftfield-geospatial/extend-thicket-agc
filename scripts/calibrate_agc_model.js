@@ -177,7 +177,7 @@ Export.image.toDrive({
     cloudOptimized: true
   },
   maxPixels: 1e9,
-  fileDimensions: [2048,2048],  // specify this to break into tiles
+  fileDimensions: [2048,2048],  // break into tiles
   skipEmptyTiles: true,
   // crs: 'EPSG:3857'
 });
