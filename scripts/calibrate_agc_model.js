@@ -187,10 +187,10 @@ Export.image.toAsset({
   assetId: 'extend_thicket_agc/ee_agc_image',
   scale: 30,
   region: ee.Feature(thicket_boundary.first()).bounds(),
-  fileFormat: 'GeoTIFF',
-  formatOptions: {
-    cloudOptimized: true
-  },
+  // fileFormat: 'GeoTIFF',
+  // formatOptions: {
+  //   cloudOptimized: true
+  // },
   maxPixels: 1e9,
   dimensions: 1024
 });
