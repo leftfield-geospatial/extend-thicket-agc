@@ -49,9 +49,7 @@ var mapPanel = ui.Map();
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 
 // Center the map
-var defaultLocation = locationDict['Deforestation in Paraguay'];
-mapPanel.setCenter(
-    defaultLocation.lon, defaultLocation.lat, defaultLocation.zoom);
+mapPanel.setCenter();
 
 // Add these to the interface.
 ui.root.widgets().reset([mapPanel]);
