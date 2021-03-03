@@ -43,7 +43,7 @@ var agc_image = (rn_image.log10().multiply(model.m).add(model.c)).uint8();
 var agc_masked_image = agc_image.clip(thicket_boundary.geometry());
 
 /*
-  Setup the map panel
+  Create the map panel
 */
 var mapPanel = ui.Map();
 
