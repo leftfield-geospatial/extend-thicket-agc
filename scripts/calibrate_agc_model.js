@@ -172,7 +172,7 @@ Export.image.toDrive({
   description: 'ee_agc_image',
   folder: 'Earth Engine Data',
   scale: 6000,
-  region: thicket_boundary.bounds(),
+  region: ee.Feature(thicket_boundary.first()).bounds(),
   fileFormat: 'GeoTIFF',
   formatOptions: {
     cloudOptimized: true
