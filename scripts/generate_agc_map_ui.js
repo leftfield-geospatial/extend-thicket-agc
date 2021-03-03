@@ -58,9 +58,10 @@ mapPanel.layers().get(0).setOpacity(.55);
 // Add these to the interface.
 ui.root.widgets().reset([mapPanel]);
 ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
-// -----------------------------------------------------------------------------------------------------------------------
 
-// Additional component configuration
+/*
+  Create the tool panel
+*/
 
 // Add a title and some explanatory text to a side panel.
 var header = ui.Label('Aboveground Carbon in Thicket', {fontSize: '36px', color: 'black'});
