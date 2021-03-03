@@ -151,7 +151,7 @@ var agc_ptile = agc_dict.image.reduceRegion({
 });
 print('2-98% EE AGC: ', agc_ptile);
 
-// export model and AGC image to Drive for use in other scripts
+// export model and AGC image for use in other scripts
 var ee_agc_model_feat = ee.Feature(thicket_boundary.first().geometry().centroid(), agc_dict.model);
 print(thicket_boundary.first().geometry().centroid());
 print(ee_agc_model_feat);
