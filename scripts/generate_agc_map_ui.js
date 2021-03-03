@@ -68,7 +68,8 @@ var header = ui.Label('Aboveground Carbon in Thicket', {fontSize: '36px', color:
 var text = ui.Label(
     'Concept demonstration for extension of localised aboveground carbon (AGC) model(s) to the biome.  Recalibrates the ' + 
     "GEF5 SLM AGC model".link('https://github.com/dugalh/map_thicket_agc') + ' to use Landsat 8 imagery. See the ' + 
-    "github repository".link('https://github.com/dugalh/extend_thicket_agc') + 'for more detail',
+    "github repository".link('https://github.com/dugalh/extend_thicket_agc') + 'for more detail' + 
+    '<a href="https://developers.google.com/earth-engine/help" target="_blank" rel="noopener noreferrer">visit our help page</a>',
     {fontSize: '11px'});
 
 var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
