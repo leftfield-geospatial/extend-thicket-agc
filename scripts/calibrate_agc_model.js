@@ -193,5 +193,5 @@ Export.image.toAsset({
   //   cloudOptimized: true
   // },
   maxPixels: 1e9,
-  dimensions: 1024
+  dimensions: 1024  // break into tiles
 });
