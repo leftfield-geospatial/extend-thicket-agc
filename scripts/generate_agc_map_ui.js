@@ -49,7 +49,7 @@ var mapPanel = ui.Map();
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 
 // Center the map
-mapPanel.setCenter();
+mapPanel.centerObject(thicket_boundary);
 
 // Add these to the interface.
 ui.root.widgets().reset([mapPanel]);
