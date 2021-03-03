@@ -184,7 +184,7 @@ Export.image.toDrive({
 Export.image.toAsset({
   image: agc_dict.image.uint8(),
   description: 'ee_agc_image_toAsset',
-  assetId: 'Earth Engine Data',
+  assetId: 'extend_thicket_agc/ee_agc_image',
   scale: 30,
   region: ee.Feature(thicket_boundary.first()).bounds(),
   fileFormat: 'GeoTIFF',
