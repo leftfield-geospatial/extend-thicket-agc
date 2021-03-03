@@ -78,27 +78,27 @@ ui.root.widgets().add(toolPanel);
 
 // Create a layer selector pulldown.
 // The elements of the pulldown are the keys of the layerProperties dictionary.
-var selectItems = Object.keys(layerProperties);
+// var selectItems = Object.keys(layerProperties);
 
-// Define the pulldown menu.  Changing the pulldown menu changes the map layer
-// and legend.
-var layerSelect = ui.Select({
-  items: selectItems,
-  value: selectItems[0],
-  onChange: function(selected) {
-    // Loop through the map layers and compare the selected element to the name
-    // of the layer. If they're the same, show the layer and set the
-    // corresponding legend.  Hide the others.
-    mapPanel.layers().forEach(function(element, index) {
-      element.setShown(selected == element.getName());
-    });
-    setLegend(layerProperties[selected].legend);
-  }
-});
+// // Define the pulldown menu.  Changing the pulldown menu changes the map layer
+// // and legend.
+// var layerSelect = ui.Select({
+//   items: selectItems,
+//   value: selectItems[0],
+//   onChange: function(selected) {
+//     // Loop through the map layers and compare the selected element to the name
+//     // of the layer. If they're the same, show the layer and set the
+//     // corresponding legend.  Hide the others.
+//     mapPanel.layers().forEach(function(element, index) {
+//       element.setShown(selected == element.getName());
+//     });
+//     setLegend(layerProperties[selected].legend);
+//   }
+// });
 
-// Add the select to the toolPanel with some explanatory text.
-toolPanel.add(ui.Label('View Different Layers', {'font-size': '24px'}));
-toolPanel.add(layerSelect);
+// // Add the select to the toolPanel with some explanatory text.
+// toolPanel.add(ui.Label('View Different Layers', {'font-size': '24px'}));
+// toolPanel.add(layerSelect);
 
 // Create the legend.
 // Define a panel for the legend and give it a tile.
@@ -118,29 +118,29 @@ legendPanel.add(legendTitle);
 var keyPanel = ui.Panel();
 legendPanel.add(keyPanel);
 
-function setLegend(legend) {
-  // Loop through all the items in a layer's key property,
-  // creates the item, and adds it to the key panel.
-  keyPanel.clear();
-  for (var i = 0; i < legend.length; i++) {
-    var item = legend[i];
-    var name = Object.keys(item)[0];
-    var color = item[name];
-    var colorBox = ui.Label('', {
-      backgroundColor: color,
-      // Use padding to give the box height and width.
-      padding: '8px',
-      margin: '0'
-    });
-    // Create the label with the description text.
-    var description = ui.Label(name, {margin: '0 0 4px 6px'});
-    keyPanel.add(
-        ui.Panel([colorBox, description], ui.Panel.Layout.Flow('horizontal')));
-  }
-}
+// function setLegend(legend) {
+//   // Loop through all the items in a layer's key property,
+//   // creates the item, and adds it to the key panel.
+//   keyPanel.clear();
+//   for (var i = 0; i < legend.length; i++) {
+//     var item = legend[i];
+//     var name = Object.keys(item)[0];
+//     var color = item[name];
+//     var colorBox = ui.Label('', {
+//       backgroundColor: color,
+//       // Use padding to give the box height and width.
+//       padding: '8px',
+//       margin: '0'
+//     });
+//     // Create the label with the description text.
+//     var description = ui.Label(name, {margin: '0 0 4px 6px'});
+//     keyPanel.add(
+//         ui.Panel([colorBox, description], ui.Panel.Layout.Flow('horizontal')));
+//   }
+// }
 
-// Set the initial legend.
-setLegend(layerProperties[layerSelect.getValue()].legend);
+// // Set the initial legend.
+// setLegend(layerProperties[layerSelect.getValue()].legend);
 
 // Create a visibility checkbox and an opacity slider.
 //
