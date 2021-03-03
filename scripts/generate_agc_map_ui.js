@@ -183,21 +183,21 @@ var viewPanel =
     ui.Panel([checkbox, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
 toolPanel.add(viewPanel);
 
-// Create the location pulldown.
-var locations = Object.keys(locationDict);
-var locationSelect = ui.Select({
-  items: locations,
-  value: locations[0],
-  onChange: function(value) {
-    var location = locationDict[value];
-    mapPanel.setCenter(location.lon, location.lat, location.zoom);
-  }
-});
+// // Create the location pulldown.
+// var locations = Object.keys(locationDict);
+// var locationSelect = ui.Select({
+//   items: locations,
+//   value: locations[0],
+//   onChange: function(value) {
+//     var location = locationDict[value];
+//     mapPanel.setCenter(location.lon, location.lat, location.zoom);
+//   }
+// });
 
-var locationPanel = ui.Panel([
-  ui.Label('Visit Example Locations', {'font-size': '24px'}), locationSelect
-]);
-toolPanel.add(locationPanel);
+// var locationPanel = ui.Panel([
+//   ui.Label('Visit Example Locations', {'font-size': '24px'}), locationSelect
+// ]);
+// toolPanel.add(locationPanel);
 
 
 
