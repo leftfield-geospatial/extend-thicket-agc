@@ -58,9 +58,9 @@ ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 // Additional component configuration
 
 // Add a title and some explanatory text to a side panel.
-var header = ui.Label('Thicket Aboveground Carbon', {fontSize: '36px', color: 'black'});
+var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '36px', color: 'black'});
 var text = ui.Label(
-    'Proof of concept.',
+    'Proof of concept extending .',
     {fontSize: '11px'});
 
 var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
