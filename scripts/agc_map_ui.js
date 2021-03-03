@@ -13,7 +13,7 @@ var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 }
 
 Map.setOptions('HYBRID');
 Map.centerObject(thicket_boundary);
-Map.addLayer(agc_image, vis, 'AGC');
+Map.addLayer(agc_masked_image, vis, 'AGC');
 Map.layers().get(0).setOpacity(.55)
 
 // Creates a color bar thumbnail image for use in legend from the given color
