@@ -55,29 +55,7 @@ mapPanel.centerObject(thicket_boundary);
 ui.root.widgets().reset([mapPanel]);
 ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
-// Add layers to the map and center it.
-for (var key in layerProperties) {
-  var layer = layerProperties[key];
-  var image = hansen.select(layer.name).visualize(layer.visParams);
-  var masked = addZeroAndWaterMask(image, hansen.select(layer.name));
-  mapPanel.add(ui.Map.Layer(masked, {}, key, layer.defaultVisibility));
-}
-
-// Draws black and gray overlays for nodata/water/zero values.
-function addZeroAndWaterMask(visualized, original) {
-  // Places where there is nodata or water are drawn in gray.
-  var water =
-      hansen.select('datamask').neq(1).selfMask().visualize({palette: 'gray'});
-  // Places were the underyling value is zero are drawn in black.
-  var zero = original.eq(0).selfMask().visualize({palette: 'black'});
-  // Stack the images, with the gray on top, black next, and the original below.
-  return ee.ImageCollection([visualized, zero, water]).mosaic();
-}
-
-
-/*
- * Additional component configuration
- */
+// Additional component configuration
 
 // Add a title and some explanatory text to a side panel.
 var header = ui.Label('Global Forest Change', {fontSize: '36px', color: 'red'});
