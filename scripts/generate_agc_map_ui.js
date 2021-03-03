@@ -51,7 +51,7 @@ mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicket_boundary);
 var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
 mapPanel.addLayer(agc_masked_image, vis, 'AGC');
-mapPanel.layers().get(0).setOpacity(.55)
+mapPanel.layers().get(0).setOpacity(.55);
 
 // Add these to the interface.
 ui.root.widgets().reset([mapPanel]);
