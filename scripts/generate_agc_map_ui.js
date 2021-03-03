@@ -48,9 +48,9 @@ var mapPanel = ui.Map();
 // Take all tools off the map except the zoom and mapTypeControl tools.
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 
-var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
 mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicket_boundary);
+var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
 mapPanel.addLayer(agc_masked_image, vis, 'AGC');
 mapPanel.layers().get(0).setOpacity(.55)
 
