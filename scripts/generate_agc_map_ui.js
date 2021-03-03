@@ -42,7 +42,9 @@ var model = { m: ee.Number(ee_agc_model.first().get('m')), c: ee.Number(ee_agc_m
 var agc_image = (rn_image.log10().multiply(model.m).add(model.c)).uint8();
 var agc_masked_image = agc_image.clip(thicket_boundary.geometry());
 
-// -----------------------------------------------------------------------------------------------------------------------
+/*
+  Setup the map panel
+*/
 var mapPanel = ui.Map();
 
 // Take all tools off the map except the zoom and mapTypeControl tools.
@@ -56,6 +58,7 @@ mapPanel.layers().get(0).setOpacity(.55);
 // Add these to the interface.
 ui.root.widgets().reset([mapPanel]);
 ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
+// -----------------------------------------------------------------------------------------------------------------------
 
 // Additional component configuration
 
