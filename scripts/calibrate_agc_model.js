@@ -180,3 +180,18 @@ Export.image.toDrive({
   fileDimensions: [2048,2048],
   skipEmptyTiles: true
 });
+
+Export.image.toAsset({
+  image: agc_dict.image.uint8(),
+  description: 'ee_agc_image',
+  folder: 'Earth Engine Data',
+  scale: 30,
+  region: ee.Feature(thicket_boundary.first()).bounds(),
+  fileFormat: 'GeoTIFF',
+  formatOptions: {
+    cloudOptimized: true
+  },
+  maxPixels: 1e9,
+  fileDimensions: [2048,2048],
+  skipEmptyTiles: true
+});
