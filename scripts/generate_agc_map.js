@@ -1,8 +1,8 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-  gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
-  gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
-  ee_agc_model = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_agc_model");
+    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
+    gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
+    ee_agc_model = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Apply the EE model and to EE imagery
 
@@ -46,7 +46,7 @@ var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 }
 
 Map.setOptions('HYBRID');
 Map.centerObject(thicket_boundary);
-Map.addLayer(agc_masked_image, vis, 'AGC');
+Map.addLayer(agc_image, vis, 'AGC');
 Map.layers().get(0).setOpacity(.55)
 
 // Creates a color bar thumbnail image for use in legend from the given color
