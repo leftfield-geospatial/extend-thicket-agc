@@ -68,13 +68,13 @@ var text = ui.Label(
 var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
 
-// Create a hyperlink to an external reference.
-var link = ui.Label(
-    'Science paper by Hansen, Potapov, Moore, Hancher et al.', {},
-    'http://science.sciencemag.org/content/342/6160/850');
-var linkPanel = ui.Panel(
-    [ui.Label('For more information', {fontWeight: 'bold'}), link]);
-toolPanel.add(linkPanel);
+// // Create a hyperlink to an external reference.
+// var link = ui.Label(
+//     'Science paper by Hansen, Potapov, Moore, Hancher et al.', {},
+//     'http://science.sciencemag.org/content/342/6160/850');
+// var linkPanel = ui.Panel(
+//     [ui.Label('For more information', {fontWeight: 'bold'}), link]);
+// toolPanel.add(linkPanel);
 
 // Create a layer selector pulldown.
 // The elements of the pulldown are the keys of the layerProperties dictionary.
