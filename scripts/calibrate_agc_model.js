@@ -177,5 +177,6 @@ Export.image.toDrive({
   formatOptions: {
     cloudOptimized: true
   },
-  maxPixels: 1e9
+  maxPixels: 1e9,
+  fileDimensions: [] 
 });
