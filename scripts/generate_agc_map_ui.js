@@ -40,7 +40,7 @@ function findAgc(image) {
       'B': image.select('B2'),
       'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
     });
-  return ee.Image(rnImage.log10().multiply(model.m).add(model.c));
+  return ee.Image(rnImage.copyProperties(image).log10().multiply(model.m).add(model.c));
 }
 
 // var rnImage = findRn(image);
@@ -182,6 +182,3 @@ generateChart({
 // Replace the root with a SplitPanel that contains the inspector and map.
 ui.root.clear();
 ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
-
-
-
