@@ -72,7 +72,6 @@ var legendTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px',
 toolPanel.add(legendTitleLabel);
 
 var legendDetailLabel = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px', color: 'black'});
-
 var legendCheckbox = ui.Checkbox({
   label: null,
   value: true,
@@ -80,7 +79,6 @@ var legendCheckbox = ui.Checkbox({
     mapPanel.layers().get(0).setShown(value);
     }
 });
-
 var legendOpacitySlider = ui.Slider({
   min: 0,
   max: 1,
