@@ -72,7 +72,7 @@ var textLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.c
 var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is re-calibrated and applied ' + 
   'to arid and valley thicket areas using Landsat-8 imagery.   Note that AGC accuracy outside the GEF-5 SLM ' + 
   'Baviaanskloof study area has not been established.');
-var textNewline = ui.Label('\n',{fontSize: '11px'}
+var textNewline = ui.Label('\n', {fontSize: '11px'});
 
 var textPanel = 
 
