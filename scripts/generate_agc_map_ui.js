@@ -136,7 +136,7 @@ var generateChart = function (coords) {
   mapPanel.layers().set(1, dot);
 
   // Make a chart from the time series.
-  var sstChart = ui.Chart.image.series(sst, point, ee.Reducer.mean(), 500);
+  var sstChart = ui.Chart.image.series(l8SrImages, point, ee.Reducer.mean(), 500);
 
   // Customize the chart.
   sstChart.setOptions({
