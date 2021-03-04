@@ -147,6 +147,7 @@ var legend_labels = ui.Panel({
   layout: ui.Panel.Layout.flow('horizontal')
 });
 
+
 legendPanel.add(color_bar);
 legendPanel.add(legend_labels);
 
