@@ -112,7 +112,7 @@ ui.root.widgets().add(toolPanel);
 // Define a panel for the legend and give it a tile.
 var legendPanel = ui.Panel({
   style:
-      {fontWeight: 'bold', fontSize: '10px', margin: '0 0 0 8px', padding: '0'}
+      {fontWeight: 'bold', fontSize: '11px', margin: '0 0 0 8px', padding: '0'}
 });
 toolPanel.add(legendPanel);
 
