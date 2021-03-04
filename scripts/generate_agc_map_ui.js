@@ -27,7 +27,7 @@ function findRn(image) {
       'R': image.select('B4'),
       'G': image.select('B3'),
       'B': image.select('B2'),
-      'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
+      'RE': image.select(ee.Algorithms.If(image.bandNacopyPromes().contains('B8'), ['B8'], ['B5']))
     });
   return ee.Image(rnImage);
 }
@@ -40,7 +40,7 @@ function findAgc(image) {
       'B': image.select('B2'),
       'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
     });
-  return ee.Image(rnImage.copyProperties(image).log10().multiply(model.m).add(model.c));
+  return ee.Image(rnImage.log10().multiply(model.m).add(model.c).set('system:time_start', image.get('system:time_start')));
 }
 
 // var rnImage = findRn(image);
