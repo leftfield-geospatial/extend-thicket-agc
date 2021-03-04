@@ -49,7 +49,7 @@ ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
 // Create side tool panel
 
-// Title and description
+// title and description
 var titleLabel = ui.Label('Thicket Aboveground Carbon (AGC)', {fontWeight: 'bold', fontSize: '24px', color: 'SteelBlue'});
 var summaryLabel = ui.Label('Concept demonstration for extension of local AGC model(s) to the thicket biome',
     {fontSize: '14px'});
@@ -64,7 +64,7 @@ var toolPanel = ui.Panel([titleLabel, summaryLabel, detailLabel, noteLabel, link
   ui.Panel.Layout.Flow('vertical'), {width: '300px'});
 ui.root.widgets().add(toolPanel);
 
-// Create the legend and its controls
+// legend and its controls
 var legendTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 toolPanel.add(legendTitleLabel);
 
@@ -111,7 +111,7 @@ var colourBarThumbnail = ui.Thumbnail({
   style: { stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px' },
 });
 
-// Value labels for colour bar
+// value labels for colour bar
 var legendValuesPanel = ui.Panel({
   widgets: [
     ui.Label(vis.min, { margin: '4px 8px' }),
