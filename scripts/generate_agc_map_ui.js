@@ -128,6 +128,7 @@ var opacitySlider = ui.Slider({
   value: 1,
   step: 0.01
 });
+
 opacitySlider.onSlide(function(value) {
   mapPanel.layers().forEach(function(element, index) {
     element.setOpacity(value);
