@@ -136,7 +136,7 @@ opacitySlider.onSlide(function(value) {
 });
 
 var legendHeaderPanel =
-    ui.Panel([checkbox, legendDetail, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
+    ui.Panel([legendCheckbox, legendDetailLabel, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
 toolPanel.add(viewPanel);
 
 
