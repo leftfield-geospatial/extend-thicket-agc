@@ -112,7 +112,7 @@ var legendDetailLabel = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '
 //
 // If the checkbox is clicked off, disable the layer pulldown and turn all the
 // layers off. Otherwise, enable the select, and turn on the selected layer.
-var checkbox = ui.Checkbox({
+var legendCheckbox = ui.Checkbox({
   label: null,
   value: true,
   onChange: function(value) {
