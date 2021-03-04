@@ -118,8 +118,8 @@ toolPanel.add(legendPanel);
 
 // Define an area for the legend key itself.
 // This area will be replaced every time the layer pulldown is changed.
-var keyPanel = ui.Panel();
-legendPanel.add(keyPanel);
+// var keyPanel = ui.Panel();
+// legendPanel.add(keyPanel);
 
 // function setLegend(legend) {
 //   // Loop through all the items in a layer's key property,
