@@ -222,7 +222,8 @@ opacitySlider.onSlide(function(value) {
 var viewPanel =
     ui.Panel([legendDetail,checkbox, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
 toolPanel.add(viewPanel);
- / // Create the location pulldown.
+
+// // Create the location pulldown.
 // var locations = Object.keys(locationDict);
 // var locationSelect = ui.Select({
 //   items: locations,
