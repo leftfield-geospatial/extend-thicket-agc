@@ -13,12 +13,11 @@ var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundar
 
 // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-  .filterDate('2017-09-01', '2017-12-30')
   .filterBounds(thicketBoundary)
   .map(cloudMasking.landsat8_sr_cloud_mask);
 
 var images = l8SrImages;
-var image = images.median();    // composite the image collection
+var image = images.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 
 // Find R/pan image feature
 function find_rn(image) {
