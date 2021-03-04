@@ -118,7 +118,7 @@ toolPanel.add(legendPanel);
 
 var legendTitle = ui.Label('Legend', {fontWeight: 'normal', fontSize: '16px', color: 'SteelBlue'});
 var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'normal', fontSize: '14px', color: 'black'});
-legendPanel.add(legendTitle);
+legendPanel.add([legendTitle, legendDetail]);
 
 // Define an area for the legend key itself.
 // This area will be replaced every time the layer pulldown is changed.
