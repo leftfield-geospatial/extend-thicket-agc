@@ -71,7 +71,7 @@ var textIntro = ui.Label(
 var textLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
 var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is re-calibrated and applied ' + 
   'to arid and valley thicket areas using Landsat-8 imagery.   Note that AGC accuracy outside the GEF-5 SLM ' + 
-  'Baviaanskloof study area has not been established.', {fontSize: '11px'});
+  'Baviaanskloof study area has not been established.\n', {fontSize: '11px'});
 var textNewline = ui.Label('\n', {fontSize: '11px'});
 var textInfo = ui.Label('See the GitHub repositoty for more information', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
 
