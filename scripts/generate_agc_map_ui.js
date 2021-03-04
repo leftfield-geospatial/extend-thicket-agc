@@ -114,7 +114,7 @@ ui.root.widgets().add(toolPanel);
 var legendTitle = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px', color: 'black'});
 var legendPanel = ui.Panel({widgets: [legendTitle, legendDetail], layout: ui.Panel.Layout.flow('vertical')});
-// toolPanel.add(legendPanel);
+toolPanel.add(legendPanel);
 
 
 function make_color_bar_params(palette) {
@@ -150,7 +150,7 @@ var legend_labels = ui.Panel({
 var labelledColorBar = ui.Panel({ widgets: [color_bar, legend_labels], layout: ui.Panel.Layout.flow('vertical')});
 var legendWidget = ui.Panel({ widgets: [legendDetail, labelledColorBar], layout: ui.Panel.Layout.flow('horizontal')});
 
-legendPanel.add(legendWidget);
+toolPanel.add(legendWidget);
 
 // Define an area for the legend key itself.
 // This area will be replaced every time the layer pulldown is changed.
