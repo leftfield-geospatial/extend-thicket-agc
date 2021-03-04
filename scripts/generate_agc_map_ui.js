@@ -160,7 +160,7 @@ mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
 // Initialize with a test point.
-var initialPoint = ee.Geometry.Point(-33.5, 24.5);
+var initialPoint = ee.Geometry.Point(24.5, -33.5);
 // mapPanel.centerObject(initialPoint, 4);
 
 generateChart({
