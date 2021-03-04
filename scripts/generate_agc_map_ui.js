@@ -76,9 +76,6 @@ var textInfo = ui.Label('See the GitHub repositoty for more information\n\n', {f
 var toolPanel = ui.Panel([header, textIntro, textDetail, textInfo], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
 
-var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
-ui.root.widgets().add(toolPanel);
-
 
 // // Create a hyperlink to an external reference.
 // var link = ui.Label(
