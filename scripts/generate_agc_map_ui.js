@@ -66,42 +66,13 @@ var toolPanel = ui.Panel([titleLabel, summaryLabel, detailLabel, noteLabel, link
 ui.root.widgets().add(toolPanel);
 
 
-// Create a layer selector pulldown.
-// The elements of the pulldown are the keys of the layerProperties dictionary.
-// var selectItems = Object.keys(layerProperties);
-
-// // Define the pulldown menu.  Changing the pulldown menu changes the map layer
-// // and legend.
-// var layerSelect = ui.Select({
-//   items: selectItems,
-//   value: selectItems[0],
-//   onChange: function(selected) {
-//     // Loop through the map layers and compare the selected element to the name
-//     // of the layer. If they're the same, show the layer and set the
-//     // corresponding legend.  Hide the others.
-//     mapPanel.layers().forEach(function(element, index) {
-//       element.setShown(selected == element.getName());
-//     });
-//     setLegend(layerProperties[selected].legend);
-//   }
-// });
-
-// // Add the select to the toolPanel with some explanatory text.
-// toolPanel.add(ui.Label('View Different Layers', {'font-size': '24px'}));
-// toolPanel.add(layerSelect);
 
 // Create the legend.
-// Define a panel for the legend and give it a tile.
-
 var legendTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 toolPanel.add(legendTitleLabel);
 
 var legendDetailLabel = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px', color: 'black'});
-// var legendPanel = ui.Panel({widgets: [legendTitle, legendDetail], layout: ui.Panel.Layout.flow('vertical')});
-// Create a visibility checkbox and an opacity slider.
-//
-// If the checkbox is clicked off, disable the layer pulldown and turn all the
-// layers off. Otherwise, enable the select, and turn on the selected layer.
+
 var legendCheckbox = ui.Checkbox({
   label: null,
   value: true,
@@ -110,8 +81,6 @@ var legendCheckbox = ui.Checkbox({
     }
 });
 
-// Create an opacity slider. This tool will change the opacity for each layer.
-// That way switching to a new layer will maintain the chosen opacity.
 var legendOpacitySlider = ui.Slider({
   min: 0,
   max: 1,
