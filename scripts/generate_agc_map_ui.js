@@ -48,11 +48,8 @@ mapPanel.addLayer(agc_masked_image, vis, 'AGC');
 ui.root.widgets().reset([mapPanel]);
 ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
-/*
-  Create the tool panel
-*/
+// Create side tool panel
 
-// Add a title and some explanatory text to a side panel.
 var titleLabel = ui.Label('Thicket Aboveground Carbon (AGC)', {fontWeight: 'bold', fontSize: '24px', color: 'SteelBlue'});
 var summaryLabel = ui.Label('Concept demonstration for extension of local AGC model(s) to the thicket biome',
     {fontSize: '14px'});
