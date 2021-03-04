@@ -139,7 +139,7 @@ legendOpacitySlider.onSlide(function(value) {
 var legendHeaderPanel =
     ui.Panel([legendCheckbox, legendDetailLabel, legendOpacitySlider], ui.Panel.Layout.Flow('horizontal'));
 toolPanel.add(legendHeaderPanel);
-
+legendOpacitySlider.setValue(0.6, true);
 
 function make_color_bar_params(palette) {
   return {
