@@ -38,7 +38,7 @@ var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel
 var agc_image = (rn_image.log10().multiply(model.m).add(model.c)).uint8();
 var agc_masked_image = agc_image.clip(thicketBoundary.geometry());
 
-// Create the map panel
+// Create the map panel with AGC overlay
 var mapPanel = ui.Map();
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 mapPanel.setOptions('HYBRID');
