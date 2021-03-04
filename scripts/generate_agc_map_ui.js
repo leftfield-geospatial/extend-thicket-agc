@@ -65,7 +65,7 @@ var toolPanel = ui.Panel([titleLabel, summaryLabel, detailLabel, noteLabel, link
   ui.Panel.Layout.Flow('vertical'), {width: '300px'});
 ui.root.widgets().add(toolPanel);
 
-// Legend
+// Create the legend and its controls
 var legendTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 toolPanel.add(legendTitleLabel);
 
