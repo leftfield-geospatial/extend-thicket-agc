@@ -1,26 +1,24 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    gef_calib_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
-    gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots"),
-    ee_agc_model = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_agc_model");
+var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
+    eeAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Apply the EE model and to EE imagery
 
-var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
-var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket boundaries
+var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloudMasking.js');
+var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
 
 // var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
 //                   .filterDate('2017-09-01', '2017-11-01')
 //                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
-//                   .filterBounds(thicket_boundary)
-//                   .map(cloud_masking.s2_simple_cloud_mask);
+//                   .filterBounds(thicketBoundary)
+//                   .map(cloudMasking.s2_simple_cloud_mask);
 
-var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
+var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
   .filterDate('2017-09-01', '2017-12-30')
-  .filterBounds(thicket_boundary)
-  .map(cloud_masking.landsat8_sr_cloud_mask);
+  .filterBounds(thicketBoundary)
+  .map(cloudMasking.landsat8_sr_cloud_mask);
 
-var images = l8_sr_images;
+var images = l8SrImages;
 var image = images.median();    // composite the image collection
 
 // Find R/pan image feature
@@ -37,10 +35,10 @@ function find_rn(image) {
 var rn_image = find_rn(image);
 
 // find the EE AGC image
-var model = { m: ee.Number(ee_agc_model.first().get('m')), c: ee.Number(ee_agc_model.first().get('c')) };
+var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 // print(model);
 var agc_image = (rn_image.log10().multiply(model.m).add(model.c)).uint8();
-var agc_masked_image = agc_image.clip(thicket_boundary.geometry());
+var agc_masked_image = agc_image.clip(thicketBoundary.geometry());
 
 /*
   Create the map panel
@@ -50,7 +48,7 @@ var mapPanel = ui.Map();
 // Take all tools off the map except the zoom and mapTypeControl tools.
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 mapPanel.setOptions('HYBRID');
-mapPanel.centerObject(thicket_boundary);
+mapPanel.centerObject(thicketBoundary);
 var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
 mapPanel.addLayer(agc_masked_image, vis, 'AGC');
 
