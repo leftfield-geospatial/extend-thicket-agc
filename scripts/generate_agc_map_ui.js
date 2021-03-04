@@ -151,6 +151,7 @@ var legend_labels = ui.Panel({
 // var legendWidget = ui.Panel({ widgets: [legendDetail, labelledColorBar], layout: ui.Panel.Layout.flow('horizontal')});
 
 toolPanel.add(legend_labels);
+toolPanel.add(legend_labels);
 
 // Define an area for the legend key itself.
 // This area will be replaced every time the layer pulldown is changed.
