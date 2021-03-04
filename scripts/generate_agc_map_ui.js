@@ -116,7 +116,7 @@ var checkbox = ui.Checkbox({
   label: null,
   value: true,
   onChange: function(value) {
-    var selected = layerSelect.getValue();
+    var selected = mapPanel.layers().first().getValue();
     // Loop through the layers in the mapPanel. For each layer,
     // if the layer's name is the same as the name selected in the layer
     // pulldown, set the visibility of the layer equal to the value of the
