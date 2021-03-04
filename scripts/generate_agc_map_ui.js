@@ -140,7 +140,7 @@ var generateChart = function (coords) {
 
   // Customize the chart.
   sstChart.setOptions({
-    title: 'Sea surface temp: time series',
+    title: 'AGC: time series',
     vAxis: {title: 'Temp (C)'},
     hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
     series: {
