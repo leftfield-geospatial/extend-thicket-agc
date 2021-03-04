@@ -18,6 +18,7 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
 
 var images = l8SrImages;
 var image = images.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
+var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
 function findRn(image) {
@@ -30,11 +31,20 @@ function findRn(image) {
     });
   return ee.Image(rnImage);
 }
-var rnImage = findRn(image);
+function findAgc(image) {
+  var rnImage = image.expression('(R / (R + G + B + RE))',
+    {
+      'R': image.select('B4'),
+      'G': image.select('B3'),
+      'B': image.select('B2'),
+      'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
+    });
+  return ee.Image(rnImage.log10().multiply(model.m).add(model.c));
+}
 
+// var rnImage = findRn(image);
 // Apply the model to find the EE AGC image
-var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
-var agcImage = (rnImage.log10().multiply(model.m).add(model.c)).uint8();
+var agcImage = findAgc(image).uint8();
 var agcMaskedImage = agcImage.clip(thicketBoundary.geometry());
 
 // Create the map panel with AGC overlay
