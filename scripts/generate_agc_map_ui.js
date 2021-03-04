@@ -104,7 +104,7 @@ var selectItems = Object.keys(layerProperties);
 // Create the legend.
 // Define a panel for the legend and give it a tile.
 
-var legendTitle = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
+var legendTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 toolPanel.add(legendTitle);
 var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px', color: 'black'});
 // var legendPanel = ui.Panel({widgets: [legendTitle, legendDetail], layout: ui.Panel.Layout.flow('vertical')});
