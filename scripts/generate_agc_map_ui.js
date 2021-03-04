@@ -75,6 +75,8 @@ var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is 
 var textNewline = ui.Label('\n', {fontSize: '11px'});
 var textInfo = ui.Label('See the GitHub repositoty for more information', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
 
+var gefLinkPanel = ui.Panel()
+
 var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
 
