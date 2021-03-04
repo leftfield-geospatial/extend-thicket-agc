@@ -116,7 +116,7 @@ var checkbox = ui.Checkbox({
   label: null,
   value: true,
   onChange: function(value) {
-    mapPanel.layers().first().setShown(value)
+    mapPanel.layers().first().setShown(value);
     }
 });
 
