@@ -66,10 +66,7 @@ ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 // Add a title and some explanatory text to a side panel.
 var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '24px', color: 'blue'});
 var text = ui.Label(
-    'Concept demonstration for extension of localised aboveground carbon (AGC) model(s) to the biome.  Recalibrates the ' + 
-    "GEF5 SLM AGC model".link('https://github.com/dugalh/map_thicket_agc') + ' to use Landsat 8 imagery. See the ' + 
-    "github repository".link('https://github.com/dugalh/extend_thicket_agc') + 'for more detail' + 
-    '<a href="https://developers.google.com/earth-engine/help" target="_blank" rel="noopener noreferrer">visit our help page</a>',
+    'A concept demonstration for extension of localised AGC model(s) to the thicket biome',
     {fontSize: '11px'});
 
 var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
