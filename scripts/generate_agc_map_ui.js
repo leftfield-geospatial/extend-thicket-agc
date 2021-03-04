@@ -69,9 +69,10 @@ var textIntro = ui.Label(
     'A concept demonstration for extension of localised AGC model(s) to the thicket biome',
     {fontSize: '11px'});
 var textLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
-var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is re-calibrated and applied ' + '
+var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is re-calibrated and applied ' + 
   'to arid and valley thicket areas using Landsat-8 imagery.   Note that AGC accuracy outside the GEF-5 SLM ' + 
   'Baviaanskloof study area has not been established.');
+var textBlank = ui.Label(
 
 var textPanel = 
 
