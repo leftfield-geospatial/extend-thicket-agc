@@ -4,7 +4,7 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Apply the EE model and to EE imagery
 
-var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloudMasking.js');
+var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
 
 // var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
