@@ -79,7 +79,7 @@ ui.root.widgets().add(toolPanel);
 
 // Create a layer selector pulldown.
 // The elements of the pulldown are the keys of the layerProperties dictionary.
-var selectItems = Object.keys(layerProperties);
+// var selectItems = Object.keys(layerProperties);
 
 // // Define the pulldown menu.  Changing the pulldown menu changes the map layer
 // // and legend.
