@@ -113,7 +113,7 @@ ui.root.widgets().add(toolPanel);
 
 var legendTitle = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px', color: 'black'});
-var legendPanel = ui.Panel({widgets: [legendTitle, legendDetail], layout: layout: ui.Panel.Layout.flow('vertical'));
+var legendPanel = ui.Panel({widgets: [legendTitle, legendDetail], layout: ui.Panel.Layout.flow('vertical')});
 toolPanel.add(legendPanel);
 
 
