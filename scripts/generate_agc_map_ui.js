@@ -148,6 +148,8 @@ var legend_labels = ui.Panel({
 });
 
 var labelledColorBar = ui.Panel({ widgets: [color_bar, legend_labels], layout: ui.Panel.Layout.flow('vertical')});
+var labelledColorBar = ui.Panel({ widgets: [color_bar, legend_labels], layout: ui.Panel.Layout.flow('vertical')});
+
 legendPanel.add(color_bar);
 legendPanel.add(legend_labels);
 
