@@ -145,6 +145,7 @@ var opacitySlider = ui.Slider({
   max: 1,
   value: 1,
   step: 0.01,
+  label: 'Opacity'
 });
 opacitySlider.onSlide(function(value) {
   mapPanel.layers().forEach(function(element, index) {
