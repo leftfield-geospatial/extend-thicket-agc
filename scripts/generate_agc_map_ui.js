@@ -53,7 +53,6 @@ mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicket_boundary);
 var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
 mapPanel.addLayer(agc_masked_image, vis, 'AGC');
-mapPanel.layers().get(0).setOpacity(.55);
 
 // Add these to the interface.
 ui.root.widgets().reset([mapPanel]);
@@ -141,7 +140,7 @@ var legendHeaderPanel =
 toolPanel.add(legendHeaderPanel);
 legendOpacitySlider.setValue(0.6, true);
 
-function make_color_bar_params(palette) {
+function makeColourBarParams(palette) {
   return {
     bbox: [0, 0, 1, 0.1],
     dimensions: '100x10',
@@ -153,14 +152,14 @@ function make_color_bar_params(palette) {
 }
 
 // Create the color bar for the legend.
-var color_bar = ui.Thumbnail({
+var colourBarThumbnail = ui.Thumbnail({
   image: ee.Image.pixelLonLat().select(0),
-  params: make_color_bar_params(vis.palette),
+  params: makeColourBarParams(vis.palette),
   style: { stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px' },
 });
 
 // Create a panel with three numbers for the legend.
-var legend_labels = ui.Panel({
+var legendValuesPanel = ui.Panel({
   widgets: [
     ui.Label(vis.min, { margin: '4px 8px' }),
     ui.Label(
@@ -171,11 +170,11 @@ var legend_labels = ui.Panel({
   layout: ui.Panel.Layout.flow('horizontal')
 });
 
-//var labelledColorBar = ui.Panel({ widgets: [color_bar, legend_labels],? layout: ui.Panel.Layout.flow('vertical')});
+//var labelledColorBar = ui.Panel({ widgets: [colourBarThumbnail, legendValuesPanel],? layout: ui.Panel.Layout.flow('vertical')});
 // var legendWidget = ui.Panel({ widgets: [legendDetail, labelledColorBar], layout: ui.Panel.Layout.flow('horizontal')});
 
-toolPanel.add(color_bar);
-toolPanel.add(legend_labels);
+toolPanel.add(colourBarThumbnail);
+toolPanel.add(legendValuesPanel);
 
 // Define an area for the legend key itself.
 // This area will be replaced every time the layer pulldown is changed.
@@ -252,7 +251,7 @@ toolPanel.add(legend_labels);
 // });
 // // Add the legendPanel to the map.
 // var legend_panel = ui.Panel({
-//   widgets: [legend_title, slider_panel, color_bar, legend_labels,
+//   widgets: [legend_title, slider_panel, colourBarThumbnail, legendValuesPanel,
 //     ui.Label('More information').setUrl('https://github.com/dugalh/extend_thicket_agc')],
 //   style: {
 //     position: 'bottom-left',
