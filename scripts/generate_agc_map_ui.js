@@ -124,3 +124,7 @@ var legendValuesPanel = ui.Panel({
 
 toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
+
+
+ui.root.clear();
+ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
