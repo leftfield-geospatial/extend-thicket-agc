@@ -72,10 +72,9 @@ var textLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.c
 var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is re-calibrated and applied ' + 
   'to arid and valley thicket areas using Landsat-8 imagery.   Note that AGC accuracy outside the GEF-5 SLM ' + 
   'Baviaanskloof study area has not been established.\n', {fontSize: '11px'});
-var textNewline = ui.Label('\n', {fontSize: '11px'});
 var textInfo = ui.Label('See the GitHub repositoty for more information', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
 
-var gefLinkPanel = ui.Panel([textIntro,textLinkGef, textPostLinkGef], ui.Panel.Layout.Flow('horizontal'));
+var textPanel = ui.Panel([textIntro, textLinkGef, textPostLinkGef], ui.Panel.Layout.Flow('horizontal'));
 
 var toolPanel = ui.Panel([header, gefLinkPanel, textNewline, textInfo], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
