@@ -68,6 +68,9 @@ var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '24px', col
 var textIntro = ui.Label(
     'A concept demonstration for extension of localised AGC model(s) to the thicket biome',
     {fontSize: '11px'});
+var textIntro = ui.Label(
+    'A concept demonstration for extension of localised AGC model(s) to the thicket biome',
+    {fontSize: '11px'});
 
 var textPanel = 
 
