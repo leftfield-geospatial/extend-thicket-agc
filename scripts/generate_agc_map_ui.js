@@ -116,19 +116,8 @@ var checkbox = ui.Checkbox({
   label: null,
   value: true,
   onChange: function(value) {
-    var selected = mapPanel.layers().first().getValue();
-    // Loop through the layers in the mapPanel. For each layer,
-    // if the layer's name is the same as the name selected in the layer
-    // pulldown, set the visibility of the layer equal to the value of the
-    // checkbox. Otherwise, set the visibility to false.
-    mapPanel.layers().forEach(function(element, index) {
-      element.setShown(selected == element.getName() ? value : false);
-    });
-
-    // If the checkbox is on, the layer pulldown should be enabled, otherwise,
-    // it's disabled.
-    layerSelect.setDisabled(!value);
-  }
+    mapPanel.layers().first().setShown(value)
+    }
 });
 
 // Create an opacity slider. This tool will change the opacity for each layer.
