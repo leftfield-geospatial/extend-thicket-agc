@@ -118,7 +118,7 @@ toolPanel.add(legendPanel);
 
 var legendTitle = ui.Label(
     'Legend: AGC 2017 (tC/ha)',
-    {fontWeight: 'bold', fontSize: '14px', margin: '8px 0 4px 0', padding: '0', color: 'SteelBlue'});
+    {fontWeight: 'bold', fontSize: '14px', margin: '8px 8px 4px 0', padding: '0', color: 'SteelBlue'});
 legendPanel.add(legendTitle);
 
 // Define an area for the legend key itself.
