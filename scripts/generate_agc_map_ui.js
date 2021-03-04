@@ -70,7 +70,7 @@ var summaryLabel = ui.Label('Concept demonstration for extension of local AGC mo
 var detailLabel = ui.Label('An AGC model for a small area in the Baviaanskloof is re-calibrated and applied to ' +
         'arid and valley thicket areas using Landsat-8 imagery.', {fontSize: '11px'})
 var noteLabel = ui.Label('Note that AGC accuracy outside the GEF-5 SLM Baviaanskloof study area has not been established.', {fontSize: '11px'});
-var linkLabel = ui.Label('See the GitHub repositoty for more information\n\n', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
+var linkLabel = ui.Label('See the GitHub repositoty for more information.', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
 
 var toolPanel = ui.Panel([header, textIntro, textDetail, textInfo], ui.Panel.Layout.Flow('vertical'), {width: '300px'});
 ui.root.widgets().add(toolPanel);
