@@ -116,6 +116,38 @@ var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px'
 var legendPanel = ui.Panel([legendTitle, legendDetail]);
 toolPanel.add(legendPanel);
 
+
+function make_color_bar_params(palette) {
+  return {
+    bbox: [0, 0, 1, 0.1],
+    dimensions: '100x10',
+    format: 'png',
+    min: 0,
+    max: 1,
+    palette: palette,
+  };
+}
+
+// Create the color bar for the legend.
+var color_bar = ui.Thumbnail({
+  image: ee.Image.pixelLonLat().select(0),
+  params: make_color_bar_params(vis.palette),
+  style: { stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px' },
+});
+
+// Create a panel with three numbers for the legend.
+var legend_labels = ui.Panel({
+  widgets: [
+    ui.Label(vis.min, { margin: '4px 8px' }),
+    ui.Label(
+      (vis.max / 2),
+      { margin: '4px 8px', textAlign: 'center', stretch: 'horizontal' }),
+    ui.Label(vis.max, { margin: '4px 8px' })
+  ],
+  layout: ui.Panel.Layout.flow('horizontal')
+});
+
+
 // Define an area for the legend key itself.
 // This area will be replaced every time the layer pulldown is changed.
 // var keyPanel = ui.Panel();
@@ -213,35 +245,6 @@ toolPanel.add(viewPanel);
 
 // Creates a color bar thumbnail image for use in legend from the given color
 // palette.
-function make_color_bar_params(palette) {
-  return {
-    bbox: [0, 0, 1, 0.1],
-    dimensions: '100x10',
-    format: 'png',
-    min: 0,
-    max: 1,
-    palette: palette,
-  };
-}
-
-// Create the color bar for the legend.
-var color_bar = ui.Thumbnail({
-  image: ee.Image.pixelLonLat().select(0),
-  params: make_color_bar_params(vis.palette),
-  style: { stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px' },
-});
-
-// Create a panel with three numbers for the legend.
-var legend_labels = ui.Panel({
-  widgets: [
-    ui.Label(vis.min, { margin: '4px 8px' }),
-    ui.Label(
-      (vis.max / 2),
-      { margin: '4px 8px', textAlign: 'center', stretch: 'horizontal' }),
-    ui.Label(vis.max, { margin: '4px 8px' })
-  ],
-  layout: ui.Panel.Layout.flow('horizontal')
-});
 
 var legend_title = ui.Label({
   value: 'Legend: AGC 2017 (tC/ha)',
