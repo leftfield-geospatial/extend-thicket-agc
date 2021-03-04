@@ -65,9 +65,7 @@ var toolPanel = ui.Panel([titleLabel, summaryLabel, detailLabel, noteLabel, link
   ui.Panel.Layout.Flow('vertical'), {width: '300px'});
 ui.root.widgets().add(toolPanel);
 
-
-
-// Create the legend.
+// Legend
 var legendTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 toolPanel.add(legendTitleLabel);
 
@@ -108,14 +106,13 @@ function makeColourBarParams(palette) {
   };
 }
 
-// Create the color bar for the legend.
 var colourBarThumbnail = ui.Thumbnail({
   image: ee.Image.pixelLonLat().select(0),
   params: makeColourBarParams(vis.palette),
   style: { stretch: 'horizontal', margin: '0px 8px', maxHeight: '24px' },
 });
 
-// Create a panel with three numbers for the legend.
+// Value labels for colour bar
 var legendValuesPanel = ui.Panel({
   widgets: [
     ui.Label(vis.min, { margin: '4px 8px' }),
