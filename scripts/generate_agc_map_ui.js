@@ -64,7 +64,7 @@ ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 */
 
 // Add a title and some explanatory text to a side panel.
-var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '24px', color: 'SteelBlue'});
+var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontWeight: 'bold', fontSize: '24px', color: 'SteelBlue'});
 var textIntro = ui.Label('Concept demonstration for extension of local AGC model(s) to the thicket biome\n',
     {fontSize: '14px'});
 var textDetail = ui.Label('The Baviaanskloof AGC model (from the GEF-5 SLM project) is re-calibrated and applied to ' +
