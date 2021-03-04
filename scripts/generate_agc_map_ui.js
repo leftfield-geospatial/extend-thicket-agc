@@ -68,9 +68,9 @@ var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '24px', col
 var textIntro = ui.Label(
     'A concept demonstration for extension of localised AGC model(s) to the thicket biome\n',
     {fontSize: '14px'});
-var textLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
-var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is re-calibrated and applied ' + 
-  'to arid and valley thicket areas using Landsat-8 imagery.   Note that AGC accuracy outside the GEF-5 SLM ' + 
+var textLinkGef = ui.Label('A local AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
+var textPostLinkGef = ui.Label(' is re-calibrated and applied ' + 
+  'to arid and valley thicket areas using Landsat-8 imagery.   \nNote that AGC accuracy outside the GEF-5 SLM ' + 
   'Baviaanskloof study area has not been established.\n', {fontSize: '11px'});
 var textInfo = ui.Label('See the GitHub repositoty for more information', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
 
