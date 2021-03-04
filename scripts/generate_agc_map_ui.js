@@ -60,7 +60,7 @@ var linkLabel = ui.Label('See the GitHub repositoty for more information.', {fon
   'https://github.com/dugalh/extend_thicket_agc');
 
 var toolPanel = ui.Panel({widgets: [titleLabel, summaryLabel, detailLabel, noteLabel, linkLabel], 
-  layout: ui.Panel.Layout.Flow('vertical'), style: {width: '30%'}});
+  layout: ui.Panel.Layout.Flow('vertical'), style: {width: '20%'}});
 ui.root.widgets().add(toolPanel);
 
 // legend and its controls
