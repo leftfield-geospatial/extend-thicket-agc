@@ -20,22 +20,22 @@ var images = l8SrImages;
 var image = images.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 
 // Find R/pan image feature
-function find_rn(image) {
-  var rn_image = image.expression('(R / (R + G + B + RE))',
+function findRn(image) {
+  var rnImage = image.expression('(R / (R + G + B + RE))',
     {
       'R': image.select('B4'),
       'G': image.select('B3'),
       'B': image.select('B2'),
       'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
     });
-  return ee.Image(rn_image);
+  return ee.Image(rnImage);
 }
-var rn_image = find_rn(image);
+var rnImage = findRn(image);
 
 // Apply the model to find the EE AGC image
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
-var agc_image = (rn_image.log10().multiply(model.m).add(model.c)).uint8();
-var agc_masked_image = agc_image.clip(thicketBoundary.geometry());
+var agcImage = (rnImage.log10().multiply(model.m).add(model.c)).uint8();
+var agcMaskedImage = agcImage.clip(thicketBoundary.geometry());
 
 // Create the map panel with AGC overlay
 var mapPanel = ui.Map();
@@ -43,7 +43,7 @@ mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: tr
 mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicketBoundary);
 var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
-mapPanel.addLayer(agc_masked_image, vis, 'AGC');
+mapPanel.addLayer(agcMaskedImage, vis, 'AGC');
 ui.root.widgets().reset([mapPanel]);
 ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
