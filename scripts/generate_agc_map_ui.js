@@ -154,7 +154,7 @@ var generateChart = function (coords) {
     legend: {position: 'right'},
   });
   // Add the chart at a fixed position, so that new charts overwrite older ones.
-  toolPanel.widgets().set(2, agcChart);
+  toolPanel.widgets().set(5, agcChart);
 };
 mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
