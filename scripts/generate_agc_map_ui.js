@@ -173,7 +173,7 @@ ui.root.add(ui.SplitPanel(inspectorPanel, mapPanel));
 
 // Initialize with a test point.
 var initialPoint = ee.Geometry.Point(-33.5, 24.5);
-mapPanel.centerObject(initialPoint, 4);
+// mapPanel.centerObject(initialPoint, 4);
 
 generateChart({
   lon: initialPoint.coordinates().get(0).getInfo(),
