@@ -118,7 +118,7 @@ toolPanel.add(legendPanel);
 
 var legendTitle = ui.Label(
     'Legend',
-    {fontWeight: 'bold', fontSize: '10px', margin: '0 0 4px 0', padding: '0'});
+    {fontWeight: 'bold', fontSize: '14px', margin: '0 0 4px 0', padding: '0'});
 legendPanel.add(legendTitle);
 
 // Define an area for the legend key itself.
