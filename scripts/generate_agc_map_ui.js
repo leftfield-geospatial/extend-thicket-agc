@@ -68,7 +68,7 @@ var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '24px', col
 var textIntro = ui.Label(
     'A concept demonstration for extension of localised AGC model(s) to the thicket biome',
     {fontSize: '11px'});
-var textLink = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
+var textLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
 var textPostLink = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
 
 var textPanel = 
