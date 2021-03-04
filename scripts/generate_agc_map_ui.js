@@ -74,7 +74,7 @@ var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is 
   'Baviaanskloof study area has not been established.\n', {fontSize: '11px'});
 var textInfo = ui.Label('See the GitHub repositoty for more information', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
 
-var textPanel = ui.Panel([textIntro, textLinkGef, textPostLinkGef], ui.Panel.Layout.Flow('vertical'));
+var textPanel = ui.Panel([textIntro, textLinkGef, textPostLinkGef, textInfo], ui.Panel.Layout.Flow('vertical'));
 
 var toolPanel = ui.Panel([header, textPanel], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
