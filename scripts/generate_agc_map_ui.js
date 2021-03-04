@@ -44,8 +44,6 @@ mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicketBoundary);
 var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
 mapPanel.addLayer(agcMaskedImage, vis, 'AGC');
-ui.root.widgets().reset([mapPanel]);
-ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
 // Create side tool panel
 // title and description
@@ -61,7 +59,6 @@ var linkLabel = ui.Label('See the GitHub repositoty for more information.', {fon
 
 var toolPanel = ui.Panel({widgets: [titleLabel, summaryLabel, detailLabel, noteLabel, linkLabel], 
   layout: ui.Panel.Layout.Flow('vertical'), style: {width: '20%'}});
-ui.root.widgets().add(toolPanel);
 
 // legend and its controls
 var legendTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
