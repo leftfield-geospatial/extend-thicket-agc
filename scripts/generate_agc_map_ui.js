@@ -45,8 +45,6 @@ mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicketBoundary);
 var vis = { min: 0, max: 50, palette: 'red,yellow,green', opacity: 1.0 };
 mapPanel.addLayer(agc_masked_image, vis, 'AGC');
-
-// Add these to the interface.
 ui.root.widgets().reset([mapPanel]);
 ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
