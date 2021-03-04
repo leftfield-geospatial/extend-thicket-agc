@@ -69,7 +69,7 @@ var textIntro = ui.Label(
     'A concept demonstration for extension of localised AGC model(s) to the thicket biome',
     {fontSize: '11px'});
 var textLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
-var textPostLink = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
+var textPostLinkGef = ui.Label('An AGC model', {fontSize: '11px'}, 'https://github.com/dugalh/map_thicket_agc');
 
 var textPanel = 
 
