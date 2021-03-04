@@ -41,7 +41,6 @@ var agc_masked_image = agc_image.clip(thicketBoundary.geometry());
 // Create the map panel
 var mapPanel = ui.Map();
 
-// Take all tools off the map except the zoom and mapTypeControl tools.
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicketBoundary);
