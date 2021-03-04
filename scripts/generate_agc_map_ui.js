@@ -111,7 +111,7 @@ ui.root.widgets().add(toolPanel);
 // Create the legend.
 // Define a panel for the legend and give it a tile.
 
-var legendTitle = ui.Label('Legend', {fontWeight: 'bold', fontSize: '16px', color: 'SteelBlue'});
+var legendTitle = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px', color: 'black'});
 var legendPanel = ui.Panel([legendTitle, legendDetail]);
 toolPanel.add(legendPanel);
