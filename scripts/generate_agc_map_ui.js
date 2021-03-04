@@ -59,8 +59,8 @@ var noteLabel = ui.Label('Note that AGC accuracy outside the GEF-5 SLM Baviaansk
 var linkLabel = ui.Label('See the GitHub repositoty for more information.', {fontSize: '11px'}, 
   'https://github.com/dugalh/extend_thicket_agc');
 
-var toolPanel = ui.Panel([titleLabel, summaryLabel, detailLabel, noteLabel, linkLabel], 
-  ui.Panel.Layout.Flow('vertical'), {width: '300px'});
+var toolPanel = ui.Panel({widgets: [titleLabel, summaryLabel, detailLabel, noteLabel, linkLabel], 
+  flow: ui.Panel.Layout.Flow('vertical'), style: {width: '30%'}});
 ui.root.widgets().add(toolPanel);
 
 // legend and its controls
