@@ -111,15 +111,14 @@ ui.root.widgets().add(toolPanel);
 
 // Create the legend.
 // Define a panel for the legend and give it a tile.
-var legendPanel = ui.Panel({
+
+var legendTitle = ui.Label('Legend', {fontWeight: 'normal', fontSize: '16px', color: 'SteelBlue'});
+var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'normal', fontSize: '14px', color: 'black'});
+var legendPanel = ui.Panel([legendTitle, legendDetail], {
   style:
       {fontWeight: 'bold', fontSize: '11px', margin: '0 0 0 8px', padding: '0'}
 });
 toolPanel.add(legendPanel);
-
-var legendTitle = ui.Label('Legend', {fontWeight: 'normal', fontSize: '16px', color: 'SteelBlue'});
-var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'normal', fontSize: '14px', color: 'black'});
-legendPanel.add([legendTitle, legendDetail]);
 
 // Define an area for the legend key itself.
 // This area will be replaced every time the layer pulldown is changed.
