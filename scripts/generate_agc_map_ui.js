@@ -32,14 +32,12 @@ function find_rn(image) {
 }
 var rn_image = find_rn(image);
 
-// find the EE AGC image
+// Find the EE AGC image
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 var agc_image = (rn_image.log10().multiply(model.m).add(model.c)).uint8();
 var agc_masked_image = agc_image.clip(thicketBoundary.geometry());
 
-/*
-  Create the map panel
-*/
+// Create the map panel
 var mapPanel = ui.Map();
 
 // Take all tools off the map except the zoom and mapTypeControl tools.
