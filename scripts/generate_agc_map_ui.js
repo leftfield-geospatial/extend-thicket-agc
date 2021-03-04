@@ -40,7 +40,9 @@ function findAgc(image) {
       'B': image.select('B2'),
       'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
     });
-  return ee.Image(rnImage.log10().multiply(model.m).add(model.c).set('system:time_start', image.get('system:time_start')));
+  return ee.Image(rnImage.log10().multiply(model.m).add(model.c)
+    .set('system:time_start', image.get('system:time_start')))
+    .rename('AGC');
 }
 
 // var rnImage = findRn(image);
