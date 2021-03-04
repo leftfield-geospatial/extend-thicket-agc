@@ -136,10 +136,10 @@ var generateChart = function (coords) {
   mapPanel.layers().set(1, dot);
 
   // Make a chart from the time series.
-  var sstChart = ui.Chart.image.series(l8SrImages, point, ee.Reducer.mean(), 500);
+  var agcChart = ui.Chart.image.series(l8SrImages, point, ee.Reducer.mean(), 500);
 
   // Customize the chart.
-  sstChart.setOptions({
+  agcChart.setOptions({
     title: 'AGC: time series',
     vAxis: {title: 'AGC (tC/ha)'},
     hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
@@ -154,7 +154,7 @@ var generateChart = function (coords) {
     legend: {position: 'right'},
   });
   // Add the chart at a fixed position, so that new charts overwrite older ones.
-  inspectorPanel.widgets().set(2, sstChart);
+  inspectorPanel.widgets().set(2, agcChart);
 };
 mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
