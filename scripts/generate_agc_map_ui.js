@@ -31,6 +31,7 @@ function findRn(image) {
     });
   return ee.Image(rnImage);
 }
+
 function findAgc(image) {
   var rnImage = image.expression('(R / (R + G + B + RE))',
     {
