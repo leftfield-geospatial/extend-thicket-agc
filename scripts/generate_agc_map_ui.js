@@ -147,7 +147,7 @@ var legend_labels = ui.Panel({
   layout: ui.Panel.Layout.flow('horizontal')
 });
 
-
+var labelledColorBar = ui.Panel([color_bar, legend_labels], ayout: ui.Panel.Layout.flow('vertical'))
 legendPanel.add(color_bar);
 legendPanel.add(legend_labels);
 
