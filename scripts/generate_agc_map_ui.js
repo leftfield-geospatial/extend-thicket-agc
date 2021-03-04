@@ -159,18 +159,6 @@ var generateChart = function (coords) {
 mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
-
-
-/*
- * Initialize the app
- */
-
-// Replace the root with a SplitPanel that contains the inspector and map.
-ui.root.clear();
-ui.root.add(ui.SplitPanel(inspectorPanel, mapPanel));
-
-
-
 // Initialize with a test point.
 var initialPoint = ee.Geometry.Point(-33.5, 24.5);
 // mapPanel.centerObject(initialPoint, 4);
@@ -179,4 +167,10 @@ generateChart({
   lon: initialPoint.coordinates().get(0).getInfo(),
   lat: initialPoint.coordinates().get(1).getInfo()
 });
+
+// Replace the root with a SplitPanel that contains the inspector and map.
+ui.root.clear();
+ui.root.add(ui.SplitPanel(inspectorPanel, mapPanel));
+
+
 
