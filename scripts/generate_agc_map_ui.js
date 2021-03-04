@@ -220,7 +220,7 @@ opacitySlider.onSlide(function(value) {
 });
 
 var viewPanel =
-    ui.Panel([legendDetail,checkbox, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
+    ui.Panel([checkbox, legendDetail, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
 toolPanel.add(viewPanel);
 
 // // Create the location pulldown.
