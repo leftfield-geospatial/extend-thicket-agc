@@ -50,13 +50,16 @@ ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
 // Create side tool panel
 
+// 
 var titleLabel = ui.Label('Thicket Aboveground Carbon (AGC)', {fontWeight: 'bold', fontSize: '24px', color: 'SteelBlue'});
 var summaryLabel = ui.Label('Concept demonstration for extension of local AGC model(s) to the thicket biome',
     {fontSize: '14px'});
 var detailLabel = ui.Label('An AGC model for a small area in the Baviaanskloof is re-calibrated and applied to ' +
-        'arid and valley thicket areas using Landsat-8 imagery.', {fontSize: '11px'})
-var noteLabel = ui.Label('Note that AGC accuracy outside the GEF-5 SLM Baviaanskloof study area has not been established.', {fontSize: '11px'});
-var linkLabel = ui.Label('See the GitHub repositoty for more information.', {fontSize: '11px'}, 'https://github.com/dugalh/extend_thicket_agc');
+        'arid and valley thicket areas using Landsat-8 imagery.', {fontSize: '11px'});
+var noteLabel = ui.Label('Note that AGC accuracy outside the GEF-5 SLM Baviaanskloof study area has not been established.', 
+  {fontSize: '11px'});
+var linkLabel = ui.Label('See the GitHub repositoty for more information.', {fontSize: '11px'}, 
+  'https://github.com/dugalh/extend_thicket_agc');
 
 var toolPanel = ui.Panel([titleLabel, summaryLabel, detailLabel, noteLabel, linkLabel], 
   ui.Panel.Layout.Flow('vertical'), {width: '300px'});
