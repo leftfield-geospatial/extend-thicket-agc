@@ -64,7 +64,7 @@ ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 */
 
 // Add a title and some explanatory text to a side panel.
-var header = ui.Label('Aboveground Carbon in Thicket', {fontSize: '36px', color: 'black'});
+var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '36px', color: 'blue'});
 var text = ui.Label(
     'Concept demonstration for extension of localised aboveground carbon (AGC) model(s) to the biome.  Recalibrates the ' + 
     "GEF5 SLM AGC model".link('https://github.com/dugalh/map_thicket_agc') + ' to use Landsat 8 imagery. See the ' + 
