@@ -77,7 +77,7 @@ var textInfo = ui.Label('See the GitHub repositoty for more information', {fontS
 
 var gefLinkPanel = ui.Panel([textLinkGef, textPostLinkGef], ui.Panel.Layout.Flow('horizontal'))
 
-var toolPanel = ui.Panel([header, textNewline, gefLinkPanel, textNewline, ], 'flow', {width: '300px'});
+var toolPanel = ui.Panel([header, textNewline, gefLinkPanel, textNewline, textInfo], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
 
 // // Create a hyperlink to an external reference.
