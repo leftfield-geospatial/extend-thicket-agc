@@ -115,6 +115,46 @@ var legendTitle = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', colo
 toolPanel.add(legendTitle);
 var legendDetail = ui.Label('AGC (tC/ha)', {fontWeight: 'bold', fontSize: '14px', color: 'black'});
 // var legendPanel = ui.Panel({widgets: [legendTitle, legendDetail], layout: ui.Panel.Layout.flow('vertical')});
+// Create a visibility checkbox and an opacity slider.
+//
+// If the checkbox is clicked off, disable the layer pulldown and turn all the
+// layers off. Otherwise, enable the select, and turn on the selected layer.
+var checkbox = ui.Checkbox({
+  label: 'Opacity',
+  value: true,
+  onChange: function(value) {
+    var selected = layerSelect.getValue();
+    // Loop through the layers in the mapPanel. For each layer,
+    // if the layer's name is the same as the name selected in the layer
+    // pulldown, set the visibility of the layer equal to the value of the
+    // checkbox. Otherwise, set the visibility to false.
+    mapPanel.layers().forEach(function(element, index) {
+      element.setShown(selected == element.getName() ? value : false);
+    });
+
+    // If the checkbox is on, the layer pulldown should be enabled, otherwise,
+    // it's disabled.
+    layerSelect.setDisabled(!value);
+  }
+});
+
+// Create an opacity slider. This tool will change the opacity for each layer.
+// That way switching to a new layer will maintain the chosen opacity.
+var opacitySlider = ui.Slider({
+  min: 0,
+  max: 1,
+  value: 1,
+  step: 0.01,
+});
+opacitySlider.onSlide(function(value) {
+  mapPanel.layers().forEach(function(element, index) {
+    element.setOpacity(value);
+  });
+});
+
+var viewPanel =
+    ui.Panel([checkbox, legendDetail, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
+toolPanel.add(viewPanel);
 
 
 function make_color_bar_params(palette) {
@@ -182,46 +222,6 @@ toolPanel.add(legend_labels);
 // // Set the initial legend.
 // setLegend(layerProperties[layerSelect.getValue()].legend);
 
-// Create a visibility checkbox and an opacity slider.
-//
-// If the checkbox is clicked off, disable the layer pulldown and turn all the
-// layers off. Otherwise, enable the select, and turn on the selected layer.
-var checkbox = ui.Checkbox({
-  label: 'Opacity',
-  value: true,
-  onChange: function(value) {
-    var selected = layerSelect.getValue();
-    // Loop through the layers in the mapPanel. For each layer,
-    // if the layer's name is the same as the name selected in the layer
-    // pulldown, set the visibility of the layer equal to the value of the
-    // checkbox. Otherwise, set the visibility to false.
-    mapPanel.layers().forEach(function(element, index) {
-      element.setShown(selected == element.getName() ? value : false);
-    });
-
-    // If the checkbox is on, the layer pulldown should be enabled, otherwise,
-    // it's disabled.
-    layerSelect.setDisabled(!value);
-  }
-});
-
-// Create an opacity slider. This tool will change the opacity for each layer.
-// That way switching to a new layer will maintain the chosen opacity.
-var opacitySlider = ui.Slider({
-  min: 0,
-  max: 1,
-  value: 1,
-  step: 0.01,
-});
-opacitySlider.onSlide(function(value) {
-  mapPanel.layers().forEach(function(element, index) {
-    element.setOpacity(value);
-  });
-});
-
-var viewPanel =
-    ui.Panel([checkbox, legendDetail, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
-toolPanel.add(viewPanel);
 
 // // Create the location pulldown.
 // var locations = Object.keys(locationDict);
