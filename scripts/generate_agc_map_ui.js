@@ -122,21 +122,21 @@ var legendCheckbox = ui.Checkbox({
 
 // Create an opacity slider. This tool will change the opacity for each layer.
 // That way switching to a new layer will maintain the chosen opacity.
-var opacitySlider = ui.Slider({
+var legendOpacitySlider = ui.Slider({
   min: 0,
   max: 1,
   value: 1,
   step: 0.01
 });
 
-opacitySlider.onSlide(function(value) {
+legendOpacitySlider.onSlide(function(value) {
   mapPanel.layers().forEach(function(element, index) {
     element.setOpacity(value);
   });
 });
 
 var legendHeaderPanel =
-    ui.Panel([legendCheckbox, legendDetailLabel, opacitySlider], ui.Panel.Layout.Flow('horizontal'));
+    ui.Panel([legendCheckbox, legendDetailLabel, legendOpacitySlider], ui.Panel.Layout.Flow('horizontal'));
 toolPanel.add(viewPanel);
 
 
