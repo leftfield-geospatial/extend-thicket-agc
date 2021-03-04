@@ -40,7 +40,6 @@ var agc_masked_image = agc_image.clip(thicketBoundary.geometry());
 
 // Create the map panel
 var mapPanel = ui.Map();
-
 mapPanel.setControlVisibility({all: false, zoomControl: true, mapTypeControl: true});
 mapPanel.setOptions('HYBRID');
 mapPanel.centerObject(thicketBoundary);
