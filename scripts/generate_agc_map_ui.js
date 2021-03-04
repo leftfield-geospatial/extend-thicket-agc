@@ -73,7 +73,7 @@ var textPostLinkGef = ui.Label(', developed as part of the GEF-5 SLM project is 
   'to arid and valley thicket areas using Landsat-8 imagery.   Note that AGC accuracy outside the GEF-5 SLM ' + 
   'Baviaanskloof study area has not been established.', {fontSize: '11px'});
 var textNewline = ui.Label('\n', {fontSize: '11px'});
-var textInfo = 
+var textInfo = ui.Label('See the GitHub repositoty for more information', {fontSize: '11px'}, 
 
 var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
