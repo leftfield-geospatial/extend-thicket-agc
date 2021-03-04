@@ -65,9 +65,11 @@ ui.root.setLayout(ui.Panel.Layout.flow('horizontal'));
 
 // Add a title and some explanatory text to a side panel.
 var header = ui.Label('Thicket Aboveground Carbon (AGC)', {fontSize: '24px', color: 'blue'});
-var text = ui.Label(
+var textIntro = ui.Label(
     'A concept demonstration for extension of localised AGC model(s) to the thicket biome',
     {fontSize: '11px'});
+
+var textPanel = 
 
 var toolPanel = ui.Panel([header, text], 'flow', {width: '300px'});
 ui.root.widgets().add(toolPanel);
