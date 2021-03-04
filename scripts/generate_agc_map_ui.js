@@ -126,8 +126,8 @@ toolPanel.add(legendValuesPanel);
 // Generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
   // Update the lon/lat panel with values from the click event.
-  lon.setValue('lon: ' + coords.lon.toFixed(2));
-  lat.setValue('lat: ' + coords.lat.toFixed(2));
+  // lon.setValue('lon: ' + coords.lon.toFixed(2));
+  // lat.setValue('lat: ' + coords.lat.toFixed(2));
 
   // Add a dot for the point clicked on.
   var point = ee.Geometry.Point(coords.lon, coords.lat);
