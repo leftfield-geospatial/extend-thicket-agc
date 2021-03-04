@@ -117,7 +117,7 @@ var legendPanel = ui.Panel({
 toolPanel.add(legendPanel);
 
 var legendTitle = ui.Label(
-    'Legend',
+    'Legend: AGC (tC/ha)',
     {fontWeight: 'bold', fontSize: '14px', margin: '8px 0 4px 0', padding: '0', color: 'SteelBlue'});
 legendPanel.add(legendTitle);
 
