@@ -136,8 +136,6 @@ toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
 // Chart 
-var chartTitleLabel = ui.Label('AGC Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
-toolPanel.add(chartTitleLabel);
 
 // Generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
