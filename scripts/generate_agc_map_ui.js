@@ -172,6 +172,8 @@ var generateChart = function (coords) {
 mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
+var chartTitleLabel = ui.Label('Legend', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
+toolPanel.add(legendTitleLabel);
 // Initialize with a test point.
 var initialPoint = ee.Geometry.Point(24.5, -33.5);
 // mapPanel.centerObject(initialPoint, 4);
