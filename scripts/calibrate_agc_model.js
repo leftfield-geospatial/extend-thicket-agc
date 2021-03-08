@@ -22,10 +22,10 @@ gef_sampling_plots = gef_sampling_plots.map(function (feature) {
 //                   .map(cloud_masking.s2_simple_cloud_mask);
 
 var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-  .filterDate('2017-09-01', '2017-11-30')
+  .filterDate('2017-09-01', '2017-12-30')
   .filterBounds(thicket_boundary)
-  .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
-  .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
+  // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
+  // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloud_masking.landsat8_sr_cloud_mask);
 
