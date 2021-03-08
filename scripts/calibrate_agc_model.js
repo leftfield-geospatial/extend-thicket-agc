@@ -22,7 +22,7 @@ gef_sampling_plots = gef_sampling_plots.map(function (feature) {
 //                   .filterBounds(thicket_boundary)
 //                   .map(cloud_masking.s2_simple_cloud_mask);
 
-var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR') //ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')  
+var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   .filterDate('2017-09-01', '2017-12-30')
   .filterBounds(thicket_boundary)
   .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
