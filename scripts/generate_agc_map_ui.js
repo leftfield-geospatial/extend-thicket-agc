@@ -177,6 +177,9 @@ mapPanel.style().set('cursor', 'crosshair');
 var initialPoint = ee.Geometry.Point(24.5, -33.5);
 // mapPanel.centerObject(initialPoint, 4);
 
+var chartTitleLabel = ui.Label('AGC Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
+toolPanel.add(chartTitleLabel);
+
 generateChart({
   lon: initialPoint.coordinates().get(0).getInfo(),
   lat: initialPoint.coordinates().get(1).getInfo()
