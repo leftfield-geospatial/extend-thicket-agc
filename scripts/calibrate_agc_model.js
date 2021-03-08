@@ -4,7 +4,7 @@ var step_arid_and_valley_thicket = ee.FeatureCollection("users/dugalh/extend_thi
     gef_sampling_plots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
-
+cl
 var cloud_masking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicket_boundary = step_arid_and_valley_thicket;  // STEP derived thicket boundaries
 var gef_agc_model = { m: ee.Number(-318.8304), c: ee.Number(25.7259) }; // the univariate log(mean(R/pan)) WV3 model
@@ -28,7 +28,7 @@ var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-  .map(cloudMasking.landsat8_sr_cloud_mask);
+  .map(cloud_masking.landsat8_sr_cloud_mask);
 
 var images = l8_sr_images;
 print('Number of images: ', images.size());
