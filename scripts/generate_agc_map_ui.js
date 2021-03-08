@@ -19,7 +19,7 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloudMasking.landsat8_sr_cloud_mask);
 
-var images = l8SrImages.filterDate('2017-09-01', '2017-12-30');
+var images = l8SrImages.filterDate('2017-09-01', '2017-11-30');
 print(images);
 var image = images.median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
