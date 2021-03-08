@@ -18,9 +18,9 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "greater_than", 40)
   .map(cloudMasking.landsat8_sr_cloud_mask);
 
-var images = l8SrImages;
+var images = l8SrImages.filterDate('2017-09-01', '2017-12-30');
 print(images);
-var image = images.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
+var image = images.median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
