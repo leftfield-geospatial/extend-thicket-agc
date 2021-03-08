@@ -173,7 +173,7 @@ mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
 var chartTitleLabel = ui.Label('AGC Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
-toolPanel.add(legendTitleLabel);
+toolPanel.add(chartTitleLabel);
 // Initialize with a test point.
 var initialPoint = ee.Geometry.Point(24.5, -33.5);
 // mapPanel.centerObject(initialPoint, 4);
