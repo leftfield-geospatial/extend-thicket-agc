@@ -23,7 +23,7 @@ gef_sampling_plots = gef_sampling_plots.map(function (feature) {
 //                   .map(cloud_masking.s2_simple_cloud_mask);
 
 var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-  .filterDate('2017-09-01', '2017-12-30')
+  .filterDate('2017-09-01', '2017-11-30')
   .filterBounds(thicket_boundary)
   .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
