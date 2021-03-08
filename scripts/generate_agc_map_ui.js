@@ -136,6 +136,9 @@ toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
 // Chart 
+var chartTitleLabel = ui.Label('AGC Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
+toolPanel.add(chartTitleLabel);
+
 // Generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
   // Update the lon/lat panel with values from the click event.
@@ -172,8 +175,6 @@ var generateChart = function (coords) {
 mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
-var chartTitleLabel = ui.Label('AGC Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
-toolPanel.add(chartTitleLabel);
 // Initialize with a test point.
 var initialPoint = ee.Geometry.Point(24.5, -33.5);
 // mapPanel.centerObject(initialPoint, 4);
