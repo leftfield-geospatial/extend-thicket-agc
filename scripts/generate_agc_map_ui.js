@@ -150,7 +150,7 @@ var generateChart = function (coords) {
   mapPanel.layers().set(1, dot);
 
   // Make a chart from the time series.
-  var agcChart = ui.Chart.image.series(l8SrImages.filter(ee.Filter.calendarRange(1,1,'month')).map(findAgc), 
+  var agcChart = ui.Chart.image.series(l8SrImages.filter(ee.Filter.calendarRange(9,10,'month')).map(findAgc), 
     point.buffer(100), ee.Reducer.mean(), 500);
 
   // Customize the chart.
