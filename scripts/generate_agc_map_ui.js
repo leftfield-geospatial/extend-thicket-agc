@@ -180,9 +180,6 @@ var initialPoint = ee.Geometry.Point(24.5, -33.5);
 
 var chartTitleLabel = ui.Label('Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
 toolPanel.add(chartTitleLabel);
-l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
-  .filterBounds(thicketBoundary)
-  .map(cloudMasking.landsat8_sr_cloud_mask);
 
 generateChart({
   lon: initialPoint.coordinates().get(0).getInfo(),
