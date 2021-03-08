@@ -14,7 +14,7 @@ var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundar
 // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   .filterBounds(thicketBoundary)
-  .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 30)
+  .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "greater_than", 40)
   .map(cloudMasking.landsat8_sr_cloud_mask);
 
