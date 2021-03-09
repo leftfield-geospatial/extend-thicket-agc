@@ -1,16 +1,17 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    eeL8AgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_agc_model"),
-    eeS2ToaAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_s2_toa_agc_model");
+    eeS2ToaAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_s2_toa_agc_model"),
+    eeL8SrAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model"),
+    eeL8ToaAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_s2_toa_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
-var eeAgcModel = eeS2ToaAgcModel;
+var eeAgcModel = eeL8ToaAgcModel;
 
-var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
-                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
-                  .filterBounds(thicketBoundary)
-                  .map(cloudMasking.s2_simple_cloud_mask);
+// var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
+//                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
+//                   .filterBounds(thicketBoundary)
+//                   .map(cloudMasking.s2_simple_cloud_mask);
 
 // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 // var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
