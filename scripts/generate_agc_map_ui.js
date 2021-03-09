@@ -155,7 +155,7 @@ var generateChart = function (coords) {
 
   // Make a chart from the time series.
   var years = ee.List.sequence(2013, 2020);
-    years.map(function(year) {
+  var yearlyMedianImages = years.map(function(year) {
       return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
           .median().set('year', y);
     }).flatten();
