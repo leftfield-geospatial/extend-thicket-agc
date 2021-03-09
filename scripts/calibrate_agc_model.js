@@ -162,7 +162,7 @@ var ee_agc_model_coll = ee.FeatureCollection([ee_agc_model_feat]);
 print(ee_agc_model_coll);
 Export.table.toAsset({
   collection: ee_agc_model_coll,
-  description: 'ee_s2_toa_agc_model',
+  description: 'ee_l8_sr_toa_agc_model',
   // fileFormat: 'CSV',
   // folder: 'Earth Engine Data'
   assetId: 'extend_thicket_agc/ee_l8_sr_agc_model',
