@@ -157,7 +157,7 @@ var generateChart = function (coords) {
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function(y) {
       return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
-          .median().set('year', y)..set('system:time_start', ));
+          .median().set('year', y)..set('system:time_start', )
     }).flatten());
   print(yearlyMedianImages);
   var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(30), ee.Reducer.median(), 30);
