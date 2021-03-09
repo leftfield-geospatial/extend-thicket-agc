@@ -170,7 +170,7 @@ var generateChart = function (coords) {
     series: {
       0: {
         color: 'blue',
-        lineWidth: 0,
+        lineWidth: 1,
         pointsVisible: true,
         pointSize: 2,
       },
