@@ -169,7 +169,7 @@ var generateChart = function (coords) {
     hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
     series: {
       0: {
-        color: 'blue',
+        color: 'SteelBlue',
         lineWidth: 1,
         pointsVisible: true,
         pointSize: 2,
