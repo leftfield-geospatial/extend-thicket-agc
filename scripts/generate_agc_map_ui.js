@@ -8,18 +8,18 @@ var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_maskin
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
 var eeAgcModel = eeS2ToaAgcModel;
 
-var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
-                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
-                  .filterBounds(thicketBoundary)
-                  .map(cloudMasking.s2_simple_cloud_mask);
+// var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
+//                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
+//                   .filterBounds(thicketBoundary)
+//                   .map(cloudMasking.s2_simple_cloud_mask);
 
 // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
-// var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-//   .filterBounds(thicketBoundary)
-//   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
-//   .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 35)
-//   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-//   .map(cloudMasking.landsat8_sr_cloud_mask);
+var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
+  .filterBounds(thicketBoundary)
+  // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
+  .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 35)
+  // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
+  .map(cloudMasking.landsat8_sr_cloud_mask);
 
 // var l8ToaImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
 //   .filterBounds(thicketBoundary)
@@ -28,9 +28,9 @@ var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
 //   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
 //   .map(cloudMasking.landsat8_toa_cloud_mask);
 
-var images = s2ToaImages;
+var images = l8SrImages;
 print(images);
-var image = s2ToaImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
+var image = l8SrImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
