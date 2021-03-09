@@ -21,9 +21,9 @@ var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
 //   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
 //   .map(cloudMasking.landsat8_sr_cloud_mask);
 
-var images = s2ToaImages.filterDate('2017-09-01', '2017-12-30');
+var images = ;
 print(images);
-var image = images.median();    // composite the image collection
+var image = s2ToaImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
@@ -158,7 +158,7 @@ var generateChart = function (coords) {
   // Make a time series chart of agc([median(images) for images inbetween Sept and Dec in year y])
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function(y) {
-      return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
+      return images.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
           .median().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
   print(yearlyMedianImages);
