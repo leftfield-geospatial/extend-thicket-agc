@@ -160,7 +160,7 @@ var generateChart = function (coords) {
           .median().set('year', y);
     }).flatten();
   print(yearlyMedianImages); 
-  var agcChart = ui.Chart.image.series(l8SrImages.map(findAgc).filter(ee.Filter.calendarRange(9, 12, 'month')), 
+  var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc).filter(ee.Filter.calendarRange(9, 12, 'month')), 
     point.buffer(30), ee.Reducer.mean(), 30);
 
   // Customize the chart.
