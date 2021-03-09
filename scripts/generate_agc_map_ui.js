@@ -40,7 +40,7 @@ function findRn(image) {
       'R': image.select('B4'),
       'G': image.select('B3'),
       'B': image.select('B2'),
-      'RE': image.select(ee.Algorithms.If(image.bandNacopyPromes().contains('B8'), ['B8'], ['B5']))
+      'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
     });
   return ee.Image(rnImage).rename('rN');
 }
