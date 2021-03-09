@@ -184,7 +184,7 @@ mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
 // Initialize with a test point.
-var initialPoint = ee.Geometry.Point(24.5, -33.5);
+var initialPoint = ee.Geometry.Point(24.37007063238984017 -33.66776731422557845);
 // mapPanel.centerObject(initialPoint, 4);
 
 var chartTitleLabel = ui.Label('Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
