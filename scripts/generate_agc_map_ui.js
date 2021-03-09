@@ -8,7 +8,7 @@ var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundar
 var eeAgcModel = eeS2ToaAgcModel;
 
 var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
-                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 25))
+                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
                   .filterBounds(thicketBoundary)
                   .map(cloudMasking.s2_simple_cloud_mask);
 
