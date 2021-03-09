@@ -170,9 +170,9 @@ var generateChart = function (coords) {
     series: {
       0: {
         color: 'SteelBlue',
-        lineWidth: 1,
+        lineWidth: 1.5,
         pointsVisible: true,
-        pointSize: 2,
+        pointSize: 3,
       },
     },
     legend: {position: 'right'},
