@@ -157,11 +157,8 @@ var generateChart = function (coords) {
   var years = ee.List.sequence(2013, 2020);
     years.map(function(year) {
       return months.map(function (m) {
-        return sst
-          .filter(ee.Filter.calendarRange(y, y, 'year'))
-          .filter(ee.Filter.calendarRange(m, m, 'month'))
-          .mean()
-          .set('month', m).set('year', y);
+        return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
+          .median().set('month', m).set('year', y);
     });
   }).flatten()
   var yearlyMedianImages = l8SrImages.map(function)
