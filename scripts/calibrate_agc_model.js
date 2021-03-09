@@ -168,32 +168,35 @@ Export.table.toAsset({
   assetId: 'extend_thicket_agc/ee_agc_model',
 });
 
-Export.image.toDrive({
-  image: agc_dict.image.uint8(),
-  description: 'ee_agc_image_toDrive',
-  folder: 'Earth Engine Data',
-  scale: 30,
-  region: ee.Feature(thicket_boundary.first()).bounds(),
-  fileFormat: 'GeoTIFF',
-  formatOptions: {
-    cloudOptimized: true
-  },
-  maxPixels: 1e9,
-  fileDimensions: [2048,2048],  // break into tiles
-  skipEmptyTiles: true,
-  // crs: 'EPSG:3857'
-});
-
-Export.image.toAsset({
-  image: agc_dict.image.uint8(),
-  description: 'ee_agc_image_toAsset',
-  assetId: 'extend_thicket_agc/ee_agc_image',
-  scale: 30,
-  region: ee.Feature(thicket_boundary.first()).bounds(),
-  // fileFormat: 'GeoTIFF',
-  // formatOptions: {
-  //   cloudOptimized: true
-  // },
-  maxPixels: 1e9,
-  dimensions: 1024  // break into tiles
-});
+if false
+{
+  Export.image.toDrive({
+    image: agc_dict.image.uint8(),
+    description: 'ee_agc_image_toDrive',
+    folder: 'Earth Engine Data',
+    scale: 30,
+    region: ee.Feature(thicket_boundary.first()).bounds(),
+    fileFormat: 'GeoTIFF',
+    formatOptions: {
+      cloudOptimized: true
+    },
+    maxPixels: 1e9,
+    fileDimensions: [2048,2048],  // break into tiles
+    skipEmptyTiles: true,
+    // crs: 'EPSG:3857'
+  });
+  
+  Export.image.toAsset({
+    image: agc_dict.image.uint8(),
+    description: 'ee_agc_image_toAsset',
+    assetId: 'extend_thicket_agc/ee_agc_image',
+    scale: 30,
+    region: ee.Feature(thicket_boundary.first()).bounds(),
+    // fileFormat: 'GeoTIFF',
+    // formatOptions: {
+    //   cloudOptimized: true
+    // },
+    maxPixels: 1e9,
+    dimensions: 1024  // break into tiles
+  });
+}
