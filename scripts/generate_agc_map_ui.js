@@ -159,7 +159,7 @@ var generateChart = function (coords) {
       return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
           .median().set('year', y);
     }).flatten();
-  var yearlyMedianImages = l8SrImages.map(function)
+  print(); 
   var agcChart = ui.Chart.image.series(l8SrImages.map(findAgc).filter(ee.Filter.calendarRange(9, 12, 'month')), 
     point.buffer(30), ee.Reducer.mean(), 30);
 
