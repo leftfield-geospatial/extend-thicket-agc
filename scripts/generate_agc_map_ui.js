@@ -30,7 +30,7 @@ var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
 
 var images = s2ToaImages;
 print(images);
-var image = l8ToaImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
+var image = s2ToaImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
