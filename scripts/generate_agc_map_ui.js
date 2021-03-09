@@ -156,7 +156,8 @@ var generateChart = function (coords) {
   // Make a time series chart of agc([median(images) for images inbetween Sept and Dec in year y])
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function(y) {
-      return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
+      var yearlyImages = l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'));
+      return 
           .median().set('year', y).set('system:time_start', y)
     }).flatten());
   print(yearlyMedianImages);
