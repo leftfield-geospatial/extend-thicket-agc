@@ -153,7 +153,7 @@ var generateChart = function (coords) {
   // Add the dot as the second layer, so it shows up on top of the composite.
   mapPanel.layers().set(1, dot);
 
-  // Make a time series chart of agc(median(images())
+  // Make a time series chart of agc([median(images()])
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = years.map(function(y) {
       return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
