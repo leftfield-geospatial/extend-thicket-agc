@@ -35,7 +35,7 @@ var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-  .map(cloud_masking.landsat8_sr_cloud_mask);
+  .map(cloud_masking.landsat8_toa_cloud_mask);
 
 var images = l8_sr_images;
 print('Number of images: ', images.size());
