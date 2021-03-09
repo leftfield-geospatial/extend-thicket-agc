@@ -33,7 +33,7 @@ function findRn(image) {
       'B': image.select('B2'),
       'RE': image.select(ee.Algorithms.If(image.bandNacopyPromes().contains('B8'), ['B8'], ['B5']))
     });
-  return ee.Image(rnImage);
+  return ee.Image(rnImage).rename('rN');
 }
 
 function findAgc(image) {
