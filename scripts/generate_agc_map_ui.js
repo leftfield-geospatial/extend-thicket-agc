@@ -160,7 +160,7 @@ var generateChart = function (coords) {
           .mean().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
   print(yearlyMedianImages);
-  var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(100), ee.Reducer.mean(), 30);
+  var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
 
   // Customize the chart.
   agcChart.setOptions({
