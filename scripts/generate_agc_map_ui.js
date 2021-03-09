@@ -9,7 +9,7 @@ var eeAgcModel = eeS2ToaAgcModel;
 
 var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
                   .filterDate('2017-09-01', '2017-11-01')
-                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
+                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 25))
                   .filterBounds(thicketBoundary)
                   .map(cloudMasking.s2_simple_cloud_mask);
 
