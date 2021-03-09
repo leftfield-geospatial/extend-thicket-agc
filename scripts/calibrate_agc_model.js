@@ -29,7 +29,7 @@ gef_sampling_plots = gef_sampling_plots.map(function (feature) {
 //   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
 //   .map(cloud_masking.landsat8_sr_cloud_mask);
 
-var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
+var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
   .filterDate('2017-09-01', '2017-12-30')
   .filterBounds(thicket_boundary)
   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
