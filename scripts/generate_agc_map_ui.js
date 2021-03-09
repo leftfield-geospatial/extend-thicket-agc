@@ -185,7 +185,7 @@ mapPanel.style().set('cursor', 'crosshair');
 
 // Initialize with a test point.
 var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
-var initialPoint = ee.Geometry.Point(23.94436842431511536, -33.55374308591438393); //Baviaanskloof Sewefontein
+var initialPoint = ee.Geometry.Point(23.94436842431511536, -33.55374308591438393);   //Baviaanskloof Sewefontein
 // mapPanel.centerObject(initialPoint, 4);
 
 var chartTitleLabel = ui.Label('Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
