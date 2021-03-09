@@ -7,7 +7,7 @@ var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_maskin
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
 var eeAgcModel = eeS2ToaAgcModel;
 
-var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
+var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
                   .filterDate('2017-09-01', '2017-11-01')
                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
                   .filterBounds(thicketBoundary)
