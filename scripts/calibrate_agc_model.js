@@ -12,7 +12,7 @@ var gef_agc_model = { m: ee.Number(-318.8304), c: ee.Number(25.7259) }; // the u
 gef_sampling_plots = gef_sampling_plots.map(function (feature) {
   return feature.set({
     AgcHa: ee.Number(feature.get('AgcHa')).divide(1000)
-  })
+  });
 });
 
 // var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
