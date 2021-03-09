@@ -37,7 +37,7 @@ var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloud_masking.landsat8_toa_cloud_mask);
 
-var images = l8_sr_images;
+var images = l8_toa_images;
 print('Number of images: ', images.size());
 var image = images.median();    // composite the image collection
 
@@ -170,7 +170,7 @@ var ee_agc_model_coll = ee.FeatureCollection([ee_agc_model_feat]);
 print(ee_agc_model_coll);
 Export.table.toAsset({
   collection: ee_agc_model_coll,
-  description: 'ee_l8_sr_toa_agc_model',
+  description: 'ee_l8_toa_agc_model',
   // fileFormat: 'CSV',
   // folder: 'Earth Engine Data'
   assetId: 'extend_thicket_agc/ee_l8_sr_agc_model',
