@@ -29,7 +29,7 @@ var l8_sr_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloud_masking.landsat8_sr_cloud_mask);
 
-var images = s2_toa_images;
+var images = l8_sr_images;
 print('Number of images: ', images.size());
 var image = images.median();    // composite the image collection
 
