@@ -184,7 +184,7 @@ mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
 // Initialize with a test point.
-var initialPoint = ee.Geometry.Point(24.37007063238984017 -33.66776731422557845);
+var initialPoint = ee.Geometry.Point(24.37007063238984017 -33.66776731422557845);   //Baviaanskloof NR
 // Point (23.94436842431511536 -33.55374308591438393)
 // mapPanel.centerObject(initialPoint, 4);
 
