@@ -2,7 +2,7 @@
 var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
     eeS2ToaAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_s2_toa_agc_model"),
     eeL8SrAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model"),
-    eeL8ToaAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_s2_toa_agc_model");
+    eeL8ToaAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_toa_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
