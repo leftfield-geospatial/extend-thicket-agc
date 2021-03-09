@@ -30,7 +30,7 @@ var l8ToaImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
 
 var images = l8ToaImages;
 print(images);
-var image = s2ToaImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
+var image = l8ToaImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
