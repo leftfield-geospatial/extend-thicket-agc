@@ -7,19 +7,19 @@ var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_maskin
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
 var eeAgcModel = eeS2ToaAgcModel;
 
-// var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
-//                   .filterDate('2017-09-01', '2017-11-01')
-//                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
-//                   .filterBounds(thicketBoundary)
-//                   .map(cloudMasking.s2_simple_cloud_mask);
+var s2_toa_images = ee.ImageCollection('COPERNICUS/S2')
+                  .filterDate('2017-09-01', '2017-11-01')
+                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 5))
+                  .filterBounds(thicketBoundary)
+                  .map(cloudMasking.s2_simple_cloud_mask);
 
 // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
-var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-  .filterBounds(thicketBoundary)
-  // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
-  .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 35)
-  // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-  .map(cloudMasking.landsat8_sr_cloud_mask);
+// var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
+//   .filterBounds(thicketBoundary)
+//   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
+//   .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 35)
+//   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
+//   .map(cloudMasking.landsat8_sr_cloud_mask);
 
 var images = l8SrImages.filterDate('2017-09-01', '2017-12-30');
 print(images);
