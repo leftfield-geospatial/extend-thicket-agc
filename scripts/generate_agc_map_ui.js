@@ -154,7 +154,7 @@ var generateChart = function (coords) {
   mapPanel.layers().set(1, dot);
 
   // Make a chart from the time series.
-  var years = ee.List.sequence(2013, 2017);
+  var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = l8SrImages.map(function)
   var agcChart = ui.Chart.image.series(l8SrImages.map(findAgc).filter(ee.Filter.calendarRange(9, 12, 'month')), 
     point.buffer(30), ee.Reducer.mean(), 30);
