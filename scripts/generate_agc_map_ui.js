@@ -156,7 +156,7 @@ var generateChart = function (coords) {
   // Make a time series chart of agc([median(images) for images inbetween Sept and Dec in year y])
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function(y) {
-      return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(12, 12, 'month'))
+      return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
           .median().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
   print(yearlyMedianImages);
@@ -184,7 +184,7 @@ mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
 // Initialize with a test point.
-var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
+// var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
 var initialPoint = ee.Geometry.Point(23.94436842431511536, -33.55374308591438393);   //Baviaanskloof Sewefontein
 // mapPanel.centerObject(initialPoint, 4);
 
