@@ -158,7 +158,7 @@ var generateChart = function (coords) {
     years.map(function(year) {
       return months.map(function (m) {
         return l8SrImages.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
-          .median().set('month', m).set('year', y);
+          .median().set('year', y);
     });
   }).flatten()
   var yearlyMedianImages = l8SrImages.map(function)
