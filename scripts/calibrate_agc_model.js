@@ -42,7 +42,7 @@ function find_rn(image) {
       'B': image.select('B2'),
       'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
     });
-  return ee.Image(rn_image);
+  return ee.Image(rn_image).rename('rN');
 }
 var rn_image = find_rn(image);
 
