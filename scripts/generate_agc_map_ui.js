@@ -177,7 +177,7 @@ var generateChart = function (coords) {
   var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
 
   var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands(image.metadata('SOLAR_ZENITH_ANGLE'))});
-  print(sza);
+  // print(sza);
   
 
   // Customize the chart.
