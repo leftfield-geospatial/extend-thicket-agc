@@ -43,7 +43,7 @@ var image = images.median();    // composite the image collection
 
 // Find R/pan image feature
 function find_rn(image) {
-  var rn_image = image.expression('(R / (R + G + B + RE))',
+  var rn_image = image.expression('(R / (R + G + B + (RE/2)))',
     {
       'R': image.select('B4'),
       'G': image.select('B3'),
