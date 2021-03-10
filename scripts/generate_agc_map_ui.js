@@ -174,7 +174,7 @@ var generateChart = function (coords) {
   // print(yearlyMedianImages);
   // function(image){return image.select(['B2','B3','B4','B5'])}
   // var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
-  var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(findRn), point.buffer(100), ee.Reducer.median(), 30);
+  var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
 
   var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands([image.metadata('SOLAR_ZENITH_ANGLE'), image.metadata('SOLAR_AZIMUTH_ANGLE')])});
   print(szaCollection.first());
