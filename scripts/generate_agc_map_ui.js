@@ -44,7 +44,7 @@ function findRn(image) {
     });
   return ee.Image(rnImage
     .set('system:time_start', image.get('system:time_start')))
-    .rename('rN'));
+    .rename('rN');
 }
 
 function findAgc(image) {
