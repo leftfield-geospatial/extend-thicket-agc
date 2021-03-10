@@ -28,7 +28,7 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
 //   .map(cloudMasking.landsat8_toa_cloud_mask);
 
 var images = l8SrImages;
-print(images);
+// print(images);
 var image = l8SrImages
   .filterBounds(thicketBoundary)
   .filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
