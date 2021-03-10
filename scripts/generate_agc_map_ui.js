@@ -49,7 +49,7 @@ function findRn(image) {
 }
 
 function findAgc(image) {
-  var rnImage = image.expression('(R / (R + G + B + RE))',
+  var rnImage = image.expression('(R / (R + G + B + (RE/2)))',
     {
       'R': image.select('B4'),
       'G': image.select('B3'),
