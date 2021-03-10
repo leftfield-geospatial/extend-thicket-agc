@@ -42,9 +42,9 @@ function findRn(image) {
       'B': image.select('B2'),
       'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
     });
-  return ee.Image(rnImage)
+  return ee.Image(rnImage
     .set('system:time_start', image.get('system:time_start')))
-    .rename('rN');
+    .rename('rN'));
 }
 
 function findAgc(image) {
