@@ -199,8 +199,8 @@ var generateChart = function (coords) {
   // Add the chart at a fixed position, so that new charts overwrite older ones.
   toolPanel.widgets().set(10, agcChart);
 
-  agcChart.setOptions({
-    title: 'AGC: time series',
+  szaChart.setOptions({
+    title: 'SZA: time series',
     vAxis: {title: 'AGC (tC/ha)'},
     hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
     series: {
