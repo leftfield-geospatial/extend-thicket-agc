@@ -171,7 +171,7 @@ var generateChart = function (coords) {
       return images.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
           .median().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
-  print(yearlyMedianImages);
+  // print(yearlyMedianImages);
   var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findRn), point.buffer(60), ee.Reducer.median(), 30);
 
   // Customize the chart.
