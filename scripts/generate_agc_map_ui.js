@@ -14,7 +14,7 @@ var eeAgcModel = eeL8SrAgcModel;
 //                   .map(cloudMasking.s2_simple_cloud_mask);
 
 // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
-var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T2_SR')
+var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
@@ -31,7 +31,7 @@ var images = l8SrImages;
 // print(images);
 var image = l8SrImages
   .filterBounds(thicketBoundary)
-  .filterDate('2017-01-01', '2017-12-30').median();    // composite the image collection
+  .filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
@@ -168,17 +168,17 @@ var generateChart = function (coords) {
   // Make a time series chart of agc([median(images) for images inbetween Sept and Dec in year y])
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function(y) {
-      return images.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(6, 12, 'month'))
+      return images.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
           .median().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
   // print(yearlyMedianImages);
   // function(image){return image.select(['B2','B3','B4','B5'])}
   // var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
-  var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(6, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
+  var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
 
-  // var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands([image.metadata('SOLAR_ZENITH_ANGLE'), image.metadata('SOLAR_AZIMUTH_ANGLE')])});
-  // print(szaCollection.first());
-  // var szaChart = ui.Chart.image.series(szaCollection.select(['SOLAR_ZENITH_ANGLE','SOLAR_AZIMUTH_ANGLE']), point, ee.Reducer.mean(), 30);
+  var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands([image.metadata('SOLAR_ZENITH_ANGLE'), image.metadata('SOLAR_AZIMUTH_ANGLE')])});
+  print(szaCollection.first());
+  var szaChart = ui.Chart.image.series(szaCollection.select(['SOLAR_ZENITH_ANGLE','SOLAR_AZIMUTH_ANGLE']), point, ee.Reducer.mean(), 30);
   
 
   // Customize the chart.
@@ -199,22 +199,22 @@ var generateChart = function (coords) {
   // Add the chart at a fixed position, so that new charts overwrite older ones.
   toolPanel.widgets().set(10, agcChart);
 
-  // szaChart.setOptions({
-  //   title: 'SZA: time series',
-  //   vAxis: {title: 'SZA (deg)'},
-  //   hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
-  //   series: {
-  //     0: {
-  //       color: 'SteelBlue',
-  //       lineWidth: 0,
-  //       pointsVisible: true,
-  //       pointSize: 3,
-  //     },
-  //   },
-  //   legend: {position: 'right'},
-  // });
+  szaChart.setOptions({
+    title: 'SZA: time series',
+    vAxis: {title: 'SZA (deg)'},
+    hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
+    series: {
+      0: {
+        color: 'SteelBlue',
+        lineWidth: 0,
+        pointsVisible: true,
+        pointSize: 3,
+      },
+    },
+    legend: {position: 'right'},
+  });
   // Add the chart at a fixed position, so that new charts overwrite older ones.
-  // toolPanel.widgets().set(11, szaChart);
+  toolPanel.widgets().set(11, szaChart);
 };
 mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
