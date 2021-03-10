@@ -201,7 +201,7 @@ var generateChart = function (coords) {
 
   szaChart.setOptions({
     title: 'SZA: time series',
-    vAxis: {title: 'AGC (tC/ha)'},
+    vAxis: {title: 'SZA (deg)'},
     hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
     series: {
       0: {
