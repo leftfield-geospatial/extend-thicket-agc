@@ -183,7 +183,7 @@ var generateChart = function (coords) {
     series: {
       0: {
         color: 'SteelBlue',
-        lineWidth: 1.5,
+        lineWidth: 0,
         pointsVisible: true,
         pointSize: 3,
       },
