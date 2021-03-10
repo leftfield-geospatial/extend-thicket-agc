@@ -176,9 +176,9 @@ var generateChart = function (coords) {
   // var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
   var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(6, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
 
-  var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands([image.metadata('SOLAR_ZENITH_ANGLE'), image.metadata('SOLAR_AZIMUTH_ANGLE')])});
-  print(szaCollection.first());
-  var szaChart = ui.Chart.image.series(szaCollection.select(['SOLAR_ZENITH_ANGLE','SOLAR_AZIMUTH_ANGLE']), point, ee.Reducer.mean(), 30);
+  // var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands([image.metadata('SOLAR_ZENITH_ANGLE'), image.metadata('SOLAR_AZIMUTH_ANGLE')])});
+  // print(szaCollection.first());
+  // var szaChart = ui.Chart.image.series(szaCollection.select(['SOLAR_ZENITH_ANGLE','SOLAR_AZIMUTH_ANGLE']), point, ee.Reducer.mean(), 30);
   
 
   // Customize the chart.
@@ -199,20 +199,20 @@ var generateChart = function (coords) {
   // Add the chart at a fixed position, so that new charts overwrite older ones.
   toolPanel.widgets().set(10, agcChart);
 
-  szaChart.setOptions({
-    title: 'SZA: time series',
-    vAxis: {title: 'SZA (deg)'},
-    hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
-    series: {
-      0: {
-        color: 'SteelBlue',
-        lineWidth: 0,
-        pointsVisible: true,
-        pointSize: 3,
-      },
-    },
-    legend: {position: 'right'},
-  });
+  // szaChart.setOptions({
+  //   title: 'SZA: time series',
+  //   vAxis: {title: 'SZA (deg)'},
+  //   hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
+  //   series: {
+  //     0: {
+  //       color: 'SteelBlue',
+  //       lineWidth: 0,
+  //       pointsVisible: true,
+  //       pointSize: 3,
+  //     },
+  //   },
+  //   legend: {position: 'right'},
+  // });
   // Add the chart at a fixed position, so that new charts overwrite older ones.
   toolPanel.widgets().set(11, szaChart);
 };
