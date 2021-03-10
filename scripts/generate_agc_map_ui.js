@@ -172,8 +172,8 @@ var generateChart = function (coords) {
           .median().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
   // print(yearlyMedianImages);
-  var agcChart = ui.Chart.image.series(yearlyMedianImages.map(
-    function(image){return image.select(['B2','B3','B4','B5'])}), point.buffer(60), ee.Reducer.median(), 30);
+  // function(image){return image.select(['B2','B3','B4','B5'])}
+  var agcChart = ui.Chart.image.series(yearlyMedianImages.map(), point.buffer(60), ee.Reducer.median(), 30);
 
   // Customize the chart.
   agcChart.setOptions({
