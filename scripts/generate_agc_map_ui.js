@@ -15,7 +15,6 @@ var eeAgcModel = eeL8SrAgcModel;
 
 // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-  .filterBounds(thicketBoundary)
   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 35)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
@@ -30,7 +29,9 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
 
 var images = l8SrImages;
 print(images);
-var image = l8SrImages.filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
+var image = l8SrImages
+  .filterBounds(thicketBoundary)
+  .filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
 
 // Find R/pan image feature
