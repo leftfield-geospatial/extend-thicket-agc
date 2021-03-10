@@ -36,7 +36,7 @@ var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel
 
 // Find R/pan image feature
 function findRn(image) {
-  var rnImage = image.expression('(R / (R + G + B + (RE/3.5)))',
+  var rnImage = image.expression('(R / (R + G + B + (RE/2.5)))',
     {
       'R': image.select('B4'),
       'G': image.select('B3'),
