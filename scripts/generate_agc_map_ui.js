@@ -169,12 +169,12 @@ var generateChart = function (coords) {
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function(y) {
       return images.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
-          .mean().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
+          .median().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
   // print(yearlyMedianImages);
   // function(image){return image.select(['B2','B3','B4','B5'])}
   // var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
-  var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.mean(), 30);
+  var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
 
   var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands([image.metadata('SOLAR_ZENITH_ANGLE'), image.metadata('SOLAR_AZIMUTH_ANGLE')])});
   print(szaCollection.first());
