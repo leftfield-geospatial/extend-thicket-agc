@@ -27,9 +27,9 @@ var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
 //   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
 //   .map(cloudMasking.landsat8_toa_cloud_mask);
 
-var images = l8SrImages;
+var images = s2ToaImages;
 // print(images);
-var image = l8SrImages
+var image = s2ToaImages
   .filterBounds(thicketBoundary)
   .filterDate('2017-09-01', '2017-12-30').median();    // composite the image collection
 var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel.first().get('c')) };
