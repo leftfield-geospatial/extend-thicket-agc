@@ -169,7 +169,7 @@ var generateChart = function (coords) {
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function(y) {
       return images.filter(ee.Filter.calendarRange(y, y, 'year')).filter(ee.Filter.calendarRange(9, 12, 'month'))
-          .median().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
+          .mean().set('year', y).set('system:time_start', ee.Date.fromYMD(y, 10, 15));
     }).flatten());
   // print(yearlyMedianImages);
   // function(image){return image.select(['B2','B3','B4','B5'])}
