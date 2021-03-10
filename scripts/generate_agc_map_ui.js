@@ -176,6 +176,10 @@ var generateChart = function (coords) {
   // var agcChart = ui.Chart.image.series(yearlyMedianImages.map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
   var agcChart = ui.Chart.image.series(images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(findAgc), point.buffer(100), ee.Reducer.median(), 30);
 
+  images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.get([''])})
+  
+  var szaChart = ui.Chart.image.
+
   // Customize the chart.
   agcChart.setOptions({
     title: 'AGC: time series',
