@@ -29,7 +29,7 @@ function landsat_simple_cloud_mask(image, thresh)
 {
   if (thresh === undefined || thresh === null)
   {
-    thresh = 5;
+    thresh = exports.default_cloud_thresh;
   }
   var scored = ee.Algorithms.Landsat.simpleCloudScore(image);
   var mask = scored.select(['cloud']).lte(thresh);
