@@ -152,7 +152,6 @@ toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
 // Chart 
-
 // Generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
   // Update the lon/lat panel with values from the click event.
