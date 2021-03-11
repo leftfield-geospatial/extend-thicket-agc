@@ -16,7 +16,7 @@ function s2_prob_cloud_mask(image, thresh)
 {
   if (thresh === undefined || thresh === null)
   {
-    thresh = 20;
+    thresh = exports.default_cloud_thresh;
   }
   var cloud_prob = ee.Image(image.get('s2cloudless')).select('probability');
   var cloud_mask = cloud_prob.lt(thresh);
