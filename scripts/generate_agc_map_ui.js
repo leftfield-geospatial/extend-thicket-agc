@@ -178,7 +178,7 @@ var generateChart = function (coords) {
 
   var szaCollection = images.filter(ee.Filter.calendarRange(9, 12, 'month')).map(function(image){return image.addBands([image.metadata('MEAN_SOLAR_ZENITH_ANGLE'), image.metadata('MEAN_SOLAR_AZIMUTH_ANGLE')])});
   print(szaCollection.first());
-  var szaChart = ui.Chart.image.series(szaCollection.select(['MEAN_SOLAR_ZENITH_ANGLE','MEAN_SOLAR_AZIMUTH_ANGLE']), point, ee.Reducer.mean(), 30);
+  var szaChart = ui.Chart.image.series(szaCollection.select(['SOLAR_ZENITH_ANGLE','SOLAR_AZIMUTH_ANGLE']), point, ee.Reducer.mean(), 30);
   
 
   // Customize the chart.
