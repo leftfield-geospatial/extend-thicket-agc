@@ -7,17 +7,17 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
 
-// var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
-//                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
-//                   .filterBounds(thicketBoundary)
-//                   .map(cloudMasking.s2_simple_cloud_mask);
+var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
+                  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
+                  .filterBounds(thicketBoundary)
+                  .map(cloudMasking.s2_simple_cloud_mask);
 
-// Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
-var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-  .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
-  // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
-  // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-  .map(cloudMasking.landsat8_sr_cloud_mask);
+// // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
+// var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C02/T1_SR')
+//   .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
+//   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
+//   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
+//   .map(cloudMasking.landsat8_sr_cloud_mask);
 
 // var l8ToaImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
 //   .filterBounds(thicketBoundary)
@@ -36,7 +36,7 @@ var model = { m: ee.Number(eeAgcModel.first().get('m')), c: ee.Number(eeAgcModel
 
 // Find R/pan image feature
 function findRn(image) {
-  var rnImage = image.expression('(R / (R + G + B + (RE/2.5)))',
+  var rnImage = image.expression('(R / (R + G + B + (RE)))',
     {
       'R': image.select('B4'),
       'G': image.select('B3'),
@@ -49,7 +49,7 @@ function findRn(image) {
 }
 
 function findAgc(image) {
-  var rnImage = image.expression('(R / (R + G + B + (RE/2.5)))',
+  var rnImage = image.expression('(R / (R + G + B + (RE)))',
     {
       'R': image.select('B4'),
       'G': image.select('B3'),
@@ -220,9 +220,9 @@ mapPanel.onClick(generateChart);
 mapPanel.style().set('cursor', 'crosshair');
 
 // Initialize with a test point.
-var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
+// var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
 // var initialPoint = ee.Geometry.Point(23.94436842431511536, -33.55374308591438393);   //Baviaanskloof Sewefontein
-// var initialPoint = ee.Geometry.Point(22.21972695106567031, -33.57070965396300011);  // Oudtshoorn Grootkop
+var initialPoint = ee.Geometry.Point(22.21972695106567031, -33.57070965396300011);  // Oudtshoorn Grootkop
 // mapPanel.centerObject(initialPoint, 4);
 
 var chartTitleLabel = ui.Label('Time Series', {fontWeight: 'bold', fontSize: '20px', color: 'SteelBlue'});
