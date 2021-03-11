@@ -26,8 +26,8 @@ var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
 //   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
 //   .map(cloudMasking.landsat8_toa_cloud_mask);
 
-var eeAgcModel = eeL8SrAgcModel;
-var images = l8SrImages;
+var eeAgcModel = eeS2ToaAgcModel;
+var images = s2ToaImages;
 // print(images);
 var image = images
   .filterBounds(thicketBoundary)
