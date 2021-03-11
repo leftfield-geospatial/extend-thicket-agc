@@ -16,7 +16,7 @@ var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundar
 var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 35)
-  .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 45)
+  .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 40)
   // .map(cloudMasking.landsat8_sr_cloud_mask);
 
 // var l8ToaImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
