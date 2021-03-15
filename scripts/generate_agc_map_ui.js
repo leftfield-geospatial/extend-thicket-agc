@@ -286,13 +286,13 @@ var stepDescrLabel = ui.Label(
   { fontSize: "11px" }
 );
 var stepLinkLabel = ui.Label(
-  "STEP Vegetation Map",  { fontSize: "11px" },
+  "STEP Vegetation Map",  
+  { fontSize: "11px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
 
 var gefDescrLabel = ui.Label(
-  "AGC model: ",
-  { fontSize: "11px" }
+  "AGC model: ",  { fontSize: "11px" }
 );
 var stepLinkLabel = ui.Label(
   "STEP Vegetation Map",
