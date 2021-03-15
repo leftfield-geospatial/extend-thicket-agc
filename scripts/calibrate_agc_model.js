@@ -81,7 +81,9 @@ function modelAgc(rnImage, trainPlots) {
     }),
     selectors: ['eeLogMeanRn', 'constant', 'log(mean(R/pan))']
   }));
+  
   print('Calibration result: ', calibRes);
+  
   var calibCoeff = ee.Array(calibRes.get('coefficients')).toList();
   var calibModel = {
     m: ee.Number(ee.List(calibCoeff.get(0)).get(0)),
@@ -102,6 +104,7 @@ function modelAgc(rnImage, trainPlots) {
     image: agcImage
   };
 }
+
 var agcDict = modelAgc(rnImage, trainCalibPlots);
 print('EE AGC Model: ', agcDict.model);
 
