@@ -45,8 +45,7 @@ function findAgc(image) {
     .multiply(model.m)
     .add(model.c)
     .set("system:time_start", image.get("system:time_start"))
-  )
-  .rename("AGC");
+  ).rename("AGC");
 }
 
 // Apply the model to find the EE AGC image
