@@ -1,7 +1,7 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-  gefCalibPlots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
-  gefSamplingPlots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots");
+    gefCalibPlots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
+    gefSamplingPlots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
 var cloudMasking = require('users/dugalh/extend_thicket_agc:modules/cloud_masking.js');
@@ -31,14 +31,6 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloudMasking.landsat8SrCloudMask);
-
-// var l8_toa_images = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
-//   .filterDate('2017-09-01', '2017-12-30')
-//   .filterBounds(thicketBoundary)
-//   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
-//   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
-//   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-//   .map(cloudMasking.landsat8_toa_cloud_mask);
 
 var images = l8SrImages;
 print('Number of images: ', images.size());
