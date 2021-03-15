@@ -307,7 +307,10 @@ var gefLinkLabel = ui.Label(
   { fontSize: "11px" },
   "https://github.com/dugalh/map_thicket_agc"
 );
-var gefPanel = ui.Panel([gefDescrLabel, gefLinkLabel]);
+var gefPanel = ui.Panel(
+  [gefDescrLabel, gefLinkLabel],
+  ui.Panel.Layout.Flow("horizontal")
+);
 
 var creditsPanel = ui.Panel(
   [creditsTitleLabel, stepPanel, gefPanel],
