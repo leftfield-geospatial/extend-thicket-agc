@@ -225,7 +225,7 @@ function generateChart(coords) {
     },
     legend: { position: "right" },
   });
-  // Add the chart at a fixed position, so that new charts overwrite older ones.
+  
   toolPanel.widgets().set(10, agcChart);
 
   if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
