@@ -18,7 +18,6 @@ var l8SrImages = ee
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloudMasking.landsat8_sr_cloud_mask);
 
-
 var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
 // print(images);
