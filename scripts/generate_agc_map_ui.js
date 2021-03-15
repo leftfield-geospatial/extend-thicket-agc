@@ -182,7 +182,7 @@ toolPanel.add(legendValuesPanel);
 
 // Chart
 // create a time series of yearly AGC
-function generateAgcTimeSeriesChart(coords) {
+function agcTimeSeriesChart(coords) {
   // show the clicket point
   var point = ee.Geometry.Point(coords.lon, coords.lat);
   var dot = ui.Map.Layer(point, { color: "000000" }, "clicked location");
