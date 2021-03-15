@@ -305,7 +305,7 @@ var gefPanel = ui.Panel([gefDescrLabel, gefLinkLabel]);
 
 var creditsPanel = ui.Panel(
   [stepPanel, gefPanel],
-  ui.Panel.Layout.Flow("horizontal")
+  ui.Panel.Layout.Flow("vertical")
 );
 toolPanel.add(legendHeaderPanel);
 
