@@ -289,11 +289,11 @@ var creditsTitleLabel = ui.Label("Credits", {
 
 var stepDescrLabel = ui.Label(
   "Thicket boundaries:",
-  { fontSize: "11px", margin: "4px 2px" }
+  { fontSize: "11px", margin: "4px 4px" }
 );
 var stepLinkLabel = ui.Label(
   "STEP vegetation map",  
-  { fontSize: "11px", margin: "4px 2px" },
+  { fontSize: "11px", margin: "4px 4px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
 var stepPanel = ui.Panel(
