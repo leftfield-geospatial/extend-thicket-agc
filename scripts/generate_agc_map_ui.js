@@ -284,7 +284,7 @@ if (false) // create a time series of yearly AGC
 var stepLinkLabel = ui.Label(
   "STEP.",
   { fontSize: "11px" },
-  "https://github.com/dugalh/extend_thicket_agc"
+  "https://bgis.sanbi.org/STEP/project.asp"
 );
 
 var creditsPanel = ui.Panel(
