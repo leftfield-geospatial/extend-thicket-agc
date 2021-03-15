@@ -257,7 +257,7 @@ if (true) // create a time series of yearly AGC
       });
       toolPanel.widgets().set(11, szaChart);
     }
-  }
+  };
   mapPanel.onClick(agcTimeSeriesChart);
   mapPanel.style().set("cursor", "crosshair");
   
