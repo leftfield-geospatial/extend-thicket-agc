@@ -210,21 +210,24 @@ var generateChart = function (coords) {
     30
   );
 
-  var szaCollection = images
-    .filter(ee.Filter.calendarRange(9, 12, "month"))
-    .map(function (image) {
-      return image.addBands([
-        image.metadata("SOLAR_ZENITH_ANGLE"),
-        image.metadata("SOLAR_AZIMUTH_ANGLE"),
-      ]);
-    });
-  print(szaCollection.first());
-  var szaChart = ui.Chart.image.series(
-    szaCollection.select(["SOLAR_ZENITH_ANGLE", "SOLAR_AZIMUTH_ANGLE"]),
-    point,
-    ee.Reducer.mean(),
-    30
-  );
+  if (false)
+  {
+    var szaCollection = images
+      .filter(ee.Filter.calendarRange(9, 12, "month"))
+      .map(function (image) {
+        return image.addBands([
+          image.metadata("SOLAR_ZENITH_ANGLE"),
+          image.metadata("SOLAR_AZIMUTH_ANGLE"),
+        ]);
+      });
+    print(szaCollection.first());
+    var szaChart = ui.Chart.image.series(
+      szaCollection.select(["SOLAR_ZENITH_ANGLE", "SOLAR_AZIMUTH_ANGLE"]),
+      point,
+      ee.Reducer.mean(),
+      30
+    );
+  }
 
   // Customize the chart.
   agcChart.setOptions({
