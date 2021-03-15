@@ -290,6 +290,15 @@ var stepLinkLabel = ui.Label(
   { fontSize: "11px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
+var stepDescrLabel = ui.Label(
+  "Thicket boundaries: ",
+  { fontSize: "11px" }
+);
+var stepLinkLabel = ui.Label(
+  "STEP Vegetation Map",
+  { fontSize: "11px" },
+  "https://bgis.sanbi.org/SpatialDataset/Detail/194"
+);
 
 var creditsPanel = ui.Panel(
   [legendCheckbox, legendDetailLabel, legendOpacitySlider],
