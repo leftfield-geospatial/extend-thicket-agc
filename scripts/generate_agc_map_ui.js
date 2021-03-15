@@ -24,6 +24,7 @@ var image = images
   .filterBounds(thicketBoundary)
   .filterDate("2017-09-01", "2017-12-30")
   .median(); // composite the image collection
+  
 var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
   c: ee.Number(eeAgcModel.first().get("c")),
@@ -44,6 +45,7 @@ function findRn(image) {
     .rename("rN");
 }
 
+// apply EE AGC model to image
 function findAgc(image) {
   var rnImage = image.expression("(R / (R + G + B + (RE/2.5)))", {
     R: image.select("B4"),
