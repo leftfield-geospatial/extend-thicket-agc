@@ -290,7 +290,8 @@ var stepLinkLabel = ui.Label(
   { fontSize: "11px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
-var stepDescrLabel = ui.Label(
+
+var gefDescrLabel = ui.Label(
   "Thicket boundaries: ",
   { fontSize: "11px" }
 );
