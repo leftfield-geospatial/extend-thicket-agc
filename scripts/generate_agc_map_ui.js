@@ -260,7 +260,6 @@ function generateChart(coords) {
       },
       legend: { position: "right" },
     });
-
     toolPanel.widgets().set(11, szaChart);
   }
 }
