@@ -260,7 +260,7 @@ var agcTimeSeriesChart = function(coords) {
     });
     toolPanel.widgets().set(11, szaChart);
   }
-}
+};
 mapPanel.onClick(agcTimeSeriesChart);
 mapPanel.style().set("cursor", "crosshair");
 
