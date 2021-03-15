@@ -164,7 +164,6 @@ print('2-98% EE AGC: ', agcPtile);
 
 // export model and AGC image to EE assets for use in other scripts
 var eeAgcModelFeat = ee.Feature(thicketBoundary.first().geometry().centroid(), agcDict.model);
-print(thicketBoundary.first().geometry().centroid());
 print(eeAgcModelFeat);
 
 var eeAgcModelColl = ee.FeatureCollection([eeAgcModelFeat]);
