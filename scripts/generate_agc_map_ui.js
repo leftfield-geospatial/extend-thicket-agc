@@ -284,6 +284,6 @@ agcTimeSeriesChart({
   lat: initialPoint.coordinates().get(1).getInfo(),
 });
 
-// add map and tool panels
+// add map and tool panels to ui
 ui.root.clear();
 ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
