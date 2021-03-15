@@ -289,11 +289,11 @@ var creditsTitleLabel = ui.Label("Credits", {
 
 var stepDescrLabel = ui.Label(
   "Thicket boundaries:",
-  { fontSize: "11px" }
+  { fontSize: "11px", margin: "0px 8px" }
 );
 var stepLinkLabel = ui.Label(
   "STEP vegetation map",  
-  { fontSize: "11px" },
+  { fontSize: "11px", margin: "0px 8px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
 var stepPanel = ui.Panel(
@@ -303,11 +303,11 @@ var stepPanel = ui.Panel(
 
 var gefDescrLabel = ui.Label(
   "AGC model:",  
-  { fontSize: "11px" }
+  { fontSize: "11px", margin: "0px 8px"}
 );
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
-  { fontSize: "11px" },
+  { fontSize: "11px", margin: "0px 8px"},
   "https://github.com/dugalh/map_thicket_agc"
 );
 var gefPanel = ui.Panel(
