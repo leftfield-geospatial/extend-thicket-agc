@@ -292,7 +292,7 @@ var stepLinkLabel = ui.Label(
 );
 
 var gefDescrLabel = ui.Label(
-  "Thicket boundaries: ",
+  "Local AGC model: ",
   { fontSize: "11px" }
 );
 var stepLinkLabel = ui.Label(
