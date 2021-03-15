@@ -279,6 +279,13 @@ if (false) // create a time series of yearly AGC
     lat: initialPoint.coordinates().get(1).getInfo(),
   });
 }
+
+var legendHeaderPanel = ui.Panel(
+  [legendCheckbox, legendDetailLabel, legendOpacitySlider],
+  ui.Panel.Layout.Flow("horizontal")
+);
+toolPanel.add(legendHeaderPanel);
+
 // add map and tool panels to ui
 ui.root.clear();
 ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
