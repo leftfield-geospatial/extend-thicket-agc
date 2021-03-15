@@ -72,7 +72,7 @@ var vis = {
 mapPanel.addLayer(agcMaskedImage, vis, "AGC");
 
 // Create side tool panel
-// title and description
+  // title and description
 var titleLabel = ui.Label("Thicket Aboveground Carbon (AGC)", {
   fontWeight: "bold",
   fontSize: "24px",
