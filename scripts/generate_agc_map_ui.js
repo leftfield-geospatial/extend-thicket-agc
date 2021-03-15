@@ -162,7 +162,7 @@ var colourBarThumbnail = ui.Thumbnail({
   style: { stretch: "horizontal", margin: "0px 8px", maxHeight: "24px" },
 });
 
-// value labels for colour bar
+  // value labels for colour bar
 var legendValuesPanel = ui.Panel({
   widgets: [
     ui.Label(vis.min, { margin: "4px 8px" }),
