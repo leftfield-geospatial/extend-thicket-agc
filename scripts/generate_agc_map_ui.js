@@ -30,21 +30,6 @@ var model = {
   c: ee.Number(eeAgcModel.first().get("c")),
 };
 
-// Find R/pan image feature
-function findRn(image) {
-  var rnImage = image.expression("(R / (R + G + B + (RE/2.5)))", {
-    R: image.select("B4"),
-    G: image.select("B3"),
-    B: image.select("B2"),
-    RE: image.select(
-      ee.Algorithms.If(image.bandNames().contains("B8"), ["B8"], ["B5"])
-    ),
-  });
-  return ee
-    .Image(rnImage.set("system:time_start", image.get("system:time_start")))
-    .rename("rN");
-}
-
 // apply EE AGC model to image
 function findAgc(image) {
   var rnImage = image.expression("(R / (R + G + B + (RE/2.5)))", {
