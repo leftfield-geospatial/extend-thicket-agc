@@ -213,7 +213,7 @@ if (true) // create a time series of yearly AGC
       series: {
         0: {
           color: "SteelBlue",
-          lineWidth: 0,
+          lineWidth: 1,
           pointsVisible: true,
           pointSize: 3,
         },
