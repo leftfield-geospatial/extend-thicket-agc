@@ -302,7 +302,7 @@ var stepPanel = ui.Panel(
 );
 
 var gefDescrLabel = ui.Label(
-  "AGC model: ",  
+  "AGC model:",  
   { fontSize: "11px" }
 );
 var gefLinkLabel = ui.Label(
