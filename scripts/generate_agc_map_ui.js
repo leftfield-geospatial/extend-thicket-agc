@@ -179,7 +179,6 @@ var legendValuesPanel = ui.Panel({
 toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
-
 // Chart
 // create a time series of yearly AGC
 function agcTimeSeriesChart(coords) {
