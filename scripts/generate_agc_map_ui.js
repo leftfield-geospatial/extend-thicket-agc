@@ -293,7 +293,7 @@ var stepDescrLabel = ui.Label(
 );
 var stepLinkLabel = ui.Label(
   "STEP vegetation map",  
-  { fontSize: "11px", margin: "4px 4px" },
+  { fontSize: "11px", margin: "4px 0px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
 var stepPanel = ui.Panel(
