@@ -190,8 +190,7 @@ function agcTimeSeriesChart(coords) {
 
   // find [median(images) for images inbetween Sept and Dec in each year]
   var years = ee.List.sequence(2013, 2020);
-  var yearlyMedianImages = ee.ImageCollection.fromImages(
-    years.map(function (y) {
+  var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function (y) {
       return images
         .filter(ee.Filter.calendarRange(y, y, "year"))
         .filter(ee.Filter.calendarRange(9, 12, "month"))
