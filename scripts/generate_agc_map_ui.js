@@ -303,7 +303,7 @@ var stepPanel = ui.Panel(
 
 var gefDescrLabel = ui.Label(
   "AGC model:",  
-  { fontSize: "11px", margin: "0px 8px" }
+  { fontSize: "11px", margin: "4px 0px" }
 );
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
