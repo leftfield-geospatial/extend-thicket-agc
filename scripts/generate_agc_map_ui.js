@@ -281,7 +281,7 @@ if (false) // create a time series of yearly AGC
 }
 
 // make credits panel
-var legendHeaderPanel = ui.Panel(
+var creditsPanel = ui.Panel(
   [legendCheckbox, legendDetailLabel, legendOpacitySlider],
   ui.Panel.Layout.Flow("horizontal")
 );
