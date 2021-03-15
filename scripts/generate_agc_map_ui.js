@@ -181,8 +181,8 @@ toolPanel.add(legendValuesPanel);
 
 
 // Chart
-  // generates a new time series chart of SST for the given coordinates.
-var generateChart = function (coords) {
+  // create a time st
+function generateChart(coords) {
   // Add a dot for the point clicked on.
   var point = ee.Geometry.Point(coords.lon, coords.lat);
   var dot = ui.Map.Layer(point, { color: "000000" }, "clicked location");
