@@ -266,7 +266,7 @@ function generateChart(coords) {
 mapPanel.onClick(generateChart);
 mapPanel.style().set("cursor", "crosshair");
 
-// test point
+// test point for AGC chart
 // var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
 var initialPoint = ee.Geometry.Point(
   23.94436842431511536,
