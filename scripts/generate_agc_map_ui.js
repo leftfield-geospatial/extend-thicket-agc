@@ -293,8 +293,7 @@ var stepLinkLabel = ui.Label(
 
 var gefDescrLabel = ui.Label(
   "AGC model: ",  
-  { fontSize: "11px" },
-  "https://bgis.sanbi.org/SpatialDataset/Detail/194"
+  { fontSize: "11px" }
 );
 
 var stepLinkLabel = ui.Label(
