@@ -1,16 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var stepAridAndValleyThicket = ee.FeatureCollection(
-    "users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"
-  ),
-  eeS2ToaAgcModel = ee.FeatureCollection(
-    "users/dugalh/extend_thicket_agc/ee_s2_toa_agc_model"
-  ),
-  eeL8SrAgcModel = ee.FeatureCollection(
-    "users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model"
-  ),
-  eeL8ToaAgcModel = ee.FeatureCollection(
-    "users/dugalh/extend_thicket_agc/ee_l8_toa_agc_model"
-  );
+var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
+    eeL8SrAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 var cloudMasking = require("users/dugalh/extend_thicket_agc:modules/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
@@ -28,12 +18,6 @@ var l8SrImages = ee
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloudMasking.landsat8_sr_cloud_mask);
 
-// var l8ToaImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
-//   .filterBounds(thicketBoundary)
-//   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
-//   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 35)
-//   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-//   .map(cloudMasking.landsat8_toa_cloud_mask);
 
 var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
