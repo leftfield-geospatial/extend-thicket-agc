@@ -181,7 +181,7 @@ toolPanel.add(legendValuesPanel);
 
 
 // Chart
-// create a time series of AGC averaged over same time span as in calibrate_agc_model.js
+// create a time series of yearly AGC
 function generateChart(coords) {
   // show the clicket point
   var point = ee.Geometry.Point(coords.lon, coords.lat);
