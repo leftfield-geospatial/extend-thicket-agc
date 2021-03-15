@@ -8,7 +8,7 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 // var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
 //                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
 //                   .filterBounds(thicketBoundary)
-//                   .map(cloudMasking.s2_simple_cloud_mask);
+//                   .map(cloudMasking.s2SimpleCloudMask);
 
 // // Obtain Landsat8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var l8SrImages = ee
