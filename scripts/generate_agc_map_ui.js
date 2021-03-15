@@ -289,7 +289,7 @@ var creditsTitleLabel = ui.Label("Credits", {
 
 var stepDescrLabel = ui.Label(
   "Thicket boundaries:",
-  { fontSize: "11px", margin: "8px 4px" }
+  { fontSize: "11px", margin: "4px 8px" }
 );
 var stepLinkLabel = ui.Label(
   "STEP vegetation map",  
