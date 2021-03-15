@@ -268,10 +268,7 @@ mapPanel.style().set("cursor", "crosshair");
 
 // test point for AGC chart
 // var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
-var initialPoint = ee.Geometry.Point(
-  23.94436842431511536,
-  -33.55374308591438393
-); //Baviaanskloof Sewefontein
+var initialPoint = ee.Geometry.Point(23.94436842431511536, -33.55374308591438393); //Baviaanskloof Sewefontein
 // var initialPoint = ee.Geometry.Point(22.21972695106567031, -33.57070965396300011);  // Oudtshoorn Grootkop
 // mapPanel.centerObject(initialPoint, 4);
 
