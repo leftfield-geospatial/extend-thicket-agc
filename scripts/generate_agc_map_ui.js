@@ -20,7 +20,6 @@ var l8SrImages = ee
 
 var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
-// print(images);
 var image = images
   .filterBounds(thicketBoundary)
   .filterDate("2017-09-01", "2017-12-30")
