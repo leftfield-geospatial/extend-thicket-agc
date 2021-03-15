@@ -178,7 +178,7 @@ var legendValuesPanel = ui.Panel({
 toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
-if (true) // create a time series of yearly AGC
+if (false) // create a time series of yearly AGC
 {
   var agcTimeSeriesChart = function(coords) {
     // show the clicket point
