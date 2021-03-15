@@ -303,11 +303,11 @@ var stepPanel = ui.Panel(
 
 var gefDescrLabel = ui.Label(
   "AGC model:",  
-  { fontSize: "11px", margin: "4px 2px" }
+  { fontSize: "11px", margin: "4px 8px" }
 );
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
-  { fontSize: "11px", margin: "4px 2px" },
+  { fontSize: "11px", margin: "4px 0px" },
   "https://github.com/dugalh/map_thicket_agc"
 );
 var gefPanel = ui.Panel(
