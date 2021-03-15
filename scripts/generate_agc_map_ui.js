@@ -263,7 +263,7 @@ function generateChart(coords) {
 
     toolPanel.widgets().set(11, szaChart);
   }
-};
+}
 mapPanel.onClick(generateChart);
 mapPanel.style().set("cursor", "crosshair");
 
