@@ -307,7 +307,7 @@ var gefDescrLabel = ui.Label(
 );
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
-  { fontSize: "11px", margin: "0px 8px" },
+  { fontSize: "11px", margin: "4px 0px" },
   "https://github.com/dugalh/map_thicket_agc"
 );
 var gefPanel = ui.Panel(
