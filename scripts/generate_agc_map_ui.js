@@ -284,6 +284,6 @@ agcTimeSeriesChart({
   lat: initialPoint.coordinates().get(1).getInfo(),
 });
 
-// Replace the root with a SplitPanel that contains the inspector and map.
+// 
 ui.root.clear();
 ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
