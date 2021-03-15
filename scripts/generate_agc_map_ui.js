@@ -307,7 +307,7 @@ var creditsPanel = ui.Panel(
   [stepPanel, gefPanel],
   ui.Panel.Layout.Flow("vertical")
 );
-toolPanel.add(legendHeaderPanel);
+toolPanel.add(creditsPanel);
 
 // add map and tool panels to ui
 ui.root.clear();
