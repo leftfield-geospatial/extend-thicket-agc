@@ -288,7 +288,7 @@ var creditsTitleLabel = ui.Label("Credits", {
 });
 
 var stepDescrLabel = ui.Label(
-  "Thicket boundaries: ",
+  "Thicket boundaries:",
   { fontSize: "11px" }
 );
 var stepLinkLabel = ui.Label(
