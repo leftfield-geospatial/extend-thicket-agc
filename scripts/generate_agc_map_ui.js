@@ -299,7 +299,7 @@ var gefDescrLabel = ui.Label(
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
   { fontSize: "11px" },
-  "https://bgis.sanbi.org/SpatialDataset/Detail/194"
+  "https://github.com/dugalh/map_thicket_agc"
 );
 
 var creditsPanel = ui.Panel(
