@@ -204,7 +204,7 @@ var generateChart = function (coords) {
       .flatten()
   );
   var agcChart = ui.Chart.image.series(
-    ,
+    yearlyMedianImages,
     point.buffer(100),
     ee.Reducer.median(),
     30
