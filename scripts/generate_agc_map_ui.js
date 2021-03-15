@@ -203,7 +203,7 @@ function generateChart(coords) {
       .flatten()
   );
 
-  // find [median(images) for images inbetween Sept and Dec in each year]
+  // make a chart of agc(median images)
   var agcChart = ui.Chart.image.series(
     yearlyMedianImages.map(findAgc),
     point.buffer(100),
