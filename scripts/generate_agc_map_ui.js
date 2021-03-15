@@ -179,6 +179,8 @@ var legendValuesPanel = ui.Panel({
 toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
+if (false)
+{
 // Chart
 // create a time series of yearly AGC
 var agcTimeSeriesChart = function(coords) {
@@ -279,7 +281,7 @@ agcTimeSeriesChart({
   lon: initialPoint.coordinates().get(0).getInfo(),
   lat: initialPoint.coordinates().get(1).getInfo(),
 });
-
+}
 // add map and tool panels to ui
 ui.root.clear();
 ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
