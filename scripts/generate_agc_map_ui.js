@@ -181,7 +181,7 @@ toolPanel.add(legendValuesPanel);
 
 
 // Chart
-// generates a new time series chart of SST for the given coordinates.
+  // generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
   // Add a dot for the point clicked on.
   var point = ee.Geometry.Point(coords.lon, coords.lat);
@@ -210,7 +210,6 @@ var generateChart = function (coords) {
     30
   );
 
-  // Customize the chart.
   agcChart.setOptions({
     title: "AGC: time series",
     vAxis: { title: "AGC (tC/ha)" },
