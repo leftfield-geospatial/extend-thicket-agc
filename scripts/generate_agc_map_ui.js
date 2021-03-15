@@ -302,6 +302,8 @@ var gefLinkLabel = ui.Label(
   "https://github.com/dugalh/map_thicket_agc"
 );
 
+var gefPanel = ui.Panel([gefDescrLabel, gefLinkLabel])
+
 var creditsPanel = ui.Panel(
   [legendCheckbox, legendDetailLabel, legendOpacitySlider],
   ui.Panel.Layout.Flow("horizontal")
