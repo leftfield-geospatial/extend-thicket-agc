@@ -281,6 +281,12 @@ if (false) // create a time series of yearly AGC
 }
 
 // make credits panel
+var legendTitleLabel = ui.Label("Legend", {
+  fontWeight: "bold",
+  fontSize: "20px",
+  color: "SteelBlue",
+});
+
 var stepDescrLabel = ui.Label(
   "Thicket boundaries: ",
   { fontSize: "11px" }
