@@ -103,7 +103,7 @@ var toolPanel = ui.Panel({
   style: { width: "20%" },
 });
 
-// legend and its controls
+  // legend and its controls
 var legendTitleLabel = ui.Label("Legend", {
   fontWeight: "bold",
   fontSize: "20px",
