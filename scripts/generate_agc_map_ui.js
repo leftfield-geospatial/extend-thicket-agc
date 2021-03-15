@@ -282,7 +282,7 @@ var chartTitleLabel = ui.Label("Time Series", {
 });
 toolPanel.add(chartTitleLabel);
 
-generateChart({
+agcTimeSeriesChart({
   lon: initialPoint.coordinates().get(0).getInfo(),
   lat: initialPoint.coordinates().get(1).getInfo(),
 });
