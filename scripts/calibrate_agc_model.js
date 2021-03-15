@@ -198,10 +198,6 @@ if (false) {  // export AGC image
     assetId: 'extend_thicket_agc/ee_agc_image',
     scale: 30,
     region: ee.Feature(thicketBoundary.first()).bounds(),
-    // fileFormat: 'GeoTIFF',
-    // formatOptions: {
-    //   cloudOptimized: true
-    // },
     maxPixels: 1e9,
     dimensions: 1024  // break into tiles
   });
