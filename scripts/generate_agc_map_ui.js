@@ -296,7 +296,10 @@ var stepLinkLabel = ui.Label(
   { fontSize: "11px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
-var stepPanel = ui.Panel([stepDescrLabel, stepLinkLabel]);
+var stepPanel = ui.Panel(
+  [stepDescrLabel, stepLinkLabel],
+  ui.Panel.Layout.Flow("horizontal")
+);
 
 var gefDescrLabel = ui.Label(
   "AGC model: ",  
