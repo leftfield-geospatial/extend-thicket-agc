@@ -310,7 +310,7 @@ var gefLinkLabel = ui.Label(
 var gefPanel = ui.Panel([gefDescrLabel, gefLinkLabel]);
 
 var creditsPanel = ui.Panel(
-  [stepPanel, gefPanel],
+  [creditsTitleLabel, stepPanel, gefPanel],
   ui.Panel.Layout.Flow("vertical")
 );
 toolPanel.add(creditsPanel);
