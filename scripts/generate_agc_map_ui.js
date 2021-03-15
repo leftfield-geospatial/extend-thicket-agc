@@ -259,7 +259,7 @@ function agcTimeSeriesChart(coords) {
     toolPanel.widgets().set(11, szaChart);
   }
 }
-mapPanel.onClick(generateChart);
+mapPanel.onClick(agcTimeSeriesChart);
 mapPanel.style().set("cursor", "crosshair");
 
 // test point for AGC chart
