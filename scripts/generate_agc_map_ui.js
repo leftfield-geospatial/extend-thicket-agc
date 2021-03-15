@@ -281,6 +281,12 @@ if (false) // create a time series of yearly AGC
 }
 
 // make credits panel
+var stepLinkLabel = ui.Label(
+  "See the GitHub repositoty for more information.",
+  { fontSize: "11px" },
+  "https://github.com/dugalh/extend_thicket_agc"
+);
+
 var creditsPanel = ui.Panel(
   [legendCheckbox, legendDetailLabel, legendOpacitySlider],
   ui.Panel.Layout.Flow("horizontal")
