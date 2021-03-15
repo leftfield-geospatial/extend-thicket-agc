@@ -40,6 +40,7 @@ function findAgc(image) {
       ee.Algorithms.If(image.bandNames().contains("B8"), ["B8"], ["B5"])
     ),
   });
+  
   return ee.Image(rnImage
     .log10()
     .multiply(model.m)
