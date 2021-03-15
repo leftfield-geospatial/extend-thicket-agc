@@ -227,6 +227,23 @@ var generateChart = function (coords) {
       ee.Reducer.mean(),
       30
     );
+  
+    szaChart.setOptions({
+      title: "SZA: time series",
+      vAxis: { title: "SZA (deg)" },
+      hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
+      series: {
+        0: {
+          color: "SteelBlue",
+          lineWidth: 0,
+          pointsVisible: true,
+          pointSize: 3,
+        },
+      },
+      legend: { position: "right" },
+    });
+    // Add the chart at a fixed position, so that new charts overwrite older ones.
+    toolPanel.widgets().set(11, szaChart);
   }
 
   // Customize the chart.
@@ -247,22 +264,6 @@ var generateChart = function (coords) {
   // Add the chart at a fixed position, so that new charts overwrite older ones.
   toolPanel.widgets().set(10, agcChart);
 
-  szaChart.setOptions({
-    title: "SZA: time series",
-    vAxis: { title: "SZA (deg)" },
-    hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
-    series: {
-      0: {
-        color: "SteelBlue",
-        lineWidth: 0,
-        pointsVisible: true,
-        pointSize: 3,
-      },
-    },
-    legend: { position: "right" },
-  });
-  // Add the chart at a fixed position, so that new charts overwrite older ones.
-  toolPanel.widgets().set(11, szaChart);
 };
 mapPanel.onClick(generateChart);
 mapPanel.style().set("cursor", "crosshair");
