@@ -179,6 +179,7 @@ var legendValuesPanel = ui.Panel({
 toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
+
 // Chart
 // generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
