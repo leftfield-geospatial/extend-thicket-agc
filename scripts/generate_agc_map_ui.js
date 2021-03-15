@@ -178,7 +178,7 @@ var legendValuesPanel = ui.Panel({
 toolPanel.add(colourBarThumbnail);
 toolPanel.add(legendValuesPanel);
 
-if (false)
+if (true)
 {
 // Chart
 // create a time series of yearly AGC
