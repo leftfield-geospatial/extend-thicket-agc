@@ -297,7 +297,7 @@ var gefDescrLabel = ui.Label(
 );
 
 var gefLinkLabel = ui.Label(
-  "STEP Vegetation Map",
+  "GEF-5 SLM project",
   { fontSize: "11px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
