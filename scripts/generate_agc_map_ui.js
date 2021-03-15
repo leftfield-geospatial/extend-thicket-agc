@@ -210,6 +210,24 @@ var generateChart = function (coords) {
     30
   );
 
+  // Customize the chart.
+  agcChart.setOptions({
+    title: "AGC: time series",
+    vAxis: { title: "AGC (tC/ha)" },
+    hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
+    series: {
+      0: {
+        color: "SteelBlue",
+        lineWidth: 0,
+        pointsVisible: true,
+        pointSize: 3,
+      },
+    },
+    legend: { position: "right" },
+  });
+  // Add the chart at a fixed position, so that new charts overwrite older ones.
+  toolPanel.widgets().set(10, agcChart);
+
   if (false)
   {
     var szaCollection = images
@@ -242,28 +260,9 @@ var generateChart = function (coords) {
       },
       legend: { position: "right" },
     });
-  
+
     toolPanel.widgets().set(11, szaChart);
   }
-
-  // Customize the chart.
-  agcChart.setOptions({
-    title: "AGC: time series",
-    vAxis: { title: "AGC (tC/ha)" },
-    hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
-    series: {
-      0: {
-        color: "SteelBlue",
-        lineWidth: 0,
-        pointsVisible: true,
-        pointSize: 3,
-      },
-    },
-    legend: { position: "right" },
-  });
-  // Add the chart at a fixed position, so that new charts overwrite older ones.
-  toolPanel.widgets().set(10, agcChart);
-
 };
 mapPanel.onClick(generateChart);
 mapPanel.style().set("cursor", "crosshair");
