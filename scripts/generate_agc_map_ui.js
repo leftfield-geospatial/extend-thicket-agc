@@ -220,7 +220,7 @@ var generateChart = function (coords) {
           image.metadata("SOLAR_AZIMUTH_ANGLE"),
         ]);
       });
-    print(szaCollection.first());
+    
     var szaChart = ui.Chart.image.series(
       szaCollection.select(["SOLAR_ZENITH_ANGLE", "SOLAR_AZIMUTH_ANGLE"]),
       point,
