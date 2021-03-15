@@ -304,7 +304,7 @@ var gefLinkLabel = ui.Label(
 var gefPanel = ui.Panel([gefDescrLabel, gefLinkLabel]);
 
 var creditsPanel = ui.Panel(
-  [legendCheckbox, legendDetailLabel, legendOpacitySlider],
+  [stepPanel, gefPanel],
   ui.Panel.Layout.Flow("horizontal")
 );
 toolPanel.add(legendHeaderPanel);
