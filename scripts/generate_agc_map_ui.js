@@ -188,7 +188,7 @@ function generateChart(coords) {
   var dot = ui.Map.Layer(point, { color: "000000" }, "clicked location");
   mapPanel.layers().set(1, dot);
 
-  // make a time series chart of agc([median(images) for images inbetween Sept and Dec in year y])
+  // make a time series chart of agc([median(images) for images inbetween Sept and Dec in each year])
   var years = ee.List.sequence(2013, 2020);
   var yearlyMedianImages = ee.ImageCollection.fromImages(
     years
