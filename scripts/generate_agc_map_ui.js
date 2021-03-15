@@ -282,9 +282,9 @@ if (false) // create a time series of yearly AGC
 
 // make credits panel
 var stepLinkLabel = ui.Label(
-  "STEP.",
+  "STEP Vegetation Map.",
   { fontSize: "11px" },
-  "https://bgis.sanbi.org/STEP/project.asp"
+  "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
 
 var creditsPanel = ui.Panel(
