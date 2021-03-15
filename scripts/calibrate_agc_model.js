@@ -145,6 +145,7 @@ function accuracyCheck(agcImage, testPlots) {
   var agcR2 = ee.Number(1).subtract(ee.Number(agcResSs.get('sum')).divide(ee.Number(agcSs.get('sum'))));
   print('AGC R2: ', agcR2);
 }
+
 print('Calibration train accuracy:');
 accuracyCheck(agcDict.image, trainCalibPlots);
 print('Calibration test accuracy:');
