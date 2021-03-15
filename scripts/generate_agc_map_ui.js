@@ -31,7 +31,7 @@ var model = {
 
 // apply EE AGC model to image
 function findAgc(image) {
-  var rnImage = image.expression("(R / (R + G + B + (RE/2.5)))", {
+  var rnImage = image.expression("(R / (R + G + B + RE))", {
     R: image.select("B4"),
     G: image.select("B3"),
     B: image.select("B2"),
