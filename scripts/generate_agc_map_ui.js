@@ -290,18 +290,17 @@ var stepLinkLabel = ui.Label(
   { fontSize: "11px" },
   "https://bgis.sanbi.org/SpatialDataset/Detail/194"
 );
+var gefPanel = ui.Panel([gefDescrLabel, gefLinkLabel]);
 
 var gefDescrLabel = ui.Label(
   "AGC model: ",  
   { fontSize: "11px" }
 );
-
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
   { fontSize: "11px" },
   "https://github.com/dugalh/map_thicket_agc"
 );
-
 var gefPanel = ui.Panel([gefDescrLabel, gefLinkLabel]);
 
 var creditsPanel = ui.Panel(
