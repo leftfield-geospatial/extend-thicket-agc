@@ -4,7 +4,7 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 var cloudMasking = require("users/dugalh/extend_thicket_agc:modules/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
-
+print('a')
 // var s2ToaImages = ee.ImageCollection('COPERNICUS/S2')
 //                   .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
 //                   .filterBounds(thicketBoundary)
@@ -17,6 +17,7 @@ var l8SrImages = ee
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloudMasking.landsat8_sr_cloud_mask);
+print('aa')
 
 var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
