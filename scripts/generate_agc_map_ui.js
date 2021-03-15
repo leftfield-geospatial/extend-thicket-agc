@@ -228,7 +228,7 @@ var generateChart = function (coords) {
   // Add the chart at a fixed position, so that new charts overwrite older ones.
   toolPanel.widgets().set(10, agcChart);
 
-  if (false)
+  if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
   {
     var szaCollection = images
       .filter(ee.Filter.calendarRange(9, 12, "month"))
