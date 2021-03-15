@@ -180,7 +180,6 @@ toolPanel.add(legendValuesPanel);
 
 if (true)
 {
-// Chart
 // create a time series of yearly AGC
 var agcTimeSeriesChart = function(coords) {
   // show the clicket point
