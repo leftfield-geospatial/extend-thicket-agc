@@ -2,6 +2,25 @@
 var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
     eeL8SrAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
+/*
+    Concept demonstration for extension of local aboveground carbon model to the thicket biome
+    Copyright (C) 2021 Dugal Harris
+    Email: dugalh@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 
