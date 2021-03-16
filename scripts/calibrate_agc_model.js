@@ -5,7 +5,7 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
-    Copyright (C) 2020 Dugal Harris
+    Copyright (C) 2021 Dugal Harris
     Email: dugalh@gmail.com
 
     This program is free software: you can redistribute it and/or modify
