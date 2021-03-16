@@ -3,6 +3,25 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
     gefCalibPlots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_calib_plots"),
     gefSamplingPlots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
+/*
+    GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
+    Copyright (C) 2020 Dugal Harris
+    Email: dugalh@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 // Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
 var cloudMasking = require('users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js');
 var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
