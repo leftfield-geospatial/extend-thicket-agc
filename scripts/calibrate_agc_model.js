@@ -4,7 +4,7 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
     gefSamplingPlots = ee.FeatureCollection("users/dugalh/extend_thicket_agc/gef_sampling_plots");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
-    GEF5-SLM: Above ground carbon estimation in thicket using multi-spectral images
+    Extension of above ground carbon (AGC) model to the thicket biome
     Copyright (C) 2021 Dugal Harris
     Email: dugalh@gmail.com
 
