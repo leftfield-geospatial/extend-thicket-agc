@@ -192,16 +192,8 @@ var agcMean = agcDict.image.clamp(0, agcPtile.get('AGC_p98')).reduceRegion({
 });
 print('Mean EE AGC: ', agcMean);
 
-// stats on area and total AGC
 var thicketArea = ee.Number(thicketBoundary.geometry().area()).divide(10000);
 print('Total thicket area (ha): ', thicketArea);
-
-// var thicketAgc = agcDict.image.reduceRegion({
-//   reducer: ee.Reducer.sum().combine({reducer2: ee.Reducer.count(), sharedInputs: true}),
-//   geometry: thicketBoundary,
-//   scale: 100,
-//   maxPixels: 1e8
-// });
 print('Total EE AGC (tC/ha): ', thicketArea.multiply(agcMean.get('AGC')));
 
 // export model and AGC image to EE assets for use in other scripts
