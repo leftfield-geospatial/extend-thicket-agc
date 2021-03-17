@@ -188,9 +188,16 @@ print('2-98% EE AGC: ', agcPtile);
 var thicketArea = ee.Number(stepAridAndValleyThicket.geometry().area()).div(100);
 print('Total thicket area (ha): ', thicketArea);
 
-var thicketAgc = ee.Number(stepAridAndValleyThicket.geometry().area()).div(100);
+var area = agcDict,image.reduceRegion({
+  reducer: ee.Reducer.sum(),
+  geometry: kerala.geometry(),
+  scale: 500,
+  maxPixels: 1e10
+  })
+var thicketAgc = agc
 print('Total thicket area (ha): ', thicketArea);
 
+\
 // export model and AGC image to EE assets for use in other scripts
 var eeAgcModelFeat = ee.Feature(thicketBoundary.first().geometry().centroid(), agcDict.model);
 var eeAgcModelColl = ee.FeatureCollection([eeAgcModelFeat]);
