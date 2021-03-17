@@ -20,7 +20,9 @@ Script | Description
 
 ## Summary of Results
 
-The calibrated Landsat 8 AGC model produced a RMSE of 3.35 tC/ha, and an *R*<sup>2</sup> of 0.93, on 20 ground truth plots in the [GEF-5 SLM study area](https://github.com/dugalh/map_thicket_agc#ground-truth).  The arid and valley thicket types cover 3.65 million ha, with an average AGC of 20.57 tC/ha.  Further ground truth and modelling work is required to establish AGC accuracy across the biome.  A screenshot of the visualisation app is shown below.
+The calibrated Landsat 8 AGC model produced a RMSE of 3.35 tC/ha, and an *R*<sup>2</sup> of 0.93, on 20 ground truth plots in the [GEF-5 SLM study area](https://github.com/dugalh/map_thicket_agc#ground-truth).  Arid and valley thicket types cover 3.65 million ha, with an average AGC of 20.57 tC/ha.  Further ground truth and modelling work is required to establish AGC accuracy across the biome.  
+
+A screenshot of the [visualisation app](https://dugalh.users.earthengine.app/view/thicket-aboveground-carbon) is shown below.
 
 
 <img src="data/outputs/plots/eg_gee_agc_map.jpg" data-canonical-src="data/outputs/plots/eg_gee_agc_map.png" alt="Thicket AGC" width="800"/>
