@@ -74,8 +74,7 @@ var calibPlots = gefCalibPlots.randomColumn('random', 0);
 var trainCalibPlots = calibPlots.filter(ee.Filter.lt('random', split));
 var testCalibPlots = calibPlots.filter(ee.Filter.gte('random', split));
 
-print('Number of test plots: ', images.size());
-var image = images.median();    // composite the image collection
+print('Number of test plots: ', testCalibPlots.size());
 
 
 // Calibrate the GEF AGC model to EE imagery and find EE AGC
