@@ -184,7 +184,7 @@ var agcPtile = agcDict.image.reduceRegion({
 });
 print('2-50-98% EE AGC: ', agcPtile);
 
-var agcMean = agcDict.image.clamp(0, agcPtile.get('AGC_p98')).reduceRegion({
+var agcMean = agcDict.reduceRegion({
   reducer: ee.Reducer.mean(),
   geometry: thicketBoundary,
   scale: 100,
