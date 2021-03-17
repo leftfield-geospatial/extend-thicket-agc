@@ -97,7 +97,7 @@ var detailLabel = ui.Label(
   { fontSize: "11px" }
 );
 var noteLabel = ui.Label(
-  "Note that AGC accuracy outside the GEF-5 SLM Baviaanskloof study area has not been established.",
+  "Note that AGC accuracy outside the localised model study area has not been established.",
   { fontSize: "11px" }
 );
 var linkLabel = ui.Label(
