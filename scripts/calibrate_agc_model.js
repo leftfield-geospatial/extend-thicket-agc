@@ -193,7 +193,7 @@ var area = agcDict,image.reduceRegion({
   geometry: stepAridAndValleyThicket,
   scale: 500,
   maxPixels: 1e10
-  })
+  });
 var thicketAgc = agc
 print('Total thicket area (ha): ', thicketArea);
 
