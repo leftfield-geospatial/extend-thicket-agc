@@ -298,8 +298,8 @@ var creditsTitleLabel = ui.Label("Acknowledgements", {
 });
 
 var stepDescrLabel = ui.Label(
-  "    Thicket boundaries derived from the",
-  { fontSize: "11px", margin: "4px 4px" }
+  "Thicket boundaries derived from the",
+  { fontSize: "11px", margin: "4px 8px" }
 );
 var stepLinkLabel = ui.Label(
   "STEP vegetation map",  
@@ -313,8 +313,8 @@ var stepPanel = ui.Panel(
 );
 
 var gefDescrLabel = ui.Label(
-  "    Localised AGC model produced as part of the",  
-  { fontSize: "11px", margin: "4px 4px" }
+  "Localised AGC model produced as part of the",  
+  { fontSize: "11px", margin: "4px 8px" }
 );
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
