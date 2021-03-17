@@ -187,7 +187,7 @@ print('2-50-98% EE AGC: ', agcPtile);
 var agcMean = agcDict.image.reduceRegion({
   reducer: ee.Reducer.mean(),
   geometry: thicketBoundary,
-  scale: 300,
+  scale: 100,
   maxPixels: 1e8
 });
 print('Mean EE AGC: ', agcMean);
@@ -199,7 +199,7 @@ print('Total thicket area (ha): ', thicketArea);
 var thicketAgc = agcDict.image.reduceRegion({
   reducer: ee.Reducer.sum().combine({reducer2: ee.Reducer.count(), sharedInputs: true}),
   geometry: thicketBoundary,
-  scale: 300,
+  scale: 100,
   maxPixels: 1e8
 });
 print('Total EE AGC (tC/ha): ', thicketAgc);
