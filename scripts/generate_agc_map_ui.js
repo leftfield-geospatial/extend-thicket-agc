@@ -93,8 +93,7 @@ var summaryLabel = ui.Label(
   { fontSize: "14px" }
 );
 var detailLabel = ui.Label(
-  "An AGC model for a small area in the Baviaanskloof is re-calibrated and applied to " +
-    "arid and valley thicket areas using Landsat-8 imagery.",
+  "A localised AGC model is calibrated to coarser resolution Landsat 8 imagery and applied to the biome.",
   { fontSize: "11px" }
 );
 var noteLabel = ui.Label(
