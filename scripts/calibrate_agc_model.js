@@ -194,7 +194,7 @@ print('Mean EE AGC (tC/ha): ', agcMean.get('AGC'));
 
 var thicketArea = ee.Number(thicketBoundary.geometry().area()).divide(10000);
 print('Total thicket area (ha): ', thicketArea);
-print('Total EE AGC (tC/ha): ', thicketArea.multiply(agcMean.get('AGC')));
+print('Total EE AGC (tC): ', thicketArea.multiply(agcMean.get('AGC')));
 
 // export model and AGC image to EE assets for use in other scripts
 var eeAgcModelFeat = ee.Feature(thicketBoundary.first().geometry().centroid(), agcDict.model);
