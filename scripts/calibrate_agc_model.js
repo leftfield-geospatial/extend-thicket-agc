@@ -175,7 +175,7 @@ accuracyCheck(agcDict.image, testCalibPlots);
 print('Sampling accuracy:');
 accuracyCheck(agcDict.image, gefSamplingPlots);
 
-// sanity check on EE AGC statistics
+// EE AGC statistics
 var agcPtile = agcDict.image.reduceRegion({
   reducer: ee.Reducer.percentile([2, 50, 98]),
   geometry: thicketBoundary,
