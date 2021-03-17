@@ -89,16 +89,15 @@ var titleLabel = ui.Label("Thicket Aboveground Carbon (AGC)", {
   color: "SteelBlue",
 });
 var summaryLabel = ui.Label(
-  "Concept demonstration for extension of local AGC model(s) to the thicket biome",
+  "Concept demonstration of extended AGC mapping in thicket",
   { fontSize: "14px" }
 );
 var detailLabel = ui.Label(
-  "An AGC model for a small area in the Baviaanskloof is re-calibrated and applied to " +
-    "arid and valley thicket areas using Landsat-8 imagery.",
+  "A localised AGC model is calibrated to coarser resolution Landsat 8 imagery and applied to the biome.",
   { fontSize: "11px" }
 );
 var noteLabel = ui.Label(
-  "Note that AGC accuracy outside the GEF-5 SLM Baviaanskloof study area has not been established.",
+  "Note that AGC accuracy outside the localised model study area has not been established.",
   { fontSize: "11px" }
 );
 var linkLabel = ui.Label(
@@ -292,15 +291,15 @@ if (false) // create a time series of yearly AGC
 }
 
 // make credits panel
-var creditsTitleLabel = ui.Label("Credits", {
+var creditsTitleLabel = ui.Label("Acknowledgements", {
   fontWeight: "bold",
   fontSize: "20px",
   color: "SteelBlue",
 });
 
 var stepDescrLabel = ui.Label(
-  "Thicket boundaries:",
-  { fontSize: "11px", margin: "4px 8px" }
+  "Thicket boundaries derived from the",
+  { fontSize: "11px", margin: "4px 4px 4px 8px" }
 );
 var stepLinkLabel = ui.Label(
   "STEP vegetation map",  
@@ -314,8 +313,8 @@ var stepPanel = ui.Panel(
 );
 
 var gefDescrLabel = ui.Label(
-  "AGC model:",  
-  { fontSize: "11px", margin: "4px 8px" }
+  "Localised AGC model produced as part of the",  
+  { fontSize: "11px", margin: "4px 4px 4px 8px" }
 );
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
