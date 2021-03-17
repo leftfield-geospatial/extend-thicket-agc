@@ -89,7 +89,7 @@ var titleLabel = ui.Label("Thicket Aboveground Carbon (AGC)", {
   color: "SteelBlue",
 });
 var summaryLabel = ui.Label(
-  "Concept demonstration for extension of local AGC model(s) to the thicket biome",
+  "Concept demonstration of extended AGC mapping in thicket",
   { fontSize: "14px" }
 );
 var detailLabel = ui.Label(
