@@ -291,7 +291,7 @@ if (false) // create a time series of yearly AGC
 }
 
 // make credits panel
-var creditsTitleLabel = ui.Label("Acknowledgements", {
+var creditsTitleLabel = ui.Label("Acknowledgments", {
   fontWeight: "bold",
   fontSize: "20px",
   color: "SteelBlue",
