@@ -190,7 +190,7 @@ var agcMean = agcDict.image.reduceRegion({
   scale: 100,
   maxPixels: 1e8
 });
-print('Mean EE AGC: ', agcPtile);
+print('Mean EE AGC: ', agcMean);
 
 // stats on area and total AGC
 var thicketArea = ee.Number(thicketBoundary.geometry().area()).divide(10000);
