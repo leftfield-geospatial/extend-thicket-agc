@@ -119,7 +119,7 @@ function modelAgc(rnImage, trainPlots) {
   };
 
   // apply the new model to the EE log(R/pan) image
-  var agcImage = rnImage.log10().multiply(agcEeModel.m).add(agcEeModel.c);
+  var agcImage = rnImage.log10().multiply(agcEeModel.m).add(agcEeModel.c).rename('AGC');
 
   return {
     model: agcEeModel,
