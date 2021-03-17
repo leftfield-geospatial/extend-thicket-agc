@@ -93,7 +93,7 @@ var summaryLabel = ui.Label(
   { fontSize: "14px" }
 );
 var detailLabel = ui.Label(
-  "A localised AGC model is calibrated to coarser resolution Landsat 8 imagery and applied to the biome.",
+  "A small area AGC model is calibrated to coarser resolution Landsat 8 imagery and applied to the biome.",
   { fontSize: "11px" }
 );
 var noteLabel = ui.Label(
