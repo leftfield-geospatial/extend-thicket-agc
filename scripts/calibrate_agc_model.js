@@ -191,7 +191,7 @@ print('Total thicket area (ha): ', thicketArea);
 var thicketAgc = agcDict.image.reduceRegion({
   reducer: ee.Reducer.sum(),
   geometry: stepAridAndValleyThicket,
-  scale: 500,
+  scale: 30,
   maxPixels: 1e10
   });
 print('Total thicket AGC (tC/ha): ', thicketAgc);
