@@ -200,7 +200,7 @@ var thicketAgc = agcDict.image.reduceRegion({
   reducer: ee.Reducer.sum().combine({reducer2: ee.Reducer.count(), sharedInputs: true}),
   geometry: thicketBoundary,
   scale: 300,
-  maxPixels: 1e10
+  maxPixels: 1e8
 });
 print('Total EE AGC (tC/ha): ', thicketAgc);
 
