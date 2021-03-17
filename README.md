@@ -1,9 +1,9 @@
 # Extended aboveground carbon (AGC) mapping in thicket
-[A localised AGC model using WorldView-3 imagery](https://github.com/dugalh/map_thicket_agc), is calibrated to coarser resolution Landsat 8 imagery and applied to the thicket biome (South Africa) using Google Earth Engine.  This is a concept demonstration - AGC accuracy is not known outisde the [WorldView-3 model study area](https://github.com/dugalh/map_thicket_agc#ground-truth).   
+[A localised AGC model using WorldView-3 imagery](https://github.com/dugalh/map_thicket_agc) is calibrated to coarser resolution Landsat 8 imagery and applied to the thicket biome (South Africa) using Google Earth Engine.  This is a concept demonstration - AGC accuracy is not known outside the [WorldView-3 model study area](https://github.com/dugalh/map_thicket_agc#ground-truth).   
 
 
 ## Getting Started
-* Map visualisation is available [here](https://dugalh.users.earthengine.app/view/thicket-aboveground-carbon), as a Google Earth Engine App.  Give it a minute to generate the AGC estimates.  
+* Map visualisation is available [here](https://dugalh.users.earthengine.app/view/thicket-aboveground-carbon) as a Google Earth Engine App.  Give it a minute to generate the AGC estimates.  
 * Users registered with Google Earth Engine can access the repository and run the scripts [here](https://code.earthengine.google.com/?accept_repo=users/dugalh/extend_thicket_agc).  
 
 ### Data
