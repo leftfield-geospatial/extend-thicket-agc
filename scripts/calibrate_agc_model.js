@@ -186,7 +186,7 @@ print('2-98% EE AGC: ', agcPtile);
 
 // stats on area and total AGC
 var thicketArea = ee.Number(stepAridAndValleyThicket.geometry().area()).div(100.);
-print('Total thicket area (ha): ', ee.Number(thicketArea))
+print('Total thicket area (ha): ', ee.Number(thicketArea));
 
 // export model and AGC image to EE assets for use in other scripts
 var eeAgcModelFeat = ee.Feature(thicketBoundary.first().geometry().centroid(), agcDict.model);
