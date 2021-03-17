@@ -184,6 +184,9 @@ var agcPtile = agcDict.image.reduceRegion({
 });
 print('2-98% EE AGC: ', agcPtile);
 
+// stats on area and total AGC
+
+
 // export model and AGC image to EE assets for use in other scripts
 var eeAgcModelFeat = ee.Feature(thicketBoundary.first().geometry().centroid(), agcDict.model);
 var eeAgcModelColl = ee.FeatureCollection([eeAgcModelFeat]);
