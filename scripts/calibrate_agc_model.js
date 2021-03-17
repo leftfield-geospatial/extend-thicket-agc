@@ -185,12 +185,12 @@ var agcPtile = agcDict.image.reduceRegion({
 print('2-50-98% EE AGC: ', agcPtile);
 
 // stats on area and total AGC
-var thicketArea = ee.Number(stepAridAndValleyThicket.geometry().area()).divide(10000);
+var thicketArea = ee.Number(thicketBoundary.geometry().area()).divide(10000);
 print('Total thicket area (ha): ', thicketArea);
 
 var thicketAgc = agcDict.image.reduceRegion({
   reducer: ee.Reducer.sum(),
-  geometry: stepAridAndValleyThicket,
+  geometry: thicketBoundary,
   scale: 100,
   maxPixels: 1e8,
   bestEffort: true
