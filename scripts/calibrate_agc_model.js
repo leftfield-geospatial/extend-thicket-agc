@@ -194,7 +194,7 @@ var thicketAgc = agcDict.image.reduceRegion({
   scale: 300,
   maxPixels: 1e12
   });
-print('Total thicket AGC (tC/ha): ', thicketAgc);
+print('Total thicket AGC (tC/ha): ', thicketAgc.AGC);
 
 // export model and AGC image to EE assets for use in other scripts
 var eeAgcModelFeat = ee.Feature(thicketBoundary.first().geometry().centroid(), agcDict.model);
