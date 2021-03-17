@@ -313,7 +313,7 @@ var stepPanel = ui.Panel(
 );
 
 var gefDescrLabel = ui.Label(
-  "Localised AGC model produced as part of the",  
+  "Localised AGC model produced as part of the ",  
   { fontSize: "11px", margin: "4px 8px 4px 0px" }
 );
 var gefLinkLabel = ui.Label(
