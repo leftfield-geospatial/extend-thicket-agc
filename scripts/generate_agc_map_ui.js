@@ -298,7 +298,7 @@ var creditsTitleLabel = ui.Label("Acknowledgements", {
 });
 
 var stepDescrLabel = ui.Label(
-  "Thicket boundaries derived from the",
+  "Thicket boundaries derived from the ",
   { fontSize: "11px", margin: "4px 8px 4px 0px" }
 );
 var stepLinkLabel = ui.Label(
