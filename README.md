@@ -34,7 +34,7 @@ A screenshot of the [visualisation app](https://dugalh.users.earthengine.app/vie
 
 ## Citation
 For use of the code or map, please cite: 
-- Harris, D., Bolus, C., Reeler, J. 2019. [*Remote sensing of aboveground carbon in subtropical thicket*](https://www.researchgate.net/publication/349060473_Remote_sensing_of_aboveground_carbon_in_subtropical_thicket), GEF-5 SLM, Rhodes University. Internal report. [https://www.doi.org/10.13140/RG.2.2.35106.96961/1](https://www.doi.org/10.13140/RG.2.2.35106.96961/1)
+- Harris, D., Bolus, C., Reeler, J. 2019. *Remote sensing of aboveground carbon in subtropical thicket*, GEF-5 SLM, Rhodes University. Internal report. [https://www.doi.org/10.13140/RG.2.2.35106.96961/1](https://www.doi.org/10.13140/RG.2.2.35106.96961/1)
 
 ## Author
 * **Dugal Harris** - [dugalh@gmail.com](mailto:dugalh@gmail.com)
