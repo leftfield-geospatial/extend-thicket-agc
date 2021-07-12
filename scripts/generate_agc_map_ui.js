@@ -62,7 +62,7 @@ function findAgc(image) {
 // Apply the model to find the EE AGC image
 var agcImage = findAgc(image).uint8();
 //var agcMaskedImage = agcImage.clip(thicketBoundary.geometry());
-var agcMaskedImage = agcImage.clip(thicketBoundary.geometry());
+var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
 
 // Create the map panel with AGC overlay
 var mapPanel = ui.Map();
