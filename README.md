@@ -33,8 +33,8 @@ A screenshot of the [visualisation app](https://dugalh.users.earthengine.app/vie
 - Data is licensed under the [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0)
 
 ## Citation
-For use of the code or map, please cite: 
-- Harris, D., Bolus, C., Reeler, J. 2019. *Remote sensing of aboveground carbon in subtropical thicket*, GEF-5 SLM, Rhodes University. Internal report. [https://www.doi.org/10.13140/RG.2.2.35106.96961/1](https://www.doi.org/10.13140/RG.2.2.35106.96961/1)
+For use of the code or map, please cite:
+- Dugal Harris, Cosman Bolus, James Reeler, "Very high resolution aboveground carbon mapping in subtropical thicket," *Journal of Applied Remote Sensing*. **15**(3), 038502 (2021), [doi: 10.1117/1.JRS.15.038502](http://dx.doi.org/10.1117/1.JRS.15.038502)
 
 ## Author
 * **Dugal Harris** - [dugalh@gmail.com](mailto:dugalh@gmail.com)
