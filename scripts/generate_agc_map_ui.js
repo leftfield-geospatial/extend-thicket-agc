@@ -24,16 +24,20 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 
-// obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
-var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
-  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-  .map(cloudMasking.landsat8SrCloudMask);
+// var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
+//   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+//   .map(cloudMasking.landsat8SrCloudMask);
 
 var eeAgcModel = eeL8SrAgcModel;
-var images = l8SrImages;
-var image = images
-  .filterBounds(thicketBoundary)
+
+// obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
+var images = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterDate("2017-09-01", "2017-12-30")
+  .filterBounds(thicketBoundary)
+  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+  .map(cloudMasking.landsat8SrCloudMask);
+  
+var image = images
   .median(); // composite the image collection
   
 var model = {
