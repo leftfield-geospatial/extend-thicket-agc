@@ -37,8 +37,7 @@ var images = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .map(cloudMasking.landsat8SrCloudMask);
   
-var image = images
-  .median(); // composite the image collection
+var image = images.median(); // composite the image collection
   
 var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
