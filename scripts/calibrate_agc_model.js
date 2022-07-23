@@ -225,8 +225,9 @@ if (true) {  // export AGC image
   //   skipEmptyTiles: true,
   // });
 
+  agcImage = agcDict.image.float().clipToCollection(thicketBoundary)
   Export.image.toAsset({
-    image: agcDict.image.float().clipToCollection(thicketBoundary),
+    image: agcImage,
     description: 'ee_agc_image_toAsset',
     assetId: 'extend_thicket_agc/ee_agc_image_clip',
     scale: 30,
