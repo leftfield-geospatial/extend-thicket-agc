@@ -233,6 +233,6 @@ if (true) {  // export AGC image
     // scale: 30,
     region: ee.Feature(thicketBoundary.first()).bounds(),
     maxPixels: 1e9,
-    dimensions: 1024  // break into tiles
+    // dimensions: 1024  // break into tiles
   });
 }
