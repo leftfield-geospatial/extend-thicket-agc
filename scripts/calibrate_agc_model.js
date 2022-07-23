@@ -230,7 +230,7 @@ if (true) {  // export AGC image
     image: agcImage,
     description: 'ee_agc_image_toAsset',
     assetId: 'extend_thicket_agc/ee_agc_image_clip',
-    scale: 30,
+    // scale: 30,
     region: ee.Feature(thicketBoundary.first()).bounds(),
     maxPixels: 1e9,
     dimensions: 1024  // break into tiles
