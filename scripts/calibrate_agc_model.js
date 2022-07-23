@@ -228,7 +228,7 @@ if (false) {  // export AGC image
   Export.image.toAsset({
     image: agcDict.image.uint8(),
     description: 'ee_agc_image_toAsset',
-    assetId: 'extend_thicket_agc/ee_agc_image',
+    assetId: 'extend_thicket_agc/ee_agc_image_clip',
     scale: 30,
     region: ee.Feature(thicketBoundary.first()).bounds(),
     maxPixels: 1e9,
