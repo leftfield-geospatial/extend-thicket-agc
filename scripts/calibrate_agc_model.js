@@ -210,20 +210,20 @@ Export.table.toAsset({
 });
 
 if (true) {  // export AGC image 
-  Export.image.toDrive({
-    image: agcDict.image.uint8(),
-    description: 'ee_agc_image_toDrive',
-    folder: 'Earth Engine Data',
-    scale: 30,
-    region: ee.Feature(thicketBoundary.first()).bounds(),
-    fileFormat: 'GeoTIFF',
-    formatOptions: {
-      cloudOptimized: true
-    },
-    maxPixels: 1e9,
-    fileDimensions: [2048, 2048],  // break into tiles
-    skipEmptyTiles: true,
-  });
+  // Export.image.toDrive({
+  //   image: agcDict.image.uint8(),
+  //   description: 'ee_agc_image_toDrive',
+  //   folder: 'Earth Engine Data',
+  //   scale: 30,
+  //   region: ee.Feature(thicketBoundary.first()).bounds(),
+  //   fileFormat: 'GeoTIFF',
+  //   formatOptions: {
+  //     cloudOptimized: true
+  //   },
+  //   maxPixels: 1e9,
+  //   fileDimensions: [2048, 2048],  // break into tiles
+  //   skipEmptyTiles: true,
+  // });
 
   Export.image.toAsset({
     image: agcDict.image.float().clip(thicketBoundary),
