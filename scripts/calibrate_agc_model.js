@@ -209,7 +209,7 @@ Export.table.toAsset({
   assetId: 'extend_thicket_agc/ee_l8_sr_agc_model',
 });
 
-if (false) {  // export AGC image 
+if (true) {  // export AGC image 
   Export.image.toDrive({
     image: agcDict.image.uint8(),
     description: 'ee_agc_image_toDrive',
