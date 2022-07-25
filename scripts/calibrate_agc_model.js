@@ -233,7 +233,7 @@ if (true) {  // export AGC image
     image: agcImage,
     description: 'ee_agc_image_toAsset',
     assetId: 'extend_thicket_agc/ee_agc_image_clip',
-    crs: 'EPSG:32735',
+    crs: 'EPSG:32735',  // UTM 35S
     scale: 30,
     region: ee.Feature(thicketBoundary.first()).bounds(),
     maxPixels: 1e9,
