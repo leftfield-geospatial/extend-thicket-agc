@@ -227,7 +227,7 @@ if (true) {  // export AGC image
 
   // mask non arid and valley thicket
   var agcImage = agcDict.image.float().clipToCollection(thicketBoundary);
-  // mask cropland, builings and water (cropland is not accuracte)
+  // mask cropland, builings and water (cropland is not accurate)
   var worldCover = ee.ImageCollection("ESA/WorldCover/v100").first();
   var coverMask = worldCover.eq(40).or(worldCover.eq(50)).or(worldCover.eq(80));
   agcImage = agcImage.updateMask(coverMask.not());
