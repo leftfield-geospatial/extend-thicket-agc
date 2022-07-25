@@ -225,7 +225,7 @@ if (true) {  // export AGC image
   //   skipEmptyTiles: true,
   // });
 
-  // mask arid and valley thicket
+  // mask non arid and valley thicket
   var agcImage = agcDict.image.float().clipToCollection(thicketBoundary);
   var worldCover = ee.ImageCollection("ESA/WorldCover/v100").first();
   var coverMask = worldCover.eq(40).or(worldCover.eq(50)).or(worldCover.eq(80));
