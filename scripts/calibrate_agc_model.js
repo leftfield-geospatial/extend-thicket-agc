@@ -227,8 +227,8 @@ if (true) {  // export AGC image
 
   var agcImage = agcDict.image.float().clipToCollection(thicketBoundary);
   var worldCover = ee.ImageCollection("ESA/WorldCover/v100").first();
-  var coverMask = worldCover.eq(40).or(worldCover.eq(50)).or(worldCover.eq(80))
-  agcImage = agcImage.updateMask(coverMask.not())
+  var coverMask = worldCover.eq(40).or(worldCover.eq(50)).or(worldCover.eq(80));
+  agcImage = agcImage.updateMask(coverMask.not());
   Export.image.toAsset({
     image: agcImage,
     description: 'ee_agc_image_toAsset',
