@@ -101,7 +101,7 @@ var noteLabel = ui.Label(
   { fontSize: "11px" }
 );
 var linkLabel = ui.Label(
-  "See the GitHub repositoty for more information.",
+  "See the GitHub repository for more information.",
   { fontSize: "11px" },
   "https://github.com/dugalh/extend_thicket_agc"
 );

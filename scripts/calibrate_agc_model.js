@@ -209,29 +209,38 @@ Export.table.toAsset({
   assetId: 'extend_thicket_agc/ee_l8_sr_agc_model',
 });
 
-if (false) {  // export AGC image 
-  Export.image.toDrive({
-    image: agcDict.image.uint8(),
-    description: 'ee_agc_image_toDrive',
-    folder: 'Earth Engine Data',
-    scale: 30,
-    region: ee.Feature(thicketBoundary.first()).bounds(),
-    fileFormat: 'GeoTIFF',
-    formatOptions: {
-      cloudOptimized: true
-    },
-    maxPixels: 1e9,
-    fileDimensions: [2048, 2048],  // break into tiles
-    skipEmptyTiles: true,
-  });
+if (true) {  // export AGC image 
+  // Export.image.toDrive({
+  //   image: agcDict.image.uint8(),
+  //   description: 'ee_agc_image_toDrive',
+  //   folder: 'Earth Engine Data',
+  //   scale: 30,
+  //   region: ee.Feature(thicketBoundary.first()).bounds(),
+  //   fileFormat: 'GeoTIFF',
+  //   formatOptions: {
+  //     cloudOptimized: true
+  //   },
+  //   maxPixels: 1e9,
+  //   fileDimensions: [2048, 2048],  // break into tiles
+  //   skipEmptyTiles: true,
+  // });
 
+  // mask non arid and valley thicket
+  var agcImage = agcDict.image.float().clipToCollection(thicketBoundary);
+  // mask cropland, builings and water (cropland is not accurate)
+  var worldCover = ee.ImageCollection("ESA/WorldCover/v100").first();
+  var coverMask = worldCover.eq(40).or(worldCover.eq(50)).or(worldCover.eq(80));
+  agcImage = agcImage.updateMask(coverMask.not());
+  
+  
   Export.image.toAsset({
-    image: agcDict.image.uint8(),
+    image: agcImage,
     description: 'ee_agc_image_toAsset',
-    assetId: 'extend_thicket_agc/ee_agc_image',
+    assetId: 'extend_thicket_agc/ee_agc_image_clip',
+    crs: 'EPSG:32735',  // UTM 35S
     scale: 30,
     region: ee.Feature(thicketBoundary.first()).bounds(),
     maxPixels: 1e9,
-    dimensions: 1024  // break into tiles
+    // dimensions: 1024  // break into tiles
   });
 }
