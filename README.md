@@ -36,9 +36,6 @@ A screenshot of the [visualisation app](https://dugalh.users.earthengine.app/vie
 For use of the code or map, please cite:
 - Dugal Harris, Cosman Bolus, James Reeler, "Very high resolution aboveground carbon mapping in subtropical thicket," *Journal of Applied Remote Sensing*. **15**(3), 038502 (2021), [doi: 10.1117/1.JRS.15.038502](http://dx.doi.org/10.1117/1.JRS.15.038502)
 
-## Author
-* **Dugal Harris** - [dugalh@gmail.com](mailto:dugalh@gmail.com)
-
 ## Acknowledgements
 * Thicket boundaries were derived from the [STEP vegetation map](https://bgis.sanbi.org/STEP/project.asp). 
 * The [WorldView-3 AGC model](https://github.com/dugalh/map_thicket_agc) was produced as part of the [GEF-5 SLM project](https://www.thegef.org/project/securing-multiple-ecosystems-benefit-through-slm-productive-degraded-landscapes-south-africa).  
