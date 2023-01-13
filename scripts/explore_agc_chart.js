@@ -100,7 +100,6 @@ var generateChart = function (coords) {
 // Apply the model to find the EE AGC image(s)
 var agcImage = findAgc(image).uint8();
 var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
-var agcImages = images.map(findAgc);
 
 // Create the map panel with AGC overlay
 var mapPanel = ui.Map();
