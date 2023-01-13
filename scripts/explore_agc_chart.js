@@ -240,7 +240,7 @@ if (true) // create a time series of yearly AGC
     var yearlyMedianImages = ee.ImageCollection.fromImages(years.map(function (y) {
         return images
           .filter(ee.Filter.calendarRange(y, y, "year"))
-          .filter(ee.Filter.calendarRange(9, 12, "month"))
+          .filter(ee.Filter.calendarRange(1, 12, "month"))
           .median()
           .set("year", y)
           .set("system:time_start", ee.Date.fromYMD(y, 10, 15));
