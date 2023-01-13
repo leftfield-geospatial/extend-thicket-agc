@@ -249,6 +249,7 @@ if (true) // create a time series of yearly AGC
         return images
           .filter(ee.Filter.calendarRange(y, y, "year"))
           .filter(ee.Filter.calendarRange(1, 12, "month"))
+          .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
           .map(cloudMasking.landsat8SrCloudMask)
           .median()
           .set("year", y)
