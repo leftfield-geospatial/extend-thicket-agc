@@ -247,6 +247,7 @@ if (true) // create a time series of yearly AGC
     );
   
     print(yearlyMedianImages.size())
+    print(ee.Image(yearlyMedianImages.first()).mean()))
   
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.series(
