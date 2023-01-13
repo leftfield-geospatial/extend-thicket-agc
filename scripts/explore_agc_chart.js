@@ -62,7 +62,6 @@ function findAgc(image) {
   ).rename("AGC");
 }
 
-var agcImages = images.map(findAgc);
 
 // Generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
@@ -80,7 +79,7 @@ var generateChart = function (coords) {
   var agcChart = ui.Chart.image.series(agcImages, point, ee.Reducer.mean(), 500);
 
   // Customize the chart.
-  sstChart.setOptions({
+  agcChart.setOptions({
     title: 'AGC time series',
     vAxis: {title: 'AGC (tC/ha)'},
     hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
@@ -95,11 +94,12 @@ var generateChart = function (coords) {
     legend: {position: 'right'},
   });
   // Add the chart at a fixed position, so that new charts overwrite older ones.
-  inspectorPanel.widgets().set(2, sstChart);
+  inspectorPanel.widgets().set(2, agcChart);
 };
 
 // Apply the model to find the EE AGC image
 var agcImage = findAgc(image).uint8();
+var agcImages = images.map(findAgc);
 var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
 
 // Create the map panel with AGC overlay
