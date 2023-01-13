@@ -35,8 +35,6 @@ var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
 var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
 var image = images
-  .filterBounds(thicketBoundary)
-  .filterDate("2017-09-01", "2017-12-30")
   .median(); // composite the image collection
   
 var model = {
