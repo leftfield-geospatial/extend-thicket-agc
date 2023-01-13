@@ -246,8 +246,8 @@ if (true) // create a time series of yearly AGC
       }).flatten()
     );
   
-    print(yearlyMedianImages.size())
-    print(yearlyMedianImages.first().reduce(ee.Reducer.mean()))
+    print(yearlyMedianImages.size());
+    print(yearlyMedianImages.first().reduce(ee.Reducer.mean()));
   
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.series(
