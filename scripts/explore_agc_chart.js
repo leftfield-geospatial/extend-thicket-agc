@@ -62,6 +62,8 @@ function findAgc(image) {
   ).rename("AGC");
 }
 
+var agcImages = images.map(findAgc);
+
 // Generates a new time series chart of SST for the given coordinates.
 var generateChart = function (coords) {
   // Update the lon/lat panel with values from the click event.
