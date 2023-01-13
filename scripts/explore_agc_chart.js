@@ -372,6 +372,11 @@ var creditsPanel = ui.Panel(
 toolPanel.add(creditsPanel);
 toolPanel.add(ui.Label('[Chart]'));
 
+// Register a callback on the default map to be invoked when the map is clicked.
+mapPanel.onClick(generateChart);
+// Configure the map.
+mapPanel.style().set('cursor', 'crosshair');
+
 // add map and tool panels to ui
 ui.root.clear();
 ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
