@@ -77,7 +77,7 @@ var generateChart = function (coords) {
   mapPanel.layers().set(1, dot);
 
   // Make a chart from the time series.
-  var agcChart = ui.Chart.image.series(sst, point, ee.Reducer.mean(), 500);
+  var agcChart = ui.Chart.image.series(agcImages, point, ee.Reducer.mean(), 500);
 
   // Customize the chart.
   sstChart.setOptions({
