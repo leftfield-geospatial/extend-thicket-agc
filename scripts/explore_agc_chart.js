@@ -370,7 +370,7 @@ var creditsPanel = ui.Panel(
   ui.Panel.Layout.Flow("vertical")
 );
 toolPanel.add(creditsPanel);
-toolPanel.add(ui.Label('[Chart]'));
+// toolPanel.add(ui.Label('[Chart]'));
 
 // Register a callback on the default map to be invoked when the map is clicked.
 mapPanel.onClick(generateChart);
