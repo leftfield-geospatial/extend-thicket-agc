@@ -370,6 +370,7 @@ var creditsPanel = ui.Panel(
   ui.Panel.Layout.Flow("vertical")
 );
 toolPanel.add(creditsPanel);
+toolPanel.add(ui.Label('[Chart]'));
 
 // add map and tool panels to ui
 ui.root.clear();
