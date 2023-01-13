@@ -81,7 +81,7 @@ var generateChart = function (coords) {
 
   // Customize the chart.
   sstChart.setOptions({
-    title: 'AGC (tc/ha): time series',
+    title: 'AGC time series',
     vAxis: {title: 'AGC (tC/ha)'},
     hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
     series: {
