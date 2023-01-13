@@ -97,7 +97,7 @@ var generateChart = function (coords) {
   inspectorPanel.widgets().set(2, agcChart);
 };
 
-// Apply the model to find the EE AGC image
+// Apply the model to find the EE AGC image(s)
 var agcImage = findAgc(image).uint8();
 var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
 var agcImages = images.map(findAgc);
