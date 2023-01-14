@@ -32,7 +32,9 @@ var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterBounds(thicketBoundary)
   .map(cloudMasking.landsat8SrCloudMask);
   
-
+function composite(year){
+  
+}
 
 var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
