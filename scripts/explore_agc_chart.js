@@ -100,8 +100,10 @@ var rgbVis = {
   min: 100,
   max: 2000,
   gamma: 1.2,
+  bands: ["SR_B4", "SR_B3", "SR_B2"],
   opacity: 1.0,
 };
+
 mapPanel.addLayer(maskedImage, rgbVis, "L8 RGB Composite");
 var agcVis = {
   min: 0,
