@@ -39,11 +39,11 @@ var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .map(cloudMasking.landsat8SrCloudMask);
   
 function composite(year){
-  coll = filtColl.filter(ee.Filter.calendarRange(y, y, "year"))
+  coll = filtColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .median()
-  .set("year", y)
-  .set("system:time_start", ee.Date.fromYMD(y, 10, 15));
+  .set("year", year)
+  .set("system:time_start", ee.Date.fromYMD(year, 10, 15));
 }
 
 var eeAgcModel = eeL8SrAgcModel;
