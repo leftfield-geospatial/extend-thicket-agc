@@ -97,8 +97,8 @@ mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBoundary);
 
 var rgbVis = {
-  min: 10000,
-  max: 11000,
+  min: 100,
+  max: 2000,
   gamma: 0.9,
   opacity: 1.0,
 };
