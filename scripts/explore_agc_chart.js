@@ -98,7 +98,7 @@ mapPanel.centerObject(thicketBoundary);
 var rgbVis = {
   min: 10000,
   max: 11500,
-  gamma: 1.25,
+  gamma: 1.3,
   opacity: 1.0,
 };
 mapPanel.addLayer(maskedImage, rgbVis, "RGB");
