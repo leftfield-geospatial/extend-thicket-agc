@@ -97,14 +97,14 @@ mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBoundary);
 
 var l8Vis = {
-  min: 100,
+  min: 7300,
   max: 2000,
   gamma: 1.2,
   bands: ["SR_B4", "SR_B3", "SR_B2"],
   opacity: 1.0,
 };
 
-mapPanel.addLayer(maskedImage, rgbVis, "L8 RGB Composite");
+mapPanel.addLayer(maskedImage, l8Visr, "L8 RGB Composite");
 var agcVis = {
   min: 0,
   max: 50,
