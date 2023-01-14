@@ -104,7 +104,7 @@ var l8Vis = {
   opacity: 1.0,
 };
 
-mapPanel.addLayer(maskedImage, l8Visr, "L8 RGB Composite");
+mapPanel.addLayer(maskedImage, l8Vis, "L8 RGB Composite");
 var agcVis = {
   min: 0,
   max: 50,
