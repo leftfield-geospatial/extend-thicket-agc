@@ -50,7 +50,7 @@ function cloudlessComposite(year){
 var eeAgcModel = eeL8SrAgcModel;
 // var images = l8SrImages;
 var image = cloudlessComposite(2017);
-var maskedImage = agcImage.clipToCollection(thicketBoundary);
+var maskedImage = image.clipToCollection(thicketBoundary);
 
 // var image = images
 //   .median(); // composite the image collection
