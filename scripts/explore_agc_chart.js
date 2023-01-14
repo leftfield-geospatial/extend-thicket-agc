@@ -169,7 +169,7 @@ var legendCheckbox = ui.Checkbox({
   label: null,
   value: true,
   onChange: function (value) {
-    mapPanel.layers().get(0).setShown(value);
+    mapPanel.layers().get(1).setShown(value);
   },
 });
 
