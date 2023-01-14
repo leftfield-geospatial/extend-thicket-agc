@@ -38,7 +38,7 @@ var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterBounds(thicketBoundary)
   .map(cloudMasking.landsat8SrCloudMask);
   
-function composite(year){
+function cloudlessComposite(year){
   coll = filtColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .median()
