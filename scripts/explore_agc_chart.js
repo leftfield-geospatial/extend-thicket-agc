@@ -43,7 +43,7 @@ function composite(year){
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .median()
   .set("year", year)
-  .set("system:time_start", ee.Date.fromYMD(year, 10, 15));
+  .set("system:time_start", ee.Date.fromYMD(year, 07, 01));
 }
 
 var eeAgcModel = eeL8SrAgcModel;
