@@ -72,40 +72,6 @@ function findAgc(image) {
 }
 
 
-// Generates a new time series chart of SST for the given coordinates.
-var generateChart = function (coords) {
-  // // Update the lon/lat panel with values from the click event.
-  // lon.setValue('lon: ' + coords.lon.toFixed(2));
-  // lat.setValue('lat: ' + coords.lat.toFixed(2));
-
-  // Add a dot for the point clicked on.
-  var point = ee.Geometry.Point(coords.lon, coords.lat);
-  var dot = ui.Map.Layer(point, {color: '000000'}, 'clicked location');
-  // Add the dot as the second layer, so it shows up on top of the composite.
-  mapPanel.layers().set(1, dot);
-
-  // Make a chart from the time series.
-  var agcChart = ui.Chart.image.series(agcImages, point, ee.Reducer.mean(), 500);
-
-  // Customize the chart.
-  agcChart.setOptions({
-    title: 'AGC time series',
-    vAxis: {title: 'AGC (tC/ha)'},
-    hAxis: {title: 'Date', format: 'MM-yy', gridlines: {count: 7}},
-    series: {
-      0: {
-        color: 'blue',
-        lineWidth: 0,
-        pointsVisible: true,
-        pointSize: 2,
-      },
-    },
-    legend: {position: 'right'},
-  });
-  // Add the chart at a fixed position, so that new charts overwrite older ones.
-  inspectorPanel.widgets().set(-1, agcChart);
-};
-
 // Apply the model to find the EE AGC image(s)
 var agcImage = findAgc(image).uint8();
 var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
