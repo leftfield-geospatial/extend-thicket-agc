@@ -90,6 +90,7 @@ mapPanel.setControlVisibility({
   all: false,
   zoomControl: true,
   mapTypeControl: true,
+  drawingToolsControl: true,
 });
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBoundary);
