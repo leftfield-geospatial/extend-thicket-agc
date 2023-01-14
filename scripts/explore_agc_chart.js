@@ -233,7 +233,7 @@ if (true) // create a time series of yearly AGC
     // show the clicket point
     var point = ee.Geometry.Point(coords.lon, coords.lat);
     var dot = ui.Map.Layer(point, { color: "000000" }, "clicked location");
-    mapPanel.layers().set(1, dot);
+    mapPanel.layers().set(2, dot);
   
     // find [median(images) for images inbetween Sept and Dec in each year]
     var years = ee.List.sequence(2014, 2022);
