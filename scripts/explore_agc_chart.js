@@ -68,7 +68,8 @@ function applyScaleFactors(image) {
               .addBands(thermalBands, null, true);
 }
 function findAgc(image) {
-  var rnImage = applyScaleFactors(image).expression("(R / (R + G + B + RE))", {
+  var rnImage = applyScaleFactors(image)
+  rnImage = rnImage.expression("(R / (R + G + B + RE))", {
     R: image.select("SR_B4"),
     G: image.select("SR_B3"),
     B: image.select("SR_B2"),
