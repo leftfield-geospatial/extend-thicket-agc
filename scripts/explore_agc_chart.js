@@ -29,7 +29,7 @@ var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
-  .filterBounds(thicketBounds)
+  // .filterBounds(thicketBounds)
   .map(cloudMasking.landsat8SrCloudMask);
   
 // var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
