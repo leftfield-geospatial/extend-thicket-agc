@@ -174,7 +174,8 @@ var legendCheckbox = ui.Checkbox({
         element.setShown(value);
       }
     )
-  }});
+  }
+});
 
 var legendOpacitySlider = ui.Slider({
   min: 0,
