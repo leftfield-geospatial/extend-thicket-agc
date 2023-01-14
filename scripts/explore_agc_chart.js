@@ -222,7 +222,7 @@ if (true) // create a time series of yearly AGC
       years.map(
         function (year) {
           return cloudlessComposite(year);
-        }.flatten())
+        }).flatten()
     );
   
     // print(yearlyMedianImages.size());
