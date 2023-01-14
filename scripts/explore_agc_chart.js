@@ -101,7 +101,7 @@ var agcVis = {
   opacity: 1.0,
 };
 mapPanel.addLayer(agcMaskedImage, agcVis, "AGC");
-mapPanel.addLayer(maskedImage, vis, "Composite");
+mapPanel.addLayer(maskedImage, vis, "RGB");
 
 // Create side tool panel
 // title and description
