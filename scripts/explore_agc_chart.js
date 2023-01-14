@@ -48,7 +48,7 @@ function cloudlessComposite(year){
 }
 
 var eeAgcModel = eeL8SrAgcModel;
-var images = l8SrImages;
+// var images = l8SrImages;
 var image = cloudlessComposite(2017);
 
 // var image = images
