@@ -40,7 +40,7 @@ var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
 //   .map(cloudMasking.landsat8SrCloudMask);
   
 function cloudlessComposite(year){
-  coll = filtColl.filter(ee.Filter.calendarRange(year, year, "year"))
+  coll = cloudlessColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .median()
   .set("year", year)
