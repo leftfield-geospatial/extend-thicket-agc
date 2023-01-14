@@ -25,7 +25,6 @@ var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/c
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 
 // obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
-// obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
