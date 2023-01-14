@@ -94,19 +94,19 @@ mapPanel.setControlVisibility({
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBoundary);
 
+var rgbVis = {
+  min: 10000,
+  max: 12000,
+  opacity: 1.0,
+};
+mapPanel.addLayer(maskedImage, rgbVis, "RGB");
 var agcVis = {
   min: 0,
   max: 50,
   palette: "red,yellow,green",
   opacity: 1.0,
 };
-var rgbVis = {
-  min: 10000,
-  max: 12000,
-  opacity: 1.0,
-};
 mapPanel.addLayer(agcMaskedImage, agcVis, "AGC");
-mapPanel.addLayer(maskedImage, rgbVis, "RGB");
 
 // Create side tool panel
 // title and description
