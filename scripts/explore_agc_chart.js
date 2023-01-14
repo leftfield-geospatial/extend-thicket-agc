@@ -50,6 +50,7 @@ function cloudlessComposite(year){
 var eeAgcModel = eeL8SrAgcModel;
 // var images = l8SrImages;
 var image = cloudlessComposite(2017);
+var maskedImage = agcImage.clipToCollection(thicketBoundary);
 
 // var image = images
 //   .median(); // composite the image collection
@@ -93,12 +94,13 @@ mapPanel.setControlVisibility({
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBoundary);
 
-var vis = {
+var agcVis = {
   min: 0,
   max: 50,
   palette: "red,yellow,green",
   opacity: 1.0,
 };
+mapPanel.addLayer(agcMaskedImage, agcVis, "AGC");
 mapPanel.addLayer(agcMaskedImage, vis, "AGC");
 
 // Create side tool panel
