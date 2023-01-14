@@ -100,6 +100,12 @@ var agcVis = {
   palette: "red,yellow,green",
   opacity: 1.0,
 };
+var rgbVis = {
+  min: 0,
+  max: 50,
+  palette: "red,yellow,green",
+  opacity: 1.0,
+};
 mapPanel.addLayer(agcMaskedImage, agcVis, "AGC");
 mapPanel.addLayer(maskedImage, vis, "RGB");
 
