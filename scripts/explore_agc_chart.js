@@ -101,8 +101,8 @@ var agcVis = {
   opacity: 1.0,
 };
 var rgbVis = {
-  min: 0,
-  max: 50,
+  min: 10000,
+  max: 12000,
   palette: "red,yellow,green",
   opacity: 1.0,
 };
