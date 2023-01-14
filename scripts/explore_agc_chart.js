@@ -219,11 +219,7 @@ if (true) // create a time series of yearly AGC
     // find [median(images) for images inbetween Sept and Dec in each year]
     var years = ee.List.sequence(2014, 2022);
     var yearlyMedianImages = ee.ImageCollection.fromImages(
-      years.map(
-        function (year) {
-          return cloudlessComposite(year);
-        }
-      ).flatten()
+      years.map(cloudlessComposite).flatten()
     );
   
     // print(yearlyMedianImages.size());
