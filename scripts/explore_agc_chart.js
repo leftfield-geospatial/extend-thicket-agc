@@ -99,7 +99,7 @@ mapPanel.centerObject(thicketBoundary);
 var rgbVis = {
   min: 100,
   max: 2000,
-  gamma: 0.9,
+  gamma: 1.2,
   opacity: 1.0,
 };
 mapPanel.addLayer(maskedImage, rgbVis, "L8 RGB Composite");
