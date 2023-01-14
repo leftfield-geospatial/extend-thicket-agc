@@ -169,8 +169,9 @@ var legendCheckbox = ui.Checkbox({
   label: null,
   value: true,
   onChange: function (value) {
-    mapPanel.layers().get(1).setShown(value);
-  },
+    mapPanel.layers().forEach(function (element, index) {
+    element.setShown(value);
+  });
 });
 
 var legendOpacitySlider = ui.Slider({
