@@ -70,13 +70,13 @@ function applyScaleFactors(image) {
 function findAgc(image) {
   var rnImage = applyScaleFactors(image);
   rnImage = rnImage.expression("(R / (R + G + B + RE))", {
-    R: image.select("SR_B4"),
-    G: image.select("SR_B3"),
-    B: image.select("SR_B2"),
+    R: rnImage.select("SR_B4"),
+    G: rnImage.select("SR_B3"),
+    B: rnImage.select("SR_B2"),
     // RE: image.select(
     //   ee.Algorithms.If(image.bandNames().contains("B8"), ["B8"], ["B5"])
     // ),
-    RE: image.select("SR_B5"),
+    RE: rnImage.select("SR_B5"),
   });
   
   return ee.Image(rnImage.log10()
