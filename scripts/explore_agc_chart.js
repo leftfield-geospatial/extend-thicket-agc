@@ -28,9 +28,9 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 var filtColl = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
-  .filterDate("2017-09-01", "2017-12-30")
   .filterBounds(thicketBoundary)
   .map(cloudMasking.landsat8SrCloudMask);
+  
 var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
@@ -39,7 +39,11 @@ var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .map(cloudMasking.landsat8SrCloudMask);
   
 function composite(year){
-  
+  coll = filtColl.filter(ee.Filter.calendarRange(y, y, "year"))
+  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  .median()
+  .set("year", y)
+  .set("system:time_start", ee.Date.fromYMD(y, 10, 15));
 }
 
 var eeAgcModel = eeL8SrAgcModel;
