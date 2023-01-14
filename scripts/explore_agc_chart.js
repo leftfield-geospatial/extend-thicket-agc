@@ -103,11 +103,10 @@ var agcVis = {
 var rgbVis = {
   min: 10000,
   max: 12000,
-  palette: "red,yellow,green",
   opacity: 1.0,
 };
 mapPanel.addLayer(agcMaskedImage, agcVis, "AGC");
-mapPanel.addLayer(maskedImage, vis, "RGB");
+mapPanel.addLayer(maskedImage, rgbVis, "RGB");
 
 // Create side tool panel
 // title and description
