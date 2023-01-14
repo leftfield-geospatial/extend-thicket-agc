@@ -63,13 +63,13 @@ var model = {
 // apply EE AGC model to image
 function findAgc(image) {
   var rnImage = image.expression("(R / (R + G + B + RE))", {
-    R: image.select("B4"),
-    G: image.select("B3"),
-    B: image.select("B2"),
+    R: image.select("SR_B4"),
+    G: image.select("SR_B3"),
+    B: image.select("SR_B2"),
     // RE: image.select(
     //   ee.Algorithms.If(image.bandNames().contains("B8"), ["B8"], ["B5"])
     // ),
-    RE: image.select("B5"),
+    RE: image.select("SR_B5"),
   });
   
   return ee.Image(rnImage.log10()
