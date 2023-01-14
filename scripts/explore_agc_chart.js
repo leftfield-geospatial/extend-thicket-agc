@@ -173,7 +173,7 @@ var legendCheckbox = ui.Checkbox({
       function (element, index) {
         element.setShown(value);
       }
-    )
+    );
   }
 });
 
