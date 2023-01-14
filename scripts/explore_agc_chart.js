@@ -28,7 +28,8 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 // obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-  .map(cloudMasking.landsat8SrCloudMask);
+  .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
+  .map(cloudMasking.landsat8SrCloudMask)
 // var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
 //   // .filterDate("2017-09-01", "2017-12-30")
 //   .filterDate("2017-01-01", "2017-12-30")
@@ -215,8 +216,6 @@ if (true) // create a time series of yearly AGC
         return images
           .filter(ee.Filter.calendarRange(y, y, "year"))
           .filter(ee.Filter.calendarRange(1, 12, "month"))
-          .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
-          .map(cloudMasking.landsat8SrCloudMask)
           .median()
           .set("year", y)
           .set("system:time_start", ee.Date.fromYMD(y, 10, 15));
