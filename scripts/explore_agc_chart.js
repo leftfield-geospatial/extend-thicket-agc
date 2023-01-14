@@ -228,7 +228,7 @@ if (true) // create a time series of yearly AGC
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.series(
       yearlyMedianImages.map(findAgc),
-      point.buffer(100),
+      point.buffer(30),
       ee.Reducer.mean(),
       30
     );
