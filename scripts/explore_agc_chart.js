@@ -202,13 +202,13 @@ var colourBarThumbnail = ui.Thumbnail({
   // value labels for colour bar
 var legendValuesPanel = ui.Panel({
   widgets: [
-    ui.Label(vis.min, { margin: "4px 8px" }),
-    ui.Label(vis.max / 2, {
+    ui.Label(agcVis.min, { margin: "4px 8px" }),
+    ui.Label(agcVis.max / 2, {
       margin: "4px 8px",
       textAlign: "center",
       stretch: "horizontal",
     }),
-    ui.Label(vis.max, { margin: "4px 8px" }),
+    ui.Label(agcVis.max, { margin: "4px 8px" }),
   ],
   layout: ui.Panel.Layout.flow("horizontal"),
 });
