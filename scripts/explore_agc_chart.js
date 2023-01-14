@@ -86,9 +86,13 @@ var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
 
 // Create the map panel with AGC overlay
 var mapPanel = ui.Map();
-mapPanel.setControlVisibility({
-  all: true,
-});
+// mapPanel.setControlVisibility({
+//   all: false,
+//   zoomControl: true,
+//   mapTypeControl: true,
+//   drawingToolsControl: true,
+//   layerList: true,
+// });
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBoundary);
 
