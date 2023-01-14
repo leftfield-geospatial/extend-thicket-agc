@@ -23,6 +23,8 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
+print(stepAridAndValleyThicket)
+var thicketBounds = stepAridAndValleyThicket.union().bounds();
 
 // obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
@@ -31,12 +33,12 @@ var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterBounds(thicketBoundary)
   .map(cloudMasking.landsat8SrCloudMask);
   
-var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
-  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-  .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
-  .filterDate("2017-09-01", "2017-12-30")
-  .filterBounds(thicketBoundary)
-  .map(cloudMasking.landsat8SrCloudMask);
+// var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
+//   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+//   .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
+//   .filterDate("2017-09-01", "2017-12-30")
+//   .filterBounds(thicketBoundary)
+//   .map(cloudMasking.landsat8SrCloudMask);
   
 function cloudlessComposite(year){
   coll = filtColl.filter(ee.Filter.calendarRange(year, year, "year"))
