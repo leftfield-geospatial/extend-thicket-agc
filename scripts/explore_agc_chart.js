@@ -221,8 +221,8 @@ if (true) // create a time series of yearly AGC
     var yearlyMedianImages = ee.ImageCollection.fromImages(
       years.map(
         function (year) {
-          return cloudlessComposite(year))
-        }.flatten()
+          return cloudlessComposite(year);
+        }.flatten())
     );
   
     // print(yearlyMedianImages.size());
