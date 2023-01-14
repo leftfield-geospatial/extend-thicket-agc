@@ -98,7 +98,7 @@ mapPanel.centerObject(thicketBoundary);
 
 var l8Vis = {
   min: 7300,
-  max: 2000,
+  max: 13000,
   gamma: 1.2,
   bands: ["SR_B4", "SR_B3", "SR_B2"],
   opacity: 1.0,
