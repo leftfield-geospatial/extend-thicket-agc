@@ -49,7 +49,7 @@ function cloudlessComposite(year){
 
 var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
-var image = images
+var image = cloudlessComposite(2017);
   .filterDate("2017-09-01", "2017-12-30")
   .filterBounds(thicketBoundary)
   .median(); // composite the image collection
