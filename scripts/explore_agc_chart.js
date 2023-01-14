@@ -195,7 +195,7 @@ function makeColourBarParams(palette) {
 
 var colourBarThumbnail = ui.Thumbnail({
   image: ee.Image.pixelLonLat().select(0),
-  params: makeColourBarParams(vis.palette),
+  params: makeColourBarParams(agcVis.palette),
   style: { stretch: "horizontal", margin: "0px 8px", maxHeight: "24px" },
 });
 
