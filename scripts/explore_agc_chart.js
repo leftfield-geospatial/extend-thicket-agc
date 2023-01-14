@@ -29,7 +29,7 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
-  .map(cloudMasking.landsat8SrCloudMask)
+  .map(cloudMasking.landsat8SrCloudMask);
 // var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
 //   // .filterDate("2017-09-01", "2017-12-30")
 //   .filterDate("2017-01-01", "2017-12-30")
