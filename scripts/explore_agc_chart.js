@@ -23,7 +23,6 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
-print(stepAridAndValleyThicket)
 var thicketBounds = stepAridAndValleyThicket.union().bounds();
 
 // obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
