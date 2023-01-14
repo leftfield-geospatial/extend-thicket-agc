@@ -96,7 +96,7 @@ mapPanel.setControlVisibility({
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBoundary);
 
-var rgbVis = {
+var l8Vis = {
   min: 100,
   max: 2000,
   gamma: 1.2,
