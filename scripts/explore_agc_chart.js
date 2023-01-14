@@ -97,7 +97,7 @@ mapPanel.centerObject(thicketBoundary);
 
 var rgbVis = {
   min: 10000,
-  max: 12000,
+  max: 11500,
   gamma: 1.25,
   opacity: 1.0,
 };
