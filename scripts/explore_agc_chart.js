@@ -101,6 +101,7 @@ var mapPanel = ui.Map();
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBounds);
 var tools = mapPanel.drawingTools();
+tools.setDrawModes(['point', 'polygon', 'rectangle']);
 
 var l8Vis = {
   min: 7500,
@@ -348,7 +349,7 @@ if (true) // create a time series of yearly AGC
   agcTimeSeriesChart(initialPoint);
   
   var _drawAgcChart = function(shape, widget){
-    
+    mapPanel.drawingTools()
   };
 }
 
