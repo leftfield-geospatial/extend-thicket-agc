@@ -42,7 +42,7 @@ var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2") //,"LANDSAT/LC0
 function cloudlessComposite(year){
   return cloudlessColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
-  .mean()
+  .median()
   .set("year", year)
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
