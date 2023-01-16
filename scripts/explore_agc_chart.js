@@ -281,8 +281,8 @@ if (true) // create a time series of yearly AGC
       var clickYear = ee.Date(xValue).get("year");
       // var dateFilt = ee.Filter.calendarRange(xValue, xValue, "year");
       var yearFilt = ee.Filter.equals("year", clickYear);
-      var image = ee.Image(yearlyMedianImages.filter(yearFilt).first());
-      var maskedImage = image.clipToCollection(thicketBoundary);
+      var l8Image = ee.Image(yearlyMedianImages.filter(yearFilt).first());
+      var maskedL8Image = l8Image.clipToCollection(thicketBoundary);
       // var equalDate = ee.Filter.equals('system:time_start', xValue);
       // var image = ee.Image(landsat8Toa.filter(equalDate).first());
       var medianLayer = ui.Map.Layer(maskedImage, l8Vis, "L8 composite");
