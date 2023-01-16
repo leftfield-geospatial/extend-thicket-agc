@@ -233,6 +233,11 @@ toolPanel.add(legendValuesPanel);
 
 if (true) // create a time series of yearly AGC
 {
+    var years = ee.List.sequence(2014, 2022);
+    var yearlyMedianImages = ee.ImageCollection.fromImages(
+      years.map(cloudlessComposite).flatten()
+    );
+  
   var agcTimeSeriesChart = function(coords) {
     // show the clicket point
     var point = ee.Geometry.Point(coords.lon, coords.lat);
@@ -240,10 +245,6 @@ if (true) // create a time series of yearly AGC
     mapPanel.layers().set(2, dot);
   
     // find [median(images) for images inbetween Sept and Dec in each year]
-    var years = ee.List.sequence(2014, 2022);
-    var yearlyMedianImages = ee.ImageCollection.fromImages(
-      years.map(cloudlessComposite).flatten()
-    );
   
     // print(yearlyMedianImages.size());
     // print(yearlyMedianImages.first().reduce(ee.Reducer.mean()));
@@ -269,6 +270,24 @@ if (true) // create a time series of yearly AGC
         },
       },
       legend: { position: "right" },
+    });
+    
+    agcChart.onClick(function(xValue, yValue, seriesName) {
+      if (!xValue) return;  // Selection was cleared.
+    
+      // Show the image for the clicked date.
+      var equalDate = ee.Filter.equals('system:time_start', xValue);
+      var image = ee.Image(landsat8Toa.filter(equalDate).first());
+      var l8Layer = ui.Map.Layer(image, {
+        gamma: 1.3,
+        min: 0,
+        max: 0.3,
+        bands: ['B4', 'B3', 'B2']
+      });
+      Map.layers().reset([l8Layer, sfLayer]);
+    
+      // Show a label with the date on the map.
+      label.setValue((new Date(xValue)).toUTCString());
     });
     
     toolPanel.widgets().set(10, agcChart);
