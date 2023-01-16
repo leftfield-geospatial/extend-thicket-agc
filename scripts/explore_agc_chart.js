@@ -100,6 +100,7 @@ var mapPanel = ui.Map();
 // });
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBounds);
+var tools = mapPanel.drawingTools();
 
 var l8Vis = {
   min: 7500,
