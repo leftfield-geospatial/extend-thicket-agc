@@ -101,6 +101,20 @@ mapPanel.setControlVisibility({
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBounds);
 
+var l8Vis = {
+  min: 7500,
+  max: 13000,
+  gamma: 1.2,
+  bands: ["SR_B4", "SR_B3", "SR_B2"],
+  opacity: 1.0,
+};
+var agcVis = {
+  min: 0,
+  max: 50,
+  palette: "red,yellow,green",
+  opacity: 1.0,
+};
+
 function addImageLayers(year){
   var l8Composite = cloudlessComposite(year);
   var maskedL8Composite = l8Composite.clipToCollection(thicketBoundary);
@@ -109,20 +123,7 @@ function addImageLayers(year){
   var agcImage = findAgc(l8Composite).uint8();
   var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
 
-  var l8Vis = {
-    min: 7500,
-    max: 13000,
-    gamma: 1.2,
-    bands: ["SR_B4", "SR_B3", "SR_B2"],
-    opacity: 1.0,
-  };
   var l8CompositeLayer = ui.Map.Layer(l8Composite, l8Vis, "L8 Composite");
-  var agcVis = {
-    min: 0,
-    max: 50,
-    palette: "red,yellow,green",
-    opacity: 1.0,
-  };
   var agcLayer = ui.Map.Layer(agcMaskedImage, agcVis, "AGC");
   mapPanel.layers().reset([agcLayer, l8CompositeLayer]);
 }
