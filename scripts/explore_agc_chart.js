@@ -285,8 +285,8 @@ if (true) // create a time series of yearly AGC
       var medianLayer = ui.Map.Layer(medianImage, l8Vis);
       Map.layers().reset([medianLayer, agcLayer]);
     
-      // Show a label with the date on the map.
-      label.setValue((new Date(xValue)).toUTCString());
+      // // Show a label with the date on the map.
+      // label.setValue((new Date(xValue)).toUTCString());
     });
     
     toolPanel.widgets().set(10, agcChart);
