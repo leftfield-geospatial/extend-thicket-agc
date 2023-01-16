@@ -127,7 +127,7 @@ function addImageLayers(year){
   mapPanel.layers().reset([agcLayer, l8CompositeLayer]);
 }
 
-addImageLayers(2017)
+addImageLayers(2017);
 
 // Create side tool panel
 // title and description
