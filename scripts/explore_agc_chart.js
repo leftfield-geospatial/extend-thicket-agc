@@ -118,7 +118,7 @@ var agcVis = {
   palette: "red,yellow,green",
   opacity: 1.0,
 };
-var agcLayer = ui.Map.Layer(agcImage, agcVis, "AGC");
+var agcLayer = ui.Map.Layer(agcMaskedImage, agcVis, "AGC");
 mapPanel.layers().add(agcLayer);
 
 
@@ -278,8 +278,9 @@ if (true) // create a time series of yearly AGC
       if (!xValue) return;  // Selection was cleared.
     
       // Show the image for the clicked date.
-      var dateFilt = ee.Filter.calendarRange(xValue, xValue, "year")
-      var medianImage = ee.Image(yearlyMedianImages.filter(dateFilt).first());
+      var dateFilt = ee.Filter.calendarRange(xValue, xValue, "year");
+      var image = ee.Image(yearlyMedianImages.filter(dateFilt).first());
+      var maskedImage = image.clipToCollection(thicketBoundary);
       // var equalDate = ee.Filter.equals('system:time_start', xValue);
       // var image = ee.Image(landsat8Toa.filter(equalDate).first());
       var medianLayer = ui.Map.Layer(medianImage, l8Vis);
