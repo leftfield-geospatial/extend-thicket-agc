@@ -247,7 +247,7 @@ toolPanel.add(legendValuesPanel);
 if (true) // create a time series of yearly AGC
 {
   
-  var agcTimeSeriesChart = function(geom) {
+  var agcTimeSeriesChart = function(geom, layer, widget) {
     // show the clicket point
     // var point = ee.Geometry.Point(coords.lon, coords.lat);
     // geom = ee.Geometry(geom);
