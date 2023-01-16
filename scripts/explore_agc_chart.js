@@ -249,7 +249,7 @@ if (true) // create a time series of yearly AGC
   var agcTimeSeriesChart = function(geom) {
     // show the clicket point
     // var point = ee.Geometry.Point(coords.lon, coords.lat);
-    geom = ee.Geometry(geom);
+    // geom = ee.Geometry(geom);
     print(geom);
     var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
     mapPanel.layers().set(2, dot);
