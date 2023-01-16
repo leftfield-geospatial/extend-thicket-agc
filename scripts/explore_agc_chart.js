@@ -282,17 +282,7 @@ if (true) // create a time series of yearly AGC
     
       // Show the image for the clicked date.
       var clickYear = ee.Date(xValue).get("year");
-      // var dateFilt = ee.Filter.calendarRange(xValue, xValue, "year");
-      var yearFilt = ee.Filter.equals("year", clickYear);
-      var l8Image = ee.Image(yearlyMedianImages.filter(yearFilt).first());
-      var maskedL8Image = l8Image.clipToCollection(thicketBoundary);
-      // var equalDate = ee.Filter.equals('system:time_start', xValue);
-      // var image = ee.Image(landsat8Toa.filter(equalDate).first());
-      var l8Layer = ui.Map.Layer(maskedL8Image, l8Vis, "L8 composite");
-      mapPanel.layers().reset([agcLayer, l8Layer]);
-    
-      // // Show a label with the date on the map.
-      // label.setValue((new Date(xValue)).toUTCString());
+      
     });
     
     toolPanel.widgets().set(10, agcChart);
