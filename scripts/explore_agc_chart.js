@@ -276,14 +276,11 @@ if (true) // create a time series of yearly AGC
       if (!xValue) return;  // Selection was cleared.
     
       // Show the image for the clicked date.
-      var equalDate = ee.Filter.equals('system:time_start', xValue);
-      var image = ee.Image(landsat8Toa.filter(equalDate).first());
-      var l8Layer = ui.Map.Layer(image, {
-        gamma: 1.3,
-        min: 0,
-        max: 0.3,
-        bands: ['B4', 'B3', 'B2']
-      });
+      var dateFilt = ee.Filter.calendarRange(xValue, xValue, "year")
+      var medianImage = ee.Image(yearlyMedianImages.filter(dateFilt).first());
+      // var equalDate = ee.Filter.equals('system:time_start', xValue);
+      // var image = ee.Image(landsat8Toa.filter(equalDate).first());
+      var l8Layer = ui.Map.Layer(medianImage, l8Vis);
       Map.layers().reset([l8Layer, sfLayer]);
     
       // Show a label with the date on the map.
