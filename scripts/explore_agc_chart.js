@@ -280,6 +280,7 @@ if (true) // create a time series of yearly AGC
       // Show the image for the clicked date.
       var clickYear = ee.Date(xValue).get("year");
       var dateFilt = ee.Filter.calendarRange(xValue, xValue, "year");
+      var yearFilt = ee.Filter.equals("year", clickYear);
       var image = ee.Image(yearlyMedianImages.filter(dateFilt).first());
       var maskedImage = image.clipToCollection(thicketBoundary);
       // var equalDate = ee.Filter.equals('system:time_start', xValue);
