@@ -283,7 +283,7 @@ if (true) // create a time series of yearly AGC
       var maskedImage = image.clipToCollection(thicketBoundary);
       // var equalDate = ee.Filter.equals('system:time_start', xValue);
       // var image = ee.Image(landsat8Toa.filter(equalDate).first());
-      var medianLayer = ui.Map.Layer(medianImage, l8Vis);
+      var medianLayer = ui.Map.Layer(maskedImage, l8Vis);
       Map.layers().reset([medianLayer, agcLayer]);
     
       // // Show a label with the date on the map.
