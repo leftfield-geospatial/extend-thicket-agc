@@ -246,9 +246,10 @@ toolPanel.add(legendValuesPanel);
 if (true) // create a time series of yearly AGC
 {
   
-  var agcTimeSeriesChart = function(coords) {
+  var agcTimeSeriesChart = function(geom) {
     // show the clicket point
-    var point = ee.Geometry.Point(coords.lon, coords.lat);
+    // var point = ee.Geometry.Point(coords.lon, coords.lat);
+    geom = ee.Geometry(geom);
     var dot = ui.Map.Layer(point, { color: "000000" }, "clicked location");
     mapPanel.layers().set(2, dot);
   
@@ -328,7 +329,8 @@ if (true) // create a time series of yearly AGC
   };
   mapPanel.onClick(agcTimeSeriesChart);
   mapPanel.style().set("cursor", "crosshair");
-  
+  mapPanel.drawingTools().onShapeChange(agcTimeSeriesChart);
+
   // test point for AGC chart
   // var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
   var initialPoint = ee.Geometry.Point(23.94436842431511536, -33.55374308591438393); //Baviaanskloof Sewefontein
