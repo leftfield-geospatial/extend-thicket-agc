@@ -106,7 +106,7 @@ function addImageLayers(year){
   var maskedL8Composite = l8Composite.clipToCollection(thicketBoundary);
   
   // Apply the model to find the EE AGC image(s)
-  var agcImage = findAgc(image).uint8();
+  var agcImage = findAgc(l8Composite).uint8();
   var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
 
   var l8Vis = {
@@ -116,8 +116,7 @@ function addImageLayers(year){
     bands: ["SR_B4", "SR_B3", "SR_B2"],
     opacity: 1.0,
   };
-  mapPanel.addLayer(maskedImage, l8Vis, "L8 Composite");
-  
+  var l8CompositeLayer = ui.Map.Layer(l8Composite, l8Vis, "L8 Composite");
   var agcVis = {
     min: 0,
     max: 50,
@@ -125,8 +124,10 @@ function addImageLayers(year){
     opacity: 1.0,
   };
   var agcLayer = ui.Map.Layer(agcMaskedImage, agcVis, "AGC");
-  mapPanel.layers().reset([agcLayer]);
+  mapPanel.layers().reset([agcLayer, l8CompositeLayer]);
 }
+
+addImageLayers(2017)
 
 // Create side tool panel
 // title and description
