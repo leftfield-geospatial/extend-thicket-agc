@@ -282,7 +282,7 @@ if (true) // create a time series of yearly AGC
     
       // Show the image for the clicked date.
       var clickYear = ee.Date(xValue).get("year");
-      
+      addImageLayers(clickYear);
     });
     
     toolPanel.widgets().set(10, agcChart);
