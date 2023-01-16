@@ -118,13 +118,13 @@ var agcVis = {
 function addImageLayers(year){
   // var l8Composite = cloudlessComposite(year);
   var l8Composite = yearlyl8Composites.filter(ee.Filter.eq("year", year)).first();
-  // var maskedL8Composite = l8Composite.clipToCollection(thicketBoundary);
+  var maskedL8Composite = l8Composite.clipToCollection(thicketBoundary);
   
   // Apply the model to find the EE AGC image(s)
   var agcImage = findAgc(l8Composite).uint8();
   var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
 
-  var l8CompositeLayer = ui.Map.Layer(l8Composite, l8Vis, "L8 Composite");
+  var l8CompositeLayer = ui.Map.Layer(maskedL8Composite, l8Vis, "L8 Composite");
   var agcLayer = ui.Map.Layer(agcMaskedImage, agcVis, "AGC");
   mapPanel.layers().reset([agcLayer, l8CompositeLayer]);
 }
