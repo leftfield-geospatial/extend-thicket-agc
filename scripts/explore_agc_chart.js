@@ -102,7 +102,7 @@ mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBounds);
 
 function addImageLayers(year){
-  var l8Composite = cloudlessComposite(2017);
+  var l8Composite = cloudlessComposite(year);
   var maskedL8Composite = l8Composite.clipToCollection(thicketBoundary);
   
   // Apply the model to find the EE AGC image(s)
@@ -126,7 +126,7 @@ function addImageLayers(year){
   };
   var agcLayer = ui.Map.Layer(agcMaskedImage, agcVis, "AGC");
   mapPanel.layers().reset([agcLayer]);
-
+}
 
 // Create side tool panel
 // title and description
