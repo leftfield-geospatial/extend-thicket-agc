@@ -126,7 +126,7 @@ function addImageLayers(year){
 
   var l8CompositeLayer = ui.Map.Layer(maskedL8Composite, l8Vis, "L8 Composite");
   var agcLayer = ui.Map.Layer(agcMaskedImage, agcVis, "AGC");
-  mapPanel.layers().reset([agcLayer, l8CompositeLayer]);
+  mapPanel.layers().reset([l8CompositeLayer, agcLayer]);
 }
 
 addImageLayers(2017);
