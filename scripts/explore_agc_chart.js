@@ -331,7 +331,9 @@ if (true) // create a time series of yearly AGC
   };
   mapPanel.onClick(agcTimeSeriesChart);
   mapPanel.style().set("cursor", "crosshair");
-  mapPanel.drawingTools().onShapeChange(agcTimeSeriesChart);
+  mapPanel.drawingTools().onDraw(agcTimeSeriesChart);
+  mapPanel.drawingTools().onEdit(agcTimeSeriesChart);
+  mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
 
   // test point for AGC chart
   // var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
@@ -348,9 +350,6 @@ if (true) // create a time series of yearly AGC
   
   agcTimeSeriesChart(initialPoint);
   
-  mapPanel.drawingTools().onDraw(agcTimeSeriesChart);
-  mapPanel.drawingTools().onEdit(agcTimeSeriesChart);
-  mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
 }
 
 // make credits panel
