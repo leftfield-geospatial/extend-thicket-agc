@@ -49,9 +49,6 @@ function cloudlessComposite(year){
 
 var eeAgcModel = eeL8SrAgcModel;
 // var images = l8SrImages;
-var image = cloudlessComposite(2017);
-var maskedImage = image.clipToCollection(thicketBoundary);
-
 // var image = images
 //   .median(); // composite the image collection
   
@@ -90,6 +87,9 @@ var years = ee.List.sequence(2014, 2022);
 var yearlyl8Composites = ee.ImageCollection.fromImages(
   years.map(cloudlessComposite).flatten()
 );
+
+var l8Composite = cloudlessComposite(2017);
+var maskedL8Composite = image.clipToCollection(thicketBoundary);
 
 // Apply the model to find the EE AGC image(s)
 var agcImage = findAgc(image).uint8();
