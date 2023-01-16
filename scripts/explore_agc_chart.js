@@ -87,7 +87,7 @@ function findAgc(image) {
 }
 
 var years = ee.List.sequence(2014, 2022);
-var yearlyMedianImages = ee.ImageCollection.fromImages(
+var yearlyl8Composites = ee.ImageCollection.fromImages(
   years.map(cloudlessComposite).flatten()
 );
 
