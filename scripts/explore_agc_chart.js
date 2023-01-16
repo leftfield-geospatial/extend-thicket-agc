@@ -91,13 +91,13 @@ var yearlyl8Composites = ee.ImageCollection.fromImages(
 
 // Create the map panel with AGC overlay
 var mapPanel = ui.Map();
-mapPanel.setControlVisibility({
-  all: true,
-  // zoomControl: true,
-  // mapTypeControl: true,
-  // drawingToolsControl: true,
-  // layerList: true,
-});
+// mapPanel.setControlVisibility({
+//   all: true,
+//   // zoomControl: true,
+//   // mapTypeControl: true,
+//   // drawingToolsControl: true,
+//   // layerList: true,
+// });
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBounds);
 
