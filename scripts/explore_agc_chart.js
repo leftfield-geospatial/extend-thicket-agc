@@ -250,7 +250,7 @@ if (true) // create a time series of yearly AGC
     // show the clicket point
     // var point = ee.Geometry.Point(coords.lon, coords.lat);
     geom = ee.Geometry(geom);
-    var dot = ui.Map.Layer(point, { color: "000000" }, "clicked location");
+    var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
     mapPanel.layers().set(2, dot);
   
     // find [median(images) for images inbetween Sept and Dec in each year]
@@ -344,10 +344,7 @@ if (true) // create a time series of yearly AGC
   });
   toolPanel.add(chartTitleLabel);
   
-  agcTimeSeriesChart({
-    lon: initialPoint.coordinates().get(0).getInfo(),
-    lat: initialPoint.coordinates().get(1).getInfo(),
-  });
+  agcTimeSeriesChart(initialPoint);
 }
 
 // make credits panel
