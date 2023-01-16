@@ -86,6 +86,10 @@ function findAgc(image) {
   ).rename("AGC");
 }
 
+var years = ee.List.sequence(2014, 2022);
+var yearlyMedianImages = ee.ImageCollection.fromImages(
+  years.map(cloudlessComposite).flatten()
+);
 
 // Apply the model to find the EE AGC image(s)
 var agcImage = findAgc(image).uint8();
@@ -235,10 +239,6 @@ toolPanel.add(legendValuesPanel);
 
 if (true) // create a time series of yearly AGC
 {
-    var years = ee.List.sequence(2014, 2022);
-    var yearlyMedianImages = ee.ImageCollection.fromImages(
-      years.map(cloudlessComposite).flatten()
-    );
   
   var agcTimeSeriesChart = function(coords) {
     // show the clicket point
@@ -285,8 +285,8 @@ if (true) // create a time series of yearly AGC
       var maskedL8Image = l8Image.clipToCollection(thicketBoundary);
       // var equalDate = ee.Filter.equals('system:time_start', xValue);
       // var image = ee.Image(landsat8Toa.filter(equalDate).first());
-      var medianLayer = ui.Map.Layer(maskedImage, l8Vis, "L8 composite");
-      mapPanel.layers().reset([agcLayer, medianLayer]);
+      var l8Layer = ui.Map.Layer(maskedL8Image, l8Vis, "L8 composite");
+      mapPanel.layers().reset([agcLayer, l8Layer]);
     
       // // Show a label with the date on the map.
       // label.setValue((new Date(xValue)).toUTCString());
