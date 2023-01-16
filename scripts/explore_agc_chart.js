@@ -28,7 +28,7 @@ var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 // obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2") //,"LANDSAT/LC08/C01/T1_SR"
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-  .filterMetadata("CLOUD_COVER_LAND", "less_than",  50)
+  .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
   .filterBounds(thicketBounds)
   .map(cloudMasking.landsat8SrCloudMask);
   
