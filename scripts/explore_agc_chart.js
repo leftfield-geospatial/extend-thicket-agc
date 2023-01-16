@@ -348,9 +348,9 @@ if (true) // create a time series of yearly AGC
   
   agcTimeSeriesChart(initialPoint);
   
-  var _drawAgcChart = function(shape, widget){
-    mapPanel.drawingTools()
-  };
+  mapPanel.drawingTools().onDraw(agcTimeSeriesChart);
+  mapPanel.drawingTools().onEdit(agcTimeSeriesChart);
+  mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
 }
 
 // make credits panel
