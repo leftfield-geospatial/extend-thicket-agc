@@ -358,6 +358,7 @@ if (true) // create a time series of yearly AGC
   mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
   mapPanel.drawingTools().onErase(agcTimeSeriesChart);
   mapPanel.drawingTools().onLayerConfig(agcTimeSeriesChart);
+  mapPanel.drawingTools().onLayerRemove(agcTimeSeriesChart);
   
 
   // test point for AGC chart
