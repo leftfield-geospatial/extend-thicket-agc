@@ -261,6 +261,7 @@ if (true) // create a time series of yearly AGC
     
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
     print(featColl);
+    print("chartOptions:");
     print(chartOptions);
     // geom = featColl.geometry();
     // print(geom);
