@@ -259,7 +259,7 @@ if (true) // create a time series of yearly AGC
     var featColl = mapPanel.drawingTools().layers().iterate(aggrLayerGeometries, {});
     geom = featColl.geometry();
     print(geom);
-    var dot = ui.Map.Layer(featColl, { color: "000000" }, "clicked location");
+    var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
     mapPanel.layers().set(2, dot);
   
     // find [median(images) for images inbetween Sept and Dec in each year]
