@@ -253,11 +253,9 @@ if (true) // create a time series of yearly AGC
     // geom = ee.Geometry(geom);
     var featColl = ee.FeatureCollection({});
     var aggrLayerGeometries = function(layer){
-      featColl = ee.FeatureCollection(featColl);
       var layerFeatColl = ee.FeatureCollection(layer.getEeObject());
-      return featColl.merge(layerFeatColl);
+      featColl = featColl.merge(layerFeatColl);
     };
-    for each layer in 
     print(mapPanel.drawingTools().layers());
     featColl = mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
     geom = featColl.geometry();
