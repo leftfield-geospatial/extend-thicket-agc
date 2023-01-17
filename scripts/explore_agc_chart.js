@@ -252,11 +252,11 @@ if (true) // create a time series of yearly AGC
     // var point = ee.Geometry.Point(coords.lon, coords.lat);
     // geom = ee.Geometry(geom);
     var featColl = ee.FeatureCollection([]);
-    var colorColl = [];
+    var chartOptions = {};
     var aggrLayerGeometries = function(layer){
       var layerFeatColl = ee.FeatureCollection(layer.getEeObject());
       featColl = featColl.merge(layerFeatColl);
-      colorColl.add(layer.getColor());
+      chartOptions[layer.getName()] = {color: layer.getColor()};
     };
     
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
@@ -284,6 +284,7 @@ if (true) // create a time series of yearly AGC
       title: "AGC: time series",
       vAxis: { title: "AGC (tC/ha)" },
       hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
+      series: chartOptions,
       // series: {
       //   0: {
       //     color: "SteelBlue",
