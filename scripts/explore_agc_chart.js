@@ -267,6 +267,8 @@ if (true) // create a time series of yearly AGC
     print(featColl);
     print("chartOptions:");
     print(chartOptions);
+    print("chartColors:");
+    print(chartColors);
     // geom = featColl.geometry();
     // print(geom);
     // var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
