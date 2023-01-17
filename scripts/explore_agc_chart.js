@@ -282,14 +282,14 @@ if (true) // create a time series of yearly AGC
       title: "AGC: time series",
       vAxis: { title: "AGC (tC/ha)" },
       hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
-      series: {
-        0: {
-          color: "SteelBlue",
-          lineWidth: 1,
-          pointsVisible: true,
-          pointSize: 3,
-        },
-      },
+      // series: {
+      //   0: {
+      //     color: "SteelBlue",
+      //     lineWidth: 1,
+      //     pointsVisible: true,
+      //     pointSize: 3,
+      //   },
+      // },
       legend: { position: "right" },
     });
     
