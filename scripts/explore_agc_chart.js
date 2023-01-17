@@ -256,7 +256,8 @@ if (true) // create a time series of yearly AGC
       var layerFeatColl = ee.FeatureCollection(layer.getEeObject());
       featColl = featColl.merge(layerFeatColl);
     };
-    featColl = ee.FeatureCollection(mapPanel.drawingTools().layers()).forEach(aggrLayerGeometries);
+    
+    mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
     print(featColl);
     geom = featColl.geometry();
     print(geom);
