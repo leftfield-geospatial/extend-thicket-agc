@@ -252,9 +252,11 @@ if (true) // create a time series of yearly AGC
     // var point = ee.Geometry.Point(coords.lon, coords.lat);
     // geom = ee.Geometry(geom);
     var featColl = ee.FeatureCollection([]);
+    var colorColl = [];
     var aggrLayerGeometries = function(layer){
       var layerFeatColl = ee.FeatureCollection(layer.getEeObject());
       featColl = featColl.merge(layerFeatColl);
+      colorColl.add(layer.getColor());
     };
     
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
