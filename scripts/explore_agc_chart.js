@@ -358,7 +358,7 @@ if (true) // create a time series of yearly AGC
   });
   toolPanel.add(chartTitleLabel);
   
-  agcTimeSeriesChart(initialPoint);
+  // agcTimeSeriesChart(initialPoint);
   
 }
 
