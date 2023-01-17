@@ -329,6 +329,7 @@ if (true) // create a time series of yearly AGC
       toolPanel.widgets().set(11, szaChart);
     }
   };
+  // TO DO: onClick should have a wrapper function that makes a point geometry and passes to agcTimeSeriesChart
   mapPanel.onClick(agcTimeSeriesChart);
   mapPanel.style().set("cursor", "crosshair");
   mapPanel.drawingTools().onDraw(agcTimeSeriesChart);
