@@ -270,7 +270,7 @@ if (true) // create a time series of yearly AGC
     // print(yearlyMedianImages.first().reduce(ee.Reducer.mean()));
   
     // make a chart of agc(median images)
-    var agcChart = ui.Chart.image.series(
+    var agcChart = ui.Chart.image.seriesByRegion(
       yearlyl8Composites.map(findAgc),
       geom,
       ee.Reducer.mean(),
