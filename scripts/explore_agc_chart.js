@@ -251,6 +251,12 @@ if (true) // create a time series of yearly AGC
     // show the clicket point
     // var point = ee.Geometry.Point(coords.lon, coords.lat);
     // geom = ee.Geometry(geom);
+    var aggrLayerGeometries = function(layer, featColl){
+      featColl = ee.FeatureCollection(featColl);
+      var layerFeatColl = ee.FeatureCollection(layer.getEeObject());
+      return featColl.merge(layerFeatColl);
+    };
+    var featColl = mapPanel.drawingTools().layers().iterate(aggrLayerGeometries, {});
     print(geom);
     var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
     mapPanel.layers().set(2, dot);
