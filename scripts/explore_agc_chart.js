@@ -274,6 +274,7 @@ if (true) // create a time series of yearly AGC
       yearlyl8Composites.map(findAgc),
       geom,
       ee.Reducer.mean(),
+      0,
       30
     );
   
