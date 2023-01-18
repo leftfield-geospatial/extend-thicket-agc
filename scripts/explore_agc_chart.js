@@ -46,27 +46,7 @@ function cloudlessComposite(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-
-// apply EE AGC model to image
-// function applyScaleFactors(image) {
-//   var opticalBands = image.select('SR_B.').multiply(0.0000275).add(-0.2);
-//   var thermalBands = image.select('ST_B.*').multiply(0.00341802).add(149.0);
-//   return image.addBands(opticalBands, null, true)
-//               .addBands(thermalBands, null, true);
-// }
-// function findRn(image) {
-//   var rnImage = image.expression('(R / (R + G + B + RE))',
-//     {
-//       'R': image.select('.*B4$'),
-//       'G': image.select('.*B3$'),
-//       'B': image.select('.*B2$'),
-//       // 'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
-//       'RE': image.select('.*B5$'),
-//     });
-//   return ee.Image(rnImage).rename('rN');
-// }
-// var rnImage = findRn(image);
-
+// Given an L8 image, return the AGC estimate
 function findAgc(image) {
   // var rnImage = applyScaleFactors(image);
   var rnImage = image.expression('(R / (R + G + B + RE))',
