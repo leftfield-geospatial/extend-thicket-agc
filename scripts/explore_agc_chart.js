@@ -70,15 +70,8 @@ var yearlyComposites = ee.ImageCollection.fromImages(
 );
 
 
-// Create the map panel with AGC overlay
+// Create the map panel with drawing tools
 var mapPanel = ui.Map();
-// mapPanel.setControlVisibility({
-//   all: true,
-//   // zoomControl: true,
-//   // mapTypeControl: true,
-//   // drawingToolsControl: true,
-//   // layerList: true,
-// });
 mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBounds);
 var tools = mapPanel.drawingTools();
