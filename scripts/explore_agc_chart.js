@@ -63,9 +63,9 @@ function cloudlessComposite(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-
+// find yearly median composites for the valid L8 years
 var years = ee.List.sequence(2014, 2022);
-var yearlyl8Composites = ee.ImageCollection.fromImages(
+var yearlyComposites = ee.ImageCollection.fromImages(
   years.map(cloudlessComposite).flatten()
 );
 
@@ -100,7 +100,7 @@ var agcVis = {
 
 function addImageLayers(year){
   // var l8Composite = cloudlessComposite(year);
-  var l8Composite = yearlyl8Composites.filter(ee.Filter.eq("year", year)).first();
+  var l8Composite = yearlyComposites.filter(ee.Filter.eq("year", year)).first();
   var maskedL8Composite = l8Composite.clipToCollection(thicketBoundary);
   
   // Apply the model to find the EE AGC image(s)
@@ -262,7 +262,7 @@ if (true) // create a time series of yearly AGC
   
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.seriesByRegion(
-      yearlyl8Composites.map(findAgc),
+      yearlyComposites.map(findAgc),
       featColl,
       ee.Reducer.mean(),
       0,
