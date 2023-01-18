@@ -37,8 +37,8 @@ var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterBounds(thicketBounds)
   .map(cloudMasking.landsat8SrCloudMask);
 
-// return yearly median composite
 function cloudlessComposite(year){
+  // return yearly median composite
   return cloudlessColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .median()
@@ -59,7 +59,7 @@ mapPanel.centerObject(thicketBounds);
 var tools = mapPanel.drawingTools();
 tools.setDrawModes(['point', 'polygon', 'rectangle']);
 
-// Add composite & AGC image layers
+// Add composite & AGC image layers for 2017
 var l8Vis = {
   min: 7500,
   max: 13000,
@@ -75,8 +75,8 @@ var agcVis = {
   opacity: 1.0,
 };
 
-// Given an L8 image, return the AGC estimate
 function findAgc(image) {
+  // Given an L8 image, return the AGC estimate
   var rnImage = image.expression('(R / (R + G + B + RE))',
     {
       'R': image.select('.*B4$'),
