@@ -91,7 +91,7 @@ function findAgc(image) {
   ).rename("AGC");
 }
 
-// find composite, correponding AGC for a given year and add to map
+// find composite & correponding AGC for a given year and add to map
 function addImageLayers(year){
   var composite = yearlyComposites.filter(ee.Filter.eq("year", year)).first();
   var maskedComposite = composite.clipToCollection(thicketBoundary);
