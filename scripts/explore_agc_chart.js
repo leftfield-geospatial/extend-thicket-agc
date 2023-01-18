@@ -75,7 +75,7 @@ function findRn(image) {
     });
   return ee.Image(rnImage).rename('rN');
 }
-var rnImage = findRn(image);
+// var rnImage = findRn(image);
 
 function findAgc(image) {
   // var rnImage = applyScaleFactors(image);
