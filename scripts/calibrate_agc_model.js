@@ -44,7 +44,7 @@ gefSamplingPlots = gefSamplingPlots.map(function (feature) {
 //                   .map(cloudMasking.s2_simple_cloud_mask);
 
 var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-  .filterDate('2017-09-01', '2017-12-30')
+  .filterDate('2017-01-01', '2017-12-30')
   .filterBounds(thicketBoundary)
   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
