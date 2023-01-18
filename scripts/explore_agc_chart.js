@@ -24,8 +24,13 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
+var eeAgcModel = eeL8SrAgcModel;
+var model = {
+  m: ee.Number(eeAgcModel.first().get("m")),
+  c: ee.Number(eeAgcModel.first().get("c")),
+};
 
-// obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
+// Landsat 8 SR image collection of thicket for year of GEF-5 SLM WV3 acquisition
 var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2") //,"LANDSAT/LC08/C01/T1_SR"
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
@@ -40,15 +45,6 @@ function cloudlessComposite(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-var eeAgcModel = eeL8SrAgcModel;
-// var images = l8SrImages;
-// var image = images
-//   .median(); // composite the image collection
-  
-var model = {
-  m: ee.Number(eeAgcModel.first().get("m")),
-  c: ee.Number(eeAgcModel.first().get("c")),
-};
 
 // apply EE AGC model to image
 // function applyScaleFactors(image) {
