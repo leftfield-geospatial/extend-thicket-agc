@@ -152,37 +152,11 @@ var legendDetailLabel = ui.Label("AGC (tC/ha)", {
   color: "black",
 });
 
-var legendCheckbox = ui.Checkbox({
-  label: null,
-  value: true,
-  onChange: function (value) {
-    mapPanel.layers().forEach(
-      function (element, index) {
-        element.setShown(value);
-      }
-    );
-  }
-});
-
-var legendOpacitySlider = ui.Slider({
-  min: 0,
-  max: 1,
-  value: 1,
-  step: 0.01,
-});
-
-legendOpacitySlider.onSlide(function (value) {
-  mapPanel.layers().forEach(function (element, index) {
-    element.setOpacity(value);
-  });
-});
-
 var legendHeaderPanel = ui.Panel(
   [legendCheckbox, legendDetailLabel, legendOpacitySlider],
   ui.Panel.Layout.Flow("horizontal")
 );
-toolPanel.add(legendHeaderPanel);
-legendOpacitySlider.setValue(0.6, true);
+toolPanel.add(legendDetailLabel);
 
 function makeColourBarParams(palette) {
   return {
@@ -201,7 +175,7 @@ var colourBarThumbnail = ui.Thumbnail({
   style: { stretch: "horizontal", margin: "0px 8px", maxHeight: "24px" },
 });
 
-  // value labels for colour bar
+// value labels for colour bar
 var legendValuesPanel = ui.Panel({
   widgets: [
     ui.Label(agcVis.min, { margin: "4px 8px" }),
