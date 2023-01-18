@@ -43,9 +43,17 @@ gefSamplingPlots = gefSamplingPlots.map(function (feature) {
 //                   .filterBounds(thicketBoundary)
 //                   .map(cloudMasking.s2_simple_cloud_mask);
 
+var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2") //,"LANDSAT/LC08/C01/T1_SR"
+  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+  .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
+  .filterBounds(thicketBounds)
+  .map(cloudMasking.landsat8SrCloudMask);
+
 var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
   .filterDate('2017-01-01', '2017-12-30')
   .filterBounds(thicketBoundary)
+  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+  .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
