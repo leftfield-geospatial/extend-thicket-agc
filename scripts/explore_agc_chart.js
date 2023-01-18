@@ -100,8 +100,10 @@ function addImageLayers(year){
   var agcImage = findAgc(composite).uint8();
   var maskedAgcImage = agcImage.clipToCollection(thicketBoundary);
 
-  var compositeLayer = ui.Map.Layer(maskedComposite, l8Vis, "Composite (" + year + ")");
-  var agcLayer = ui.Map.Layer(maskedAgcImage, agcVis, "AGC");
+  var compositeLayer = ui.Map.Layer(
+    maskedComposite, l8Vis, "Composite (" + year + ")", true, 0.6
+  );
+  var agcLayer = ui.Map.Layer(maskedAgcImage, agcVis, "AGC", true, 0.6);
   mapPanel.layers().reset([compositeLayer, agcLayer]);
 }
 
