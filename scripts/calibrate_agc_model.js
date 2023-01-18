@@ -203,10 +203,10 @@ var eeAgcModelColl = ee.FeatureCollection([eeAgcModelFeat]);
 
 Export.table.toAsset({
   collection: eeAgcModelColl,
-  description: 'ee_l8_sr_agc_model',
+  description: 'ee_l8_sr_agc_model_v2',
   // fileFormat: 'CSV',
   // folder: 'Earth Engine Data'
-  assetId: 'extend_thicket_agc/ee_l8_sr_agc_model',
+  assetId: 'extend_thicket_agc/ee_l8_sr_agc_model_v2',
 });
 
 if (true) {  // export AGC image 
