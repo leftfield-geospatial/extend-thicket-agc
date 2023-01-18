@@ -151,11 +151,6 @@ var legendDetailLabel = ui.Label("AGC (tC/ha)", {
   fontSize: "14px",
   color: "black",
 });
-
-var legendHeaderPanel = ui.Panel(
-  [legendCheckbox, legendDetailLabel, legendOpacitySlider],
-  ui.Panel.Layout.Flow("horizontal")
-);
 toolPanel.add(legendDetailLabel);
 
 function makeColourBarParams(palette) {
