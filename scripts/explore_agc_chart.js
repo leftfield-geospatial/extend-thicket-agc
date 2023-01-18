@@ -84,6 +84,7 @@ var l8Vis = {
   bands: ["SR_B4", "SR_B3", "SR_B2"],
   opacity: 1.0,
 };
+
 var agcVis = {
   min: 0,
   max: 50,
