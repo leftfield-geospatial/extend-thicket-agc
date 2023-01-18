@@ -59,7 +59,7 @@ mapPanel.centerObject(thicketBounds);
 var tools = mapPanel.drawingTools();
 tools.setDrawModes(['point', 'polygon', 'rectangle']);
 
-
+// Add composite & AGC image layers
 var l8Vis = {
   min: 7500,
   max: 13000,
