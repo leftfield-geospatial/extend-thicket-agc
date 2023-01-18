@@ -79,7 +79,7 @@ var model = {
 
 function findAgc(image) {
   // var rnImage = applyScaleFactors(image);
-  rnImage = image.expression('(R / (R + G + B + RE))',
+  var rnImage = image.expression('(R / (R + G + B + RE))',
     {
       'R': image.select('.*B4$'),
       'G': image.select('.*B3$'),
