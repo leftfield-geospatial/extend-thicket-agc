@@ -30,22 +30,6 @@ var model = {
   c: ee.Number(eeAgcModel.first().get("c")),
 };
 
-// Landsat 8 SR image collection of thicket for year of GEF-5 SLM WV3 acquisition
-var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
-  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-  .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
-  .filterBounds(thicketBounds)
-  .map(cloudMasking.landsat8SrCloudMask);
-
-// return yearly median composite
-function cloudlessComposite(year){
-  return cloudlessColl.filter(ee.Filter.calendarRange(year, year, "year"))
-  .filter(ee.Filter.calendarRange(1, 12, "month"))
-  .median()
-  .set("year", year)
-  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
-}
-
 // Given an L8 image, return the AGC estimate
 function findAgc(image) {
   // var rnImage = applyScaleFactors(image);
@@ -62,6 +46,23 @@ function findAgc(image) {
     .set("system:time_start", image.get("system:time_start"))
   ).rename("AGC");
 }
+
+// Landsat 8 SR image collection of thicket for year of GEF-5 SLM WV3 acquisition
+var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+  .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
+  .filterBounds(thicketBounds)
+  .map(cloudMasking.landsat8SrCloudMask);
+
+// return yearly median composite
+function cloudlessComposite(year){
+  return cloudlessColl.filter(ee.Filter.calendarRange(year, year, "year"))
+  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  .median()
+  .set("year", year)
+  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
+}
+
 
 var years = ee.List.sequence(2014, 2022);
 var yearlyl8Composites = ee.ImageCollection.fromImages(
