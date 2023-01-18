@@ -24,7 +24,7 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 
 // Calibrate the GEF AGC model to Landsat / Sentinel imagery and evaluate accuracy 
 var cloudMasking = require('users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js');
-var thicketBoundary = stepAridAndValleyThicket;  // STEP derived thicket boundaries
+var thicketBoundary = stepAridAndValleyThicket;  // STEP deriveed thicket boundaries
 var gefAgcModel = {   // the univariate log(mean(R/pan)) WV3 2017 model
   m: ee.Number(-318.8304), 
   c: ee.Number(25.7259) 
