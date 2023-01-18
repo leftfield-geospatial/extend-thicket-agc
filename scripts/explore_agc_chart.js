@@ -20,7 +20,7 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-
+// Initialisation
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
@@ -29,23 +29,6 @@ var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
   c: ee.Number(eeAgcModel.first().get("c")),
 };
-
-// Given an L8 image, return the AGC estimate
-function findAgc(image) {
-  // var rnImage = applyScaleFactors(image);
-  var rnImage = image.expression('(R / (R + G + B + RE))',
-    {
-      'R': image.select('.*B4$'),
-      'G': image.select('.*B3$'),
-      'B': image.select('.*B2$'),
-      'RE': image.select('.*B5$'),
-    });  
-  return ee.Image(rnImage.log10()
-    .multiply(model.m)
-    .add(model.c)
-    .set("system:time_start", image.get("system:time_start"))
-  ).rename("AGC");
-}
 
 // Landsat 8 SR image collection of thicket for year of GEF-5 SLM WV3 acquisition
 var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
@@ -69,7 +52,6 @@ var yearlyComposites = ee.ImageCollection.fromImages(
   years.map(cloudlessComposite).flatten()
 );
 
-
 // Create the map panel with drawing tools
 var mapPanel = ui.Map();
 mapPanel.setOptions("HYBRID");
@@ -92,14 +74,30 @@ var agcVis = {
   opacity: 1.0,
 };
 
+// Given an L8 image, return the AGC estimate
+function findAgc(image) {
+  // var rnImage = applyScaleFactors(image);
+  var rnImage = image.expression('(R / (R + G + B + RE))',
+    {
+      'R': image.select('.*B4$'),
+      'G': image.select('.*B3$'),
+      'B': image.select('.*B2$'),
+      'RE': image.select('.*B5$'),
+    });  
+  return ee.Image(rnImage.log10()
+    .multiply(model.m)
+    .add(model.c)
+    .set("system:time_start", image.get("system:time_start"))
+  ).rename("AGC");
+}
+
 function addImageLayers(year){
-  // var l8Composite = cloudlessComposite(year);
-  var l8Composite = yearlyComposites.filter(ee.Filter.eq("year", year)).first();
-  var maskedL8Composite = l8Composite.clipToCollection(thicketBoundary);
+  var composite = yearlyComposites.filter(ee.Filter.eq("year", year)).first();
+  var maskedComposite = composite.clipToCollection(thicketBoundary);
   
   // Apply the model to find the EE AGC image(s)
-  var agcImage = findAgc(l8Composite).uint8();
-  var agcMaskedImage = agcImage.clipToCollection(thicketBoundary);
+  var agcImage = findAgc(composite).uint8();
+  var maskedAgcImage = agcImage.clipToCollection(thicketBoundary);
 
   var l8CompositeLayer = ui.Map.Layer(maskedL8Composite, l8Vis, "L8 Composite");
   var agcLayer = ui.Map.Layer(agcMaskedImage, agcVis, "AGC");
