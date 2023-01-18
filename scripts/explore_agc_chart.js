@@ -64,17 +64,17 @@ var model = {
 //   return image.addBands(opticalBands, null, true)
 //               .addBands(thermalBands, null, true);
 // }
-function findRn(image) {
-  var rnImage = image.expression('(R / (R + G + B + RE))',
-    {
-      'R': image.select('.*B4$'),
-      'G': image.select('.*B3$'),
-      'B': image.select('.*B2$'),
-      // 'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
-      'RE': image.select('.*B5$'),
-    });
-  return ee.Image(rnImage).rename('rN');
-}
+// function findRn(image) {
+//   var rnImage = image.expression('(R / (R + G + B + RE))',
+//     {
+//       'R': image.select('.*B4$'),
+//       'G': image.select('.*B3$'),
+//       'B': image.select('.*B2$'),
+//       // 'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
+//       'RE': image.select('.*B5$'),
+//     });
+//   return ee.Image(rnImage).rename('rN');
+// }
 // var rnImage = findRn(image);
 
 function findAgc(image) {
