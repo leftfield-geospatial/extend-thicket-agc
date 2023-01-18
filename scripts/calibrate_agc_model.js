@@ -59,10 +59,11 @@ var image = images.median();    // composite the image collection
 function findRn(image) {
   var rnImage = image.expression('(R / (R + G + B + RE))',
     {
-      'R': image.select('B4'),
-      'G': image.select('B3'),
-      'B': image.select('B2'),
-      'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
+      'R': image.select('.*B4$'),
+      'G': image.select('.*B3$'),
+      'B': image.select('.*B2$'),
+      // 'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
+      'RE': image.select('.*B5$'),
     });
   return ee.Image(rnImage).rename('rN');
 }
