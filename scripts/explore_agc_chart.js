@@ -31,14 +31,7 @@ var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2") //,"LANDSAT/LC0
   .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
   .filterBounds(thicketBounds)
   .map(cloudMasking.landsat8SrCloudMask);
-  
-// var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
-//   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-//   .filterMetadata("CLOUD_COVER_LAND", "less_than", 50)
-//   .filterDate("2017-09-01", "2017-12-30")
-//   .filterBounds(thicketBoundary)
-//   .map(cloudMasking.landsat8SrCloudMask);
-  
+
 function cloudlessComposite(year){
   return cloudlessColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
