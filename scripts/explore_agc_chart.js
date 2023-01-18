@@ -63,8 +63,8 @@ function cloudlessComposite(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-// find yearly median composites for the valid L8 years
-var years = ee.List.sequence(2014, 2022);
+// create a collection of yearly median composites
+var years = ee.List.sequence(2014, 2022); // valid L8 years
 var yearlyComposites = ee.ImageCollection.fromImages(
   years.map(cloudlessComposite).flatten()
 );
