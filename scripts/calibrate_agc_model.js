@@ -207,7 +207,7 @@ Export.table.toAsset({
   description: 'ee_l8_sr_agc_model_v2',
   // fileFormat: 'CSV',
   // folder: 'Earth Engine Data'
-  assetId: 'extend_thicket_agc/ee_l8_sr_agc_model_v2',
+  assetId: 'projects/thicket-agc/assets/ee_l8_sr_agc_model_v2',
 });
 
 if (true) {  // export AGC image 
