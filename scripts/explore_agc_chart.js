@@ -59,6 +59,7 @@ mapPanel.centerObject(thicketBounds);
 var tools = mapPanel.drawingTools();
 tools.setDrawModes(['point', 'polygon', 'rectangle']);
 
+
 var l8Vis = {
   min: 7500,
   max: 13000,
@@ -76,7 +77,6 @@ var agcVis = {
 
 // Given an L8 image, return the AGC estimate
 function findAgc(image) {
-  // var rnImage = applyScaleFactors(image);
   var rnImage = image.expression('(R / (R + G + B + RE))',
     {
       'R': image.select('.*B4$'),
