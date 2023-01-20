@@ -327,7 +327,7 @@ if (true) // create a time series of yearly AGC
     };
     stratumGeom.evaluate(addInitGeomLayer);
   };
-  var strataDict = {Pristine: "green", Moderate: "yellow", Severe: "red"};
+  var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
   for (var stratumName in strataDict){
     addInitGeomLayer(stratumName, strataDict[stratumName]);
   }
