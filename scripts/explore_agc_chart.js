@@ -224,9 +224,9 @@ if (true) // create a time series of yearly AGC
       featColl,
       ee.Reducer.mean(),
       0,
-      30
-      // "system:time_start",
-      // "name"
+      30,
+      null,
+      "name"
     );
   
     agcChart.setOptions({
