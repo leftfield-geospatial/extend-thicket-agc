@@ -327,7 +327,6 @@ if (true) // create a time series of yearly AGC
     };
     stratumGeom.evaluate(addInitGeomLayer);
   }
-  print(gefDegradationStrata);
   ["Pristin", "Moderate", "Severe"].forEach(addInitGeomLayers);
 
 }
