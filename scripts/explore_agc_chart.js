@@ -322,7 +322,7 @@ if (true) // create a time series of yearly AGC
   
   
   mapPanel.drawingTools().addLayer(gefDegradationStrata, "GEF degradation strata");
-  agcTimeSeriesChart(initialPoint);
+  agcTimeSeriesChart();
   
 }
 
