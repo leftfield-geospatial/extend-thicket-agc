@@ -234,7 +234,8 @@ if (true) // create a time series of yearly AGC
       ee.Reducer.mean(),
       0,
       30,
-      seriesProperty="name"
+      "system:time_start",
+      "name"
     );
   
     agcChart.setOptions({
