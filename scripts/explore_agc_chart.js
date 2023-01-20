@@ -234,7 +234,6 @@ if (true) // create a time series of yearly AGC
       vAxis: { title: "AGC (tC/ha)" },
       hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
       colors: chartColors,
-      names: chartNames,
       // series: {
       //   0: {
       //     color: "SteelBlue",
