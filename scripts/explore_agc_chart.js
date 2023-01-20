@@ -320,6 +320,10 @@ if (true) // create a time series of yearly AGC
   });
   toolPanel.add(chartTitleLabel);
   
+  var addInitGeomLayer = function(stratumName){
+    stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
+    
+  }
   print(gefDegradationStrata);
   mapPanel.drawingTools().addLayer([gefDegradationStrata.geometry().getInfo()], "GEF degradation strata");
   agcTimeSeriesChart();
