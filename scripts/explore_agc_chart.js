@@ -224,7 +224,7 @@ if (true) // create a time series of yearly AGC
       featColl,
       ee.Reducer.mean(),
       0,
-      30,
+      30
       // null,
       // "name"
     );
