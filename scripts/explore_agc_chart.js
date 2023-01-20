@@ -199,24 +199,14 @@ if (true) // create a time series of yearly AGC
     // geom = ee.Geometry(geom);
     var featColl = ee.FeatureCollection([]);
     var chartColors = [];
-    var chartNames = [];
-    var chartOptions = {};
     var aggrLayerGeometries = function(layer){
       var layerFeatColl = ee.FeatureCollection(layer.getEeObject());
       layerFeatColl = layerFeatColl.set("name", layer.getName());
       featColl = featColl.merge(layerFeatColl);
-      chartOptions[layer.getName()] = {color: layer.getColor()};
       chartColors.push(layer.getColor());
-      chartNames.push(layer.getName());
-      print("Layer name: " + layer.getName());
-      print("Layer color: " + layer.getColor());
     };
     
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
-    print(featColl);
-    print("chartOptions:", chartOptions);
-    print("chartColors:", chartColors);
-    print("chartNames:", chartNames);
     // geom = featColl.geometry();
     // print(geom);
     // var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
