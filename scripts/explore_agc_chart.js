@@ -204,7 +204,7 @@ if (true) // create a time series of yearly AGC
       var layerGeom = ee.FeatureCollection(layer.getEeObject()).geometry();
       // layerFeatColl = layerFeatColl.set("system:id", layer.getName());
       // featColl = featColl.merge(layerFeatColl);
-      laterFeats.push(layerGeom, {name: layer.getName()});
+      layerFeats.push(layerGeom, {name: layer.getName()});
       layerColors.push(layer.getColor());
     };
     featColl = ee.FeatureCollection([]);
