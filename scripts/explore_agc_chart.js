@@ -197,7 +197,6 @@ if (true) // create a time series of yearly AGC
     // show the clicket point
     // var point = ee.Geometry.Point(coords.lon, coords.lat);
     // geom = ee.Geometry(geom);
-    var featColl = ee.FeatureCollection([]);
     var layerFeats = [];
     var layerColors = [];
     var aggrLayerGeometries = function(layer){
