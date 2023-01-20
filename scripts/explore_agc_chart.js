@@ -194,30 +194,16 @@ if (true) // create a time series of yearly AGC
 {
   
   var agcTimeSeriesChart = function(geom, layer, widget) {
-    // show the clicket point
-    // var point = ee.Geometry.Point(coords.lon, coords.lat);
-    // geom = ee.Geometry(geom);
     var layerFeats = [];
     var layerColors = [];
     var aggrLayerGeometries = function(layer){
       var layerGeom = ee.FeatureCollection(layer.getEeObject()).geometry();
-      // layerFeatColl = layerFeatColl.set("system:id", layer.getName());
-      // featColl = featColl.merge(layerFeatColl);
       layerFeats.push(ee.Feature(layerGeom, {name: layer.getName()}));
       layerColors.push(layer.getColor());
     };
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
     print(layerFeats);
-    // geom = featColl.geometry();
-    // print(geom);
-    // var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
-    // mapPanel.layers().set(2, dot);
-  
-    // find [median(images) for images inbetween Sept and Dec in each year]
-  
-    // print(yearlyMedianImages.size());
-    // print(yearlyMedianImages.first().reduce(ee.Reducer.mean()));
-  
+
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.seriesByRegion(
       yearlyComposites.map(findAgc),
