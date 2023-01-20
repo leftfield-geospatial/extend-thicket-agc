@@ -208,8 +208,7 @@ if (true) // create a time series of yearly AGC
       layerColors.push(layer.getColor());
     };
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
-    featColl = ee.FeatureCollection(layerFeats);
-    print(featColl);
+    print(layerFeats);
     // geom = featColl.geometry();
     // print(geom);
     // var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
