@@ -321,7 +321,7 @@ if (true) // create a time series of yearly AGC
   toolPanel.add(chartTitleLabel);
   
   var addInitGeomLayers = function(stratumName){
-    stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
+    var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
     var addInitGeomLayer = function(geom){
       mapPanel.drawingTools().addLayer([geom], "GEF " + stratumName + " stratum");
     };
