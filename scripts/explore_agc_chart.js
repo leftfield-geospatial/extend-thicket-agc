@@ -223,7 +223,7 @@ if (true) // create a time series of yearly AGC
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.seriesByRegion(
       yearlyComposites.map(findAgc),
-      featColl,
+      layerFeats,
       ee.Reducer.mean(),
       0,
       30
