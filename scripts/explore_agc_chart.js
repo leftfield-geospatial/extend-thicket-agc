@@ -329,6 +329,7 @@ if (true) // create a time series of yearly AGC
   }
   print(gefDegradationStrata);
   mapPanel.drawingTools().addLayer([gefDegradationStrata.geometry().getInfo()], "GEF degradation strata");
+  ["Pristin", "Moderate", "Severe"].forEach(addInitGeomLayers);
   agcTimeSeriesChart();
   
 }
