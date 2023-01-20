@@ -315,12 +315,15 @@ if (true) // create a time series of yearly AGC
     var addInitGeomLayer = function(geom){
       mapPanel.drawingTools().addLayer([geom], "GEF " + stratumName + " stratum", stratumColor);
     };
-    stratumGeom.evaluate(addInitGeomLayer);
+    // stratumGeom.evaluate(addInitGeomLayer);
+    addInitGeomLayer(stratumGeom.getInfo());  // add synchronously so we don't trigger event handlers below
+    // stratumGeom.evaluate(addInitGeomLayer);
   };
   var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
   for (var stratumName in strataDict){
     addInitGeomLayer(stratumName, strataDict[stratumName]);
   }
+  
   mapPanel.drawingTools().onDraw(agcTimeSeriesChart);
   mapPanel.drawingTools().onEdit(agcTimeSeriesChart);
   mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
