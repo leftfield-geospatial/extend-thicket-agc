@@ -327,7 +327,7 @@ if (true) // create a time series of yearly AGC
     };
     stratumGeom.evaluate(addInitGeomLayer);
   };
-  ["Pristin", "Moderate", "Severe"].forEach(addInitGeomLayers);
+  ["Pristine", "Moderate", "Severe"].forEach(addInitGeomLayers);
 
 }
 
