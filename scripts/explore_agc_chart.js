@@ -227,7 +227,7 @@ if (true) // create a time series of yearly AGC
       ee.Reducer.mean(),
       0,
       30,
-      null,
+      "system:time_start",
       "name"
     );
   
