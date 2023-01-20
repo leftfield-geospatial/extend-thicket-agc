@@ -329,7 +329,7 @@ if (true) // create a time series of yearly AGC
   };
   ["Pristine", "Moderate", "Severe"].forEach(addInitGeomLayers);
   var strataDict = {Pristine: "green", Moderate: "yellow", Severe: "red"};
-  for (let stratumName in strataDict){
+  for (var stratumName in strataDict){
     addInitGeomLayer(srtatumName, strataDict[srtatumName]);
   }
 
