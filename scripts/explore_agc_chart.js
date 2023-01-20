@@ -323,7 +323,7 @@ if (true) // create a time series of yearly AGC
   for (var stratumName in strataDict){
     addInitGeomLayer(stratumName, strataDict[stratumName]);
   }
-  
+  agcTimeSeriesChart();
   mapPanel.drawingTools().onDraw(agcTimeSeriesChart);
   mapPanel.drawingTools().onEdit(agcTimeSeriesChart);
   mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
