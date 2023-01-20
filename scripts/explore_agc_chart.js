@@ -326,7 +326,7 @@ if (true) // create a time series of yearly AGC
       mapPanel.drawingTools().addLayer([geom], "GEF " + stratumName + " stratum");
     };
     stratumGeom.evaluate(addInitGeomLayer);
-  }
+  };
   ["Pristin", "Moderate", "Severe"].forEach(addInitGeomLayers);
 
 }
