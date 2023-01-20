@@ -213,10 +213,9 @@ if (true) // create a time series of yearly AGC
     
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
     print(featColl);
-    print("chartOptions:");
-    print(chartOptions);
-    print("chartColors:");
-    print(chartColors);
+    print("chartOptions:", chartOptions);
+    print("chartColors:", chartColors);
+    print("chartNames:", chartNames);
     // geom = featColl.geometry();
     // print(geom);
     // var dot = ui.Map.Layer(geom, { color: "000000" }, "clicked location");
