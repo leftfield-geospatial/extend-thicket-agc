@@ -203,6 +203,7 @@ if (true) // create a time series of yearly AGC
     var chartOptions = {};
     var aggrLayerGeometries = function(layer){
       var layerFeatColl = ee.FeatureCollection(layer.getEeObject());
+      layerFeatColl = layerFeatColl.set("name", layer.getName());
       featColl = featColl.merge(layerFeatColl);
       chartOptions[layer.getName()] = {color: layer.getColor()};
       chartColors.push(layer.getColor());
