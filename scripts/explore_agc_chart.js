@@ -207,7 +207,7 @@ if (true) // create a time series of yearly AGC
       laterFeats.push(layerGeom, {name: layer.getName()});
       chartColors.push(layer.getColor());
     };
-    
+    featColl = ee.FeatureCollection([]);
     mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
     print(featColl);
     // geom = featColl.geometry();
@@ -223,7 +223,7 @@ if (true) // create a time series of yearly AGC
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.seriesByRegion(
       yearlyComposites.map(findAgc),
-      featColl,
+      layerFeats,
       ee.Reducer.mean(),
       0,
       30
