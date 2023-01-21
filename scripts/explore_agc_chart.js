@@ -31,15 +31,15 @@ var model = {
   c: ee.Number(eeAgcModel.first().get("c")),
 };
 // Landsat 8 SR image collection of thicket for year of GEF-5 SLM WV3 acquisition
-var cloudlessColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
   .filterBounds(thicketBounds)
   .map(cloudMasking.landsat8SrCloudMask);
 
-function cloudlessComposite(year){
+function createComposite(year){
   // return yearly median composite
-  return cloudlessColl.filter(ee.Filter.calendarRange(year, year, "year"))
+  return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .median()
   .set("year", year)
@@ -48,8 +48,8 @@ function cloudlessComposite(year){
 
 // create a collection of yearly median composites
 var years = ee.List.sequence(2014, 2022); // valid L8 years
-var yearlyComposites = ee.ImageCollection.fromImages(
-  years.map(cloudlessComposite).flatten()
+var compColl = ee.ImageCollection.fromImages(
+  years.map(createComposite).flatten()
 );
 
 // Create the map panel with drawing tools
@@ -58,6 +58,7 @@ mapPanel.setOptions("HYBRID");
 mapPanel.centerObject(thicketBounds);
 var tools = mapPanel.drawingTools();
 tools.setDrawModes(['point', 'polygon', 'rectangle']);
+
 
 // Add composite & AGC image layers for 2017
 var l8Vis = {
@@ -93,7 +94,7 @@ function findAgc(image) {
 
 function addImageLayers(year){
   // find composite & correponding AGC for a given year and add to map
-  var composite = yearlyComposites.filter(ee.Filter.eq("year", year)).first();
+  var composite = compColl.filter(ee.Filter.eq("year", year)).first();
   var maskedComposite = composite.clipToCollection(thicketBoundary);
   
   // Apply the model to find the EE AGC image
@@ -205,7 +206,7 @@ if (true) // create a time series of yearly AGC
 
     // make a chart of agc(median images)
     var agcChart = ui.Chart.image.seriesByRegion(
-      yearlyComposites.map(findAgc),
+      compColl.map(findAgc),
       layerFeats,
       ee.Reducer.mean(),
       0,
@@ -278,7 +279,7 @@ if (true) // create a time series of yearly AGC
   };
   // TO DO: onClick should have a wrapper function that makes a point geometry and passes to agcTimeSeriesChart
   // TO DO: debounce all the below
-  // mapPanel.onClick(agcTimeSeriesChart);
+  // mapPanel.onClick(createComposite);
   // mapPanel.style().set("cursor", "crosshair");
 
 
