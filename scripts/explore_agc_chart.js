@@ -65,10 +65,10 @@ function findAgc(image) {
   // Given an RGBN image, return the AGC estimate
   var rnImage = image.expression('(R / (R + G + B + RE))',
     {
-      'R': image.select('.*B4$'),
-      'G': image.select('.*B3$'),
-      'B': image.select('.*B2$'),
-      'RE': image.select('.*B5$'),
+      'R': image.select(0),
+      'G': image.select(1),
+      'B': image.select(2),
+      'RE': image.select(3),
     });  
   return ee.Image(rnImage.log10()
     .multiply(model.m)
