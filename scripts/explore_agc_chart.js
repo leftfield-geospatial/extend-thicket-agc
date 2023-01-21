@@ -336,7 +336,7 @@ function drawingLayerChanged(layer, widget) {
 // Initialise map and tool panels
 var mapPanel = createMapPanel();
 addMapImageLayers(mapPanel, 2017);
-initMapDrawingLayers();
+initMapDrawingLayers(mapPanel);
 
 var toolPanel = createToolPanel();
 var agcChart = createAgcChart(mapPanel, toolPanel);
