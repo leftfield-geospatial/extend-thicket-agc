@@ -352,7 +352,7 @@ mapPanel.drawingTools().onErase(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onLayerConfig(ui.util.debounce(drawingLayerChanged, 200));
 mapPanel.drawingTools().onLayerRemove(ui.util.debounce(drawingLayerChanged, 100));
 
-// add map and tool panels to ui
+// Add map and tool panels to ui
 ui.root.clear();
 ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
 
