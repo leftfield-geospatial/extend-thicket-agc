@@ -90,12 +90,85 @@ function createMap(){
 }
 
 function createSidePanel(){
-  // Create the map panel with drawing tools
-  var mapPanel = ui.Map();
-  mapPanel.setOptions("HYBRID");
-  mapPanel.centerObject(thicketBounds);
-  var tools = mapPanel.drawingTools();
-  tools.setDrawModes(['point', 'polygon', 'rectangle']);
+  // Create side tool panel
+  // title and description
+  var titleLabel = ui.Label("Thicket Aboveground Carbon (AGC)", {
+    fontWeight: "bold",
+    fontSize: "24px",
+    color: "SteelBlue",
+  });
+  var summaryLabel = ui.Label(
+    "Concept demonstration of extended AGC mapping in thicket",
+    { fontSize: "14px" }
+  );
+  var detailLabel = ui.Label(
+    "A localised AGC model is calibrated to coarser resolution Landsat 8 imagery and applied to the biome.",
+    { fontSize: "11px" }
+  );
+  var noteLabel = ui.Label(
+    "Note that AGC accuracy outside the localised model study area has not been established.",
+    { fontSize: "11px" }
+  );
+  var linkLabel = ui.Label(
+    "See the GitHub repository for more information.",
+    { fontSize: "11px" },
+    "https://github.com/dugalh/extend_thicket_agc"
+  );
+  
+  var toolPanel = ui.Panel({
+    widgets: [titleLabel, summaryLabel, detailLabel, noteLabel, linkLabel],
+    layout: ui.Panel.Layout.Flow("vertical"),
+    style: { width: "20%" },
+  });
+  
+    // legend and its controls
+  var legendTitleLabel = ui.Label("Legend", {
+    fontWeight: "bold",
+    fontSize: "20px",
+    color: "SteelBlue",
+  });
+  toolPanel.add(legendTitleLabel);
+  
+  var legendDetailLabel = ui.Label("AGC (tC/ha)", {
+    fontWeight: "bold",
+    fontSize: "14px",
+    color: "black",
+  });
+  toolPanel.add(legendDetailLabel);
+  
+  function makeColourBarParams(palette) {
+    return {
+      bbox: [0, 0, 1, 0.1],
+      dimensions: "100x10",
+      format: "png",
+      min: 0,
+      max: 1,
+      palette: palette,
+    };
+  }
+  
+  var colourBarThumbnail = ui.Thumbnail({
+    image: ee.Image.pixelLonLat().select(0),
+    params: makeColourBarParams(agcVis.palette),
+    style: { stretch: "horizontal", margin: "0px 8px", maxHeight: "24px" },
+  });
+  
+  // value labels for colour bar
+  var legendValuesPanel = ui.Panel({
+    widgets: [
+      ui.Label(agcVis.min, { margin: "4px 8px" }),
+      ui.Label(agcVis.max / 2, {
+        margin: "4px 8px",
+        textAlign: "center",
+        stretch: "horizontal",
+      }),
+      ui.Label(agcVis.max, { margin: "4px 8px" }),
+    ],
+    layout: ui.Panel.Layout.flow("horizontal"),
+  });
+  
+  toolPanel.add(colourBarThumbnail);
+  toolPanel.add(legendValuesPanel);
 }
 
 // Add composite & AGC image layers for 2017
@@ -133,85 +206,6 @@ function addImageLayers(year){
 
 addImageLayers(2017);
 
-// Create side tool panel
-// title and description
-var titleLabel = ui.Label("Thicket Aboveground Carbon (AGC)", {
-  fontWeight: "bold",
-  fontSize: "24px",
-  color: "SteelBlue",
-});
-var summaryLabel = ui.Label(
-  "Concept demonstration of extended AGC mapping in thicket",
-  { fontSize: "14px" }
-);
-var detailLabel = ui.Label(
-  "A localised AGC model is calibrated to coarser resolution Landsat 8 imagery and applied to the biome.",
-  { fontSize: "11px" }
-);
-var noteLabel = ui.Label(
-  "Note that AGC accuracy outside the localised model study area has not been established.",
-  { fontSize: "11px" }
-);
-var linkLabel = ui.Label(
-  "See the GitHub repository for more information.",
-  { fontSize: "11px" },
-  "https://github.com/dugalh/extend_thicket_agc"
-);
-
-var toolPanel = ui.Panel({
-  widgets: [titleLabel, summaryLabel, detailLabel, noteLabel, linkLabel],
-  layout: ui.Panel.Layout.Flow("vertical"),
-  style: { width: "20%" },
-});
-
-  // legend and its controls
-var legendTitleLabel = ui.Label("Legend", {
-  fontWeight: "bold",
-  fontSize: "20px",
-  color: "SteelBlue",
-});
-toolPanel.add(legendTitleLabel);
-
-var legendDetailLabel = ui.Label("AGC (tC/ha)", {
-  fontWeight: "bold",
-  fontSize: "14px",
-  color: "black",
-});
-toolPanel.add(legendDetailLabel);
-
-function makeColourBarParams(palette) {
-  return {
-    bbox: [0, 0, 1, 0.1],
-    dimensions: "100x10",
-    format: "png",
-    min: 0,
-    max: 1,
-    palette: palette,
-  };
-}
-
-var colourBarThumbnail = ui.Thumbnail({
-  image: ee.Image.pixelLonLat().select(0),
-  params: makeColourBarParams(agcVis.palette),
-  style: { stretch: "horizontal", margin: "0px 8px", maxHeight: "24px" },
-});
-
-// value labels for colour bar
-var legendValuesPanel = ui.Panel({
-  widgets: [
-    ui.Label(agcVis.min, { margin: "4px 8px" }),
-    ui.Label(agcVis.max / 2, {
-      margin: "4px 8px",
-      textAlign: "center",
-      stretch: "horizontal",
-    }),
-    ui.Label(agcVis.max, { margin: "4px 8px" }),
-  ],
-  layout: ui.Panel.Layout.flow("horizontal"),
-});
-
-toolPanel.add(colourBarThumbnail);
-toolPanel.add(legendValuesPanel);
 
 if (true) // create a time series of yearly AGC
 {
