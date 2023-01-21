@@ -92,7 +92,7 @@ else{
     bands: ["Nadir_Reflectance_Band1", 
       "Nadir_Reflectance_Band4", 
       "Nadir_Reflectance_Band3"],
-    opacity: 0.6,
+    opacity: 1.0,
   };
 }
 
