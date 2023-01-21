@@ -62,7 +62,7 @@ if (true){
 // AGC modelling
 
 function findAgc(image) {
-  // Given an L8 image, return the AGC estimate
+  // Given an RGBN image, return the AGC estimate
   var rnImage = image.expression('(R / (R + G + B + RE))',
     {
       'R': image.select('.*B4$'),
