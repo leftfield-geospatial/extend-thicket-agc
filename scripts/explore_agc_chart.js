@@ -141,7 +141,6 @@ function initMapDrawingLayers(mapPanel){
 }
 
 
-
 function createToolPanel(){
   // Create side tool panel
   // title and description
