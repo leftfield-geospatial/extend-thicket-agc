@@ -329,6 +329,23 @@ toolPanel = createToolPanel();
 agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
 
+var geomCallback = function(geom, layer, widget) {
+  print("geomCallback");
+  if (!geom) return;
+  agcTimeSeriesChart();
+};
+var layerCallack = function(layer, widget) {
+  print("layerCallack");
+  if (!layer.geometries().length()) return;
+  agcTimeSeriesChart();
+};
+mapPanel.drawingTools().onDraw(ui.util.debounce(geomCallback, 200));
+mapPanel.drawingTools().onEdit(ui.util.debounce(geomCallback, 200));
+// mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
+mapPanel.drawingTools().onErase(ui.util.debounce(geomCallback, 200));
+mapPanel.drawingTools().onLayerConfig(ui.util.debounce(layerCallack, 200));
+mapPanel.drawingTools().onLayerRemove(ui.util.debounce(layerCallack, 100));
+
 
 if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
 {
@@ -366,23 +383,6 @@ if (false)    // create a chart of solar zenith and azimuth angle for debugging 
 }
 
   
-agcTimeSeriesChart();
-var geomCallback = function(geom, layer, widget) {
-  print("geomCallback");
-  if (!geom) return;
-  agcTimeSeriesChart();
-};
-var layerCallack = function(layer, widget) {
-  print("layerCallack");
-  if (!layer.geometries().length()) return;
-  agcTimeSeriesChart();
-};
-mapPanel.drawingTools().onDraw(ui.util.debounce(geomCallback, 200));
-mapPanel.drawingTools().onEdit(ui.util.debounce(geomCallback, 200));
-// mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
-mapPanel.drawingTools().onErase(ui.util.debounce(geomCallback, 200));
-mapPanel.drawingTools().onLayerConfig(ui.util.debounce(layerCallack, 200));
-mapPanel.drawingTools().onLayerRemove(ui.util.debounce(layerCallack, 100));
 
 
 
