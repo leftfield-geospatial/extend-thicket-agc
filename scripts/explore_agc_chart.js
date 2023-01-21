@@ -302,6 +302,8 @@ function createAgcChart(mapPanel, toolPanel) {
   return agcChart;
 }
 
+
+
 // Initialise map and tool panels
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
