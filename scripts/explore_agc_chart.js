@@ -104,6 +104,7 @@ function createMap(){
   mapPanel.centerObject(thicketBounds);
   var tools = mapPanel.drawingTools();
   tools.setDrawModes(['point', 'polygon', 'rectangle']);
+  return mapPanel;
 }
 
 function addMapImageLayers(mapPanel, year){
