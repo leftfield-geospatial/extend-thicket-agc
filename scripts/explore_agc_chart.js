@@ -205,7 +205,7 @@ function createSidePanel(){
 }
 
 // Initialise map and side panels
-addImageLayers(2017);
+addImageLayers(mapPanel, 2017);
 
 
 if (true) // create a time series of yearly AGC
