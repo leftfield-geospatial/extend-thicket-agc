@@ -31,7 +31,7 @@ var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
   c: ee.Number(eeAgcModel.first().get("c")),
 };
-print(model);
+print("Model: ", model);
 
 function createComposite(year){
   // Return a yearly median composite of srcColl
