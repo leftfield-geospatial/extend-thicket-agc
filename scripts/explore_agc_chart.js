@@ -314,7 +314,6 @@ function createAgcChart(mapPanel, toolPanel) {
     // Show the image for the clicked date.
     var clickYear = ee.Date(xValue).get("year");
     addImageLayers(mapPanel, clickYear);
-    // mapPanel.layers().set(2, dot);
   });
   return agcChart;
 }
