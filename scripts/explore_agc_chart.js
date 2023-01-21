@@ -303,6 +303,20 @@ function createAgcChart(mapPanel, toolPanel) {
   return agcChart;
 }
 
+var addInitGeomLayer = function(stratumName, stratumColor){
+  var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
+  var addInitGeomLayer = function(geom){
+    mapPanel.drawingTools().addLayer([geom], stratumName, stratumColor);
+  };
+  // stratumGeom.evaluate(addInitGeomLayer);
+  addInitGeomLayer(stratumGeom.getInfo());  // add synchronously so we don't trigger event handlers below
+  // stratumGeom.evaluate(addInitGeomLayer);
+};
+var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
+for (var stratumName in strataDict){
+  addInitGeomLayer(stratumName, strataDict[stratumName]);
+}
+
 
 // Initialise map and tool panels
 mapPanel = createMapPanel();
@@ -348,19 +362,6 @@ if (false)    // create a chart of solar zenith and azimuth angle for debugging 
 }
 
   
-var addInitGeomLayer = function(stratumName, stratumColor){
-  var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
-  var addInitGeomLayer = function(geom){
-    mapPanel.drawingTools().addLayer([geom], stratumName, stratumColor);
-  };
-  // stratumGeom.evaluate(addInitGeomLayer);
-  addInitGeomLayer(stratumGeom.getInfo());  // add synchronously so we don't trigger event handlers below
-  // stratumGeom.evaluate(addInitGeomLayer);
-};
-var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
-for (var stratumName in strataDict){
-  addInitGeomLayer(stratumName, strataDict[stratumName]);
-}
 agcTimeSeriesChart();
 var geomCallback = function(geom, layer, widget) {
   print("geomCallback");
