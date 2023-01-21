@@ -98,7 +98,6 @@ var agcVisParams = {
   opacity: 1.0,
 };
 
-// Add composite & AGC image layers for 2017
 function addMapImageLayers(mapPanel, year){
   // Add AGC and RGB compositer for year to mapPanel
   var composite = compColl.filter(ee.Filter.eq("year", year)).first();
