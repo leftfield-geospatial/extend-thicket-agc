@@ -319,7 +319,9 @@ function createAgcChart(mapPanel, toolPanel) {
   return agcChart;
 }
 
-
+function yearChanged(xValue, yValue, seriesName){
+  // Image year changed event handler
+}
 
 function drawingGeomChanged(geom, layer, widget) {
   // Drawing geometry changed event handler
