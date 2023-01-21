@@ -64,7 +64,7 @@ var modisNbarImages = ee.ImageCollection("MODIS/061/MCD43A4")
     "Nadir_Reflectance_Band2"
     ]);
 
-var images = modisNbarImages;
+var images = l8SrImages;
 print('Number of images: ', images.size());
 var image = images.median();    // composite the image collection
 
