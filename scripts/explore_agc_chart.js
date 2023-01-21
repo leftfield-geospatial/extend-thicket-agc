@@ -171,16 +171,14 @@ function createSidePanel(){
   });
   toolPanel.add(legendDetailLabel);
   
-  function makeColourBarParams(palette) {
-    return {
-      bbox: [0, 0, 1, 0.1],
-      dimensions: "100x10",
-      format: "png",
-      min: 0,
-      max: 1,
-      palette: palette,
-    };
-  }
+  var colourBarParams = {
+    bbox: [0, 0, 1, 0.1],
+    dimensions: "100x10",
+    format: "png",
+    min: 0,
+    max: 1,
+    palette: palette,
+  };
   
   var colourBarThumbnail = ui.Thumbnail({
     image: ee.Image.pixelLonLat().select(0),
