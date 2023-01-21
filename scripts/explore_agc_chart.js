@@ -204,7 +204,7 @@ function createSidePanel(){
   toolPanel.add(legendValuesPanel);
 }
 
-
+// Initialise map and side panels
 addImageLayers(2017);
 
 
