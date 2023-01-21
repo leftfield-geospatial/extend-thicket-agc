@@ -286,7 +286,7 @@ function createAgcChart(mapPanel, toolPanel) {
   agcChart.setOptions({
     title: "AGC: time series",
     vAxis: { title: "AGC (tC/ha)" },
-    hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
+    hAxis: { title: "Date", format: "yyyy", gridlines: { count: 7 } },
     colors: layerColors,
     legend: { position: "right" },
   });
