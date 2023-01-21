@@ -79,7 +79,7 @@ else{
       ]);
 
   // create a collection of yearly median composites
-  var years = ee.List.sequence(2014, 2022); // valid L8 years
+  var years = ee.List.sequence(2000, 2022); // valid L8 years
   var compColl = ee.ImageCollection.fromImages(
     years.map(createComposite).flatten()
   );
