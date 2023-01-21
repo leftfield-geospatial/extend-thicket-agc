@@ -311,13 +311,13 @@ mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
 toolPanel = createToolPanel();
 agcChart = createAgcChart(mapPanel, toolPanel);
+toolPanel.widgets().set(10, agcChart);
 
 
 if (true) // create a time series of yearly AGC
 {
   
     
-    toolPanel.widgets().set(10, agcChart);
   
     if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
     {
