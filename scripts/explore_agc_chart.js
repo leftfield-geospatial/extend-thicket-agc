@@ -86,8 +86,8 @@ else{
   
   // L8 RGBN visualisation params
   var rgbnVisParams = {
-    min: 7500,
-    max: 13000,
+    min: 500,
+    max: 3000,
     gamma: 1.2,
     bands: ["SR_B4", "SR_B3", "SR_B2"],
     opacity: 1.0,
