@@ -125,6 +125,25 @@ function addMapImageLayers(mapPanel, year){
   mapPanel.layers().reset([compositeLayer, agcLayer]);
 }
 
+function initMapDrawingLayers(mapPanel){
+  // Add initial geometries to map drawing layers
+}
+var addInitGeomLayer = function(stratumName, stratumColor){
+  var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
+  var addInitGeomLayer = function(geom){
+    mapPanel.drawingTools().addLayer([geom], stratumName, stratumColor);
+  };
+  // stratumGeom.evaluate(addInitGeomLayer);
+  addInitGeomLayer(stratumGeom.getInfo());  // add synchronously so we don't trigger event handlers below
+  // stratumGeom.evaluate(addInitGeomLayer);
+};
+var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
+for (var stratumName in strataDict){
+  addInitGeomLayer(stratumName, strataDict[stratumName]);
+}
+
+
+
 function createToolPanel(){
   // Create side tool panel
   // title and description
@@ -301,20 +320,6 @@ function createAgcChart(mapPanel, toolPanel) {
     // mapPanel.layers().set(2, dot);
   });
   return agcChart;
-}
-
-var addInitGeomLayer = function(stratumName, stratumColor){
-  var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
-  var addInitGeomLayer = function(geom){
-    mapPanel.drawingTools().addLayer([geom], stratumName, stratumColor);
-  };
-  // stratumGeom.evaluate(addInitGeomLayer);
-  addInitGeomLayer(stratumGeom.getInfo());  // add synchronously so we don't trigger event handlers below
-  // stratumGeom.evaluate(addInitGeomLayer);
-};
-var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
-for (var stratumName in strataDict){
-  addInitGeomLayer(stratumName, strataDict[stratumName]);
 }
 
 
