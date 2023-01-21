@@ -287,14 +287,6 @@ function createAgcChart(mapPanel, toolPanel) {
     vAxis: { title: "AGC (tC/ha)" },
     hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
     colors: layerColors,
-    // series: {
-    //   0: {
-    //     color: "SteelBlue",
-    //     lineWidth: 1,
-    //     pointsVisible: true,
-    //     pointSize: 3,
-    //   },
-    // },
     legend: { position: "right" },
   });
   
