@@ -253,7 +253,6 @@ function createSidePanel(){
     ui.Panel.Layout.Flow("vertical")
   );
   toolPanel.add(creditsPanel);
-  
 }
 
 // Initialise map and side panels
