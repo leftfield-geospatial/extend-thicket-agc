@@ -51,7 +51,8 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
   // .filterMetadata('GEOMETRIC_RMSE_MODEL', "less_than", 10)
   // .filterMetadata('SOLAR_ZENITH_ANGLE', "greater_than", 40)
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
-  .map(cloudMasking.landsat8SrCloudMask);
+  .map(cloudMasking.landsat8SrCloudMask)
+  .select(["SR_B4", "SR_B3", "SR_B2", "SR_B5"]);
 
 var modisNbarImages = ee.ImageCollection("MODIS/061/MCD43A4")
   .filterDate('2017-01-01', '2017-12-30')
