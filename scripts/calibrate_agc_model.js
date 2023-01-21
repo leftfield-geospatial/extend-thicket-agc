@@ -70,13 +70,13 @@ var image = images.median();    // composite the image collection
 
 // Find R/pan image feature
 function findRn(image) {
-  var rnImage = image.expression('(R / (R + G + B + RE))',
+  var rnImage = image.expression('(R / (R + G + B + NIR))',
     {
-      'R': image.select('.*B4$'),
-      'G': image.select('.*B3$'),
-      'B': image.select('.*B2$'),
+      'R': image.select(0),
+      'G': image.select(1),
+      'B': image.select(2),
       // 'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
-      'RE': image.select('.*B5$'),
+      'NIR': image.select(3),
     });
   return ee.Image(rnImage).rename('rN');
 }
