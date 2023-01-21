@@ -41,19 +41,20 @@ function createComposite(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-// Landsat 8 cloud masked collection
-var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
-  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-  .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
-  .filterBounds(thicketBounds)
-  .map(cloudMasking.landsat8SrCloudMask);
+if (true){
+  // Landsat 8 cloud masked collection
+  var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+    .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+    .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
+    .filterBounds(thicketBounds)
+    .map(cloudMasking.landsat8SrCloudMask);
 
-
-// create a collection of yearly median composites
-var years = ee.List.sequence(2014, 2022); // valid L8 years
-var compColl = ee.ImageCollection.fromImages(
-  years.map(createComposite).flatten()
-);
+  // create a collection of yearly median composites
+  var years = ee.List.sequence(2014, 2022); // valid L8 years
+  var compColl = ee.ImageCollection.fromImages(
+    years.map(createComposite).flatten()
+  );
+}
 
 // Create the map panel with drawing tools
 var mapPanel = ui.Map();
