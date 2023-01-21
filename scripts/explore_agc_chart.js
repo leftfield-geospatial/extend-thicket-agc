@@ -320,15 +320,17 @@ function createAgcChart(mapPanel, toolPanel) {
 }
 
 function geomCallback(geom, layer, widget) {
+  // Drawing geometry changed event handler
   print("geomCallback");
   if (!geom) return;
   agcTimeSeriesChart();
-};
+}
+
 function layerCallack(layer, widget) {
   print("layerCallack");
   if (!layer.geometries().length()) return;
   agcTimeSeriesChart();
-};
+}
 
 
 // Initialise map and tool panels
