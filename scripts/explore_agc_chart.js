@@ -258,6 +258,7 @@ function createToolPanel(){
 }
 
 function createAgcChart(mapPanel, toolPanel) {
+  // create AGC time series chart
   var layerFeats = [];
   var layerColors = [];
   var aggrLayerGeometries = function(layer){
