@@ -194,7 +194,7 @@ if (true) // create a time series of yearly AGC
 {
   
   var agcTimeSeriesChart = function(geom, layer, widget) {
-    print(geom);
+    print(geom, layer, widget);
     var layerFeats = [];
     var layerColors = [];
     var aggrLayerGeometries = function(layer){
