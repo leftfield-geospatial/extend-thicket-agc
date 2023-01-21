@@ -92,6 +92,8 @@ else{
       "Nadir_Reflectance_Band3"],
     opacity: 1.0,
   };
+  
+  var eeAgcModel = eeL8SrAgcModel;
 }
 
 var model = {
