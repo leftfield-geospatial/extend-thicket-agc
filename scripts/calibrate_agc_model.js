@@ -53,6 +53,16 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
   // .filterMetadata('SOLAR_AZIMUTH_ANGLE', "less_than", 50)
   .map(cloudMasking.landsat8SrCloudMask);
 
+var modisNbarImages = ee.ImageCollection("MODIS/061/MCD43A4")
+  .filterDate('2017-01-01', '2017-12-30')
+  .filterBounds(thicketBoundary)
+  // .select([
+  //   "Nadir_Reflectance_Band1", 
+  //   "Nadir_Reflectance_Band4", 
+  //   "Nadir_Reflectance_Band3", 
+  //   "Nadir_Reflectance_Band2"
+  //   ]);
+
 var images = l8SrImages;
 print('Number of images: ', images.size());
 var image = images.median();    // composite the image collection
