@@ -121,7 +121,7 @@ function createSidePanel(){
     style: { width: "20%" },
   });
   
-    // legend and its controls
+    // AGC legend
   var legendTitleLabel = ui.Label("Legend", {
     fontWeight: "bold",
     fontSize: "20px",
