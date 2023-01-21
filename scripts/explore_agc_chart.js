@@ -282,6 +282,7 @@ function createAgcChart(mapPanel, toolPanel) {
     "name"
   );
 
+  // TODO investigate clearer options for x axis format
   agcChart.setOptions({
     title: "AGC: time series",
     vAxis: { title: "AGC (tC/ha)" },
