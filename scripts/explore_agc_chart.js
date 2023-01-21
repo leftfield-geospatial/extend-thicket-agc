@@ -43,12 +43,13 @@ function createComposite(year){
 
 if (true){
   // Landsat 8
-  // cloud masked collection
+  // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
     .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
     .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
     .filterBounds(thicketBounds)
-    .map(cloudMasking.landsat8SrCloudMask);
+    .map(cloudMasking.landsat8SrCloudMask)
+    .select(["SR_B4", "SR_B4", "SR_B4", "SR_B4"]);
 
   // create a collection of yearly median composites
   var years = ee.List.sequence(2014, 2022); // valid L8 years
