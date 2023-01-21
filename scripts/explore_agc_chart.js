@@ -75,7 +75,7 @@ else{
       "Nadir_Reflectance_Band1", 
       "Nadir_Reflectance_Band4", 
       "Nadir_Reflectance_Band3", 
-      "Nadir_Reflectance_Band2"
+      "Nadir_Reflectance_Band5"
       ]);
 
   // create a collection of yearly median composites
