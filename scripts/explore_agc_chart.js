@@ -319,6 +319,8 @@ function createAgcChart(mapPanel, toolPanel) {
   return agcChart;
 }
 
+
+
 function drawingGeomChanged(geom, layer, widget) {
   // Drawing geometry changed event handler
   print("drawingGeomChanged");
