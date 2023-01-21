@@ -99,7 +99,7 @@ var agcVisParams = {
 };
 
 // Add composite & AGC image layers for 2017
-function addMapImageLayers(map, year){
+function addMapImageLayers(mapPanel, year){
   // find composite & correponding AGC for a given year and add to map
   var composite = compColl.filter(ee.Filter.eq("year", year)).first();
   var maskedComposite = composite.clipToCollection(thicketBoundary);
