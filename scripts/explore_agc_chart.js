@@ -266,7 +266,7 @@ function createAgcChart(mapPanel, toolPanel) {
     layerFeats.push(ee.Feature(layerGeom, {name: layer.getName()}));
     layerColors.push(layer.getColor());
   };
-  mapPanel.drawingTools().layers().forEach(drawnGeometries);
+  mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
   print(layerFeats);
 
   // make a chart of agc(median images)
