@@ -91,17 +91,17 @@ function findAgc(image) {
 // Visualisation
 // TO DO - try retrieve agcVisParams from map and place these vars elsewhere
 
-var agcVisParams = {
-  min: 0,
-  max: 50,
-  palette: "red,yellow,green",
-  opacity: 1.0,
-};
 
 function addMapImageLayers(mapPanel, year){
   // Add AGC and RGB compositer for year to mapPanel
   var composite = compColl.filter(ee.Filter.eq("year", year)).first();
   var maskedComposite = composite.clipToCollection(thicketBoundary);
+  var agcVisParams = {
+    min: 0,
+    max: 50,
+    palette: "red,yellow,green",
+    opacity: 1.0,
+  };
   
   // Apply the model to find the EE AGC image
   var agcImage = findAgc(composite).uint8();
