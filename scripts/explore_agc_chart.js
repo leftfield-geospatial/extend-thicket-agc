@@ -79,6 +79,22 @@ function findAgc(image) {
 
 ////////////////////////////////////////////////////////////////////////////
 // Visualisation
+// TO DO - try retrieve agcVis from map and place these vars elsewhere
+var l8Vis = {
+  min: 7500,
+  max: 13000,
+  gamma: 1.2,
+  bands: ["SR_B4", "SR_B3", "SR_B2"],
+  opacity: 1.0,
+};
+
+var agcVis = {
+  min: 0,
+  max: 50,
+  palette: "red,yellow,green",
+  opacity: 1.0,
+};
+
 
 function createMap(){
   // Create the map panel with drawing tools
@@ -121,7 +137,7 @@ function createSidePanel(){
     style: { width: "20%" },
   });
   
-    // AGC legend
+  // AGC legend
   var legendTitleLabel = ui.Label("Legend", {
     fontWeight: "bold",
     fontSize: "20px",
@@ -172,21 +188,6 @@ function createSidePanel(){
 }
 
 // Add composite & AGC image layers for 2017
-var l8Vis = {
-  min: 7500,
-  max: 13000,
-  gamma: 1.2,
-  bands: ["SR_B4", "SR_B3", "SR_B2"],
-  opacity: 1.0,
-};
-
-var agcVis = {
-  min: 0,
-  max: 50,
-  palette: "red,yellow,green",
-  opacity: 1.0,
-};
-
 
 function addImageLayers(year){
   // find composite & correponding AGC for a given year and add to map
