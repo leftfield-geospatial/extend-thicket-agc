@@ -58,7 +58,7 @@ if (true){
   );
   
   // L8 RGBN visualisation params
-  var l8Vis = {
+  var rgbnVisParams = {
     min: 7500,
     max: 13000,
     gamma: 1.2,
