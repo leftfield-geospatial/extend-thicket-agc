@@ -314,16 +314,12 @@ if (true) // create a time series of yearly AGC
     print("onDraw");
     return agcTimeSeriesChart(geom, layer, widget);
   };
-  var onDraw = function(geom, layer, widget) {
-    print("onDraw");
+  var onEdit = function(geom, layer, widget) {
+    print("onEdit");
     return agcTimeSeriesChart(geom, layer, widget);
   };
-  var onDraw = function(geom, layer, widget) {
-    print("onDraw");
-    return agcTimeSeriesChart(geom, layer, widget);
-  };
-  var onDraw = function(geom, layer, widget) {
-    print("onDraw");
+  var onLayerConfig = function(geom, layer, widget) {
+    print("onLayerConfig");
     return agcTimeSeriesChart(geom, layer, widget);
   };
   mapPanel.drawingTools().onDraw(ui.util.debounce(agcTimeSeriesChart));
