@@ -91,7 +91,6 @@ function findAgc(image) {
 // Visualisation
 // TO DO - try retrieve agcVisParams from map and place these vars elsewhere
 
-
 function addMapImageLayers(mapPanel, year){
   // Add AGC and RGB compositer for year to mapPanel
   var composite = compColl.filter(ee.Filter.eq("year", year)).first();
