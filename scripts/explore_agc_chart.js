@@ -202,6 +202,14 @@ function createSidePanel(){
   
   toolPanel.add(colourBarThumbnail);
   toolPanel.add(legendValuesPanel);
+
+  var chartTitleLabel = ui.Label("Time Series", {
+    fontWeight: "bold",
+    fontSize: "20px",
+    color: "SteelBlue",
+  });
+  toolPanel.add(chartTitleLabel);
+  
 }
 
 // Initialise map and side panels
@@ -307,12 +315,6 @@ if (true) // create a time series of yearly AGC
   // var initialPoint = ee.Geometry.Point(22.21972695106567031, -33.57070965396300011);  // Oudtshoorn Grootkop
   // mapPanel.centerObject(initialPoint, 4);
   
-  var chartTitleLabel = ui.Label("Time Series", {
-    fontWeight: "bold",
-    fontSize: "20px",
-    color: "SteelBlue",
-  });
-  toolPanel.add(chartTitleLabel);
   
   var addInitGeomLayer = function(stratumName, stratumColor){
     var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
