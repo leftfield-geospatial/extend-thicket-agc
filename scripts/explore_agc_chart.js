@@ -97,6 +97,15 @@ var agcVisParams = {
   opacity: 1.0,
 };
 
+function createMap(){
+  // Create the map panel with drawing tools
+  var mapPanel = ui.Map();
+  mapPanel.setOptions("HYBRID");
+  mapPanel.centerObject(thicketBounds);
+  var tools = mapPanel.drawingTools();
+  tools.setDrawModes(['point', 'polygon', 'rectangle']);
+}
+
 function addMapImageLayers(mapPanel, year){
   // Add AGC and RGB compositer for year to mapPanel
   var composite = compColl.filter(ee.Filter.eq("year", year)).first();
@@ -113,16 +122,6 @@ function addMapImageLayers(mapPanel, year){
     maskedAgcImage, agcVisParams, "AGC (" + year + ")", true, 0.6
   );
   mapPanel.layers().reset([compositeLayer, agcLayer]);
-}
-
-
-function createMap(){
-  // Create the map panel with drawing tools
-  var mapPanel = ui.Map();
-  mapPanel.setOptions("HYBRID");
-  mapPanel.centerObject(thicketBounds);
-  var tools = mapPanel.drawingTools();
-  tools.setDrawModes(['point', 'polygon', 'rectangle']);
 }
 
 function createSidePanel(){
