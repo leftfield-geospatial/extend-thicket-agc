@@ -319,16 +319,16 @@ function createAgcChart(mapPanel, toolPanel) {
   return agcChart;
 }
 
-function geomCallback(geom, layer, widget) {
+function drawingGeomChanged(geom, layer, widget) {
   // Drawing geometry changed event handler
-  print("geomCallback");
+  print("drawingGeomChanged");
   if (!geom) return;
   agcTimeSeriesChart();
 }
 
-function layerCallack(layer, widget) {
+function drawingLayerChanged(layer, widget) {
   // Drawing tools layer changed event handler
-  print("layerCallack");
+  print("drawingLayerChanged");
   if (!layer.geometries().length()) return;
   agcTimeSeriesChart();
 }
@@ -343,12 +343,13 @@ toolPanel = createToolPanel();
 agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
 
-mapPanel.drawingTools().onDraw(ui.util.debounce(geomCallback, 200));
-mapPanel.drawingTools().onEdit(ui.util.debounce(geomCallback, 200));
+// set up event handlers
+mapPanel.drawingTools().onDraw(ui.util.debounce(drawingGeomChanged, 200));
+mapPanel.drawingTools().onEdit(ui.util.debounce(drawingGeomChanged, 200));
 // mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
-mapPanel.drawingTools().onErase(ui.util.debounce(geomCallback, 200));
-mapPanel.drawingTools().onLayerConfig(ui.util.debounce(layerCallack, 200));
-mapPanel.drawingTools().onLayerRemove(ui.util.debounce(layerCallack, 100));
+mapPanel.drawingTools().onErase(ui.util.debounce(drawingGeomChanged, 200));
+mapPanel.drawingTools().onLayerConfig(ui.util.debounce(drawingLayerChanged, 200));
+mapPanel.drawingTools().onLayerRemove(ui.util.debounce(drawingLayerChanged, 100));
 
 
 if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
