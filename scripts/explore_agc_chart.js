@@ -381,7 +381,6 @@ if (false)    // create a chart of solar zenith and azimuth angle for debugging 
   mapPanel.drawingTools().onLayerConfig(ui.util.debounce(layerCallack, 200));
   mapPanel.drawingTools().onLayerRemove(ui.util.debounce(layerCallack, 100));
 
-}
 
 
 // Register a callback on the default map to be invoked when the map is clicked.
