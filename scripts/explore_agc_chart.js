@@ -327,6 +327,7 @@ function geomCallback(geom, layer, widget) {
 }
 
 function layerCallack(layer, widget) {
+  // Drawing tools layer changed event handler
   print("layerCallack");
   if (!layer.geometries().length()) return;
   agcTimeSeriesChart();
