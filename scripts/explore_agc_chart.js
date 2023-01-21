@@ -319,7 +319,7 @@ if (true) // create a time series of yearly AGC
     print("onEdit");
     return agcTimeSeriesChart(geom, layer, widget);
   };
-  var onLayerConfig = function(geom, layer, widget) {
+  var onLayerConfig = function(layer, widget) {
     print("onLayerConfig");
     return agcTimeSeriesChart(geom, layer, widget);
   };
