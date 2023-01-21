@@ -325,9 +325,9 @@ if (true) // create a time series of yearly AGC
   mapPanel.drawingTools().onDraw(onDraw);
   mapPanel.drawingTools().onEdit(onEdit);
   // mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
-  mapPanel.drawingTools().onErase(ui.util.debounce(agcTimeSeriesChart));
+  mapPanel.drawingTools().onErase(ui.util.debounce(agcTimeSeriesChart, 100));
   mapPanel.drawingTools().onLayerConfig(onLayerConfig);
-  mapPanel.drawingTools().onLayerRemove(ui.util.debounce(agcTimeSeriesChart));
+  mapPanel.drawingTools().onLayerRemove(ui.util.debounce(agcTimeSeriesChart, 100));
 
 }
 
