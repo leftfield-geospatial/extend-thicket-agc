@@ -256,7 +256,7 @@ function createSidePanel(){
   toolPanel.add(creditsPanel);
 }
 
-// Initialise map and side panels
+// Initialise map and tool panels
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
 
