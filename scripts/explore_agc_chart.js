@@ -321,11 +321,11 @@ if (true) // create a time series of yearly AGC
     agcTimeSeriesChart();
   };
   mapPanel.drawingTools().onDraw(ui.util.debounce(geomCallback, 200));
-  mapPanel.drawingTools().onEdit(onEdit);
+  mapPanel.drawingTools().onEdit(ui.util.debounce(geomCallback, 200));
   // mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
-  mapPanel.drawingTools().onErase(ui.util.debounce(agcTimeSeriesChart, 100));
-  mapPanel.drawingTools().onLayerConfig(onLayerConfig);
-  mapPanel.drawingTools().onLayerRemove(ui.util.debounce(agcTimeSeriesChart, 100));
+  mapPanel.drawingTools().onErase(ui.util.debounce(geomCallback, 200));
+  mapPanel.drawingTools().onLayerConfig(ui.util.debounce(layerCallack, 200));
+  mapPanel.drawingTools().onLayerRemove(ui.util.debounce(layerCallack, 100));
 
 }
 
