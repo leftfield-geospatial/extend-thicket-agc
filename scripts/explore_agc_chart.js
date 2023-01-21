@@ -271,7 +271,7 @@ function createAgcChart(mapPanel, toolPanel) {
   mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
   print(layerFeats);
 
-  // make a AGC time series chart for geometries
+  // make a mean AGC time series chart for geometries
   var agcChart = ui.Chart.image.seriesByRegion(
     compColl.map(findAgc),
     layerFeats,
