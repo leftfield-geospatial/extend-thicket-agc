@@ -32,6 +32,15 @@ var model = {
   c: ee.Number(eeAgcModel.first().get("c")),
 };
 
+function createComposite(year){
+  // Return a yearly median composite of srcColl
+  return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
+  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  .median()
+  .set("year", year)
+  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
+}
+
 // Landsat 8 cloud masked collection
 var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
@@ -39,14 +48,6 @@ var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterBounds(thicketBounds)
   .map(cloudMasking.landsat8SrCloudMask);
 
-function createComposite(year){
-  // return yearly median composite
-  return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
-  .filter(ee.Filter.calendarRange(1, 12, "month"))
-  .median()
-  .set("year", year)
-  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
-}
 
 // create a collection of yearly median composites
 var years = ee.List.sequence(2014, 2022); // valid L8 years
