@@ -313,7 +313,7 @@ if (true) // create a time series of yearly AGC
   var geomCallback = function(geom, layer, widget) {
     print("geomCallback");
     if (!geom) return;
-    return agcTimeSeriesChart();
+    agcTimeSeriesChart();
   };
   var onEdit = function(geom, layer, widget) {
     print("onEdit");
