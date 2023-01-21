@@ -341,7 +341,7 @@ toolPanel = createToolPanel();
 agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
 
-// set up event handlers
+// Set up event handlers
 mapPanel.drawingTools().onDraw(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onEdit(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onErase(ui.util.debounce(drawingGeomChanged, 200));
