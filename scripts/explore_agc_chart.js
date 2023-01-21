@@ -41,7 +41,7 @@ function createComposite(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-if (true){
+if (false){
   // Landsat 8
   // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
@@ -65,8 +65,34 @@ if (true){
     bands: ["SR_B4", "SR_B3", "SR_B2"],
     opacity: 1.0,
   };
-
 }
+else{
+  // MODIS NBAR
+  // cloud masked RGBN collection
+  var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+    .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+    .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
+    .filterBounds(thicketBounds)
+    .map(cloudMasking.landsat8SrCloudMask)
+    .select(["SR_B4", "SR_B3", "SR_B2", "SR_B5"]);
+
+  // create a collection of yearly median composites
+  var years = ee.List.sequence(2014, 2022); // valid L8 years
+  var compColl = ee.ImageCollection.fromImages(
+    years.map(createComposite).flatten()
+  );
+  
+  // L8 RGBN visualisation params
+  var rgbnVisParams = {
+    min: 7500,
+    max: 13000,
+    gamma: 1.2,
+    bands: ["SR_B4", "SR_B3", "SR_B2"],
+    opacity: 1.0,
+  };
+  
+}
+
 
 ////////////////////////////////////////////////////////////////////////////
 // AGC modelling
