@@ -310,12 +310,12 @@ if (true) // create a time series of yearly AGC
     addInitGeomLayer(stratumName, strataDict[stratumName]);
   }
   agcTimeSeriesChart();
-  mapPanel.drawingTools().onDraw(agcTimeSeriesChart);
-  mapPanel.drawingTools().onEdit(agcTimeSeriesChart);
+  mapPanel.drawingTools().onDraw(ui.util.debounce(agcTimeSeriesChart));
+  mapPanel.drawingTools().onEdit(ui.util.debounce(agcTimeSeriesChart));
   // mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
-  mapPanel.drawingTools().onErase(agcTimeSeriesChart);
-  mapPanel.drawingTools().onLayerConfig(agcTimeSeriesChart);
-  mapPanel.drawingTools().onLayerRemove(agcTimeSeriesChart);
+  mapPanel.drawingTools().onErase(ui.util.debounce(agcTimeSeriesChart));
+  mapPanel.drawingTools().onLayerConfig(ui.util.debounce(agcTimeSeriesChart));
+  mapPanel.drawingTools().onLayerRemove(ui.util.debounce(agcTimeSeriesChart));
 
 }
 
