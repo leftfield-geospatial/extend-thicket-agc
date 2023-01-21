@@ -71,7 +71,12 @@ else{
   // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("MODIS/061/MCD43A4")
     .filterBounds(thicketBounds)
-    .select(["SR_B4", "SR_B3", "SR_B2", "SR_B5"]);
+    .select([
+      "Nadir_Reflectance_Band1", 
+      "Nadir_Reflectance_Band1", 
+      "Nadir_Reflectance_Band1", 
+      "Nadir_Reflectance_Band1"
+      ]);
 
   // create a collection of yearly median composites
   var years = ee.List.sequence(2014, 2022); // valid L8 years
