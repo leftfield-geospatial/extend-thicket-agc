@@ -77,13 +77,17 @@ function findAgc(image) {
   ).rename("AGC");
 }
 
+////////////////////////////////////////////////////////////////////////////
+// Visualisation
 
-// Create the map panel with drawing tools
-var mapPanel = ui.Map();
-mapPanel.setOptions("HYBRID");
-mapPanel.centerObject(thicketBounds);
-var tools = mapPanel.drawingTools();
-tools.setDrawModes(['point', 'polygon', 'rectangle']);
+function createMap(){
+  // Create the map panel with drawing tools
+  var mapPanel = ui.Map();
+  mapPanel.setOptions("HYBRID");
+  mapPanel.centerObject(thicketBounds);
+  var tools = mapPanel.drawingTools();
+  tools.setDrawModes(['point', 'polygon', 'rectangle']);
+}
 
 
 // Add composite & AGC image layers for 2017
