@@ -308,6 +308,7 @@ function createAgcChart(mapPanel, toolPanel) {
   });
   
   agcChart.onClick(function(xValue, yValue, seriesName) {
+    print("agcChart.onClick");
     if (!xValue) return;  // Selection was cleared.
   
     // Show the image for the clicked date.
