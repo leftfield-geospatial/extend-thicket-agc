@@ -314,52 +314,41 @@ agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
 
 
-    if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
-    {
-      var szaCollection = images
-        .filter(ee.Filter.calendarRange(9, 12, "month"))
-        .map(function (image) {
-          return image.addBands([
-            image.metadata("SOLAR_ZENITH_ANGLE"),
-            image.metadata("SOLAR_AZIMUTH_ANGLE"),
-          ]);
-        });
-      
-      var szaChart = ui.Chart.image.series(
-        szaCollection.select(["SOLAR_ZENITH_ANGLE", "SOLAR_AZIMUTH_ANGLE"]),
-        point,
-        ee.Reducer.mean(),
-        30
-      );
-    
-      szaChart.setOptions({
-        title: "SZA: time series",
-        vAxis: { title: "SZA (deg)" },
-        hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
-        series: {
-          0: {
-            color: "SteelBlue",
-            lineWidth: 0,
-            pointsVisible: true,
-            pointSize: 3,
-          },
-        },
-        legend: { position: "right" },
-      });
-      toolPanel.widgets().set(11, szaChart);
-    }
-  // TO DO: onClick should have a wrapper function that makes a point geometry and passes to agcTimeSeriesChart
-  // TO DO: debounce all the below
-  // mapPanel.onClick(createComposite);
-  // mapPanel.style().set("cursor", "crosshair");
-
-
-  // test point for AGC chart
-  // var initialPoint = ee.Geometry.Point(24.37007063238984017, -33.66776731422557845);   //Baviaanskloof Smitskraal
-  var initialPoint = ee.Geometry.Point(23.94436842431511536, -33.55374308591438393); //Baviaanskloof Sewefontein
-  // var initialPoint = ee.Geometry.Point(22.21972695106567031, -33.57070965396300011);  // Oudtshoorn Grootkop
-  // mapPanel.centerObject(initialPoint, 4);
+if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
+{
+  var szaCollection = images
+    .filter(ee.Filter.calendarRange(9, 12, "month"))
+    .map(function (image) {
+      return image.addBands([
+        image.metadata("SOLAR_ZENITH_ANGLE"),
+        image.metadata("SOLAR_AZIMUTH_ANGLE"),
+      ]);
+    });
   
+  var szaChart = ui.Chart.image.series(
+    szaCollection.select(["SOLAR_ZENITH_ANGLE", "SOLAR_AZIMUTH_ANGLE"]),
+    point,
+    ee.Reducer.mean(),
+    30
+  );
+
+  szaChart.setOptions({
+    title: "SZA: time series",
+    vAxis: { title: "SZA (deg)" },
+    hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
+    series: {
+      0: {
+        color: "SteelBlue",
+        lineWidth: 0,
+        pointsVisible: true,
+        pointSize: 3,
+      },
+    },
+    legend: { position: "right" },
+  });
+  toolPanel.widgets().set(11, szaChart);
+}
+
   
   var addInitGeomLayer = function(stratumName, stratumColor){
     var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
