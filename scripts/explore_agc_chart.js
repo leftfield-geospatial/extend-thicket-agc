@@ -334,7 +334,7 @@ function drawingLayerChanged(layer, widget) {
 }
 
 // Initialise map and tool panels
-mapPanel = createMapPanel();
+var mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
 initMapDrawingLayers();
 
