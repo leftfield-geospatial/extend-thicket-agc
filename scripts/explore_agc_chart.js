@@ -89,14 +89,31 @@ function findAgc(image) {
 
 ////////////////////////////////////////////////////////////////////////////
 // Visualisation
-// TO DO - try retrieve agcVis from map and place these vars elsewhere
+// TO DO - try retrieve agcVisParams from map and place these vars elsewhere
 
-var agcVis = {
+var agcVisParams = {
   min: 0,
   max: 50,
   palette: "red,yellow,green",
   opacity: 1.0,
 };
+
+// Add composite & AGC image layers for 2017
+function addMapImageLayers(map, year){
+  // find composite & correponding AGC for a given year and add to map
+  var composite = compColl.filter(ee.Filter.eq("year", year)).first();
+  var maskedComposite = composite.clipToCollection(thicketBoundary);
+  
+  // Apply the model to find the EE AGC image
+  var agcImage = findAgc(composite).uint8();
+  var maskedAgcImage = agcImage.clipToCollection(thicketBoundary);
+
+  var compositeLayer = ui.Map.Layer(
+    maskedComposite, l8Vis, "Composite (" + year + ")", true, 0.6
+  );
+  var agcLayer = ui.Map.Layer(maskedAgcImage, agcVisParams, "AGC (" + year + ")", true, 0.6);
+  mapPanel.layers().reset([compositeLayer, agcLayer]);
+}
 
 
 function createMap(){
@@ -168,20 +185,20 @@ function createSidePanel(){
   
   var colourBarThumbnail = ui.Thumbnail({
     image: ee.Image.pixelLonLat().select(0),
-    params: makeColourBarParams(agcVis.palette),
+    params: makeColourBarParams(agcVisParams.palette),
     style: { stretch: "horizontal", margin: "0px 8px", maxHeight: "24px" },
   });
   
   // value labels for colour bar
   var legendValuesPanel = ui.Panel({
     widgets: [
-      ui.Label(agcVis.min, { margin: "4px 8px" }),
-      ui.Label(agcVis.max / 2, {
+      ui.Label(agcVisParams.min, { margin: "4px 8px" }),
+      ui.Label(agcVisParams.max / 2, {
         margin: "4px 8px",
         textAlign: "center",
         stretch: "horizontal",
       }),
-      ui.Label(agcVis.max, { margin: "4px 8px" }),
+      ui.Label(agcVisParams.max, { margin: "4px 8px" }),
     ],
     layout: ui.Panel.Layout.flow("horizontal"),
   });
@@ -190,23 +207,6 @@ function createSidePanel(){
   toolPanel.add(legendValuesPanel);
 }
 
-// Add composite & AGC image layers for 2017
-
-function addImageLayers(year){
-  // find composite & correponding AGC for a given year and add to map
-  var composite = compColl.filter(ee.Filter.eq("year", year)).first();
-  var maskedComposite = composite.clipToCollection(thicketBoundary);
-  
-  // Apply the model to find the EE AGC image
-  var agcImage = findAgc(composite).uint8();
-  var maskedAgcImage = agcImage.clipToCollection(thicketBoundary);
-
-  var compositeLayer = ui.Map.Layer(
-    maskedComposite, l8Vis, "Composite (" + year + ")", true, 0.6
-  );
-  var agcLayer = ui.Map.Layer(maskedAgcImage, agcVis, "AGC (" + year + ")", true, 0.6);
-  mapPanel.layers().reset([compositeLayer, agcLayer]);
-}
 
 addImageLayers(2017);
 
