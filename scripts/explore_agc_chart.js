@@ -324,6 +324,7 @@ function createAgcChart(mapPanel, toolPanel) {
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
 initMapDrawingLayers();
+
 toolPanel = createToolPanel();
 agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
