@@ -303,6 +303,8 @@ function createAgcChart(mapPanel, toolPanel) {
     addImageLayers(clickYear);
     // mapPanel.layers().set(2, dot);
   });
+  return agcChart;
+}
 
 // Initialise map and tool panels
 mapPanel = createMapPanel();
