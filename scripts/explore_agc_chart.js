@@ -310,7 +310,10 @@ if (true) // create a time series of yearly AGC
     addInitGeomLayer(stratumName, strataDict[stratumName]);
   }
   agcTimeSeriesChart();
-  var onDraw = function(geom, layer, widget) {agcTimeSeriesChart(geom, layer, widget)};
+  var onDraw = function(geom, layer, widget) {
+    print("onDraw");
+    return agcTimeSeriesChart(geom, layer, widget);
+  };
   var onEdit = function(geom, layer, widget) {agcTimeSeriesChart(geom, layer, widget)};
   var onLayerConfig = function(geom, layer, widget) {agcTimeSeriesChart(geom, layer, widget)};
   mapPanel.drawingTools().onDraw(ui.util.debounce(agcTimeSeriesChart));
