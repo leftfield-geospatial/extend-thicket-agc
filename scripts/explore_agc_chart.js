@@ -85,7 +85,7 @@ else{
   // MODIS RGBN visualisation params
   var rgbnVisParams = {
     min: 500,
-    max: 2500,
+    max: 2000,
     gamma: 1.2,
     bands: ["Nadir_Reflectance_Band1", 
       "Nadir_Reflectance_Band4", 
