@@ -109,7 +109,7 @@ function createMapPanel(){
 }
 
 function addMapImageLayers(mapPanel, year){
-  // Add AGC and RGB compositer for year to mapPanel
+  // Add AGC and RGB composites for year to mapPanel
   var composite = compColl.filter(ee.Filter.eq("year", year)).first();
   var maskedComposite = composite.clipToCollection(thicketBoundary);
   
