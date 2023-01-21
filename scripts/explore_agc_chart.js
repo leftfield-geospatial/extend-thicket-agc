@@ -319,19 +319,6 @@ function createAgcChart(mapPanel, toolPanel) {
   return agcChart;
 }
 
-function drawingGeomChanged(geom, layer, widget) {
-  // Drawing geometry changed event handler
-  print("drawingGeomChanged");
-  if (!geom) return;
-  agcTimeSeriesChart();
-}
-
-function drawingLayerChanged(layer, widget) {
-  // Drawing tools layer changed event handler
-  print("drawingLayerChanged");
-  if (!layer.geometries().length()) return;
-  agcTimeSeriesChart();
-}
 
 // Initialise map and tool panels
 var mapPanel = createMapPanel();
@@ -343,6 +330,21 @@ var agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
 
 // Set up event handlers
+function drawingGeomChanged(geom, layer, widget) {
+  // Drawing geometry changed event handler
+  print("drawingGeomChanged");
+  if (!geom) return;
+  var agcChart = createAgcChart(mapPanel, toolPanel);
+  toolPanel.widgets().set(10, agcChart);
+}
+
+function drawingLayerChanged(layer, widget) {
+  // Drawing tools layer changed event handler
+  print("drawingLayerChanged");
+  if (!layer.geometries().length()) return;
+  var agcChart = createAgcChart(mapPanel, toolPanel);
+  toolPanel.widgets().set(10, agcChart);
+}
 mapPanel.drawingTools().onDraw(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onEdit(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onErase(ui.util.debounce(drawingGeomChanged, 200));
