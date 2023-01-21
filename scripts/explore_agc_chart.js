@@ -125,7 +125,7 @@ function addMapImageLayers(mapPanel, year){
   mapPanel.layers().reset([compositeLayer, agcLayer]);
 }
 
-function createSidePanel(){
+function createToolPanel(){
   // Create side tool panel
   // title and description
   var titleLabel = ui.Label("Thicket Aboveground Carbon (AGC)", {
@@ -260,7 +260,7 @@ function createSidePanel(){
 // Initialise map and tool panels
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
-
+toolPanel = 
 
 if (true) // create a time series of yearly AGC
 {
