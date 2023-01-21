@@ -26,11 +26,6 @@ var eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
-var eeAgcModel = eeL8SrAgcModel;
-var model = {
-  m: ee.Number(eeAgcModel.first().get("m")),
-  c: ee.Number(eeAgcModel.first().get("c")),
-};
 print("Model: ", model);
 
 function createComposite(year){
@@ -66,6 +61,7 @@ if (false){
     bands: ["SR_B4", "SR_B3", "SR_B2"],
     opacity: 1.0,
   };
+  var eeAgcModel = eeL8SrAgcModel;
 }
 else{
   // MODIS NBAR
@@ -96,6 +92,10 @@ else{
     opacity: 1.0,
   };
 }
+var model = {
+  m: ee.Number(eeAgcModel.first().get("m")),
+  c: ee.Number(eeAgcModel.first().get("c")),
+};
 
 
 ////////////////////////////////////////////////////////////////////////////
