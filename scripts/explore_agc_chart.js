@@ -310,7 +310,7 @@ function createAgcChart(mapPanel, toolPanel) {
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
 toolPanel = createToolPanel();
-
+agcChart = createAgcChart(mapPanel, toolPanel);
 
 
 if (true) // create a time series of yearly AGC
