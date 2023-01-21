@@ -316,11 +316,11 @@ function createAgcChart(mapPanel, toolPanel) {
 
 function yearChanged(xValue, yValue, seriesName){
   // Image year changed event handler
-    if (!xValue) return;  // Selection was cleared.
-  
-    // Show the image for the clicked date.
-    var clickYear = ee.Date(xValue).get("year");
-    addImageLayers(clickYear);
+  if (!xValue) return;  // Selection was cleared.
+
+  // Show the image for the clicked date.
+  var clickYear = ee.Date(xValue).get("year");
+  addImageLayers(clickYear);
 }
 
 function drawingGeomChanged(geom, layer, widget) {
