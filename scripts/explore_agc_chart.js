@@ -349,7 +349,7 @@ mapPanel.drawingTools().onDraw(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onEdit(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onErase(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onLayerConfig(ui.util.debounce(drawingLayerChanged, 200));
-mapPanel.drawingTools().onLayerRemove(ui.util.debounce(drawingLayerChanged, 100));
+mapPanel.drawingTools().onLayerRemove(ui.util.debounce(drawingLayerChanged, 200));
 
 // Add map and tool panels to ui
 ui.root.clear();
