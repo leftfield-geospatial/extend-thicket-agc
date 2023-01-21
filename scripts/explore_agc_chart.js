@@ -260,7 +260,7 @@ function createToolPanel(){
 // Initialise map and tool panels
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
-toolPanel = 
+toolPanel = createToolPanel();
 
 if (true) // create a time series of yearly AGC
 {
