@@ -130,6 +130,7 @@ function initMapDrawingLayers(mapPanel){
   
   var addStratumGeom = function(stratumName, stratumColor){
     var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
+    // add synchronously so we don't trigger event handlers which are added later
     mapPanel.drawingTools().addLayer([stratumGeom.getInfo()], stratumName, stratumColor);
   };
   var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
