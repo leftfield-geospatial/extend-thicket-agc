@@ -80,13 +80,6 @@ function findAgc(image) {
 ////////////////////////////////////////////////////////////////////////////
 // Visualisation
 // TO DO - try retrieve agcVis from map and place these vars elsewhere
-var l8Vis = {
-  min: 7500,
-  max: 13000,
-  gamma: 1.2,
-  bands: ["SR_B4", "SR_B3", "SR_B2"],
-  opacity: 1.0,
-};
 
 var agcVis = {
   min: 0,
