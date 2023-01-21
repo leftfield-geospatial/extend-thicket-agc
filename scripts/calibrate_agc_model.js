@@ -221,7 +221,8 @@ Export.table.toAsset({
   description: 'ee_modis_nbar_agc_model_v2',
   // fileFormat: 'CSV',
   // folder: 'Earth Engine Data'
-  assetId: 'projects/thicket-agc/assets/ee_l8_sr_agc_model_v2',
+  // assetId: 'projects/thicket-agc/assets/ee_l8_sr_agc_model_v2',
+  assetId: 'projects/thicket-agc/assets/ee_modis_nbar_agc_model_v2',
 });
 
 if (true) {  // export AGC image 
