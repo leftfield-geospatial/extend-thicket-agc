@@ -90,7 +90,7 @@ else{
     max: 3000,
     gamma: 1.2,
     bands: [0, 1, 2],
-    opacity: 1.0,
+    opacity: 0.6,
   };
 }
 
