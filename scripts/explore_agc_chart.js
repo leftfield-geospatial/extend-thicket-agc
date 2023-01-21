@@ -97,7 +97,7 @@ var agcVisParams = {
   opacity: 1.0,
 };
 
-function createMap(){
+function createMapPanel(){
   // Create the map panel with drawing tools
   var mapPanel = ui.Map();
   mapPanel.setOptions("HYBRID");
@@ -314,7 +314,7 @@ function createAgcChart(mapPanel, toolPanel) {
   
     // Show the image for the clicked date.
     var clickYear = ee.Date(xValue).get("year");
-    addImageLayers(mapPanel, clickYear);
+    createMapPanelPanel(mapPanel, clickYear);
   });
   return agcChart;
 }
