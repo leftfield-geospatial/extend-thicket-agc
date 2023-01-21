@@ -348,36 +348,36 @@ if (false)    // create a chart of solar zenith and azimuth angle for debugging 
 }
 
   
-  var addInitGeomLayer = function(stratumName, stratumColor){
-    var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
-    var addInitGeomLayer = function(geom){
-      mapPanel.drawingTools().addLayer([geom], stratumName, stratumColor);
-    };
-    // stratumGeom.evaluate(addInitGeomLayer);
-    addInitGeomLayer(stratumGeom.getInfo());  // add synchronously so we don't trigger event handlers below
-    // stratumGeom.evaluate(addInitGeomLayer);
+var addInitGeomLayer = function(stratumName, stratumColor){
+  var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
+  var addInitGeomLayer = function(geom){
+    mapPanel.drawingTools().addLayer([geom], stratumName, stratumColor);
   };
-  var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
-  for (var stratumName in strataDict){
-    addInitGeomLayer(stratumName, strataDict[stratumName]);
-  }
+  // stratumGeom.evaluate(addInitGeomLayer);
+  addInitGeomLayer(stratumGeom.getInfo());  // add synchronously so we don't trigger event handlers below
+  // stratumGeom.evaluate(addInitGeomLayer);
+};
+var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
+for (var stratumName in strataDict){
+  addInitGeomLayer(stratumName, strataDict[stratumName]);
+}
+agcTimeSeriesChart();
+var geomCallback = function(geom, layer, widget) {
+  print("geomCallback");
+  if (!geom) return;
   agcTimeSeriesChart();
-  var geomCallback = function(geom, layer, widget) {
-    print("geomCallback");
-    if (!geom) return;
-    agcTimeSeriesChart();
-  };
-  var layerCallack = function(layer, widget) {
-    print("layerCallack");
-    if (!layer.geometries().length()) return;
-    agcTimeSeriesChart();
-  };
-  mapPanel.drawingTools().onDraw(ui.util.debounce(geomCallback, 200));
-  mapPanel.drawingTools().onEdit(ui.util.debounce(geomCallback, 200));
-  // mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
-  mapPanel.drawingTools().onErase(ui.util.debounce(geomCallback, 200));
-  mapPanel.drawingTools().onLayerConfig(ui.util.debounce(layerCallack, 200));
-  mapPanel.drawingTools().onLayerRemove(ui.util.debounce(layerCallack, 100));
+};
+var layerCallack = function(layer, widget) {
+  print("layerCallack");
+  if (!layer.geometries().length()) return;
+  agcTimeSeriesChart();
+};
+mapPanel.drawingTools().onDraw(ui.util.debounce(geomCallback, 200));
+mapPanel.drawingTools().onEdit(ui.util.debounce(geomCallback, 200));
+// mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
+mapPanel.drawingTools().onErase(ui.util.debounce(geomCallback, 200));
+mapPanel.drawingTools().onLayerConfig(ui.util.debounce(layerCallack, 200));
+mapPanel.drawingTools().onLayerRemove(ui.util.debounce(layerCallack, 100));
 
 
 
