@@ -32,7 +32,7 @@ var model = {
   c: ee.Number(eeAgcModel.first().get("c")),
 };
 
-// Landsat 8 SR image collection of thicket for year of GEF-5 SLM WV3 acquisition
+// Landsat 8 SR image cloud masked collection
 var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
