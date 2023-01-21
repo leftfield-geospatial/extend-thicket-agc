@@ -225,7 +225,7 @@ Export.table.toAsset({
   assetId: 'projects/thicket-agc/assets/ee_modis_nbar_agc_model_v2',
 });
 
-if (true) {  // export AGC image 
+if (false) {  // export AGC image 
   // Export.image.toDrive({
   //   image: agcDict.image.uint8(),
   //   description: 'ee_agc_image_toDrive',
