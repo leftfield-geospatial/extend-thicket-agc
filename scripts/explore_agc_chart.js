@@ -127,7 +127,8 @@ function addMapImageLayers(mapPanel, year){
 
 function initMapDrawingLayers(mapPanel){
   // Add initial geometries to map drawing layers
-  var addInitGeomLayer = function(stratumName, stratumColor){
+  
+  var addStratumGeom = function(stratumName, stratumColor){
     var stratumGeom = gefDegradationStrata.filter(ee.Filter.eq("DegrClass", stratumName)).geometry();
     var addInitGeomLayer = function(geom){
       mapPanel.drawingTools().addLayer([geom], stratumName, stratumColor);
@@ -137,8 +138,9 @@ function initMapDrawingLayers(mapPanel){
     // stratumGeom.evaluate(addInitGeomLayer);
   };
   var strataDict = {Pristine: "green", Moderate: "orange", Severe: "red"};
+  
   for (var stratumName in strataDict){
-    addInitGeomLayer(stratumName, strataDict[stratumName]);
+    addStratumGeom(stratumName, strataDict[stratumName]);
   }
 }
 
