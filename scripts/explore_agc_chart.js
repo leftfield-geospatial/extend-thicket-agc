@@ -89,6 +89,14 @@ function createMap(){
   tools.setDrawModes(['point', 'polygon', 'rectangle']);
 }
 
+function createSidePanel(){
+  // Create the map panel with drawing tools
+  var mapPanel = ui.Map();
+  mapPanel.setOptions("HYBRID");
+  mapPanel.centerObject(thicketBounds);
+  var tools = mapPanel.drawingTools();
+  tools.setDrawModes(['point', 'polygon', 'rectangle']);
+}
 
 // Add composite & AGC image layers for 2017
 var l8Vis = {
