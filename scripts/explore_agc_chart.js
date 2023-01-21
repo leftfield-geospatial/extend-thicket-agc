@@ -320,7 +320,7 @@ if (true) // create a time series of yearly AGC
     if (!layer.geometries().length()) return;
     agcTimeSeriesChart();
   };
-  mapPanel.drawingTools().onDraw(onDraw);
+  mapPanel.drawingTools().onDraw(ui.util.debounce(geomCallback, 200));
   mapPanel.drawingTools().onEdit(onEdit);
   // mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
   mapPanel.drawingTools().onErase(ui.util.debounce(agcTimeSeriesChart, 100));
