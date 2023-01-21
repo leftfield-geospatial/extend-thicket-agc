@@ -57,6 +57,26 @@ if (true){
   );
 }
 
+////////////////////////////////////////////////////////////////////////////
+// AGC modelling
+
+function findAgc(image) {
+  // Given an L8 image, return the AGC estimate
+  var rnImage = image.expression('(R / (R + G + B + RE))',
+    {
+      'R': image.select('.*B4$'),
+      'G': image.select('.*B3$'),
+      'B': image.select('.*B2$'),
+      'RE': image.select('.*B5$'),
+    });  
+  return ee.Image(rnImage.log10()
+    .multiply(model.m)
+    .add(model.c)
+    .set("system:time_start", image.get("system:time_start"))
+  ).rename("AGC");
+}
+
+
 // Create the map panel with drawing tools
 var mapPanel = ui.Map();
 mapPanel.setOptions("HYBRID");
@@ -81,21 +101,6 @@ var agcVis = {
   opacity: 1.0,
 };
 
-function findAgc(image) {
-  // Given an L8 image, return the AGC estimate
-  var rnImage = image.expression('(R / (R + G + B + RE))',
-    {
-      'R': image.select('.*B4$'),
-      'G': image.select('.*B3$'),
-      'B': image.select('.*B2$'),
-      'RE': image.select('.*B5$'),
-    });  
-  return ee.Image(rnImage.log10()
-    .multiply(model.m)
-    .add(model.c)
-    .set("system:time_start", image.get("system:time_start"))
-  ).rename("AGC");
-}
 
 function addImageLayers(year){
   // find composite & correponding AGC for a given year and add to map
