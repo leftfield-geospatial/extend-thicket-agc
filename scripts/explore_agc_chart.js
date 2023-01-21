@@ -338,8 +338,8 @@ var mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
 initMapDrawingLayers();
 
-toolPanel = createToolPanel();
-agcChart = createAgcChart(mapPanel, toolPanel);
+var toolPanel = createToolPanel();
+var agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
 
 // Set up event handlers
