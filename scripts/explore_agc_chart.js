@@ -70,10 +70,7 @@ else{
   // MODIS NBAR
   // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("MODIS/061/MCD43A4")
-    .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-    .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
     .filterBounds(thicketBounds)
-    .map(cloudMasking.landsat8SrCloudMask)
     .select(["SR_B4", "SR_B3", "SR_B2", "SR_B5"]);
 
   // create a collection of yearly median composites
