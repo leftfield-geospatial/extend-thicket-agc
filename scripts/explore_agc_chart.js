@@ -332,7 +332,6 @@ function drawingLayerChanged(layer, widget) {
   agcTimeSeriesChart();
 }
 
-
 // Initialise map and tool panels
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
@@ -345,7 +344,6 @@ toolPanel.widgets().set(10, agcChart);
 // set up event handlers
 mapPanel.drawingTools().onDraw(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onEdit(ui.util.debounce(drawingGeomChanged, 200));
-// mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
 mapPanel.drawingTools().onErase(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onLayerConfig(ui.util.debounce(drawingLayerChanged, 200));
 mapPanel.drawingTools().onLayerRemove(ui.util.debounce(drawingLayerChanged, 100));
