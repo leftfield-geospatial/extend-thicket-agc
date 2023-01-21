@@ -321,6 +321,7 @@ if (true) // create a time series of yearly AGC
   };
   var onLayerConfig = function(layer, widget) {
     print("onLayerConfig");
+    if (!layer.geometries().length()) return;
     return agcTimeSeriesChart(geom, layer, widget);
   };
   mapPanel.drawingTools().onDraw(onDraw);
