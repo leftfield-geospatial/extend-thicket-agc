@@ -259,6 +259,8 @@ function createToolPanel(){
 
 function createAgcChart(mapPanel, toolPanel) {
   // Create AGC time series chart
+
+  // get lists of drawn geometries and colours
   var layerFeats = [];
   var layerColors = [];
   var getDrawnGeometries = function(layer){
