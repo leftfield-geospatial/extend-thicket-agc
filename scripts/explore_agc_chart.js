@@ -322,11 +322,11 @@ if (true) // create a time series of yearly AGC
     print("onLayerConfig");
     return agcTimeSeriesChart(geom, layer, widget);
   };
-  mapPanel.drawingTools().onDraw(ui.util.debounce(agcTimeSeriesChart));
-  mapPanel.drawingTools().onEdit(ui.util.debounce(agcTimeSeriesChart));
+  mapPanel.drawingTools().onDraw(onDraw);
+  mapPanel.drawingTools().onEdit(onEdit);
   // mapPanel.drawingTools().onSelect(agcTimeSeriesChart);
   mapPanel.drawingTools().onErase(ui.util.debounce(agcTimeSeriesChart));
-  mapPanel.drawingTools().onLayerConfig(ui.util.debounce(agcTimeSeriesChart));
+  mapPanel.drawingTools().onLayerConfig(onLayerConfig);
   mapPanel.drawingTools().onLayerRemove(ui.util.debounce(agcTimeSeriesChart));
 
 }
