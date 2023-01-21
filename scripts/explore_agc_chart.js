@@ -315,9 +315,10 @@ if (true) // create a time series of yearly AGC
     if (!geom) return;
     agcTimeSeriesChart();
   };
-  var onEdit = function(geom, layer, widget) {
-    print("onEdit");
-    return agcTimeSeriesChart(geom, layer, widget);
+  var layerCallack = function(layer, widget) {
+    print("layerCallack");
+    if (!layer.geometries().length()) return;
+    agcTimeSeriesChart();
   };
   var onLayerConfig = function(layer, widget) {
     print("onLayerConfig");
