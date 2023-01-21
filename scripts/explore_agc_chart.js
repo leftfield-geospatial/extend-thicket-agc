@@ -314,11 +314,6 @@ agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
 
 
-if (true) // create a time series of yearly AGC
-{
-  
-    
-  
     if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
     {
       var szaCollection = images
@@ -353,7 +348,6 @@ if (true) // create a time series of yearly AGC
       });
       toolPanel.widgets().set(11, szaChart);
     }
-  };
   // TO DO: onClick should have a wrapper function that makes a point geometry and passes to agcTimeSeriesChart
   // TO DO: debounce all the below
   // mapPanel.onClick(createComposite);
