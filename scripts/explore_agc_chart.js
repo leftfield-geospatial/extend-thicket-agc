@@ -1,7 +1,8 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v2"),
     stepAridAndValleyThicket = ee.FeatureCollection("projects/thicket-agc/assets/step_arid_and_valley_thicket"),
-    gefDegradationStrata = ee.FeatureCollection("projects/thicket-agc/assets/gef_degradation_strata");
+    gefDegradationStrata = ee.FeatureCollection("projects/thicket-agc/assets/gef_degradation_strata"),
+    eeModisNbarAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_modis_nbar_agc_model_v2");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     Concept demonstration for extension of local aboveground carbon model to the thicket biome
