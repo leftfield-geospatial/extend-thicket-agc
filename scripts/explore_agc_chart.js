@@ -261,12 +261,12 @@ function createAgcChart(mapPanel, toolPanel) {
   // Create AGC time series chart
   var layerFeats = [];
   var layerColors = [];
-  var aggrLayerGeometries = function(layer){
+  var getDrawnGeometries = function(layer){
     var layerGeom = ee.FeatureCollection(layer.getEeObject()).geometry();
     layerFeats.push(ee.Feature(layerGeom, {name: layer.getName()}));
     layerColors.push(layer.getColor());
   };
-  mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
+  mapPanel.drawingTools().layers().forEach(drawnGeometries);
   print(layerFeats);
 
   // make a chart of agc(median images)
