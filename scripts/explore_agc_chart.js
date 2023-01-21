@@ -89,7 +89,7 @@ else{
     min: 500,
     max: 3000,
     gamma: 1.2,
-    bands: ["SR_B4", "SR_B3", "SR_B2"],
+    bands: [0, 1, 2],
     opacity: 1.0,
   };
   
