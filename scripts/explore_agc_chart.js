@@ -92,7 +92,6 @@ else{
     bands: [0, 1, 2],
     opacity: 1.0,
   };
-  
 }
 
 
