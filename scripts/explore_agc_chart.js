@@ -104,6 +104,7 @@ function createMap(){
   mapPanel.centerObject(thicketBounds);
   var tools = mapPanel.drawingTools();
   tools.setDrawModes(['point', 'polygon', 'rectangle']);
+  mapPanel.style().set('cursor', 'crosshair');
   return mapPanel;
 }
 
@@ -348,6 +349,12 @@ mapPanel.drawingTools().onErase(ui.util.debounce(drawingGeomChanged, 200));
 mapPanel.drawingTools().onLayerConfig(ui.util.debounce(drawingLayerChanged, 200));
 mapPanel.drawingTools().onLayerRemove(ui.util.debounce(drawingLayerChanged, 100));
 
+mapPanel.style().set('cursor', 'crosshair');
+
+// add map and tool panels to ui
+ui.root.clear();
+ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
+
 
 if (false)    // create a chart of solar zenith and azimuth angle for debugging agc
 {
@@ -388,11 +395,3 @@ if (false)    // create a chart of solar zenith and azimuth angle for debugging 
 
 
 
-// Register a callback on the default map to be invoked when the map is clicked.
-// mapPanel.onClick(generateChart);
-// Configure the map.
-mapPanel.style().set('cursor', 'crosshair');
-
-// add map and tool panels to ui
-ui.root.clear();
-ui.root.add(ui.SplitPanel(toolPanel, mapPanel));
