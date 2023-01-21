@@ -69,7 +69,7 @@ if (false){
 else{
   // MODIS NBAR
   // cloud masked RGBN collection
-  var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+  var srcColl = ee.ImageCollection("MODIS/061/MCD43A4")
     .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
     .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
     .filterBounds(thicketBounds)
