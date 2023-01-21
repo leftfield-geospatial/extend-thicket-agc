@@ -203,12 +203,56 @@ function createSidePanel(){
   toolPanel.add(colourBarThumbnail);
   toolPanel.add(legendValuesPanel);
 
+  // chart label and placeholder
   var chartTitleLabel = ui.Label("Time Series", {
     fontWeight: "bold",
     fontSize: "20px",
     color: "SteelBlue",
   });
   toolPanel.add(chartTitleLabel);
+  toolPanel.add(ui.Label('[Chart]'));  // placeholder
+
+  // make credits panel
+  var creditsTitleLabel = ui.Label("Acknowledgements", {
+    fontWeight: "bold",
+    fontSize: "20px",
+    color: "SteelBlue",
+  });
+  
+  var stepDescrLabel = ui.Label(
+    "Thicket boundaries derived from the",
+    { fontSize: "11px", margin: "4px 4px 4px 8px" }
+  );
+  var stepLinkLabel = ui.Label(
+    "STEP vegetation map",  
+    { fontSize: "11px", margin: "4px 0px" },
+    "https://bgis.sanbi.org/STEP/project.asp"
+    // "https://bgis.sanbi.org/SpatialDataset/Detail/194"
+  );
+  var stepPanel = ui.Panel(
+    [stepDescrLabel, stepLinkLabel],
+    ui.Panel.Layout.Flow("horizontal")
+  );
+  
+  var gefDescrLabel = ui.Label(
+    "Localised AGC model produced as part of the",  
+    { fontSize: "11px", margin: "4px 4px 4px 8px" }
+  );
+  var gefLinkLabel = ui.Label(
+    "GEF-5 SLM project",
+    { fontSize: "11px", margin: "4px 0px" },
+    "https://github.com/dugalh/map_thicket_agc"
+  );
+  var gefPanel = ui.Panel(
+    [gefDescrLabel, gefLinkLabel],
+    ui.Panel.Layout.Flow("horizontal")
+  );
+  
+  var creditsPanel = ui.Panel(
+    [creditsTitleLabel, stepPanel, gefPanel],
+    ui.Panel.Layout.Flow("vertical")
+  );
+  toolPanel.add(creditsPanel);
   
 }
 
@@ -349,48 +393,6 @@ if (true) // create a time series of yearly AGC
 
 }
 
-// make credits panel
-var creditsTitleLabel = ui.Label("Acknowledgements", {
-  fontWeight: "bold",
-  fontSize: "20px",
-  color: "SteelBlue",
-});
-
-var stepDescrLabel = ui.Label(
-  "Thicket boundaries derived from the",
-  { fontSize: "11px", margin: "4px 4px 4px 8px" }
-);
-var stepLinkLabel = ui.Label(
-  "STEP vegetation map",  
-  { fontSize: "11px", margin: "4px 0px" },
-  "https://bgis.sanbi.org/STEP/project.asp"
-  // "https://bgis.sanbi.org/SpatialDataset/Detail/194"
-);
-var stepPanel = ui.Panel(
-  [stepDescrLabel, stepLinkLabel],
-  ui.Panel.Layout.Flow("horizontal")
-);
-
-var gefDescrLabel = ui.Label(
-  "Localised AGC model produced as part of the",  
-  { fontSize: "11px", margin: "4px 4px 4px 8px" }
-);
-var gefLinkLabel = ui.Label(
-  "GEF-5 SLM project",
-  { fontSize: "11px", margin: "4px 0px" },
-  "https://github.com/dugalh/map_thicket_agc"
-);
-var gefPanel = ui.Panel(
-  [gefDescrLabel, gefLinkLabel],
-  ui.Panel.Layout.Flow("horizontal")
-);
-
-var creditsPanel = ui.Panel(
-  [creditsTitleLabel, stepPanel, gefPanel],
-  ui.Panel.Layout.Flow("vertical")
-);
-toolPanel.add(creditsPanel);
-// toolPanel.add(ui.Label('[Chart]'));
 
 // Register a callback on the default map to be invoked when the map is clicked.
 // mapPanel.onClick(generateChart);
