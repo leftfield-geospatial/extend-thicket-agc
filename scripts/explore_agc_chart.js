@@ -177,12 +177,12 @@ function createSidePanel(){
     format: "png",
     min: 0,
     max: 1,
-    palette: palette,
+    palette: agcVisParams.palette,
   };
   
   var colourBarThumbnail = ui.Thumbnail({
     image: ee.Image.pixelLonLat().select(0),
-    params: makeColourBarParams(agcVisParams.palette),
+    params: colourBarParams,
     style: { stretch: "horizontal", margin: "0px 8px", maxHeight: "24px" },
   });
   
