@@ -92,6 +92,7 @@ else{
     opacity: 1.0,
   };
 }
+
 var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
   c: ee.Number(eeAgcModel.first().get("c")),
