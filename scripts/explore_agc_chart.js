@@ -257,7 +257,7 @@ function createToolPanel(){
   return toolPanel;
 }
 
-function createAgcChart() {
+function createAgcChart(mapPanel, toolPanel) {
   var layerFeats = [];
   var layerColors = [];
   var aggrLayerGeometries = function(layer){
