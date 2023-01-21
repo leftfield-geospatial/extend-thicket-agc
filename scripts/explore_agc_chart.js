@@ -32,7 +32,7 @@ var model = {
   c: ee.Number(eeAgcModel.first().get("c")),
 };
 
-// Landsat 8 SR cloud masked collection
+// Landsat 8 cloud masked collection
 var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
