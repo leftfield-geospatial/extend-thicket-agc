@@ -308,7 +308,6 @@ function createAgcChart(mapPanel, toolPanel) {
     legend: { position: "right" },
   });
   
-  // TODO - tidy below- maybe move out of here, or put all event handlers in here
   agcChart.onClick(function(xValue, yValue, seriesName) {
     if (!xValue) return;  // Selection was cleared.
   
