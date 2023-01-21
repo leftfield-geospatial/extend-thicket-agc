@@ -56,12 +56,12 @@ var l8SrImages = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
 var modisNbarImages = ee.ImageCollection("MODIS/061/MCD43A4")
   .filterDate('2017-01-01', '2017-12-30')
   .filterBounds(thicketBoundary);
-  // .select([
-  //   "Nadir_Reflectance_Band1", 
-  //   "Nadir_Reflectance_Band4", 
-  //   "Nadir_Reflectance_Band3", 
-  //   "Nadir_Reflectance_Band2"
-  //   ]);
+  .select([
+    "Nadir_Reflectance_Band1", 
+    "Nadir_Reflectance_Band4", 
+    "Nadir_Reflectance_Band3", 
+    "Nadir_Reflectance_Band2"
+    ]);
 
 var images = modisNbarImages;
 print('Number of images: ', images.size());
