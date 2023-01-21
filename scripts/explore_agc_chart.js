@@ -21,6 +21,7 @@ var eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+////////////////////////////////////////////////////////////////////////////
 // Initialisation
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
@@ -30,6 +31,7 @@ var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
   c: ee.Number(eeAgcModel.first().get("c")),
 };
+
 // Landsat 8 SR image collection of thicket for year of GEF-5 SLM WV3 acquisition
 var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
