@@ -93,7 +93,7 @@ else{
     opacity: 1.0,
   };
   
-  var eeAgcModel = eeL8SrAgcModel;
+  var eeAgcModel = eeModisNbarAgcModel;
 }
 
 var model = {
