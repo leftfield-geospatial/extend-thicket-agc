@@ -84,7 +84,7 @@ else{
     years.map(createComposite).flatten()
   );
   
-  // L8 RGBN visualisation params
+  // MODIS RGBN visualisation params
   var rgbnVisParams = {
     min: 500,
     max: 3000,
