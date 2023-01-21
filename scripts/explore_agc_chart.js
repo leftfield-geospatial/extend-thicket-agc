@@ -257,60 +257,63 @@ function createToolPanel(){
   return toolPanel;
 }
 
+function createAgcChart() {
+  var layerFeats = [];
+  var layerColors = [];
+  var aggrLayerGeometries = function(layer){
+    var layerGeom = ee.FeatureCollection(layer.getEeObject()).geometry();
+    layerFeats.push(ee.Feature(layerGeom, {name: layer.getName()}));
+    layerColors.push(layer.getColor());
+  };
+  mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
+  print(layerFeats);
+
+  // make a chart of agc(median images)
+  var agcChart = ui.Chart.image.seriesByRegion(
+    compColl.map(findAgc),
+    layerFeats,
+    ee.Reducer.mean(),
+    0,
+    30,
+    "system:time_start",
+    "name"
+  );
+
+  agcChart.setOptions({
+    title: "AGC: time series",
+    vAxis: { title: "AGC (tC/ha)" },
+    hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
+    colors: layerColors,
+    // series: {
+    //   0: {
+    //     color: "SteelBlue",
+    //     lineWidth: 1,
+    //     pointsVisible: true,
+    //     pointSize: 3,
+    //   },
+    // },
+    legend: { position: "right" },
+  });
+  
+  agcChart.onClick(function(xValue, yValue, seriesName) {
+    if (!xValue) return;  // Selection was cleared.
+  
+    // Show the image for the clicked date.
+    var clickYear = ee.Date(xValue).get("year");
+    addImageLayers(clickYear);
+    // mapPanel.layers().set(2, dot);
+  });
+
 // Initialise map and tool panels
 mapPanel = createMapPanel();
 addImageLayers(mapPanel, 2017);
 toolPanel = createToolPanel();
 
+
+
 if (true) // create a time series of yearly AGC
 {
   
-  var agcTimeSeriesChart = function() {
-    var layerFeats = [];
-    var layerColors = [];
-    var aggrLayerGeometries = function(layer){
-      var layerGeom = ee.FeatureCollection(layer.getEeObject()).geometry();
-      layerFeats.push(ee.Feature(layerGeom, {name: layer.getName()}));
-      layerColors.push(layer.getColor());
-    };
-    mapPanel.drawingTools().layers().forEach(aggrLayerGeometries);
-    print(layerFeats);
-
-    // make a chart of agc(median images)
-    var agcChart = ui.Chart.image.seriesByRegion(
-      compColl.map(findAgc),
-      layerFeats,
-      ee.Reducer.mean(),
-      0,
-      30,
-      "system:time_start",
-      "name"
-    );
-  
-    agcChart.setOptions({
-      title: "AGC: time series",
-      vAxis: { title: "AGC (tC/ha)" },
-      hAxis: { title: "Date", format: "MM-yy", gridlines: { count: 7 } },
-      colors: layerColors,
-      // series: {
-      //   0: {
-      //     color: "SteelBlue",
-      //     lineWidth: 1,
-      //     pointsVisible: true,
-      //     pointSize: 3,
-      //   },
-      // },
-      legend: { position: "right" },
-    });
-    
-    agcChart.onClick(function(xValue, yValue, seriesName) {
-      if (!xValue) return;  // Selection was cleared.
-    
-      // Show the image for the clicked date.
-      var clickYear = ee.Date(xValue).get("year");
-      addImageLayers(clickYear);
-      // mapPanel.layers().set(2, dot);
-    });
     
     toolPanel.widgets().set(10, agcChart);
   
