@@ -120,7 +120,7 @@ if (true){
   var collList = [];
   for (var year in years) {
     for (var quarter in quarters) {
-      collList.push();
+      collList.push(qtrMedoidComp(year, quarter));
     }
   }
   var compList = [];
