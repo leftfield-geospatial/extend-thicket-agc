@@ -32,7 +32,7 @@ print("Model: ", model);
 function createComposite(year){
   // Return a yearly median composite of srcColl
   return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
-  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  .filter(ee.Filter.calendarRange(10, 10, "month"))
   .mean()
   .set("year", year)
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
