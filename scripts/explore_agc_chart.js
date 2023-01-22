@@ -117,23 +117,13 @@ if (true){
   var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
   print(years);
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
-  var collList = [];
+  var compList = [];
   for (var year in years) {
     for (var quarter in quarters) {
       collList.push(qtrMedoidComp(year, quarter));
     }
   }
-  var compList = [];
-  var tmp = years.iterate(function (year, accList) {
-    var qtrList = quarters.map(function (quarter) {
-      return qtrMedoidComp(year, quarter);
-    }).flatten();
-    return ee.List(accList).cat(qtrList);
-  }, ee.List([]));
-  print("tmp", tmp);
-  var compColl = ee.ImageCollection.fromImages(
-    ee.List(tmp)
-  );
+  var compColl = ee.ImageCollection());
   
   // L8 RGBN visualisation params
   var rgbnVisParams = {
