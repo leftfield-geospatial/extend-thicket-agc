@@ -96,6 +96,12 @@ function annualMedoidComp(year){
   return medoidComp;
 }
 
+const arrayRange = (start, stop, step) =>
+    Array.from(
+    { length: (stop - start) / step + 1 },
+    (value, index) => start + index * step
+    );
+
 if (true){
   // Landsat 8
   var rgbnBands = ["SR_B4", "SR_B3", "SR_B2", "SR_B5"];
@@ -108,7 +114,7 @@ if (true){
     .select(rgbnBands);
 
   // create a collection of annual composites
-  var years = ee.List.sequence(2014, 2022); // valid L8 years
+  var years = [...Array(5).keys()]; //ee.List.sequence(2014, 2022); // valid L8 years
   var quarters = ee.List.sequence(1, 4); 
   var compList = [];
   for (var year in years){
