@@ -43,6 +43,7 @@ function annualMedoidComp(year){
   var medianComp = annualMedianComp(year); 
   
   var medDiff = function(image) {
+    // find the squared difference between image bands and collection median
     var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2)); 
     return diff.reduce('sum').addBands(image);  
   };
