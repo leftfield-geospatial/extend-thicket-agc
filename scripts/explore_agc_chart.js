@@ -96,7 +96,7 @@ else{
   // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("WHBU/NBAR_1YEAR")  //("MODIS/061/MCD43A4")
     .filterBounds(thicketBounds)
-    .select();
+    .select(rgbnBands);
 
   // create a collection of yearly median composites
   var years = ee.List.sequence(2001, 2016); 
