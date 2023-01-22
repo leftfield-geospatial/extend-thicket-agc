@@ -123,11 +123,11 @@ if (true){
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
   var compList = [];
   for (var yi in years) {
-    var tmpList = [];
+    // var tmpList = [];
     for (var qi in quarters) {
-      tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
+      compList.push(qtrMedoidComp(years[yi], quarters[qi]));
     }
-    compList.push(annualMedianComp(years[yi], ee.ImageCollection(tmpList)));
+    // compList.push(annualMedianComp(years[yi], ee.ImageCollection(tmpList)));
   }
   var compColl = ee.ImageCollection(compList);
   
