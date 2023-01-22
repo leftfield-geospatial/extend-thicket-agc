@@ -51,7 +51,7 @@ function qtrMedoidComp(year, quarter){
   // find the medoid (pixel from image with smallest distance to collection median)
   var medoidComp = srcColl
   .filter(ee.Filter.calendarRange(year, year, "year"))
-  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
   .map(medDiff)
   .reduce(ee.Reducer.min(5))
   .select([1, 2, 3, 4], rgbnBands)
