@@ -52,6 +52,7 @@ function annualMedoidComposite(year){
   var medoidComp = srcColl.map(medDiff)
   .reduce(ee.Reducer.min(7))
   .select([1,2,3,4,5,6], ['B2','B3','B4','B5','B6','B7']);
+  return medoidComp;
 }
 
 if (true){
