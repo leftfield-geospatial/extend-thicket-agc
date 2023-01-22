@@ -113,10 +113,12 @@ if (true){
   var compList = [];
   for (var year in years){
     for (var quarter in quarters){
+      compList.push(qtrMedoidComp(year, quarter));
     }
   }
   var compColl = ee.ImageCollection.fromImages(
-    years.map(annualMedoidComp).flatten()
+    // years.map(annualMedoidComp).flatten()
+    compList
   );
   
   // L8 RGBN visualisation params
