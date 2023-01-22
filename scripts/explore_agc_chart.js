@@ -41,7 +41,7 @@ function qtrMedianComp(year, quarter){
 
 function qtrMedoidComp(year, quarter){
   // Return an quarterly medoid composite of srcColl
-  var medianComp = annualMedianComp(year); 
+  var medianComp = qtrMedianComp(year, quarter); 
   
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
