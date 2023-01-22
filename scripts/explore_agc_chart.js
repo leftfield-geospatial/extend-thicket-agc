@@ -117,14 +117,15 @@ if (true){
       compList.push(qtrMedoidComp(year, quarter));
     }
   }
+  var tmp = years.iterate(function (year, acc) {
+    var qtrList = quarters.map(function (quarter) {
+      return qtrMedoidComp(year, quarter);
+    }).flatten();
+    return ee.List(acc).cat(qtrList);
+  }, ee.List([]));
+  print(tmp);
   var compColl = ee.ImageCollection.fromImages(
     ee.List(
-      years.iterate(function (year, acc) {
-        var qtrList = quarters.map(function (quarter) {
-          return qtrMedoidComp(year, quarter);
-        }).flatten();
-        return ee.List(acc).cat(qtrList);
-      }, ee.List([]))
     )
   );
   
