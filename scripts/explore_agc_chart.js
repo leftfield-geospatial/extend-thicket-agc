@@ -96,11 +96,12 @@ function annualMedoidComp(year){
   return medoidComp;
 }
 
-const arrayRange = (start, stop, step) =>
-    Array.from(
+function arrayRange(start, stop, step){
+    return Array.from(
     { length: (stop - start) / step + 1 },
     (value, index) => start + index * step
     );
+}
 
 if (true){
   // Landsat 8
