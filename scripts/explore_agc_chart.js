@@ -119,10 +119,10 @@ if (true){
   var compColl = ee.ImageCollection.fromImages(
     ee.List(
       years.iterate(function (year, acc) {
-        var pairs = quarters.map(function (quarter) {
+        var qtrList = quarters.map(function (quarter) {
           return qtrMedoidComp(year, quarter);
         });
-        return ee.List(acc).cat(pairs);
+        return ee.List(acc).cat(qtrList);
       }, ee.List([])).flatten()
     )
   );
