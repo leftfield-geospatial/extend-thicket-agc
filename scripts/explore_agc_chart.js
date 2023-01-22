@@ -77,8 +77,9 @@ function annualMedianComp(year, coll){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-function annualMedoidComp(year){
+function annualMedoidComp(year, coll){
   // Return an annual medoid composite of srcColl
+  if (!coll) coll = srcColl;
   var medianComp = annualMedianComp(year); 
   
   var medDiff = function(image) {
