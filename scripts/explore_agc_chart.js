@@ -39,7 +39,7 @@ function annualMedianComp(year){
 }
 
 function annualMedoidComp(year){
-  // Return an annual median composite of srcColl
+  // Return an annual medoid composite of srcColl
 
   var medianComp = annualMedianComp(year); 
   
