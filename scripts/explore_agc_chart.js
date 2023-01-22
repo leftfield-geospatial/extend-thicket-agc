@@ -51,7 +51,7 @@ function annualMedoidComposite(year){
   // between median and observation per band.
   var medoidComp = srcColl.map(medDiff)
   .reduce(ee.Reducer.min(7))
-  .select([1,2,3,4,5,6], ['B2','B3','B4','B5','B6','B7'])
+  .select([0,1,2,3], rgbnBands)
   .set("year", year)
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 
