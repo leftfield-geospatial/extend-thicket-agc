@@ -30,7 +30,7 @@ var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 print("Model: ", model);
 
 function annualMedianComp(year){
-  // Return a yearly median composite of srcColl
+  // Return an annual median composite of srcColl
   return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .mean()
