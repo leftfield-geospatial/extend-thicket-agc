@@ -38,7 +38,7 @@ function createComposite(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-if (false){
+if (true){
   // Landsat 8
   // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
