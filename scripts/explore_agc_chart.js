@@ -75,7 +75,7 @@ if (true){
   // create a collection of yearly median composites
   var years = ee.List.sequence(2014, 2022); // valid L8 years
   var compColl = ee.ImageCollection.fromImages(
-    years.map(annualMedianComp).flatten()
+    years.map(annualMedoidComp).flatten()
   );
   
   // L8 RGBN visualisation params
