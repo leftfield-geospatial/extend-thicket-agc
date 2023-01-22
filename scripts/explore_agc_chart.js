@@ -60,14 +60,14 @@ function annualMedoidComposite(year){
 
 if (true){
   // Landsat 8
-  rgbNBands = ["SR_B4", "SR_B3", "SR_B2", "SR_B5"];
+  rgbnBands = ["SR_B4", "SR_B3", "SR_B2", "SR_B5"];
   // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
     .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
     .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
     .filterBounds(thicketBounds)
     .map(cloudMasking.landsat8SrCloudMask)
-    .select(rgbNbands);
+    .select(rgbnbands);
 
   // create a collection of yearly median composites
   var years = ee.List.sequence(2014, 2022); // valid L8 years
