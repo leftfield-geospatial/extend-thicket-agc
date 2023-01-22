@@ -28,8 +28,9 @@ var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/c
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 
-function qtrMedianComp(year, quarter){
+function qtrMedianComp(year, quarter, coll){
   // Return a quarterly median composite of srcColl
+  if (!coll) coll = srcColl;
   return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
   .mean()
@@ -39,8 +40,8 @@ function qtrMedianComp(year, quarter){
 }
 
 function qtrMedoidComp(year, quarter, coll){
-  if (!coll) coll = srcColl;
   // Return an quarterly medoid composite of srcColl
+  if (!coll) coll = srcColl;
   var medianComp = qtrMedianComp(year, quarter); 
   
   var medDiff = function(image) {
