@@ -32,7 +32,7 @@ print("Model: ", model);
 function createComposite(year){
   // Return a yearly median composite of srcColl
   return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
-  .filter(ee.Filter.calendarRange(10, 10, "month"))
+  .filter(ee.Filter.calendarRange(1, 12, "month"))
   .mean()
   .set("year", year)
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
@@ -67,7 +67,7 @@ if (false){
 else{
   // MODIS NBAR
   // cloud masked RGBN collection
-  var srcColl = ee.ImageCollection("MODIS/061/MCD43A4")
+  var srcColl = ee.ImageCollection("WHBU/NBAR_1YEAR")  //("MODIS/061/MCD43A4")
     .filterBounds(thicketBounds)
     .select([
       "Nadir_Reflectance_Band1", 
