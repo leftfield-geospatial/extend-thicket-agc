@@ -114,7 +114,7 @@ if (true){
     .select(rgbnBands);
 
   // create a collection of annual composites
-  var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
+  var years = range(2014, 2023); //ee.List.sequence(2014, 2022); // valid L8 years
   print(years);
   var quarters = ee.List.sequence(1, 4); 
   var compList = [];
