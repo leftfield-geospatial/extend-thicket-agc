@@ -67,7 +67,7 @@ if (false){
 else{
   // MODIS NBAR
   // cloud masked RGBN collection
-  var srcColl = ee.ImageCollection("MODIS/061/MCD43A4")
+  var srcColl = ee.ImageCollection("WHBU/NBAR_1YEAR") //("MODIS/061/MCD43A4")
     .filterBounds(thicketBounds)
     .select([
       "Nadir_Reflectance_Band1", 
