@@ -117,10 +117,10 @@ if (true){
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
   var compList = [];
   for (var yi in years) {
-    // for (var qi in quarters) {
-    //   compList.push(qtrMedoidComp(years[yi], quarters[qi]));
-    // }
-    compList.push(annualMedoidComp(years[yi]));
+    for (var qi in quarters) {
+      compList.push(qtrMedoidComp(years[yi], quarters[qi]));
+    }
+    // compList.push(annualMedoidComp(years[yi]));
   }
   var compColl = ee.ImageCollection(compList);
   
