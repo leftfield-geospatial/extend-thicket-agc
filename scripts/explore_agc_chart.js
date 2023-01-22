@@ -61,7 +61,7 @@ function annualMedoidComp(year){
   return medoidComp;
 }
 
-if (false){
+if (true){
   // Landsat 8
   var rgbnBands = ["SR_B4", "SR_B3", "SR_B2", "SR_B5"];
   // cloud masked RGBN collection
