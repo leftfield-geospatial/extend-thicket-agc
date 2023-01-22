@@ -120,7 +120,7 @@ if (true){
   var compList = [];
   var tmp = qtrMedoidComp(2014, 1);
   print(tmp);
-  for (var year of years) {
+  for (var year in years.keys()) {
     for (var quarter in quarters) {
       print(year, quarter);
       compList.push(qtrMedoidComp(year, quarter));
