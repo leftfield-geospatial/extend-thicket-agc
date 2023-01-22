@@ -104,7 +104,7 @@ else{
   // create a collection of annual composites
   var years = ee.List.sequence(2001, 2016); 
   var compColl = ee.ImageCollection.fromImages(
-    years.map(annualMedoidComp).flatten()
+    years.map(annualMedianComp).flatten()
   );
   
   // MODIS RGBN visualisation params
