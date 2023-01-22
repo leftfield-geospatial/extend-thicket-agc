@@ -230,10 +230,10 @@ function addMapImageLayers(mapPanel, date){
   var maskedAgcImage = agcImage.clipToCollection(thicketBoundary);
 
   var compositeLayer = ui.Map.Layer(
-    maskedComposite, rgbnVisParams, "RGBN Composite (" + year + ")", true, 0.6
+    maskedComposite, rgbnVisParams, "RGBN Composite (" + date + ")", true, 0.6
   );
   var agcLayer = ui.Map.Layer(
-    maskedAgcImage, agcVisParams, "AGC (" + year + ")", true, 0.6
+    maskedAgcImage, agcVisParams, "AGC (" + date + ")", true, 0.6
   );
   mapPanel.layers().reset([compositeLayer, agcLayer]);
 }
