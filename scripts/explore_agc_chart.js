@@ -40,12 +40,12 @@ function annualMedianComp(year){
 
 function annualMedoidComposite(year){
 
-  var l78median = l78.median(); // calculate the median of the annual image collection - returns a single 6 band image - the collection median per band
+  var medianComp = annualMedianComp(year); 
   
   // Calculate the different between the median and the observation per image per band,
   // then get the medoid by selecting the image pixel with the smallest difference
   // between median and observation per band.
-  var l78medoidComposite = l78.map(function(image) {
+  var medoidComp = l78.map(function(image) {
     var diff = ee.Image(image).subtract(l78median).pow(ee.Image.constant(2)); // get the difference between each image/band and the corresponding band median and take to power of 2 to make negatives positive and make greater differences weight more
     return diff.reduce('sum').addBands(image);  // per image in collection, sum the powered difference across the bands - set this as the first band add the SR bands to it - now a 7 band image collection
   }).reduce(ee.Reducer.min(7)).select([1,2,3,4,5,6], ['B2','B3','B4','B5','B6','B7']) // find the powered difference that is the least - what image object is the closest to the median of the collection - and then subset the SR bands and name them - leave behind the powered difference band;
