@@ -108,7 +108,7 @@ if (true){
     .select(rgbnBands);
 
   // create a collection of annual composites
-  var years = Array.from(Array(7),(x, i)=>i+2014); //ee.List.sequence(2014, 2022); // valid L8 years
+  var years = Array.from(Array(7),(_, i)=>i+2014); //ee.List.sequence(2014, 2022); // valid L8 years
   var quarters = [1, 2, 3, 4]; //ee.List.sequence(1, 4); 
   var compList = [];
   for (var year in years){
