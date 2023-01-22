@@ -122,8 +122,8 @@ if (true){
   print(tmp);
   for (var yi in years) {
     for (var qi in quarters) {
-      print(year[yi], quarter[qi]);
-      compList.push(qtrMedoidComp(year[yi], quarter[qi]));
+      print(years[yi], quarters[qi]);
+      compList.push(qtrMedoidComp(years[yi], quarters[qi]));
     }
   }
   var compColl = ee.ImageCollection(compList);
