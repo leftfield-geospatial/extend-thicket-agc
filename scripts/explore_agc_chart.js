@@ -112,11 +112,6 @@ if (true){
   var years = ee.List.sequence(2014, 2022); // valid L8 years
   var quarters = ee.List.sequence(1, 4); 
   var compList = [];
-  for (var year in years){
-    for (var quarter in quarters){
-      compList.push(qtrMedoidComp(year, quarter));
-    }
-  }
   var tmp = years.iterate(function (year, acc) {
     var qtrList = quarters.map(function (quarter) {
       return qtrMedoidComp(year, quarter);
