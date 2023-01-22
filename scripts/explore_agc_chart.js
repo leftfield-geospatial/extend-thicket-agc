@@ -87,7 +87,7 @@ if (true){
 }
 else{
   // MODIS NBAR
-  rgbnBands = [
+  var rgbnBands = [
     "Nadir_Reflectance_Band1", 
     "Nadir_Reflectance_Band4", 
     "Nadir_Reflectance_Band3", 
