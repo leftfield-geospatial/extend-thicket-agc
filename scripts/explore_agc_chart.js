@@ -231,10 +231,10 @@ function addMapImageLayers(mapPanel, date){
 
   var dateStr = date.format("yyyy-MM-dd").getInfo();
   var compositeLayer = ui.Map.Layer(
-    maskedComposite, rgbnVisParams, "RGBN Composite (" + date + ")", true, 0.6
+    maskedComposite, rgbnVisParams, "RGBN Composite (" + dateStr + ")", true, 0.6
   );
   var agcLayer = ui.Map.Layer(
-    maskedAgcImage, agcVisParams, "AGC (" + date + ")", true, 0.6
+    maskedAgcImage, agcVisParams, "AGC (" + dateStr + ")", true, 0.6
   );
   mapPanel.layers().reset([compositeLayer, agcLayer]);
 }
