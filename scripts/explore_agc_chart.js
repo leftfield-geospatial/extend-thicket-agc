@@ -88,7 +88,7 @@ if (true){
   };
   var eeAgcModel = eeL8SrAgcModel;
   
-  var test = medoidComp(2017);
+  var test = annualMedoidComp(2017);
   print(test);
 }
 else{
