@@ -117,6 +117,11 @@ if (true){
   var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
   print(years);
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
+  for var year in years {
+    for var quarter in quarters {
+      
+    }
+  }
   var compList = [];
   var tmp = years.iterate(function (year, accList) {
     var qtrList = quarters.map(function (quarter) {
