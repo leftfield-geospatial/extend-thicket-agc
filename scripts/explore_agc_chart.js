@@ -116,7 +116,7 @@ if (true){
     }).flatten();
     return ee.List(accList).cat(qtrList);
   }, ee.List([]));
-  print(tmp);
+  print("tmp", tmp);
   var compColl = ee.ImageCollection.fromImages(
     ee.List(tmp)
   );
