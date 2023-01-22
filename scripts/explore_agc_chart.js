@@ -117,8 +117,7 @@ if (true){
     }
   }
   var compColl = ee.ImageCollection.fromImages(
-    // years.map(annualMedoidComp).flatten()
-    compList
+    years.map(annualMedoidComp).flatten()
   );
   
   // L8 RGBN visualisation params
