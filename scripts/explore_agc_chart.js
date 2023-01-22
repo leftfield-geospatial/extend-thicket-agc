@@ -54,7 +54,7 @@ function annualMedoidComposite(year){
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .map(medDiff)
   .reduce(ee.Reducer.min(4))
-  .select([0,1,2,3], rgbnBands)
+  .select([0, 1, 2, 3], rgbnBands)
   .set("year", year)
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 
