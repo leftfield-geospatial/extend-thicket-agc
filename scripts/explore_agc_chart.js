@@ -120,7 +120,7 @@ if (true){
   var compList = [];
   for (var year in years) {
     for (var quarter in quarters) {
-      collList.push(qtrMedoidComp(year, quarter));
+      compList.push(qtrMedoidComp(year, quarter));
     }
   }
   var compColl = ee.ImageCollection(compList);
