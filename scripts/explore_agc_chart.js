@@ -123,7 +123,7 @@ if (true){
       collList.push(qtrMedoidComp(year, quarter));
     }
   }
-  var compColl = ee.ImageCollection());
+  var compColl = ee.ImageCollection(compList);
   
   // L8 RGBN visualisation params
   var rgbnVisParams = {
