@@ -119,6 +119,7 @@ if (true){
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
   var compList = [];
   var tmp = qtrMedoidComp(2014, 1);
+  print(tmp);
   for (var year in years) {
     for (var quarter in quarters) {
       compList.push(qtrMedoidComp(year, quarter));
