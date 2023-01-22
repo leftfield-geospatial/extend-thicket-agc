@@ -115,11 +115,8 @@ if (true){
 
   // create a collection of annual composites
   var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
-  print(years);
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
   var compList = [];
-  var tmp = qtrMedoidComp(2014, 1);
-  print(tmp);
   for (var yi in years) {
     for (var qi in quarters) {
       print(years[yi], quarters[qi]);
