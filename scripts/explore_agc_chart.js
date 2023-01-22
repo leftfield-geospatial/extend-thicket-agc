@@ -180,7 +180,7 @@ function addMapImageLayers(mapPanel, year){
   mapPanel.layers().reset([compositeLayer, agcLayer]);
 }
 
-function annualMedianComp(mapPanel){
+function initMapDrawingLayers(mapPanel){
   // Add initial geometries to map drawing layers
   
   var addStratumGeom = function(stratumName, stratumColor){
