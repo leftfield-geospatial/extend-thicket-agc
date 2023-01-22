@@ -39,6 +39,7 @@ function annualMedianComp(year){
 }
 
 function annualMedoidComp(year){
+  // Return an annual median composite of srcColl
 
   var medianComp = annualMedianComp(year); 
   
