@@ -229,6 +229,7 @@ function addMapImageLayers(mapPanel, date){
   var agcImage = findAgc(composite).uint8();
   var maskedAgcImage = agcImage.clipToCollection(thicketBoundary);
 
+  var dateStr = date.format("yyyy-MM-dd").getInfo();
   var compositeLayer = ui.Map.Layer(
     maskedComposite, rgbnVisParams, "RGBN Composite (" + date + ")", true, 0.6
   );
