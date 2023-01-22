@@ -218,7 +218,7 @@ function createMapPanel(){
   return mapPanel;
 }
 
-function addMapImageLayers(mapPanel, year){
+function addMapImageLayers(mapPanel, date){
   // Add AGC and RGB composites for year to mapPanel
   var composite = compColl.filter(ee.Filter.eq("year", year)).first();
   var maskedComposite = composite.clipToCollection(thicketBoundary);
@@ -422,8 +422,8 @@ function createAgcChart(mapPanel, toolPanel) {
     if (!xValue) return;  // Selection was cleared.
   
     // Show the image for the clicked date.
-    var clickYear = ee.Date(xValue).get("year");
-    addMapImageLayers(mapPanel, clickYear);
+    var clickDate = ee.Date(xValue); //.get("year");
+    addMapImageLayers(mapPanel, clickDate);
   });
   return agcChart;
 }
