@@ -110,12 +110,11 @@ if (true){
   var years = ee.List.sequence(2014, 2022); // valid L8 years
   var quarters = ee.List.sequence(1, 4); 
   var compList = [];
-  var tmp = years.iterate(function (year, acc) {
+  var tmp = years.iterate(function (year, accList) {
     var qtrList = quarters.map(function (quarter) {
       return qtrMedoidComp(year, quarter);
     }).flatten();
-    print(qtrList);
-    return ee.List(acc).cat(qtrList);
+    return ee.List(accList).cat(qtrList);
   }, ee.List([]));
   print(tmp);
   var compColl = ee.ImageCollection.fromImages(
