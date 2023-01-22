@@ -100,7 +100,6 @@ function annualMedoidComp(year){
 
 function range(size, startAt) {
   return Array.apply(null, Array(size)).map(function (_, i) {return i + startAt;});
-    return [...Array(size).keys()].map(i => i + startAt);
 }
 
 if (true){
