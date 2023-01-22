@@ -38,6 +38,30 @@ function qtrMedianComp(year, quarter){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
+function qtrMedoidComp(year, quarter){
+  // Return an quarterly medoid composite of srcColl
+  var medianComp = annualMedianComp(year); 
+  
+  var medDiff = function(image) {
+    // Return the sum of squared differences between image bands and collection median
+    var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2)); 
+    return diff.reduce('sum').addBands(image);  
+  };
+  
+  // find the medoid (pixel from image with smallest distance to collection median)
+  var medoidComp = srcColl
+  .filter(ee.Filter.calendarRange(year, year, "year"))
+  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  .map(medDiff)
+  .reduce(ee.Reducer.min(5))
+  .select([1, 2, 3, 4], rgbnBands)
+  .set("year", year)
+  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
+
+  return medoidComp;
+}
+
+
 function annualMedianComp(year){
   // Return an annual median composite of srcColl
   return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
