@@ -96,10 +96,8 @@ function annualMedoidComp(year){
   return medoidComp;
 }
 
-
-
-function range(size, startAt) {
-  return Array.apply(null, Array(size)).map(function (_, i) {return i + startAt;});
+function range(start, size) {
+  return Array.apply(null, Array(size)).map(function (_, i) {return i + start;});
 }
 
 if (true){
