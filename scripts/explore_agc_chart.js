@@ -82,7 +82,6 @@ function annualMedoidComp(year){
     var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2)); 
     return diff.reduce('sum').addBands(image);  
   };
-  f
   // find the medoid (pixel from image with smallest distance to collection median)
   var medoidComp = srcColl
   .filter(ee.Filter.calendarRange(year, year, "year"))
