@@ -118,9 +118,9 @@ if (true){
   print(years);
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
   var collList = [];
-  for var year in years {
-    for var quarter in quarters {
-      
+  for (var year in years) {
+    for (var quarter in quarters) {
+      collList.push();
     }
   }
   var compList = [];
