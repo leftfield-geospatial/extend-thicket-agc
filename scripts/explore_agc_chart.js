@@ -87,9 +87,6 @@ if (true){
     opacity: 1.0,
   };
   var eeAgcModel = eeL8SrAgcModel;
-  
-  var test = annualMedoidComp(2017);
-  print(test);
 }
 else{
   // MODIS NBAR
