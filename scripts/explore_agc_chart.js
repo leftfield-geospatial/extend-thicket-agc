@@ -119,7 +119,6 @@ if (true){
   var compList = [];
   for (var yi in years) {
     for (var qi in quarters) {
-      print(years[yi], quarters[qi]);
       compList.push(qtrMedoidComp(years[yi], quarters[qi]));
     }
   }
