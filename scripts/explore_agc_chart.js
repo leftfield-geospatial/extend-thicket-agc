@@ -109,7 +109,7 @@ else{
     min: 500,
     max: 2000,
     gamma: 1.2,
-    bands: rgbnBands.slice(1, v4),
+    bands: rgbnBands.slice(1, 4),
     opacity: 1.0,
   };
   
