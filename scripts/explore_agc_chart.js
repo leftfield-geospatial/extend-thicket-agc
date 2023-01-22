@@ -97,7 +97,7 @@ else{
     "Nadir_Reflectance_Band2"
   ];
   // cloud masked RGBN collection
-  var srcColl = ee.ImageCollection("WHBU/NBAR_1YEAR")  //("MODIS/061/MCD43A4")
+  var srcColl = ee.ImageCollection("MODIS/061/MCD43A4")
     .filterBounds(thicketBounds)
     .select(rgbnBands);
 
