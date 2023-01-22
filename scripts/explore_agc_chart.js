@@ -31,6 +31,8 @@ print("Model: ", model);
 
 function qtrMedianComp(year, quarter){
   // Return a quarterly median composite of srcColl
+  print(year);
+  print(quarter);
   return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
   .mean()
