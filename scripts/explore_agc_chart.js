@@ -38,7 +38,8 @@ function qtrMedianComp(year, quarter){
   .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15));
 }
 
-function qtrMedoidComp(year, quarter){
+function qtrMedoidComp(year, quarter, coll){
+  if (!coll) coll = srcColl;
   // Return an quarterly medoid composite of srcColl
   var medianComp = qtrMedianComp(year, quarter); 
   
@@ -120,6 +121,7 @@ if (true){
     for (var qi in quarters) {
       compList.push(qtrMedoidComp(years[yi], quarters[qi]));
     }
+    
     // compList.push(annualMedoidComp(years[yi]));
   }
   var compColl = ee.ImageCollection(compList);
