@@ -67,7 +67,7 @@ if (true){
     .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
     .filterBounds(thicketBounds)
     .map(cloudMasking.landsat8SrCloudMask)
-    .select(rgbnbands);
+    .select(rgbnBands);
 
   // create a collection of yearly median composites
   var years = ee.List.sequence(2014, 2022); // valid L8 years
