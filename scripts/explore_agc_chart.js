@@ -110,6 +110,7 @@ if (true){
   // create a collection of annual composites
   var years = ee.List.sequence(2014, 2022); // valid L8 years
   var quarters = ee.List.sequence(1, 4); 
+  var compList = [];
   for (var year in years){
     for (var quarter in quarters){
     }
