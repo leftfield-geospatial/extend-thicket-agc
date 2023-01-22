@@ -355,7 +355,7 @@ function createAgcChart(mapPanel, toolPanel) {
 
 // Initialise map and tool panels
 var mapPanel = createMapPanel();
-addMapImageLayers(mapPanel, 2017);
+addMapImageLayers(mapPanel, 2016);
 initMapDrawingLayers(mapPanel);
 
 var toolPanel = createToolPanel();
