@@ -221,6 +221,7 @@ function createMapPanel(){
 function addMapImageLayers(mapPanel, date){
   // Add AGC and RGB composites for year to mapPanel
   // var composite = compColl.filter(ee.Filter.eq("year", year)).first();
+  print(date);
   var composite = compColl.filter(ee.Filter.date(date)).first();
   var maskedComposite = composite.clipToCollection(thicketBoundary);
   
