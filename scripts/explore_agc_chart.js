@@ -80,7 +80,7 @@ if (true){
     min: 7500,
     max: 13000,
     gamma: 1.2,
-    bands: rgbnbands[:2],
+    bands: rgbnbands.slice(1, 3),
     opacity: 1.0,
   };
   var eeAgcModel = eeL8SrAgcModel;
