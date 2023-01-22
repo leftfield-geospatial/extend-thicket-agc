@@ -38,7 +38,7 @@ function annualMedianComp(year){
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
 }
 
-function annualMedoidComposite(year){
+function annualMedoidComp(year){
 
   var medianComp = annualMedianComp(year); 
   
