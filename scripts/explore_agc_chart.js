@@ -121,12 +121,12 @@ if (true){
     var qtrList = quarters.map(function (quarter) {
       return qtrMedoidComp(year, quarter);
     }).flatten();
+    print(qtrList);
     return ee.List(acc).cat(qtrList);
   }, ee.List([]));
   print(tmp);
   var compColl = ee.ImageCollection.fromImages(
-    ee.List(
-    )
+    ee.List(tmp)
   );
   
   // L8 RGBN visualisation params
