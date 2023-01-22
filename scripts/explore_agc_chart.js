@@ -1,8 +1,8 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v2"),
+    eeModisNbarAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_modis_nbar_agc_model_v2"),
     stepAridAndValleyThicket = ee.FeatureCollection("projects/thicket-agc/assets/step_arid_and_valley_thicket"),
-    gefDegradationStrata = ee.FeatureCollection("projects/thicket-agc/assets/gef_degradation_strata"),
-    eeModisNbarAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_modis_nbar_agc_model_v2");
+    gefDegradationStrata = ee.FeatureCollection("projects/thicket-agc/assets/gef_degradation_strata");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     Concept demonstration for extension of local aboveground carbon model to the thicket biome
@@ -28,6 +28,15 @@ var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/c
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 print("Model: ", model);
+
+function qtrMedianComp(year, quater){
+  // Return a quaterly median composite of srcColl
+  return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
+  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  .mean()
+  .set("year", year)
+  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
+}
 
 function annualMedianComp(year){
   // Return an annual median composite of srcColl
