@@ -29,7 +29,7 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 print("Model: ", model);
 
-function qtrMedianComp(year, quater){
+function qtrMedianComp(year, quarter){
   // Return a quarterly median composite of srcColl
   return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
