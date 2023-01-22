@@ -117,7 +117,14 @@ if (true){
     }
   }
   var compColl = ee.ImageCollection.fromImages(
-    years.map(annualMedoidComp).flatten()
+    ee.List(
+      list1.iterate(function (e1, acc) {
+        var pairs = list2.map(function (e2) {
+          return [e1, e2]
+        })
+        return ee.List(acc).cat(pairs)
+      }, ee.List([]))
+    )
   );
   
   // L8 RGBN visualisation params
