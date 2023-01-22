@@ -96,6 +96,10 @@ function annualMedoidComp(year){
   return medoidComp;
 }
 
+function range(size, startAt = 0) {
+    return [...Array(size).keys()].map(i => i + startAt);
+}
+
 if (true){
   // Landsat 8
   var rgbnBands = ["SR_B4", "SR_B3", "SR_B2", "SR_B5"];
