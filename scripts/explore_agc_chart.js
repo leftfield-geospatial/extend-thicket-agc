@@ -49,7 +49,7 @@ function annualMedoidComposite(year){
   // Calculate the different between the median and the observation per image per band,
   // then get the medoid by selecting the image pixel with the smallest difference
   // between median and observation per band.
-  var medoidComp = l78.map().reduce(ee.Reducer.min(7)).select([1,2,3,4,5,6], ['B2','B3','B4','B5','B6','B7']) // find the powered difference that is the least - what image object is the closest to the median of the collection - and then subset the SR bands and name them - leave behind the powered difference band;
+  var medoidComp = srcColl.map(medDiff).reduce(ee.Reducer.min(7)).select([1,2,3,4,5,6], ['B2','B3','B4','B5','B6','B7']) // find the powered difference that is the least - what image object is the closest to the median of the collection - and then subset the SR bands and name them - leave behind the powered difference band;
     .clip(country);
 }
 
