@@ -35,7 +35,7 @@ function qtrMedianComp(year, quarter){
   .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
   .mean()
   .set("year", year)
-  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
+  .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15));
 }
 
 function qtrMedoidComp(year, quarter){
