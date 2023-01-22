@@ -52,7 +52,7 @@ function annualMedoidComposite(year){
   var medoidComp = srcColl
   .filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
-  map(medDiff)
+  .map(medDiff)
   .reduce(ee.Reducer.min(4))
   .select([0,1,2,3], rgbnBands)
   .set("year", year)
