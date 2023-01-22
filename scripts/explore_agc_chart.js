@@ -122,6 +122,7 @@ if (true){
   print(tmp);
   for (var year in years) {
     for (var quarter in quarters) {
+      print(year, quarter);
       compList.push(qtrMedoidComp(year, quarter));
     }
   }
