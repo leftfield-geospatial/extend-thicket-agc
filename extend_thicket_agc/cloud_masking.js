@@ -59,7 +59,7 @@ exports.landsatSimpleCloudMask = landsatSimpleCloudMask;
 function landsat8SrCloudMask(image) 
 {
   // Bits 3 and 5 are cloud shadow and cloud, respectively.
-  var maskBit = 0 //(1 << 4) | (1 << 3) | (1 << 2);
+  var maskBit = 0; //(1 << 4) | (1 << 3) | (1 << 2);
   var qa = image.select('(?i)(pixel_qa|qa_pixel)');
   return image.updateMask(qa.bitwiseAnd(maskBit).eq(0));
 }
