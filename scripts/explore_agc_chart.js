@@ -27,7 +27,7 @@ var eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
-print(ee.Number(123)*123)
+print(ee.Number(123).multiply(123)
 
 function qtrMedianComp(year, quarter){
   // Return a quarterly median composite of srcColl
