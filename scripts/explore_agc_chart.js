@@ -406,7 +406,7 @@ function createAgcChart(mapPanel, toolPanel) {
   agcChart.setOptions({
     title: "AGC: time series",
     vAxis: { title: "AGC (tC/ha)" },
-    hAxis: { title: "Year", format: "yyyy", gridlines: { count: 7 } },
+    hAxis: { title: "Year", format: "yy-MM", gridlines: { count: 7 } },
     colors: layerColors,
     legend: { position: "right" },
   });
