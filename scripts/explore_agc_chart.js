@@ -121,8 +121,8 @@ if (true){
       years.iterate(function (year, acc) {
         var pairs = quarters.map(function (quarter) {
           return qtrMedoidComp(year, quarter);
-        })
-        return ee.List(acc).cat(pairs)
+        });
+        return ee.List(acc).cat(pairs);
       }, ee.List([])).flatten()
     )
   );
