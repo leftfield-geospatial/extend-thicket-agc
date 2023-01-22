@@ -49,7 +49,10 @@ function annualMedoidComposite(year){
   // Calculate the different between the median and the observation per image per band,
   // then get the medoid by selecting the image pixel with the smallest difference
   // between median and observation per band.
-  var medoidComp = srcColl.map(medDiff)
+  var medoidComp = srcColl.
+  .filter(ee.Filter.calendarRange(year, year, "year"))
+  .filter(ee.Filter.calendarRange(1, 12, "month"))
+  map(medDiff)
   .reduce(ee.Reducer.min(4))
   .select([0,1,2,3], rgbnBands)
   .set("year", year)
