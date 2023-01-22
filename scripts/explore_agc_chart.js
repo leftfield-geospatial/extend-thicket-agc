@@ -109,9 +109,7 @@ else{
     min: 500,
     max: 2000,
     gamma: 1.2,
-    bands: ["Nadir_Reflectance_Band1", 
-      "Nadir_Reflectance_Band4", 
-      "Nadir_Reflectance_Band3"],
+    bands: rgbnBands.slice(1, v4),
     opacity: 1.0,
   };
   
