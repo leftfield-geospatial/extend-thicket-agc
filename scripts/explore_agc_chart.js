@@ -58,7 +58,7 @@ function medoidComp(startDate, months, coll){
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
     var diff = ee.Image(image).subtract(_medianComp).pow(ee.Image.constant(2)); 
-    return diff.reduce('sum').addBands(image);  
+    return diff.reduce('sum').addBands(image);
   };
   
   // find the medoid (pixel from image with smallest distance to collection median)
