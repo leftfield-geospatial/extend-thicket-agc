@@ -104,16 +104,6 @@ if (true){
   // create a collection of composites
   var startDate = ee.Date("2014-01-01");
   var endDate = ee.Date("2021-09-01");
-  var startDates = dateRange(startDate, endDate, compMonths);
-  print("startDates", startDates);
-  var compList = startDates.map(function(startDate){return medoidComp(startDate)});
-  print("compList", compList);
-  var compColl = ee.ImageCollection(compList);
-  if (doAnnualAggr){
-    var yearDates = dateRange(startDate, endDate, 12);
-    compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, compColl)});
-    compColl = ee.ImageCollection(compList);
-  }
   
   // L8 RGBN visualisation params
   var rgbnVisParams = {
@@ -138,20 +128,6 @@ else{
     .filterBounds(thicketBounds)
     .select(rgbnBands);
 
-  // create a collection of composites
-  var startDate = ee.Date("2000-03-01");
-  var endDate = ee.Date("2021-09-01");
-  var startDates = dateRange(startDate, endDate, compMonths);
-  print("startDates", startDates);
-  var compList = startDates.map(function(startDate){return medoidComp(startDate)});
-  print("compList", compList);
-  var compColl = ee.ImageCollection(compList);
-  if (doAnnualAggr){
-    var yearDates = dateRange(startDate, endDate, 12);
-    compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, compColl)});
-    compColl = ee.ImageCollection(compList);
-  }
-
   // MODIS RGBN visualisation params
   var rgbnVisParams = {
     min: 500,
@@ -164,10 +140,23 @@ else{
   var eeAgcModel = eeModisNbarAgcModel;
 }
 
+// create a collection of composites
+var startDates = dateRange(startDate, endDate, compMonths);
+print("startDates", startDates);
+var compList = startDates.map(function(startDate){return medoidComp(startDate)});
+print("compList", compList);
+var compColl = ee.ImageCollection(compList);
+if (doAnnualAggr){
+  var yearDates = dateRange(startDate, endDate, 12);
+  compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, compColl)});
+  compColl = ee.ImageCollection(compList);
+}
+
 var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
   c: ee.Number(eeAgcModel.first().get("c")),
 };
+
 
 ////////////////////////////////////////////////////////////////////////////
 // AGC modelling
