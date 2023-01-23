@@ -101,7 +101,6 @@ if (true){
     .map(cloudMasking.landsat8SrCloudMask)
     .select(rgbnBands);
 
-  // create a collection of composites
   var startDate = ee.Date("2014-01-01");
   var endDate = ee.Date("2021-09-01");
   
