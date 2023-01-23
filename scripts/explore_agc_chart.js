@@ -131,6 +131,7 @@ if (true){
     print(tmpList);
     compList.push(annualMedianComp(years[yi], ee.ImageCollection(tmpList)));
   }
+  print(compList);
   var compColl = ee.ImageCollection(compList);
   
   // L8 RGBN visualisation params
