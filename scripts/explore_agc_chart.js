@@ -154,7 +154,7 @@ function dateRange(start, stop, step, units){
   var numSteps = ee.Date(stop).difference(start, "months").divide(step).ceil();
   return ee.List.sequence(1, numSteps).iterate(function(_, _dateList){
     var nextDate = ee.Date(ee.List(_dateList).get(-1)).advance(step, "months");
-    return ee.List(_dateList).cat(nextDate);
+    return ee.List(_dateList).add(nextDate);
   }, ee.List([startDate]));
 }
 
