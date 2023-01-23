@@ -189,6 +189,9 @@ if (true){
   //   // compList.push(annualMedoidComp(years[yi]));
   // }
   var compColl = ee.ImageCollection(compList);
+  if (doAnnualAggr){
+    
+  }
   
   // L8 RGBN visualisation params
   var rgbnVisParams = {
