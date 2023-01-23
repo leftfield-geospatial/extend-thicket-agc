@@ -47,8 +47,8 @@ function medianComp(startDate, months, coll){
   .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15));
 }
 
-function qtrMedoidComp(year, quarter, coll){
-  // Return an quarterly medoid composite of srcColl
+function medoidComp(startDate, months, coll){
+  // Return a medoid composite of coll
   if (!coll) coll = srcColl;
   var medianComp = qtrMedianComp(year, quarter); 
   
