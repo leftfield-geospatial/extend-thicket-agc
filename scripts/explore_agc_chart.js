@@ -146,7 +146,7 @@ function range(start, stop, step){
 }
 
 function dateRange(start, stop, step, units){
-  // Return range of dates
+  // Return a range of dates
   if (!step) step = 1;
   if (!units) units = "months";
   var numSteps = ee.Date(stop).difference(start, "months").divide(step).floor();
