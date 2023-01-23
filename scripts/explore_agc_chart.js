@@ -71,7 +71,7 @@ function annualMedianComp(year, coll){
   // Return an annual median composite of srcColl
   if (!coll) coll = srcColl;
   
-  return srcColl.filter(ee.Filter.calendarRange(year, year, "year"))
+  return coll.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .mean()
   .set("year", year)
