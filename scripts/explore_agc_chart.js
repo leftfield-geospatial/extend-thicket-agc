@@ -31,8 +31,9 @@ var doRainChart = true;
 var compDuration = 3;    // duration of composites in months
 var doAnnualAggr = true; // combine composites of compDuration into annual composites
 
-// TODO: code for choice of aggregating into annual composites
-// TODO: code for choice of composite duration
+// TODO: choice of aggregating into annual composites
+// TODO: choice of composite duration
+// TODO: how to composite rainfall?  sum?  understand the data first
 
 
 function qtrMedianComp(year, quarter, coll){
