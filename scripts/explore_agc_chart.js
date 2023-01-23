@@ -474,7 +474,7 @@ function createRainChart(mapPanel, toolPanel) {
   rainChart.setOptions({
     title: "Rainfall: time series",
     vAxis: { title: "Prec. (mm/hr)" },
-    hAxis: { title: "Year", format: "yy-MM" },
+    hAxis: { title: "Date", format: "yy-MM" },
     colors: layerColors,
     legend: { position: "right" },
   });
