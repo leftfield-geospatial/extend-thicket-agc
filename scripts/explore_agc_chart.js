@@ -547,7 +547,7 @@ function createRainChart(mapPanel, toolPanel) {
 // Initialise map and tool panels
 // TODO: find a better/more automatic way of specifying date below
 var mapPanel = createMapPanel();
-addMapImageLayers(mapPanel, "2017-07-01");
+addMapImageLayers(mapPanel, "2017-11-16");
 initMapDrawingLayers(mapPanel);
 
 var toolPanel = createToolPanel();
