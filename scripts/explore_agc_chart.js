@@ -61,17 +61,13 @@ function medoidComp(startDate, months, coll){
   };
   
   // find the medoid (pixel from image with smallest distance to collection median)
-  var medoidComp = coll
-  .filter(ee.Filter.calendarRange(year, year, "year"))
-  .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
+  return coll.filter(ee.Filter.date(startDate, stopDate))
   .map(medDiff)
   .reduce(ee.Reducer.min(5))
   .select([1, 2, 3, 4], rgbnBands)
   .set("year", year)
   .set("quarter", quarter)
   .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15).millis());
-
-  return medoidComp;
 }
 
 
