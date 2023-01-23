@@ -178,7 +178,8 @@ if (true){
   var startDates = dateRange("2014-01-01", "2023-01-01", compMonths);
   var startDate = ee.Date("2014-01-01");
   var stopDate = ee.Date("2023-01-01");
-  var startDates = ee.List.sequence("2014-01-01")
+  var stepDate = ee.Date.fromYMD(0, compMonths, 0);
+  var startDates = ee.List.sequence(startDate.millis(), stopDate.millis(), ee.Date.fromYMD(0, comp))
   print("startDates", startDates);
   var compList = startDates.map(function(startDate){return medoidComp(startDate)});
   print("compList", compList);
