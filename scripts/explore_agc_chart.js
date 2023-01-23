@@ -38,6 +38,7 @@ var doAnnualAggr = true; // combine composites of compDuration into annual compo
 function medianComp(startDate, months, coll){
   // Return a quarterly median composite of srcColl
   if (!coll) coll = srcColl;
+  if (!months) months = compMonths;
   
   return coll.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
