@@ -171,18 +171,20 @@ if (true){
 
   // create a collection of annual composites
   var startDates = dateRange("2014-01-01", "2023-01-01", compMonths);
-  var startDates = ee.List([])
-  var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
-  var quarters = range(1, 4); //ee.List.sequence(1, 4); 
-  var compList = [];
-  for (var yi in years) {
-    var tmpList = [];
-    for (var qi in quarters) {
-      tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
-    }
-    compList.push(annualMedoidComp(years[yi], ee.ImageCollection(tmpList)));
-    // compList.push(annualMedoidComp(years[yi]));
-  }
+  var compList = startDates.map(medoidComp);
+  print("compList", compList);
+  // var startDates = ee.List([])
+  // var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
+  // var quarters = range(1, 4); //ee.List.sequence(1, 4); 
+  // var compList = [];
+  // for (var yi in years) {
+  //   var tmpList = [];
+  //   for (var qi in quarters) {
+  //     tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
+  //   }
+  //   compList.push(annualMedoidComp(years[yi], ee.ImageCollection(tmpList)));
+  //   // compList.push(annualMedoidComp(years[yi]));
+  // }
   var compColl = ee.ImageCollection(compList);
   
   // L8 RGBN visualisation params
