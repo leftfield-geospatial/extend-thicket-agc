@@ -76,7 +76,7 @@ function annualMedianComp(year, coll){
   
   return coll.filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
-  .mean()
+  .median()
   .set("year", year)
   .set("system:time_start", ee.Date.fromYMD(year, 7, 1).millis());
 }
