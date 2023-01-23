@@ -127,7 +127,7 @@ function annualMedianComp(year, coll){
 function annualMedoidComp(year, coll){
   // Return an annual medoid composite of srcColl
   if (!coll) coll = srcColl;
-  var medianComp = annualMedianComp(year); 
+  var medianComp = annualMedianComp(year, coll); 
   
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
