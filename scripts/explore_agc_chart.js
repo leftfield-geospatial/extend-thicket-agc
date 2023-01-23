@@ -105,7 +105,6 @@ function qtrMedoidComp(year, quarter, coll){
   .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15).millis());
 }
 
-
 function annualMedianComp(year, coll){
   // Return an annual median composite of srcColl
   if (!coll) coll = srcColl;
@@ -142,6 +141,7 @@ function annualMedoidComp(year, coll){
 }
 
 function range(start, stop, step){
+  // Return range of integers
   if (!step) step = 1;
   var size = (stop - start) / step + 1;
   return Array.apply(null, Array(size)).map(function (_, i) {return (i * step) + start;});
@@ -159,6 +159,7 @@ if (true){
     .select(rgbnBands);
 
   // create a collection of annual composites
+  var startDates = ee.List([])
   var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
   var compList = [];
