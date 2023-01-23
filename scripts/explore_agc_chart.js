@@ -51,7 +51,7 @@ function medoidComp(startDate, months, coll){
   // Return a medoid composite of coll
   if (!coll) coll = srcColl;
   if (!months) months = compMonths;
-  var medianComp = qtrMedianComp(year, quarter); 
+  var medianComp = medianComp(startDate, months, coll); 
   
   var stopDate = startDate.advance(compMonths, "month");
   var medDiff = function(image) {
