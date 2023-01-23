@@ -506,10 +506,7 @@ function createRainChart(mapPanel, toolPanel) {
     .select(1);
 
   // create a collection of annual composites
-  var compList = [];
-  for (var yi in years) {
-    compList.push(annualMedianComp(years[yi], gpmColl));
-  }
+  var compList = startDates.map(function(startDate){return medoidComp(startDate)});
   var rainColl = ee.ImageCollection(compList);
   print("rain list", compList);
 
