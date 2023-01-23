@@ -39,6 +39,8 @@ function medianComp(startDate, months, coll){
   // Return a median composite of coll
   if (!coll) coll = srcColl;
   if (!months) months = compMonths;
+  print("coll", coll);
+  print("coll", coll);
   var stopDate = ee.Date(startDate).advance(months, "month");
   var compDate = ee.Date(startDate).advance(ee.Number(months).divide(2), "month");
   return coll.filter(ee.Filter.date(startDate, stopDate))
