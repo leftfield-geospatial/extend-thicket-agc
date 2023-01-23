@@ -151,12 +151,7 @@ else{
     compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, compColl)});
     compColl = ee.ImageCollection(compList);
   }
-  
-  var years = ee.List.sequence(2001, 2016); 
-  var compColl = ee.ImageCollection.fromImages(
-    years.map(annualMedoidComp).flatten()
-  );
-  
+
   // MODIS RGBN visualisation params
   var rgbnVisParams = {
     min: 500,
