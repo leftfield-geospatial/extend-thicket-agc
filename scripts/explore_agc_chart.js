@@ -41,8 +41,8 @@ function medianComp(startDate, months, coll){
   if (!months) months = compMonths;
   var stopDate = ee.Date(startDate).advance(months, "month");
   var compDate = ee.Date(startDate).advance(ee.Number(months).divide(2), "month");
-  return ee.ImageCollection(coll).
-  filter(ee.Filter.date(startDate, stopDate))
+  return ee.ImageCollection(coll)
+  .filter(ee.Filter.date(startDate, stopDate))
   .median()
   .set("system:time_start", compDate);
 }
@@ -63,8 +63,8 @@ function medoidComp(startDate, months, coll){
   };
   
   // find the medoid (pixel from image with smallest distance to collection median)
-  return ee.ImageCollection(coll).
-  filter(ee.Filter.date(startDate, stopDate))
+  return ee.ImageCollection(coll)
+  .filter(ee.Filter.date(startDate, stopDate))
   .map(medDiff)
   .reduce(ee.Reducer.min(5))
   .select([1, 2, 3, 4], rgbnBands)
