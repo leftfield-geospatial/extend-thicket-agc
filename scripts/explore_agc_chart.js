@@ -442,11 +442,11 @@ function createRainChart(mapPanel, toolPanel) {
     .select(1);
 
   // create a collection of annual composites
-  var compList = startDates.map(function(startDate){return medianComp(startDate, null, gpmColl)});
+  var compList = startDates.map(function(startDate){return meanComp(startDate, null, gpmColl)});
   var rainColl = ee.ImageCollection(compList);
   print("rain list", compList);
   if (doAnnualAggr){
-    compList = yearDates.map(function(startDate){return medianComp(startDate, 12, rainColl)});
+    compList = yearDates.map(function(startDate){return meanComp(startDate, 12, rainColl)});
     rainColl = ee.ImageCollection(compList);
   }
 
