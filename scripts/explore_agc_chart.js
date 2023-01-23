@@ -444,7 +444,6 @@ function createRainChart(mapPanel, toolPanel) {
     layerColors.push(layer.getColor());
   };
   mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
-  print(layerFeats);
 
   var gpmColl = ee.ImageCollection("NASA/GPM_L3/IMERG_MONTHLY_V06")
     .filterBounds(thicketBounds)
