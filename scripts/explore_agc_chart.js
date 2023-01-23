@@ -124,13 +124,13 @@ if (true){
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
   var compList = [];
   for (var yi in years) {
-    // var tmpList = [];
-    // for (var qi in quarters) {
-    //   tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
-    // }
-    // print(tmpList);
-    // compList.push(annualMedoidComp(years[yi], ee.ImageCollection(tmpList)));
-    compList.push(annualMedoidComp(years[yi]));
+    var tmpList = [];
+    for (var qi in quarters) {
+      tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
+    }
+    print(tmpList);
+    compList.push(annualMedoidComp(years[yi], ee.ImageCollection(tmpList)));
+    // compList.push(annualMedoidComp(years[yi]));
   }
   print(compList);
   var compColl = ee.ImageCollection(compList);
