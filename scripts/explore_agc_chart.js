@@ -108,18 +108,6 @@ if (true){
   print("startDates", startDates);
   var compList = startDates.map(function(startDate){return medoidComp(startDate)});
   print("compList", compList);
-  // var startDates = ee.List([])
-  // var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
-  // var quarters = range(1, 4); //ee.List.sequence(1, 4); 
-  // var compList = [];
-  // for (var yi in years) {
-  //   var tmpList = [];
-  //   for (var qi in quarters) {
-  //     tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
-  //   }
-  //   compList.push(annualMedoidComp(years[yi], ee.ImageCollection(tmpList)));
-  //   // compList.push(annualMedoidComp(years[yi]));
-  // }
   var compColl = ee.ImageCollection(compList);
   if (doAnnualAggr){
     var yearDates = dateRange(startDate, endDate, 12);
@@ -150,7 +138,20 @@ else{
     .filterBounds(thicketBounds)
     .select(rgbnBands);
 
-  // create a collection of annual composites
+  // create a collection of composites
+  var startDate = ee.Date("2014-01-01");
+  var endDate = ee.Date("2021-09-01");
+  var startDates = dateRange(startDate, endDate, compMonths);
+  print("startDates", startDates);
+  var compList = startDates.map(function(startDate){return medoidComp(startDate)});
+  print("compList", compList);
+  var compColl = ee.ImageCollection(compList);
+  if (doAnnualAggr){
+    var yearDates = dateRange(startDate, endDate, 12);
+    compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, compColl)});
+    compColl = ee.ImageCollection(compList);
+  }
+  
   var years = ee.List.sequence(2001, 2016); 
   var compColl = ee.ImageCollection.fromImages(
     years.map(annualMedoidComp).flatten()
