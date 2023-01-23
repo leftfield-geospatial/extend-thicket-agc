@@ -454,7 +454,7 @@ function createRainChart(mapPanel, toolPanel) {
   var compList = [];
   for (var yi in years) {
     for (var qi in quarters) {
-      compList.push(qtrMedianComp(years[yi], quarters[qi]));
+      compList.push(qtrMedianComp(years[yi], quarters[qi], gpmColl));
     }
   }
   var rainColl = ee.ImageCollection(compList);
