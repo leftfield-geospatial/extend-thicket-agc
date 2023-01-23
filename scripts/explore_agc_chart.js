@@ -400,7 +400,6 @@ function createAgcChart(mapPanel, toolPanel) {
     layerColors.push(layer.getColor());
   };
   mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
-  print(layerFeats);
 
   // make a mean AGC time series chart for geometries
   var agcChart = ui.Chart.image.seriesByRegion(
