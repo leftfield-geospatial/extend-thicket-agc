@@ -516,6 +516,10 @@ function createRainChart(mapPanel, toolPanel) {
   var compList = startDates.map(function(startDate){return medianComp(startDate, null, gpmColl)});
   var rainColl = ee.ImageCollection(compList);
   print("rain list", compList);
+  if (doAnnualAggr){
+    compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, rainColl)});
+    rainColl = ee.ImageCollection(compList);
+  }
 
   // make a mean AGC time series chart for geometries
   var rainChart = ui.Chart.image.seriesByRegion(
