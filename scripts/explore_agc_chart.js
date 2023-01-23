@@ -147,9 +147,10 @@ function range(start, stop, step){
   return Array.apply(null, Array(size)).map(function (_, i) {return (i * step) + start;});
 }
 
-function dateRange(start, stop, step){
+function dateRange(start, stop, step, units){
   // Return range of integers
   if (!step) step = 1;
+  if (!units) units = "months";
   var size = (stop - start) / step + 1;
   return Array.apply(null, Array(size)).map(function (_, i) {return (i * step) + start;});
 }
