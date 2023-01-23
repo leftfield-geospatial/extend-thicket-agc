@@ -28,6 +28,8 @@ var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/c
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var doRainChart = true;
+var compDuration = 3;    // duration of composites in months
+var doAnnualAggr = true; //combine 
 
 function qtrMedianComp(year, quarter, coll){
   // Return a quarterly median composite of srcColl
