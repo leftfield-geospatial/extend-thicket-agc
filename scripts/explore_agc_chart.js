@@ -172,6 +172,8 @@ if (true){
     .select(rgbnBands);
 
   // create a collection of composites
+  var startDate = ee.Date("2014-01-01");
+  var endDate = ee.Date("2021-09-01");
   var startDates = dateRange("2014-01-01", "2021-09-01", compMonths);
   print("startDates", startDates);
   var compList = startDates.map(function(startDate){return medoidComp(startDate)});
