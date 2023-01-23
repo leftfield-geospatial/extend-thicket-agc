@@ -446,7 +446,7 @@ function createRainChart(mapPanel, toolPanel) {
   print(layerFeats);
 
   // make a mean AGC time series chart for geometries
-  var agcChart = ui.Chart.image.seriesByRegion(
+  var rainChart = ui.Chart.image.seriesByRegion(
     compColl.map(findAgc),  // TODO have an AGC collection up front rather than recreate
     layerFeats,
     ee.Reducer.mean(),
