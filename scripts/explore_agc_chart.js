@@ -177,7 +177,6 @@ var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
   c: ee.Number(eeAgcModel.first().get("c")),
 };
-print("Model: ", model);
 
 ////////////////////////////////////////////////////////////////////////////
 // AGC modelling
