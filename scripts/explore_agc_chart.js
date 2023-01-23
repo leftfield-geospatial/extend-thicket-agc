@@ -48,7 +48,7 @@ function qtrMedoidComp(year, quarter, coll){
   
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
-    var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2)); 
+    var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2).millis()); 
     return diff.reduce('sum').addBands(image);  
   };
   
@@ -61,7 +61,7 @@ function qtrMedoidComp(year, quarter, coll){
   .select([1, 2, 3, 4], rgbnBands)
   .set("year", year)
   .set("quarter", quarter)
-  .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15));
+  .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15).millis());
 
   return medoidComp;
 }
@@ -97,7 +97,7 @@ function annualMedoidComp(year, coll){
   .reduce(ee.Reducer.min(5))
   .select([1, 2, 3, 4], rgbnBands)
   .set("year", year)
-  .set("system:time_start", ee.Date.fromYMD(year, 7, 1));
+  .set("system:time_start", ee.Date.fromYMD(year, 7, 1).millis());
 
   return medoidComp;
 }
