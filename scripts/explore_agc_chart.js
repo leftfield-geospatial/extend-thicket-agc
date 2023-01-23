@@ -445,6 +445,27 @@ function createRainChart(mapPanel, toolPanel) {
   mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
   print(layerFeats);
 
+  var gpmColl = ee.ImageCollection("NASA/GPM_L3/IMERG_MONTHLY_V06")
+    .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 100)
+    .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
+    .filterBounds(thicketBounds)
+    .map(cloudMasking.landsat8SrCloudMask)
+    .select(rgbnBands);
+
+  // create a collection of annual composites
+  var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
+  var quarters = range(1, 4); //ee.List.sequence(1, 4); 
+  var compList = [];
+  for (var yi in years) {
+    // var tmpList = [];
+    for (var qi in quarters) {
+      compList.push(qtrMedoidComp(years[yi], quarters[qi]));
+    }
+    // compList.push(annualMedianComp(years[yi], ee.ImageCollection(tmpList)));
+  }
+  var compColl = ee.ImageCollection(compList);
+
+  rainColl = 
   // make a mean AGC time series chart for geometries
   var rainChart = ui.Chart.image.seriesByRegion(
     compColl.map(findAgc),  // TODO have an AGC collection up front rather than recreate
