@@ -36,7 +36,7 @@ var doAnnualAggr = true; // combine composites of compDuration into annual compo
 // TODO: how to composite rainfall?  sum?  understand the data first
 
 function medianComp(startDate, months, coll){
-  // Return a quarterly median composite of srcColl
+  // Return a median composite of coll
   if (!coll) coll = srcColl;
   if (!months) months = compMonths;
   
