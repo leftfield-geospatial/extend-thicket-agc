@@ -139,7 +139,7 @@ else{
     .filterBounds(thicketBounds)
     .select(rgbnBands);
 
-  var startDate = ee.Date("2009-04-01");
+  var startDate = ee.Date("2000-07-01");
   var endDate = ee.Date("2021-09-01");
 
   // MODIS RGBN visualisation params
