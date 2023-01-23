@@ -103,8 +103,6 @@ function qtrMedoidComp(year, quarter, coll){
   .set("year", year)
   .set("quarter", quarter)
   .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15).millis());
-
-  return medoidComp;
 }
 
 
