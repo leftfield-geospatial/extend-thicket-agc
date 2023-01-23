@@ -39,7 +39,8 @@ function medianComp(startDate, months, coll){
   // Return a median composite of coll
   if (!coll) coll = srcColl;
   if (!months) months = compMonths;
-  var stopDate = startDate.advance(compMonths, "month");
+  var stopDate = startDate.advance(months, "month");
+  var compDate = startDate.advance(compMonths, "month")
   return coll.filter(ee.Filter.date(startDate, stopDate))
   .median()
   .set("year", year)
@@ -53,7 +54,7 @@ function medoidComp(startDate, months, coll){
   if (!months) months = compMonths;
   var medianComp = medianComp(startDate, months, coll); 
   
-  var stopDate = startDate.advance(compMonths, "month");
+  var stopDate = startDate.advance(months, "month");
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
     var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2)); 
