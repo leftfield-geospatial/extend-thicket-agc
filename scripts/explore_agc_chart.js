@@ -48,7 +48,7 @@ function qtrMedoidComp(year, quarter, coll){
   
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
-    var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2).millis()); 
+    var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2)); 
     return diff.reduce('sum').addBands(image);  
   };
   
