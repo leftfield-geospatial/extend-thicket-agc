@@ -171,6 +171,7 @@ if (true){
 
   // create a collection of annual composites
   var startDates = dateRange("2014-01-01", "2023-01-01", compMonths);
+  print("startDates", startDates);
   var compList = startDates.map(medoidComp);
   print("compList", compList);
   // var startDates = ee.List([])
