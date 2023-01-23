@@ -128,11 +128,9 @@ if (true){
     for (var qi in quarters) {
       tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
     }
-    print(tmpList);
     compList.push(annualMedoidComp(years[yi], ee.ImageCollection(tmpList)));
     // compList.push(annualMedoidComp(years[yi]));
   }
-  print(compList);
   var compColl = ee.ImageCollection(compList);
   
   // L8 RGBN visualisation params
