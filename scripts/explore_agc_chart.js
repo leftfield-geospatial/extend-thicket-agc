@@ -489,7 +489,8 @@ initMapDrawingLayers(mapPanel);
 var toolPanel = createToolPanel();
 var agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
-if (true){
+var doRainChart = true;
+if (doRainChart){
   var rainChart = createRainChart(mapPanel, toolPanel);
   toolPanel.widgets().set(11, rainChart);
 }
@@ -500,6 +501,10 @@ function drawingGeomChanged(geom, layer, widget) {
   if (!geom) return;
   var agcChart = createAgcChart(mapPanel, toolPanel);
   toolPanel.widgets().set(10, agcChart);
+  if (doRainChart){
+    var rainChart = createRainChart(mapPanel, toolPanel);
+    toolPanel.widgets().set(11, rainChart);
+  }
 }
 
 function drawingLayerChanged(layer, widget) {
@@ -508,6 +513,10 @@ function drawingLayerChanged(layer, widget) {
   if (!layer.geometries().length()) return;
   var agcChart = createAgcChart(mapPanel, toolPanel);
   toolPanel.widgets().set(10, agcChart);
+  if (doRainChart){
+    var rainChart = createRainChart(mapPanel, toolPanel);
+    toolPanel.widgets().set(11, rainChart);
+  }
 }
 
 mapPanel.drawingTools().onDraw(ui.util.debounce(drawingGeomChanged, 200));
