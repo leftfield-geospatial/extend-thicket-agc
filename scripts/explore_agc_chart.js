@@ -192,7 +192,7 @@ if (true){
   // }
   var compColl = ee.ImageCollection(compList);
   if (doAnnualAggr){
-    var yearDates = dateRange("2014-01-01", "2021-09-01", 12);
+    var yearDates = dateRange(startDate, endDate, 12);
     compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, compColl)});
     compColl = ee.ImageCollection(compList);
   }
