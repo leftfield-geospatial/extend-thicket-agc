@@ -40,7 +40,7 @@ function medianComp(startDate, months, coll){
   if (!coll) coll = srcColl;
   if (!months) months = compMonths;
   var stopDate = startDate.advance(compMonths, "month");
-  return coll.filter(ee.Filter.date(startDate, ))
+  return coll.filter(ee.Filter.date(startDate, stopDate))
   .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
   .median()
   .set("year", year)
