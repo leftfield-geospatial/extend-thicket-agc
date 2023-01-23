@@ -29,7 +29,7 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var doRainChart = true;
 var compMonths = 3;    // duration of composites in months
-var doAnnualAggr = false; // combine composites of compDuration into annual composites
+var doAnnualAggr = true; // combine composites of compDuration into annual composites
 
 // TODO: choice of aggregating into annual composites
 // TODO: choice of composite duration
@@ -443,8 +443,10 @@ function createRainChart(mapPanel, toolPanel) {
 
   // create a collection of annual composites
   var months = compMonths;
+  var rainDates = startDates;
   if (doAnnualAggr){
     months = 12;
+    rainDates = yearDates;
   }
   var compList = startDates.map(function(startDate){return meanComp(startDate, months, gpmColl)});
   var rainColl = ee.ImageCollection(compList);
