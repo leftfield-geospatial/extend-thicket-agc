@@ -442,14 +442,12 @@ function createRainChart(mapPanel, toolPanel) {
     .select(1);
 
   // create a collection of annual composites
-  if (!doAnnualAggr){
-    var compList = startDates.map(function(startDate){return meanComp(startDate, null, gpmColl)});
-    var rainColl = ee.ImageCollection(compList);
+  var months = compMonths;
+  if (doAnnualAggr){
+    months = 12;
   }
-  else{
-    compList = yearDates.map(function(startDate){return meanComp(startDate, 12, rainColl)});
-    rainColl = ee.ImageCollection(compList);
-  }
+  var compList = startDates.map(function(startDate){return meanComp(startDate, months, gpmColl)});
+  var rainColl = ee.ImageCollection(compList);
   print("rain list", compList);
 
   // make a mean AGC time series chart for geometries
