@@ -132,7 +132,7 @@ else{
 
   // MODIS RGBN visualisation params
   var rgbnVisParams = {
-    min: 500,
+    min: 50,
     max: 2000,
     gamma: 1.2,
     bands: rgbnBands.slice(0, 3),
