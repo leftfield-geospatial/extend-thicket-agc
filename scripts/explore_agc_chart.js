@@ -29,7 +29,7 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var doRainChart = true;
 var compMonths = 3;    // duration of composites in months
-var doAnnualAggr = true; // combine composites of compDuration into annual composites
+var doAnnualAggr = false; // combine composites of compDuration into annual composites
 
 // TODO: choice of aggregating into annual composites
 // TODO: choice of composite duration
