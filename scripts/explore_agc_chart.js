@@ -28,12 +28,49 @@ var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/c
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var doRainChart = true;
-var compDuration = 3;    // duration of composites in months
+var compMonths = 3;    // duration of composites in months
 var doAnnualAggr = true; // combine composites of compDuration into annual composites
 
 // TODO: choice of aggregating into annual composites
 // TODO: choice of composite duration
 // TODO: how to composite rainfall?  sum?  understand the data first
+
+function medianComp(startDate, months, coll){
+  // Return a quarterly median composite of srcColl
+  if (!coll) coll = srcColl;
+  
+  return coll.filter(ee.Filter.calendarRange(year, year, "year"))
+  .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
+  .median()
+  .set("year", year)
+  .set("quarter", quarter)
+  .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15));
+}
+
+function qtrMedoidComp(year, quarter, coll){
+  // Return an quarterly medoid composite of srcColl
+  if (!coll) coll = srcColl;
+  var medianComp = qtrMedianComp(year, quarter); 
+  
+  var medDiff = function(image) {
+    // Return the sum of squared differences between image bands and collection median
+    var diff = ee.Image(image).subtract(medianComp).pow(ee.Image.constant(2)); 
+    return diff.reduce('sum').addBands(image);  
+  };
+  
+  // find the medoid (pixel from image with smallest distance to collection median)
+  var medoidComp = coll
+  .filter(ee.Filter.calendarRange(year, year, "year"))
+  .filter(ee.Filter.calendarRange((quarter-1)*3+1, (quarter)*3, "month"))
+  .map(medDiff)
+  .reduce(ee.Reducer.min(5))
+  .select([1, 2, 3, 4], rgbnBands)
+  .set("year", year)
+  .set("quarter", quarter)
+  .set("system:time_start", ee.Date.fromYMD(year, (quarter-1)*3+2, 15).millis());
+
+  return medoidComp;
+}
 
 
 function qtrMedianComp(year, quarter, coll){
