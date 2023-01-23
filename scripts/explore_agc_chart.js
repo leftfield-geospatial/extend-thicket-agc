@@ -484,7 +484,7 @@ function createRainChart(mapPanel, toolPanel) {
 
 // Initialise map and tool panels
 var mapPanel = createMapPanel();
-addMapImageLayers(mapPanel, "2017-11-15");
+addMapImageLayers(mapPanel, "2017-07-01");
 initMapDrawingLayers(mapPanel);
 
 var toolPanel = createToolPanel();
