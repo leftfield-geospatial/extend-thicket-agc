@@ -65,8 +65,6 @@ function medoidComp(startDate, months, coll){
   .map(medDiff)
   .reduce(ee.Reducer.min(5))
   .select([1, 2, 3, 4], rgbnBands)
-  .set("year", year)
-  .set("quarter", quarter)
   .set("system:time_start", compDate);
 }
 
