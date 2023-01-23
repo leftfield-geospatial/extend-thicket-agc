@@ -177,7 +177,7 @@ if (true){
   print(tmp);
   var startDates = dateRange("2014-01-01", "2023-01-01", compMonths);
   print("startDates", startDates);
-  var compList = startDates.map(startDate => medoidComp(startDate));
+  var compList = startDates.map(function(startDate){return medoidComp(startDate)});
   print("compList", compList);
   // var startDates = ee.List([])
   // var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
