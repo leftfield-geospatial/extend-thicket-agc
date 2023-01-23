@@ -479,15 +479,7 @@ function createRainChart(mapPanel, toolPanel) {
     legend: { position: "right" },
   });
   
-  agcChart.onClick(function(xValue, yValue, seriesName) {
-    print("agcChart.onClick");
-    if (!xValue) return;  // Selection was cleared.
-  
-    // Show the image for the clicked date.
-    var clickDate = ee.Date(xValue); //.get("year");
-    addMapImageLayers(mapPanel, clickDate);
-  });
-  return agcChart;
+  return rainChart;
 }
 
 
