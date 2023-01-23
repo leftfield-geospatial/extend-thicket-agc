@@ -458,6 +458,7 @@ function createRainChart(mapPanel, toolPanel) {
     }
   }
   var rainColl = ee.ImageCollection(compList);
+  print("rain list", compList);
 
   // make a mean AGC time series chart for geometries
   var rainChart = ui.Chart.image.seriesByRegion(
