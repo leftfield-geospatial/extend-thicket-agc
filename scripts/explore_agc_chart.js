@@ -451,9 +451,7 @@ function createRainChart(mapPanel, toolPanel) {
   // create a collection of annual composites
   var compList = [];
   for (var yi in years) {
-    for (var qi in quarters) {
-      compList.push(qtrMedianComp(years[yi], quarters[qi], gpmColl));
-    }
+    compList.push(annualMedianComp(years[yi], gpmColl));
   }
   var rainColl = ee.ImageCollection(compList);
   print("rain list", compList);
