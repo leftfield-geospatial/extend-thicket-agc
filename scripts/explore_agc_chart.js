@@ -466,7 +466,7 @@ function createRainChart(mapPanel, toolPanel) {
     layerFeats,
     ee.Reducer.mean(),
     0,
-    11132,
+    null,
     "system:time_start",
     "name"
   );
