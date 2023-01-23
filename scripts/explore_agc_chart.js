@@ -152,12 +152,10 @@ function dateRange(start, stop, step, units){
   if (!step) step = 1;
   if (!units) units = "months";
   var numSteps = ee.Date(stop).difference(start, "months").divide(step).ceil();
-  var dateList = ee.List.sequence(1, numSteps).iterate(function(_, _dateList){
+  return ee.List.sequence(1, numSteps).iterate(function(_, _dateList){
     var nextDate = ee.Date(ee.List(_dateList).get(-1)).advance(step, "months");
     return ee.List(_dateList).cat(nextDate);
   }, ee.List([startDate]));
-  var size = (stop - start) / step + 1;
-  return Array.apply(null, Array(size)).map(function (_, i) {return (i * step) + start;});
 }
 
 if (true){
