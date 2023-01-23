@@ -171,9 +171,7 @@ if (true){
     .map(cloudMasking.landsat8SrCloudMask)
     .select(rgbnBands);
 
-  var tmp = Date("2014-01-01");
-  // create a collection of annual composites
-  var tmp = medoidComp("2014-01-01");
+  // create a collection of composites
   print(tmp);
   var startDates = dateRange("2014-01-01", "2023-01-01", compMonths);
   print("startDates", startDates);
