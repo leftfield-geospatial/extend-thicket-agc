@@ -170,6 +170,7 @@ if (true){
     .select(rgbnBands);
 
   // create a collection of annual composites
+  var startDates = dateRange("2014-01-01", "2023-01-01", compMonths);
   var startDates = ee.List([])
   var years = range(2014, 2022); //ee.List.sequence(2014, 2022); // valid L8 years
   var quarters = range(1, 4); //ee.List.sequence(1, 4); 
