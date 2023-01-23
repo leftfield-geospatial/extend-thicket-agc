@@ -128,6 +128,7 @@ if (true){
     for (var qi in quarters) {
       tmpList.push(qtrMedoidComp(years[yi], quarters[qi]));
     }
+    print(tmpList);
     compList.push(annualMedianComp(years[yi], ee.ImageCollection(tmpList)));
   }
   var compColl = ee.ImageCollection(compList);
