@@ -29,7 +29,7 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var doRainChart = true;
 var compDuration = 3;    // duration of composites in months
-var doAnnualAggr = true; //combine 
+var doAnnualAggr = true; // combine 
 
 function qtrMedianComp(year, quarter, coll){
   // Return a quarterly median composite of srcColl
