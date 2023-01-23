@@ -471,8 +471,8 @@ function createRainChart(mapPanel, toolPanel) {
     "name"
   );
 
-  agcChart.setOptions({
-    title: "AGC: time series",
+  rainChart.setOptions({
+    title: "Rainfall: time series",
     vAxis: { title: "AGC (tC/ha)" },
     hAxis: { title: "Year", format: "yy-MM" },
     colors: layerColors,
