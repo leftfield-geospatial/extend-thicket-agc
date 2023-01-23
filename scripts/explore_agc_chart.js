@@ -52,8 +52,8 @@ function medoidComp(startDate, months, coll){
   if (!months) months = compMonths;
   var _medianComp = medianComp(startDate, months); 
   
-  var stopDate = startDate.advance(months, "month");
-  var compDate = startDate.advance(ee.Number(months).divide(2), "month");
+  var stopDate = ee.Date(startDate).advance(months, "month");
+  var compDate = ee.Date(startDate).advance(ee.Number(months).divide(2), "month");
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
     var diff = ee.Image(image).subtract(_medianComp).pow(ee.Image.constant(2)); 
