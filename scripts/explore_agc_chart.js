@@ -47,6 +47,18 @@ function medianComp(startDate, months, coll){
   .set("system:time_start", compDate);
 }
 
+function meanComp(startDate, months, coll){
+  // Return a median composite of coll
+  if (!coll) coll = srcColl;
+  if (!months) months = compMonths;
+  var stopDate = ee.Date(startDate).advance(months, "month");
+  var compDate = ee.Date(startDate).advance(ee.Number(months).divide(2), "month");
+  return ee.ImageCollection(coll)
+  .filter(ee.Filter.date(startDate, stopDate))
+  .mean()
+  .set("system:time_start", compDate);
+}
+
 function medoidComp(startDate, months, coll){
   // Return a medoid composite of coll
   if (!coll) coll = srcColl;
