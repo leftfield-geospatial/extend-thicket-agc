@@ -517,7 +517,7 @@ function createRainChart(mapPanel, toolPanel) {
   var rainColl = ee.ImageCollection(compList);
   print("rain list", compList);
   if (doAnnualAggr){
-    compList = yearDates.map(function(startDate){return medoidComp(startDate, 12, rainColl)});
+    compList = yearDates.map(function(startDate){return medianComp(startDate, 12, rainColl)});
     rainColl = ee.ImageCollection(compList);
   }
 
