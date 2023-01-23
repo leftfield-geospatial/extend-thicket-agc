@@ -31,6 +31,9 @@ var doRainChart = true;
 var compDuration = 3;    // duration of composites in months
 var doAnnualAggr = true; // combine composites of compDuration into annual composites
 
+// TODO: code for choice of aggregating into annual composites
+// TODO: code for choice of composite duration
+
 
 function qtrMedianComp(year, quarter, coll){
   // Return a quarterly median composite of srcColl
