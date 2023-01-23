@@ -176,6 +176,9 @@ if (true){
   var tmp = medoidComp("2014-01-01");
   print(tmp);
   var startDates = dateRange("2014-01-01", "2023-01-01", compMonths);
+  var startDate = ee.Date("2014-01-01");
+  var stopDate = ee.Date("2023-01-01");
+  var startDates = ee.List.sequence("2014-01-01")
   print("startDates", startDates);
   var compList = startDates.map(function(startDate){return medoidComp(startDate)});
   print("compList", compList);
