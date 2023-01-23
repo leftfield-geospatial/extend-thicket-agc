@@ -447,8 +447,8 @@ function createRainChart(mapPanel, toolPanel) {
     var rainColl = ee.ImageCollection(compList);
   }
   else{
-    var compList = yearDates.map(function(startDate){return meanComp(startDate, 12, rainColl)});
-    var rainColl = ee.ImageCollection(compList);
+    compList = yearDates.map(function(startDate){return meanComp(startDate, 12, rainColl)});
+    rainColl = ee.ImageCollection(compList);
   }
   print("rain list", compList);
 
