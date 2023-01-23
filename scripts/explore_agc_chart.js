@@ -90,7 +90,7 @@ function annualMedoidComp(year, coll){
   };
 
   // find the medoid (pixel from image with smallest distance to collection median)
-  var medoidComp = srcColl
+  var medoidComp = coll
   .filter(ee.Filter.calendarRange(year, year, "year"))
   .filter(ee.Filter.calendarRange(1, 12, "month"))
   .map(medDiff)
