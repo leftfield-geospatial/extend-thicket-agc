@@ -41,7 +41,7 @@ function medianComp(startDate, months, coll){
   if (!months) months = compMonths;
   var stopDate = ee.Date(startDate).advance(months, "month");
   var compDate = ee.Date(startDate).advance(ee.Number(months).divide(2), "month");
-  return coll.filter(ee.Filter.date(startDate, stopDate))
+  return ee.ImageCollection(coll).filter(ee.Filter.date(startDate, stopDate))
   .median()
   .set("system:time_start", compDate);
 }
