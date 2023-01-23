@@ -50,7 +50,7 @@ function medoidComp(startDate, months, coll){
   // Return a medoid composite of coll
   if (!coll) coll = srcColl;
   if (!months) months = compMonths;
-  var medianComp = medianComp(startDate, months, coll); 
+  var _medianComp = medianComp(startDate, months, coll); 
   
   var stopDate = startDate.advance(months, "month");
   var compDate = startDate.advance(ee.Number(months).divide(2), "month");
