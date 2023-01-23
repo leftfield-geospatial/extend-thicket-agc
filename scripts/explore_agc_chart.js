@@ -90,7 +90,7 @@ function dateRange(start, stop, step, units){
   return ee.List(dateList);
 }
 
-if (true){
+if (false){
   // Landsat 8
   var rgbnBands = ["SR_B4", "SR_B3", "SR_B2", "SR_B5"];
   // cloud masked RGBN collection
