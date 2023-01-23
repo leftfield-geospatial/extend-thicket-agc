@@ -90,7 +90,7 @@ function qtrMedianComp(year, quarter, coll){
 function qtrMedoidComp(year, quarter, coll){
   // Return an quarterly medoid composite of srcColl
   if (!coll) coll = srcColl;
-  var medianComp = qtrMedianComp(year, quarter); 
+  var medianComp = qtrMedianComp(year, quarter, coll); 
   
   var medDiff = function(image) {
     // Return the sum of squared differences between image bands and collection median
