@@ -203,6 +203,18 @@ function findNdvi(image) {
   .rename("NDVI");
 }
 
+function findEvi(image) {
+  // Given an RGBN image, return the NDVI estimate
+  var eviImage = image.expression('2.5 * ((NIR - R) / (NIR + 6 * R - ))',
+    {
+      'R': image.select(0),
+      'NIR': image.select(3),
+    });  
+  return ee.Image(ndviImage)
+  .set("system:time_start", image.get("system:time_start"))
+  .rename("NDVI");
+}
+
 ////////////////////////////////////////////////////////////////////////////
 // Visualisation
 // TO DO - try retrieve agcVisParams from map and place these vars elsewhere
