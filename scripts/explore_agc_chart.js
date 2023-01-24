@@ -522,7 +522,7 @@ function createViChart(mapPanel, toolPanel) {
     compColl.map(findVis),  
     layerFeats,
     ee.Reducer.mean(),
-    0,
+    1,
     30,
     "system:time_start",
     "name"
