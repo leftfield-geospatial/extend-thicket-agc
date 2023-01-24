@@ -27,7 +27,7 @@ var eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
-var doRainChart = true;
+var doExtraCharts = true;
 var compMonths = 6;    // duration of composites in months
 var doAnnualAggr = false; // combine composites of compDuration into annual composites
 
