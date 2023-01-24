@@ -516,7 +516,7 @@ function createViChart(mapPanel, toolPanel) {
     return findNdvi(image)
     .addBands(findEvi(image))
     .set("system:time_start", image.get("system:time_start"));
-  }
+  };
   // make a mean AGC time series chart for geometries
   var viChart = ui.Chart.image.seriesByRegion(
     compColl.map(findNdvi),  // TODO have an AGC collection up front rather than recreate
