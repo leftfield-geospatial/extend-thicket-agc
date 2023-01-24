@@ -108,7 +108,7 @@ if (true){
   // cloud masked RGBN collection
   var srcColl = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
     .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-    .filterMetadata("CLOUD_COVER_LAND", "less_than",  20)
+    .filterMetadata("CLOUD_COVER_LAND", "less_than",  50)
     .filterBounds(thicketBounds)
     .map(cloudMasking.landsat8SrCloudMask)
     .select(rgbnBands);
