@@ -499,6 +499,49 @@ function createRainChart(mapPanel, toolPanel) {
   return rainChart;
 }
 
+function createViChart(mapPanel, toolPanel) {
+  // Create NDVI and EVI time series chart
+
+  // get lists of drawn geometries and colours
+  var layerFeats = [];
+  var layerColors = [];
+  var getDrawnGeometries = function(layer){
+    var layerGeom = ee.FeatureCollection(layer.getEeObject()).geometry();
+    layerFeats.push(ee.Feature(layerGeom, {name: layer.getName()}));
+    layerColors.push(layer.getColor());
+  };
+  mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
+
+  // make a mean AGC time series chart for geometries
+  var agcChart = ui.Chart.image.seriesByRegion(
+    compColl.map(findAgc),  // TODO have an AGC collection up front rather than recreate
+    layerFeats,
+    ee.Reducer.mean(),
+    0,
+    30,
+    "system:time_start",
+    "name"
+  );
+
+  agcChart.setOptions({
+    title: "AGC: time series",
+    vAxis: { title: "AGC (tC/ha)" },
+    hAxis: { title: "Date", format: "yy-MM" },
+    colors: layerColors,
+    legend: { position: "right" },
+  });
+  
+  agcChart.onClick(function(xValue, yValue, seriesName) {
+    print("agcChart.onClick");
+    if (!xValue) return;  // Selection was cleared.
+  
+    // Show the image for the clicked date.
+    var clickDate = ee.Date(xValue); //.get("year");
+    addMapImageLayers(mapPanel, clickDate);
+  });
+  return agcChart;
+}
+
 
 // Initialise map and tool panels
 // TODO: find a better/more automatic way of specifying date below
