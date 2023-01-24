@@ -114,7 +114,7 @@ if (true){
     .select(rgbnBands);
 
   var startDate = ee.Date("2013-07-01");
-  var endDate = ee.Date("2022-01-01");
+  var endDate = ee.Date("2023-01-01");
   
   // L8 RGBN visualisation params
   var rgbnVisParams = {
