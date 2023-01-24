@@ -437,7 +437,7 @@ function createRainChart(mapPanel, toolPanel) {
   };
   mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
 
-  var gpmColl = ee.ImageCollection("NASA/GPM_L3/IMERG_V06") //("NASA/GPM_L3/IMERG_MONTHLY_V06")
+  var gpmColl = ee.ImageCollection("NASA/GPM_L3/IMERG_MONTHLY_V06") // ("NASA/GPM_L3/IMERG_V06") //
     .filterBounds(thicketBounds)
     .select(1);
 
