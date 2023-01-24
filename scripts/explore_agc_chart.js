@@ -549,9 +549,11 @@ initMapDrawingLayers(mapPanel);
 var toolPanel = createToolPanel();
 var agcChart = createAgcChart(mapPanel, toolPanel);
 toolPanel.widgets().set(10, agcChart);
-if (doRainChart){
+if (doExtraCharts){
   var rainChart = createRainChart(mapPanel, toolPanel);
   toolPanel.widgets().set(11, rainChart);
+  var viChart = createViChart(mapPanel, toolPanel);
+  toolPanel.widgets().set(12, viChart);
 }
 // Set up event handlers
 function drawingGeomChanged(geom, layer, widget) {
