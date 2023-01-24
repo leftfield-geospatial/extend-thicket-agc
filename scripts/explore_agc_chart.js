@@ -191,6 +191,22 @@ function findAgc(image) {
   ).rename("AGC");
 }
 
+function findNdvi(image) {
+  // Given an RGBN image, return the NDVI estimate
+  var rnImage = image.expression('(R / (R + G + B + NIR))',
+    {
+      'R': image.select(0),
+      'G': image.select(1),
+      'B': image.select(2),
+      'NIR': image.select(3),
+    });  
+  return ee.Image(rnImage.log10()
+    .multiply(model.m)
+    .add(model.c)
+    .set("system:time_start", image.get("system:time_start"))
+  ).rename("AGC");
+}
+
 ////////////////////////////////////////////////////////////////////////////
 // Visualisation
 // TO DO - try retrieve agcVisParams from map and place these vars elsewhere
