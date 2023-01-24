@@ -28,7 +28,7 @@ var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/c
 var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var doExtraCharts = true;
-var compMonths = 6;    // duration of composites in months
+var compMonths = 3;    // duration of composites in months
 var doAnnualAggr = false; // combine composites of compDuration into annual composites
 
 // TODO: choice of aggregating into annual composites
