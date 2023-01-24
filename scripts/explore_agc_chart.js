@@ -513,8 +513,8 @@ function createViChart(mapPanel, toolPanel) {
   mapPanel.drawingTools().layers().forEach(getDrawnGeometries);
 
   var findVis = function(image){
-    ndviImage = findNdvi(image);
-    eviImage = findEvi(image);
+    return findNdvi(image).
+    addBands(findEvi(image))
   }
   // make a mean AGC time series chart for geometries
   var viChart = ui.Chart.image.seriesByRegion(
