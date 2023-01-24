@@ -29,7 +29,7 @@ var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundari
 var thicketBounds = stepAridAndValleyThicket.union().geometry().bounds();
 var doRainChart = true;
 var compMonths = 3;    // duration of composites in months
-var doAnnualAggr = true; // combine composites of compDuration into annual composites
+var doAnnualAggr = false; // combine composites of compDuration into annual composites
 
 // TODO: choice of aggregating into annual composites
 // TODO: choice of composite duration
@@ -102,7 +102,7 @@ function dateRange(start, stop, step, units){
   return ee.List(dateList);
 }
 
-if (false){
+if (true){
   // Landsat 8
   var rgbnBands = ["SR_B4", "SR_B3", "SR_B2", "SR_B5"];
   // cloud masked RGBN collection
@@ -114,7 +114,7 @@ if (false){
     .select(rgbnBands);
 
   var startDate = ee.Date("2014-01-01");
-  var endDate = ee.Date("2021-09-01");
+  var endDate = ee.Date("2023-01-01");
   
   // L8 RGBN visualisation params
   var rgbnVisParams = {
