@@ -193,18 +193,14 @@ function findAgc(image) {
 
 function findNdvi(image) {
   // Given an RGBN image, return the NDVI estimate
-  var rnImage = image.expression('(R / (R + G + B + NIR))',
+  var ndviImage = image.expression('((NIR - R) / (NIR + R))',
     {
       'R': image.select(0),
-      'G': image.select(1),
-      'B': image.select(2),
       'NIR': image.select(3),
     });  
-  return ee.Image(rnImage.log10()
-    .multiply(model.m)
-    .add(model.c)
-    .set("system:time_start", image.get("system:time_start"))
-  ).rename("AGC");
+  return ee.Image(ndviImage)
+  .set("system:time_start", image.get("system:time_start"))
+  .rename("NDVI");
 }
 
 ////////////////////////////////////////////////////////////////////////////
