@@ -514,7 +514,7 @@ function createViChart(mapPanel, toolPanel) {
 
   // make a mean AGC time series chart for geometries
   var viChart = ui.Chart.image.seriesByRegion(
-    compColl.map(findAgc),  // TODO have an AGC collection up front rather than recreate
+    compColl.map(findNdvi),  // TODO have an AGC collection up front rather than recreate
     layerFeats,
     ee.Reducer.mean(),
     0,
