@@ -211,7 +211,7 @@ function findEvi(image) {
       'B': image.select(2),
       'NIR': image.select(3),
     });  
-  return ee.Image(eviImage)
+  return ee.Image(eviImage.log10())
   .set("system:time_start", image.get("system:time_start"))
   .rename("EVI");
 }
