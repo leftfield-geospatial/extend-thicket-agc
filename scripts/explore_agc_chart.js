@@ -530,7 +530,7 @@ function createViChart(mapPanel, toolPanel) {
 
   viChart.setOptions({
     title: "NDVI & VU: time series",
-    vAxis: { title: "AGC (tC/ha)" },
+    vAxis: { title: "NDVI & VI" },
     hAxis: { title: "Date", format: "yy-MM" },
     colors: layerColors,
     legend: { position: "right" },
