@@ -208,6 +208,7 @@ function findEvi(image) {
   var eviImage = image.expression('2.5*((NIR - R) / (NIR + 6*R - 7.5*B + 1))',
     {
       'R': image.select(0),
+      'B': image.select(2),
       'NIR': image.select(3),
     });  
   return ee.Image(ndviImage)
