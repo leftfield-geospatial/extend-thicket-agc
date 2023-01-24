@@ -205,7 +205,7 @@ function findNdvi(image) {
 
 function findEvi(image) {
   // Given an RGBN image, return the NDVI estimate
-  var eviImage = image.expression('2.5 * ((NIR - R) / (NIR + 6 * R - ))',
+  var eviImage = image.expression('2.5*((NIR - R) / (NIR + 6*R - 7.5*B + 1))',
     {
       'R': image.select(0),
       'NIR': image.select(3),
