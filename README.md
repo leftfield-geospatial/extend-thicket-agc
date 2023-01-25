@@ -29,8 +29,8 @@ A screenshot of the [visualisation app](https://dugalh.users.earthengine.app/vie
 
 
 ## License
-- Code is licensed under the [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html)
-- Data is licensed under the [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0)
+- Code is licensed under the [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).
+- All data, used and produced by the software, is licensed under the [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Citation
 For use of the code or map, please cite:
