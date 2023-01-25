@@ -1,6 +1,7 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var gefCalibPlots = ee.FeatureCollection("projects/thicket-agc/assets/gef_calib_plots"),
-    gefSamplingPlots = ee.FeatureCollection("projects/thicket-agc/assets/gef_sampling_plots");
+    gefSamplingPlots = ee.FeatureCollection("projects/thicket-agc/assets/gef_sampling_plots"),
+    stepAridAndValleyThicket = ee.FeatureCollection("projects/thicket-agc/assets/step_arid_and_valley_thicket");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     Concept demonstration for extension of local aboveground carbon model to the thicket biome
