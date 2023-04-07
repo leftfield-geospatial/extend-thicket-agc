@@ -103,7 +103,7 @@ var noteLabel = ui.Label(
 var linkLabel = ui.Label(
   "See the GitHub repository for more information.",
   { fontSize: "11px" },
-  "https://github.com/dugalh/extend_thicket_agc"
+  "https://github.com/leftfield-geospatial/extend-thicket-agc"
 );
 
 var toolPanel = ui.Panel({
@@ -319,7 +319,7 @@ var gefDescrLabel = ui.Label(
 var gefLinkLabel = ui.Label(
   "GEF-5 SLM project",
   { fontSize: "11px", margin: "4px 0px" },
-  "https://github.com/dugalh/map_thicket_agc"
+  "https://github.com/leftfield-geospatial/map-thicket-agc"
 );
 var gefPanel = ui.Panel(
   [gefDescrLabel, gefLinkLabel],

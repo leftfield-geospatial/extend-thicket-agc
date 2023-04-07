@@ -1,5 +1,5 @@
 # Extended aboveground carbon (AGC) mapping in thicket
-[A localised AGC model using WorldView-3 imagery](https://github.com/dugalh/map_thicket_agc) is calibrated to coarser resolution Landsat 8 imagery and applied to the thicket biome (South Africa) using Google Earth Engine.  This is a concept demonstration - AGC accuracy is not known outside the [WorldView-3 model study area](https://github.com/dugalh/map_thicket_agc#ground-truth).   
+[A localised AGC model using WorldView-3 imagery](https://github.com/leftfield-geospatial/map-thicket-agc) is calibrated to coarser resolution Landsat 8 imagery and applied to the thicket biome (South Africa) using Google Earth Engine.  This is a concept demonstration - AGC accuracy is not known outside the [WorldView-3 model study area](https://github.com/leftfield-geospatial/map-thicket-agc#ground-truth).   
 
 
 ## Getting Started
@@ -20,7 +20,7 @@ Script | Description
 
 ## Summary of Results
 
-The calibrated Landsat 8 AGC model produced a RMSE of 3.35 tC/ha, and an *R*<sup>2</sup> of 0.93, on 20 ground truth plots in the [GEF-5 SLM study area](https://github.com/dugalh/map_thicket_agc#ground-truth).  Arid and valley thicket types cover 3.65 million ha, with an average AGC of 20.57 tC/ha.  Further ground truth and modelling work is required to establish AGC accuracy across the biome.  
+The calibrated Landsat 8 AGC model produced a RMSE of 3.35 tC/ha, and an *R*<sup>2</sup> of 0.93, on 20 ground truth plots in the [GEF-5 SLM study area](https://github.com/leftfield-geospatial/map-thicket-agc#ground-truth).  Arid and valley thicket types cover 3.65 million ha, with an average AGC of 20.57 tC/ha.  Further ground truth and modelling work is required to establish AGC accuracy across the biome.  
 
 A screenshot of the [visualisation app](https://dugalh.users.earthengine.app/view/thicket-aboveground-carbon) is shown below.
 
@@ -38,4 +38,4 @@ For use of the code or map, please cite:
 
 ## Acknowledgements
 * Thicket boundaries were derived from the [STEP vegetation map](https://bgis.sanbi.org/STEP/project.asp). 
-* The [WorldView-3 AGC model](https://github.com/dugalh/map_thicket_agc) was produced as part of the [GEF-5 SLM project](https://www.thegef.org/project/securing-multiple-ecosystems-benefit-through-slm-productive-degraded-landscapes-south-africa).  
+* The [WorldView-3 AGC model](https://github.com/leftfield-geospatial/map-thicket-agc) was produced as part of the [GEF-5 SLM project](https://www.thegef.org/project/securing-multiple-ecosystems-benefit-through-slm-productive-degraded-landscapes-south-africa).  
