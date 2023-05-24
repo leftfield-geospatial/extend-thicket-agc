@@ -4,7 +4,6 @@
 
 ## Getting Started
 * Map visualisation is available [here](https://dugalh.users.earthengine.app/view/thicket-aboveground-carbon) as a Google Earth Engine App.  Give it a minute to generate the AGC estimates.  
-* Users registered with Google Earth Engine can access the repository and run the scripts [here](https://code.earthengine.google.com/?accept_repo=users/dugalh/extend_thicket_agc).  
 
 ### Data
 File | Description
