@@ -217,12 +217,12 @@ var eeAgcModelColl = ee.FeatureCollection([eeAgcModelFeat]);
 
 Export.table.toAsset({
   collection: eeAgcModelColl,
-  // description: 'ee_l8_sr_agc_model_v2',
-  description: 'ee_modis_nbar_agc_model_v2',
+  description: 'ee_l8_sr_agc_model_v3',
+  // description: 'ee_modis_nbar_agc_model_v3',
   // fileFormat: 'CSV',
   // folder: 'Earth Engine Data'
-  // assetId: 'projects/thicket-agc/assets/ee_l8_sr_agc_model_v2',
-  assetId: 'projects/thicket-agc/assets/ee_modis_nbar_agc_model_v2',
+  assetId: 'projects/thicket-agc/assets/ee_l8_sr_agc_model_v3',
+  // assetId: 'projects/thicket-agc/assets/ee_modis_nbar_agc_model_v3',
 });
 
 if (false) {  // export AGC image 
@@ -251,8 +251,8 @@ if (false) {  // export AGC image
   
   Export.image.toAsset({
     image: agcImage,
-    description: 'ee_agc_image_toAsset_v2',
-    assetId: 'projects/thicket-agc/assets/ee_agc_image_clip_v2',
+    description: 'ee_agc_image_toAsset_v3',
+    assetId: 'projects/thicket-agc/assets/ee_agc_image_clip_v3',
     crs: 'EPSG:32735',  // UTM 35S
     scale: 30,
     region: ee.Feature(thicketBoundary.first()).bounds(),
