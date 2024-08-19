@@ -125,6 +125,8 @@ function modelAgc(rnImage, trainPlots) {
     m: ee.Number(ee.List(calibCoeff.get(0)).get(0)),
     c: ee.Number(ee.List(calibCoeff.get(1)).get(0))
   };
+  
+  print('Calibration coefficients: ', calibCoeff);
 
   // combine the GEF AGC and GEF->EE calibration models into one  
   var agcEeModel = {
