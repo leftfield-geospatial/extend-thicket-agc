@@ -1,6 +1,7 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    eeL8SrAgcModel = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model");
+    eeL8SrAgcModel_ = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model"),
+    eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v3");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     Concept demonstration for extension of local aboveground carbon model to the thicket biome
@@ -29,7 +30,7 @@ var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .map(cloudMasking.landsat8SrCloudMask);
 
-var eeAgcModel = eeL8SrAgcModel;
+var eeAgcModel = eeL8SrAgcModel_;
 var images = l8SrImages;
 var image = images
   .filterBounds(thicketBoundary)
