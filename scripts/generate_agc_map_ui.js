@@ -1,6 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    eeL8SrAgcModel_ = ee.FeatureCollection("users/dugalh/extend_thicket_agc/ee_l8_sr_agc_model"),
     eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v3");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
