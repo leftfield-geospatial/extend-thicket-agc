@@ -30,7 +30,7 @@ var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
   .map(cloudMasking.landsat8SrCloudMask);
 
-var eeAgcModel = eeL8SrAgcModel_;
+var eeAgcModel = eeL8SrAgcModel;
 var images = l8SrImages;
 var image = images
   .filterBounds(thicketBoundary)
