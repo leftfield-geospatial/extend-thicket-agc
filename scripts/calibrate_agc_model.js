@@ -5,8 +5,8 @@ var gefCalibPlots = ee.FeatureCollection("projects/thicket-agc/assets/gef_calib_
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     Concept demonstration for extension of local aboveground carbon model to the thicket biome
-    Copyright (C) 2021 Dugal Harris
-    Email: dugalh@gmail.com
+    Copyright Leftfield Geospatial
+    Email: info@leftfield.online
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -75,7 +75,6 @@ function findRn(image) {
       'R': image.select(0),
       'G': image.select(1),
       'B': image.select(2),
-      // 'RE': image.select(ee.Algorithms.If(image.bandNames().contains('B8'), ['B8'], ['B5']))
       'NIR': image.select(3),
     });
   return ee.Image(rnImage).rename('rN');
@@ -88,8 +87,8 @@ var calibPlots = gefCalibPlots.randomColumn('random', 0);
 var trainCalibPlots = calibPlots.filter(ee.Filter.lt('random', split));
 var testCalibPlots = calibPlots.filter(ee.Filter.gte('random', split));
 
-print('Number of test plots: ', testCalibPlots.size());
-
+print('Total plots: ', calibPlots.size());
+print('Test plots: ', testCalibPlots.size());
 
 // Calibrate the GEF AGC model to EE imagery and find EE AGC
 function modelAgc(rnImage, trainPlots) {
@@ -101,7 +100,7 @@ function modelAgc(rnImage, trainPlots) {
     scale: 1
   });
 
-  // find log(mean(R/pan)) for each feature, adding constant 1 for linear regression offgee_log_rn
+  // find log(mean(R/pan)) for each feature, adding constant 1 for linear regression
   var logRnPlots = rnPlots.map(function (feature) {
     return feature.set({
       eeLogMeanRn: ee.Number(feature.get('mean')).log10(),
@@ -168,7 +167,7 @@ function accuracyCheck(agcImage, testPlots) {
   var agcRms = (ee.Number(agcResSs.get('sum')).divide(agcPlots.size())).sqrt();
   print('AGC RMSE: ', agcRms);
 
-  // find mean GEF agc 
+  // find mean GEF AGC 
   var agcMean = ee.Number(agcPlots.reduceColumns(ee.Reducer.mean(), [gefAgcField]).get('mean'));
 
   // find sum of square differences from mean
@@ -220,11 +219,7 @@ var eeAgcModelColl = ee.FeatureCollection([eeAgcModelFeat]);
 Export.table.toAsset({
   collection: eeAgcModelColl,
   description: 'ee_l8_sr_agc_model_v3',
-  // description: 'ee_modis_nbar_agc_model_v3',
-  // fileFormat: 'CSV',
-  // folder: 'Earth Engine Data'
   assetId: 'projects/thicket-agc/assets/ee_l8_sr_agc_model_v3',
-  // assetId: 'projects/thicket-agc/assets/ee_modis_nbar_agc_model_v3',
 });
 
 if (false) {  // export AGC image 
