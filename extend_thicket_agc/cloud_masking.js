@@ -1,7 +1,7 @@
 /*
     Functions for cloud and shadow masking Sentinel-2 and Landsat 8 imagery
-    Copyright (C) 2021 Dugal Harris
-    Email: dugalh@gmail.com
+    Copyright Leftfield Geospatial
+    Email: info@leftfield.online
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
