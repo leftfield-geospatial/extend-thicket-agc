@@ -1,11 +1,12 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v3");
+var stepAridAndValleyThicket_ = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
+    eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v3"),
+    stepAridAndValleyThicket = ee.FeatureCollection("projects/thicket-agc/assets/step_arid_and_valley_thicket");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
     Concept demonstration for extension of local aboveground carbon model to the thicket biome
-    Copyright (C) 2021 Dugal Harris
-    Email: dugalh@gmail.com
+    Copyright Leftfield Geospatial
+    Email: info@leftfield.online
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -22,7 +23,7 @@ var stepAridAndValleyThicket = ee.FeatureCollection("users/dugalh/extend_thicket
 */
 
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
-var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
+var thicketBoundary = stepAridAndValleyThicket_; // STEP derived thicket boundaries
 
 // obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
 var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
