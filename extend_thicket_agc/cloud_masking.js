@@ -55,10 +55,9 @@ function landsatSimpleCloudMask(image, thresh)
 }
 exports.landsatSimpleCloudMask = landsatSimpleCloudMask;
 
-// Cloud and shadow mask L8 SR data with "pixel_qa" band
+// Cloud and shadow mask L8 SR data (collection 2) with "QA_PIXEL" band
 function landsat8SrCloudMask(image) 
 {
-  // Bits 3 and 5 are cloud shadow and cloud, respectively.
   // var maskBit = (1 << 4) | (1 << 3) | (1 << 2);
   // var qa = image.select('(?i)(pixel_qa|qa_pixel)');
   // return image.updateMask(qa.bitwiseAnd(maskBit).eq(0));
