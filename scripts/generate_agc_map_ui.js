@@ -1,6 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var stepAridAndValleyThicket_ = ee.FeatureCollection("users/dugalh/extend_thicket_agc/step_arid_and_valley_thicket"),
-    eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v3"),
+var eeL8SrAgcModel = ee.FeatureCollection("projects/thicket-agc/assets/ee_l8_sr_agc_model_v3"),
     stepAridAndValleyThicket = ee.FeatureCollection("projects/thicket-agc/assets/step_arid_and_valley_thicket");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /*
@@ -23,19 +22,18 @@ var stepAridAndValleyThicket_ = ee.FeatureCollection("users/dugalh/extend_thicke
 */
 
 var cloudMasking = require("users/dugalh/extend_thicket_agc:extend_thicket_agc/cloud_masking.js");
-var thicketBoundary = stepAridAndValleyThicket_; // STEP derived thicket boundaries
+var thicketBoundary = stepAridAndValleyThicket; // STEP derived thicket boundaries
 
 // obtain Landsat 8 SR image collection of thicket around time of GEF-5 SLM WV3 acquisition
-var l8SrImages = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
-  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
-  .map(cloudMasking.landsat8SrCloudMask);
-
 var eeAgcModel = eeL8SrAgcModel;
-var images = l8SrImages;
-var image = images
-  .filterBounds(thicketBoundary)
+var images = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
   .filterDate("2017-09-01", "2017-12-30")
-  .median(); // composite the image collection
+  .filterMetadata("GEOMETRIC_RMSE_MODEL", "less_than", 10)
+  .filterBounds(thicketBoundary)
+  .map(cloudMasking.landsat8SrCloudMask);
+  
+// composite the image collection
+var image = images.median(); 
   
 var model = {
   m: ee.Number(eeAgcModel.first().get("m")),
