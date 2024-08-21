@@ -59,9 +59,12 @@ exports.landsatSimpleCloudMask = landsatSimpleCloudMask;
 function landsat8SrCloudMask(image) 
 {
   // Bits 3 and 5 are cloud shadow and cloud, respectively.
-  var maskBit = (1 << 4) | (1 << 3) | (1 << 2);
-  var qa = image.select('(?i)(pixel_qa|qa_pixel)');
-  return image.updateMask(qa.bitwiseAnd(maskBit).eq(0));
+  // var maskBit = (1 << 4) | (1 << 3) | (1 << 2);
+  // var qa = image.select('(?i)(pixel_qa|qa_pixel)');
+  // return image.updateMask(qa.bitwiseAnd(maskBit).eq(0));
+  // from https://developers.google.com/earth-engine/landsat_c1_to_c2#surface_reflectance
+  var mask = image.select('QA_PIXEL').bitwiseAnd(parseInt('11111', 2)).eq(0);
+  return image.updateMask(mask);
 }
 exports.landsat8SrCloudMask = landsat8SrCloudMask;
 
